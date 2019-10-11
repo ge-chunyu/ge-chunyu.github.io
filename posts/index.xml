@@ -17,7 +17,8 @@
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>http://example.org/posts/2019-10-11-sublime-pandoc/</guid>
-      <description>Writing academic papers using Sublime Text 3 + Pandoc  Prerequisites  Sublime Text 3 and plugins Pandoc  Usage  Sublime Text 3 and plugins  Adding citations use Citer  Pandoc  Transformation between .md, .docx, and pdf files Adding references Using templates  Modify the default docx template Modify the default LaTeX template  Make pandoc compatible with Chinese (Pandoc的中文输出)    This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .</description>
+      <description>This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc.
+Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need.</description>
     </item>
     
   </channel>
