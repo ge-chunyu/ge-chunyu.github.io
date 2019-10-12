@@ -117,11 +117,11 @@ Source of the texts The texts of Luxun are scraped from 子夜星网. As it clai
 
 <h2 id="source-of-the-texts">Source of the texts</h2>
 
-<p>The texts of <em>Luxun</em> are scraped from <a href="https://www.ziyexing.com/">子夜星网</a>. As it claimed, it contains all the texts in the <em>Complete works of Luxun(鲁迅全集)</em>. I checked it, and so it did.</p>
+<p>The texts of <em>Luxun</em> are scraped from <a href="http://www.ziyexing.com/">子夜星网</a>. As it claimed, it contains all the texts in the <em>Complete works of Luxun(鲁迅全集)</em>. I checked it, and so it did.</p>
 
 <h2 id="get-the-urls-and-titles-of-all-the-articles">Get the urls and titles of all the articles</h2>
 
-<p>The process starts at getting the contents and the urls of the text of Luxun from the parent url <code>https://www.ziyexing.com/luxun/</code>. To access all the urls, I constructed a regular expression and selected all <code>a</code> nodes that share the pattern.</p>
+<p>The process starts at getting the contents and the urls of the text of Luxun from the parent url <code>http://www.ziyexing.com/luxun/</code>. To access all the urls, I constructed a regular expression and selected all <code>a</code> nodes that share the pattern.</p>
 
 <pre><code class="language-python">homepage_res = requests.get(&quot;www.ziyexing.com/luxun/&quot;)
 homepage_soup = BeautifulSoup(res.text, &quot;html.parser&quot;)
