@@ -21,5 +21,15 @@
 Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need.</description>
     </item>
     
+    <item>
+      <title>Scraping all the texts of *Luxun(鲁迅)* from the Internet using `Python` (用`Python`爬取《鲁迅全集》)</title>
+      <link>http://example.org/posts/2019-10-11-scraping-luxun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2019-10-11-scraping-luxun/</guid>
+      <description>I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.
+Source of the texts The texts of Luxun are scraped from [子夜星网](www.ziyexing.com/). As it claimed, it contains all the texts in the Complete works of Luxun(鲁迅全集).</description>
+    </item>
+    
   </channel>
 </rss>
