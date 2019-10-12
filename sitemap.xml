@@ -4,7 +4,17 @@
   
   <url>
     <loc>http://example.org/posts/</loc>
-    <lastmod>2019-10-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/2019-10-12-scraping-luxun/</loc>
+    <lastmod>2019-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2019-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -13,16 +23,7 @@
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
-    <lastmod>2019-10-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://example.org/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>http://example.org/posts/2019-10-12-scraping-luxun/</loc>
   </url>
   
   <url>
