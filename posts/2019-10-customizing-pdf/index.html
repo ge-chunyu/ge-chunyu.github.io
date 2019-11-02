@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>不辍弦歌  | Customizing pdf output of Pandoc</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.58.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Customizing pdf output of Pandoc" />
+<meta property="og:description" content="I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format to meet the standard of my school." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/2019-10-customizing-pdf/" />
+<meta property="article:published_time" content="2019-11-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-02T00:00:00+00:00" />
+<meta itemprop="name" content="Customizing pdf output of Pandoc">
+<meta itemprop="description" content="I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format to meet the standard of my school.">
+
+
+<meta itemprop="datePublished" content="2019-11-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="977">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Customizing pdf output of Pandoc"/>
+<meta name="twitter:description" content="I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format to meet the standard of my school."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://example.org/" class="f3 fw2 hover-white no-underline white-90 dib">
+      不辍弦歌
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Customizing pdf output of Pandoc</h1>
+      
+      <p class="tracked">
+         By <strong>Chunyu Ge 葛淳宇</strong>
+      </p>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-02T00:00:00Z">November 2, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<p>I am writing my PhD thesis and instead of using <code>LaTeX</code>, I want to write it in <code>markdown</code> together with <a href="https://www.pandoc.org">Pandoc</a>. This has several merits. I can easily transform the <code>markdown</code> file to <code>docx</code> for my supervisor to revise. It can also easily be transformed to <code>pdf</code> files through <code>LaTeX</code>. However, the default <code>pdf</code> output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the <code>pdf</code> format to meet the standard of my school.</p>
+
+<p>There is another problem in customizing the <code>pdf</code> output. Since I write the thesis in Chinese, how to modify the fonts and other character-related features does not seem to be obvious. To customize the format of the bibliography is an even greater problem.</p>
+
+<p>As a matter of fact, there are two ways to customize the pdf output of <em>Pandoc</em>. The first is using a <code>LaTeX</code> template. Another is to use the <code>--header</code> option in the <code>Pandoc</code> command. I will concentrate on the latter approach and maybe a later post will deal with the first.</p>
+
+<h2 id="the-format">The format</h2>
+
+<p>My graduate school does not specify strictly every detail of the format. The main requirements are :</p>
+
+<ul>
+<li>The font size of the main matter is <strong>10.5</strong> point, or in No.5 (五号字);</li>
+<li>The margin for the paper is <strong>2.54</strong> cm for top and bottom, and <strong>3.17</strong> cm for left and right;</li>
+<li>The space of the main matter is <strong>20</strong> pound;</li>
+<li>The font of the <em>Chapter</em> and <em>Section</em> header is in <strong>Heiti（黑体）</strong> and the number in Chinese character;</li>
+<li>The font of the <strong>Subsection</strong> and below is in <strong>Kaishu (楷书)</strong> and the number in arabic number;</li>
+<li>The footnote is in the format of <code>①, ②</code>, and is numbered by page. The font size of footnote is <strong>9</strong> point;</li>
+<li>The font size of the captions of figures and tables is <strong>9</strong> point.</li>
+</ul>
+
+<p>The requirements are not too detailed, so I think a preamble file will suffice.</p>
+
+<h2 id="general-format">General format</h2>
+
+<p>The setting of the general format is straightforward. I will use <code>geometry</code> to set the page margin and <code>setspace</code> for line spacing.</p>
+
+<h3 id="page-margin">Page margin</h3>
+
+<p>To set the page margin, simply use the <code>package</code> geometry and add the corresponding command in the preamble part.</p>
+
+<pre><code class="language-latex">\usepackage{geometry}
+\geometry{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm}
+</code></pre>
+
+<p>This sets the margin for top and bottom to 2.54cm, and 3.17cm for left and right.</p>
+
+<h3 id="line-spacing">Line spacing</h3>
+
+<p>Set line spacing is also straightforward using the <code>setspace</code> package.</p>
+
+<pre><code class="language-latex">\usepackage{setspace}
+\linespread{1.5}
+</code></pre>
+
+<h2 id="the-format-of-chapters-and-sections">The format of chapters and sections</h2>
+
+<p>The general format of chapters and sections can be customized using the <code>titlesec</code> package.</p>
+
+<pre><code class="language-latex">\titleformat{\chapter}{\centering\Large\heiti}{第\zhnum{chapter}章}{1em}{}
+\titleformat*{\section}{\centering\Large\heiti}
+\titleformat*{\subsubsection}{\kaiti}
+</code></pre>
+
+<p>The above commands set the font of chapters and sections to <code>\heiti(黑体)</code> and that of <code>subsubsections</code> to <code>\kaiti</code>.</p>
+
+<pre><code class="language-latex">\renewcommand\thesection{第\zhnum{section}节}
+\renewcommand\thesubsection{\zhnum{subsection}、}
+\renewcommand\thesubsubsection{（\zhnum{subsubsection}）}
+</code></pre>
+
+<h2 id="font">Font</h2>
+
+<p>The <code>xeCJK</code> package provides the support of font for Chinese characters. The fonts I need are <code>Heiti</code> and <code>Kaiti</code>, while <code>SimSun</code> is chosen as the main font. To achieve these, I first set the main font for CJK characters to <code>SimSun</code>.</p>
+
+<pre><code class="language-latex">\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+</code></pre>
+
+<p>I also set the font for Roman alphabets to <code>Times New Roman</code> using the function <code>\setmainfont</code> provided by the <code>fontspec</code> package. Note that I didn&rsquo;t import the package explicitly, since it is refered in the <code>xeCJK</code> package.</p>
+
+<p>A more serious problem is to specify font for some of the text while not affecting the main font. In this case, <code>xeCJK</code> has a function <code>\setCJKfamilyfont</code>, and I use it to define a command that specify the text included in the braces.</p>
+
+<pre><code class="language-latex">\newcommand{\kaiti}{\setCJKfamilyfont{kaiti}{KaiTi} \CJKfamily{kaiti}}
+\newcommand{\heiti}{\setCJKfamilyfont{heiti}{SimHei} \CJKfamily{heiti}}
+</code></pre>
+
+<p>I defined <code>\kaiti</code> and <code>\heiti</code> based on the built-in font of <code>xeCJK</code>. To specify the font of any text, simply put it in the brace as a plain <code>LaTeX</code> command: <code>\kaiti{楷体}</code> or <code>\heiti{黑体}</code>.</p>
+
+<h2 id="footnote">Footnote</h2>
+
+<p>To number footnote by page, I use the option <code>perpage</code> in the <code>footmisc</code> package.</p>
+
+<pre><code class="language-latex">\usepackage[perpage]{footmisc}
+</code></pre>
+
+<p>To mark footnotes with circled numbers, I searched online and found the <code>pifont</code> package provides such symbols. What I have to do is to redefine the <code>\footnote</code> command such that it uses the circled numbers.</p>
+
+<pre><code class="language-latex">\usepackage{pifont}
+\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}
+</code></pre>
+
+<p>The <code>pifont</code> package provides a lot of symbols, which can be viewed on its <a href="http://willbenton.com/wb-images/pifont.pdf">quick reference</a>. To use other symbols, simply change the number corresponding to the symbol.</p>
+
+<h2 id="the-font-size">The font size</h2>
+
+<p>Since the requirement of the format is mixed (It uses Number for body and headings, but points for footnotes and captions), I will use 11pt to approximate No.5 font size in Chinese. Using this specification, 9pt can be defined using the <code>\footnotesize</code> command, and No.2 size (21pt) can be defined using the <code>\huge</code> command. As for the size of captions, I use the <code>caption</code> package.</p>
+
+<pre><code>\usepackage{caption}
+\captionsetup{font=footnotesize}
+</code></pre>
+
+<h2 id="output-to-pdf-using-pandoc">Output to pdf using pandoc</h2>
+
+<p>To put it all together and store the settings in a file named <code>preable.tex</code>, the <code>markdown</code> file can be output to pdf files in the desired form using pandoc.</p>
+
+<pre><code>pandoc --pdf-engine=xelatex -H preamble.tex thesis.md -o thesis.pdf
+</code></pre>
+
+<p>When running the command, an error occured:</p>
+
+<pre><code>Error producing PDF.
+! Argument of \paragraph has an extra }.
+&lt;inserted text&gt;
+                \par
+l.1628 \ttl@extract\paragraph
+</code></pre>
+
+<p>I searched and this post in <a href="https://stackoverflow.com/questions/42916124/not-able-to-use-titlesec-with-markdown-and-pandoc">Stack Overflow</a> solves the problem. Simply add <code>subparagraph: yes</code> to the header of the markdown file, and the pdf file can be generated. Another tip is to add <code>numbersections: true</code> to the header to automatically generate numbered sections.</p>
+
+<h2 id="to-do">To do</h2>
+
+<p>Despite all these effort, another serious problem remain untouched. <em>Citation and bibiliography</em>. To simply cite and generate bibliography in <code>LaTeX</code> is effortless through <em>BibTex</em>. But to generate bibliography in desired Chinese format is a hard problem. I will explore this question later on.</p>
+
+<p>In fact, I do have a good idea on how to solve this problem. <em>Pandoc</em> provides a powerful tool called <a href="https://github.com/citation-style-language/styles">csl</a>. To generate bibliography in Chinese format, there are three files to choose from:</p>
+
+<ul>
+<li><code>chinese-gb7714-1987-numeric.csl</code>;</li>
+<li><code>chinese-gb7714-2005-numeric.csl</code>;</li>
+<li><code>chinese-gb7714-2005-author-date.csl</code>.</li>
+</ul>
+
+<p>I can follow this line, but the output is not so satisfying, and I decided to do some research in native <code>LaTeX</code> on how people solve this problem.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#the-format">The format</a></li>
+<li><a href="#general-format">General format</a>
+<ul>
+<li><a href="#page-margin">Page margin</a></li>
+<li><a href="#line-spacing">Line spacing</a></li>
+</ul></li>
+<li><a href="#the-format-of-chapters-and-sections">The format of chapters and sections</a></li>
+<li><a href="#font">Font</a></li>
+<li><a href="#footnote">Footnote</a></li>
+<li><a href="#the-font-size">The font size</a></li>
+<li><a href="#output-to-pdf-using-pandoc">Output to pdf using pandoc</a></li>
+<li><a href="#to-do">To do</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://example.org/" >
+    &copy; 2019 不辍弦歌
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
