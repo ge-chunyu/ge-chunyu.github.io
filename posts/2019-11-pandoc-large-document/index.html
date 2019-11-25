@@ -168,16 +168,41 @@ pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pa
 
 <p>Pandoc 本身并没有提供对图表进行交叉引用的功能。要实现这种功能，可以用过滤器<code>--filter</code>来实现。在<code>MacOS</code>上，可以用<a href="http://lierdakil.github.io/pandoc-crossref/">pandoc-crossref</a>来处理图表、公式的编号与交叉引用；在<code>Windows</code>平台上，对图片、表格、公式的交叉引用可以分别用<a href="https://libraries.io/pypi/pandoc-tablenos">pandoc-tablenos</a>、<a href="https://github.com/tomduck/pandoc-fignos">pandoc-fignos</a>、<a href="https://pypi.org/project/pandoc-eqnos/">pandoc-eqnos</a>来实现。这几个过滤器可以用以下表格中的命令来安装。</p>
 
-<hr />
+<table>
+<thead>
+<tr>
+<th>filter</th>
+<th>OS</th>
+<th>installation</th>
+</tr>
+</thead>
 
-<p>filter              OS       installation</p>
+<tbody>
+<tr>
+<td>pandoc-crossref</td>
+<td>MacOS</td>
+<td><code>brew install pandoc-crossref</code></td>
+</tr>
 
-<hr />
+<tr>
+<td>pandoc-tablenos</td>
+<td>Windows</td>
+<td><code>pip install pandoc-tablenos</code></td>
+</tr>
 
-<p>pandoc-crossref    MacOS     <code>brew install pandoc-crossref</code>
- pandoc-tablenos    Windows   <code>pip install pandoc-tablenos</code>
- pandoc-fignos      Windows   <code>pip install pandoc-fignos</code>
- pandoc-eqnos       Windows   <code>pip install pandoc-eqnos</code></p>
+<tr>
+<td>pandoc-fignos</td>
+<td>Windows</td>
+<td><code>pip install pandoc-fignos</code></td>
+</tr>
+
+<tr>
+<td>pandoc-eqnos</td>
+<td>Windows</td>
+<td><code>pip install pandoc-eqnos</code></td>
+</tr>
+</tbody>
+</table>
 
 <p>在 Pandoc 中使用过滤器只要用<code>--filter</code>参数指定所要用的过滤器即可。这几个过滤器的使用逻辑都是一致的，可以设置的参数包括图表标题前缀（<code>tableTitle</code>或<code>figureTitle</code>等）、文中引用前缀(<code>tabPrefix</code>或<code>figPrefix</code>)等。其他具体参数可以参考各自的说明文档。</p>
 
