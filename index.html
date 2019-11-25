@@ -35,7 +35,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://example.org/" />
 
-<meta property="og:updated_time" content="2019-11-02T00:00:00+00:00" />
+<meta property="og:updated_time" content="2019-11-25T00:00:00+00:00" />
 <meta itemprop="name" content="不辍弦歌">
 <meta itemprop="description" content="">
 
@@ -122,6 +122,33 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/2019-11-pandoc-large-document/" class="color-inherit dim link">
+            用pandoc生成大型中文文档的痛点与解决方案
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Pandoc是转换文本格式的利器。在用 Pdc 转换中文文档和生成大型文档时，例如用汉语写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 MD 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pdc 生成大型中文文档的痛点与解决方案。
+Pdc 将 MD 生成 pdf 的逻辑 用 Pdc 将 MD 文件生成 pdf，其实是先把 MD 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
+因为 Pdc 是通过 LaTeX 来生成 pdf 文件的，所有可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pdc 把 MD 文件转换成 LaTeX，再在上面自己改格式。
+pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pdc 传递 ltx 命令和 Pdc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pdc 的 pdf template 上进行修改。不过 Pdc 自带的 template 很复杂，一般用--header-includes给自带的 template 加上需要的 ltx 命令就可以了。
+        </div>
+          <a href="/posts/2019-11-pandoc-large-document/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/posts/2019-10-customizing-pdf/" class="color-inherit dim link">
             Customizing pdf output of Pandoc
             </a>
@@ -163,33 +190,25 @@ Source of the texts The texts of Luxun are scraped from 子夜星网. As it clai
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/2019-10-11-sublime-pandoc/" class="color-inherit dim link">
-            Writing academic papers using Sublime Text 3 &#43; Pandoc
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc.
-Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need.
-        </div>
-          <a href="/posts/2019-10-11-sublime-pandoc/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/2019-10-11-sublime-pandoc/" class="link black dim">
+              Writing academic papers using Sublime Text 3 &#43; Pandoc
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
+        
+        </section>
       
 
       </div>

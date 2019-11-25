@@ -6,10 +6,22 @@
     <description>Recent content on 不辍弦歌</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>用pandoc生成大型中文文档的痛点与解决方案</title>
+      <link>http://example.org/posts/2019-11-pandoc-large-document/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2019-11-pandoc-large-document/</guid>
+      <description>Pandoc是转换文本格式的利器。在用 Pdc 转换中文文档和生成大型文档时，例如用汉语写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 MD 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pdc 生成大型中文文档的痛点与解决方案。
+Pdc 将 MD 生成 pdf 的逻辑 用 Pdc 将 MD 文件生成 pdf，其实是先把 MD 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
+因为 Pdc 是通过 LaTeX 来生成 pdf 文件的，所有可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pdc 把 MD 文件转换成 LaTeX，再在上面自己改格式。
+pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pdc 传递 ltx 命令和 Pdc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pdc 的 pdf template 上进行修改。不过 Pdc 自带的 template 很复杂，一般用--header-includes给自带的 template 加上需要的 ltx 命令就可以了。</description>
+    </item>
     
     <item>
       <title>Customizing pdf output of Pandoc</title>
