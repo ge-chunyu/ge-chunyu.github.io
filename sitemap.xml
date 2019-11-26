@@ -3,41 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/posts/</loc>
+    <loc>https://ge-chunyu.github.io/posts/</loc>
     <lastmod>2019-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://ge-chunyu.github.io/</loc>
     <lastmod>2019-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/2019-11-pandoc-large-document/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/</loc>
     <lastmod>2019-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/2019-10-customizing-pdf/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</loc>
     <lastmod>2019-11-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/2019-10-12-scraping-luxun/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</loc>
     <lastmod>2019-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/2019-10-11-sublime-pandoc/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</loc>
     <lastmod>2019-10-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://ge-chunyu.github.io/categories/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://ge-chunyu.github.io/tags/</loc>
   </url>
   
 </urlset>
