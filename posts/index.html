@@ -103,7 +103,7 @@
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用汉语写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。
 Pandoc 将 Markdown 生成 pdf 的逻辑 用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
-因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所有可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
+因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
 pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用--header-includes给自带的 template 加上需要的 LaTeX 命令就可以了。
     </div>
   </div>

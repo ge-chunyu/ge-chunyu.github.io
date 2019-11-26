@@ -28,7 +28,7 @@
     <meta property="og:title" content="用pandoc生成大型中文文档的痛点与解决方案" />
 <meta property="og:description" content="Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用汉语写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。
 Pandoc 将 Markdown 生成 pdf 的逻辑 用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
-因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所有可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
+因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
 pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用--header-includes给自带的 template 加上需要的 LaTeX 命令就可以了。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/" />
@@ -37,13 +37,13 @@ pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pa
 <meta itemprop="name" content="用pandoc生成大型中文文档的痛点与解决方案">
 <meta itemprop="description" content="Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用汉语写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。
 Pandoc 将 Markdown 生成 pdf 的逻辑 用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
-因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所有可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
+因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
 pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用--header-includes给自带的 template 加上需要的 LaTeX 命令就可以了。">
 
 
 <meta itemprop="datePublished" content="2019-11-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="311">
+<meta itemprop="wordCount" content="334">
 
 
 
@@ -52,7 +52,7 @@ pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pa
 <meta name="twitter:title" content="用pandoc生成大型中文文档的痛点与解决方案"/>
 <meta name="twitter:description" content="Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用汉语写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。
 Pandoc 将 Markdown 生成 pdf 的逻辑 用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
-因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所有可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
+因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
 pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用--header-includes给自带的 template 加上需要的 LaTeX 命令就可以了。"/>
 
   </head>
@@ -125,7 +125,7 @@ pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pa
 
 <p>用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的<code>--pdf-engine</code>，可选的选项有<code>pdflatex</code>、<code>xelatex</code>、<code>lualatex</code>等。</p>
 
-<p>因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所有可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。</p>
+<p>因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。</p>
 
 <pre><code>pandoc --standalone test.md -o test.tex
 </code></pre>
@@ -150,7 +150,7 @@ pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pa
 <pre><code>pandoc --pdf-engine=xelatex 1.md 2.md 3.md -o main.pdf
 </code></pre>
 
-<p>在用这个命令生成大型文档的时候，可能会出现后一个文件变成前一个文件一部分的情况。要解决这种问题，必须在每个文档文本后加一个空行。</p>
+<p>在用这个命令生成大型文档的时候，可能会出现后一个文件变成前一个文件一部分的情况。要避免出现这种情况，必须在每个文档文本后加一个空行。</p>
 
 <p>另外一个问题是，在<code>Markdown</code>中的标题用<code>pandoc</code>生成默认是不编号的。要给标题编号，需要在<code>yaml</code>文件中加上以下这行。</p>
 
@@ -251,12 +251,21 @@ tabPrefix: &quot;表&quot;       # 文中对表格引用的前缀，pandoc-cross
 figPrefix: &quot;表&quot;       # 文中对图片引用的前缀，pandoc-crossref 可用
 header-includes:      # 要加进 LaTeX文件的命令，建议放在一个单独的 preamble 文件里
 </code></pre>
+
+<h2 id="其他-pandoc-资料">其他 Pandoc 资料</h2>
+
+<p>网上有很多其他非常好的 Pandoc 资料，例如：</p>
+
+<ul>
+<li><a href="https://learnbyexample.github.io/tutorial/ebook-generation/customizing-pandoc/">Customizing pandoc to generate beautiful pdfs from markdown</a></li>
+<li><a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/">Generating Beautiful PDF from Markdown with Pandoc and Sublime Text</a></li>
+</ul>
 <div class="footnotes">
 
 <hr />
 
 <ol>
-<li id="fn:1">在<code>Windows</code>里的两个过滤器都是用<code>Python</code>的包管理器<code>pip</code>来装的。所以要装这两个过滤器，要先装<code>Python</code>。除了这里给的命令之外，还可以用<code>python -m pip install packageName</code>来装<code>python</code>第三方包。关于<code>pip install</code>与<code>python -m install</code>的差别，参见<a href="https://snarky.ca/why-you-should-use-python-m-pip/">https://snarky.ca/why-you-should-use-python-m-pip/</a> 。
+<li id="fn:1">在<code>Windows</code>里的两个过滤器都是用<code>Python</code>的包管理器<code>pip</code>来装的。所以要装这两个过滤器，要先装<code>Python</code>。除了这里给的命令之外，还可以用<code>python -m pip install packageName</code>来装<code>python</code>第三方包。关于<code>pip install</code>与<code>python -m install</code>的差别，参加<a href="https://snarky.ca/why-you-should-use-python-m-pip/。">https://snarky.ca/why-you-should-use-python-m-pip/。</a>
  <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
@@ -281,6 +290,7 @@ header-includes:      # 要加进 LaTeX文件的命令，建议放在一个单�
 <li><a href="#交叉引用">交叉引用</a></li>
 <li><a href="#章节目录">章节目录</a></li>
 <li><a href="#yaml-文件参数与含义"><code>yaml</code>文件参数与含义</a></li>
+<li><a href="#其他-pandoc-资料">其他 Pandoc 资料</a></li>
 </ul></li>
 </ul>
 </nav>
