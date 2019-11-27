@@ -139,69 +139,45 @@
 <h3 id="page-margin">Page margin</h3>
 
 <p>To set the page margin, simply use the <code>package</code> geometry and add the corresponding command in the preamble part.</p>
-
-<pre><code class="language-latex">\usepackage{geometry}
-\geometry{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{geometry}
+<span style="color:#66d9ef">\geometry</span>{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm}</code></pre></div>
 <p>This sets the margin for top and bottom to 2.54cm, and 3.17cm for left and right.</p>
 
 <h3 id="line-spacing">Line spacing</h3>
 
 <p>Set line spacing is also straightforward using the <code>setspace</code> package.</p>
-
-<pre><code class="language-latex">\usepackage{setspace}
-\linespread{1.5}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{setspace}
+<span style="color:#66d9ef">\linespread</span>{1.5}</code></pre></div>
 <h2 id="the-format-of-chapters-and-sections">The format of chapters and sections</h2>
 
 <p>The general format of chapters and sections can be customized using the <code>titlesec</code> package.</p>
-
-<pre><code class="language-latex">\titleformat{\chapter}{\centering\Large\heiti}{第\zhnum{chapter}章}{1em}{}
-\titleformat*{\section}{\centering\Large\heiti}
-\titleformat*{\subsubsection}{\kaiti}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\titleformat</span>{<span style="color:#66d9ef">\chapter</span>}{<span style="color:#66d9ef">\centering\Large\heiti</span>}{第<span style="color:#66d9ef">\zhnum</span>{chapter}章}{1em}{}
+<span style="color:#66d9ef">\titleformat*</span>{<span style="color:#66d9ef">\section</span>}{<span style="color:#66d9ef">\centering\Large\heiti</span>}
+<span style="color:#66d9ef">\titleformat*</span>{<span style="color:#66d9ef">\subsubsection</span>}{<span style="color:#66d9ef">\kaiti</span>}</code></pre></div>
 <p>The above commands set the font of chapters and sections to <code>\heiti(黑体)</code> and that of <code>subsubsections</code> to <code>\kaiti</code>.</p>
-
-<pre><code class="language-latex">\renewcommand\thesection{第\zhnum{section}节}
-\renewcommand\thesubsection{\zhnum{subsection}、}
-\renewcommand\thesubsubsection{（\zhnum{subsubsection}）}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\renewcommand\thesection</span>{第<span style="color:#66d9ef">\zhnum</span>{section}节}
+<span style="color:#66d9ef">\renewcommand\thesubsection</span>{<span style="color:#66d9ef">\zhnum</span>{subsection}、}
+<span style="color:#66d9ef">\renewcommand\thesubsubsection</span>{（<span style="color:#66d9ef">\zhnum</span>{subsubsection}）}</code></pre></div>
 <h2 id="font">Font</h2>
 
 <p>The <code>xeCJK</code> package provides the support of font for Chinese characters. The fonts I need are <code>Heiti</code> and <code>Kaiti</code>, while <code>SimSun</code> is chosen as the main font. To achieve these, I first set the main font for CJK characters to <code>SimSun</code>.</p>
-
-<pre><code class="language-latex">\usepackage{xeCJK}
-\setmainfont{Times New Roman}
-\setCJKmainfont{SimSun}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{xeCJK}
+<span style="color:#66d9ef">\setmainfont</span>{Times New Roman}
+<span style="color:#66d9ef">\setCJKmainfont</span>{SimSun}</code></pre></div>
 <p>I also set the font for Roman alphabets to <code>Times New Roman</code> using the function <code>\setmainfont</code> provided by the <code>fontspec</code> package. Note that I didn&rsquo;t import the package explicitly, since it is refered in the <code>xeCJK</code> package.</p>
 
 <p>A more serious problem is to specify font for some of the text while not affecting the main font. In this case, <code>xeCJK</code> has a function <code>\setCJKfamilyfont</code>, and I use it to define a command that specify the text included in the braces.</p>
-
-<pre><code class="language-latex">\newcommand{\kaiti}{\setCJKfamilyfont{kaiti}{KaiTi} \CJKfamily{kaiti}}
-\newcommand{\heiti}{\setCJKfamilyfont{heiti}{SimHei} \CJKfamily{heiti}}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\newcommand</span>{<span style="color:#66d9ef">\kaiti</span>}{<span style="color:#66d9ef">\setCJKfamilyfont</span>{kaiti}{KaiTi} <span style="color:#66d9ef">\CJKfamily</span>{kaiti}}
+<span style="color:#66d9ef">\newcommand</span>{<span style="color:#66d9ef">\heiti</span>}{<span style="color:#66d9ef">\setCJKfamilyfont</span>{heiti}{SimHei} <span style="color:#66d9ef">\CJKfamily</span>{heiti}}</code></pre></div>
 <p>I defined <code>\kaiti</code> and <code>\heiti</code> based on the built-in font of <code>xeCJK</code>. To specify the font of any text, simply put it in the brace as a plain <code>LaTeX</code> command: <code>\kaiti{楷体}</code> or <code>\heiti{黑体}</code>.</p>
 
 <h2 id="footnote">Footnote</h2>
 
 <p>To number footnote by page, I use the option <code>perpage</code> in the <code>footmisc</code> package.</p>
-
-<pre><code class="language-latex">\usepackage[perpage]{footmisc}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[perpage]</span>{footmisc}</code></pre></div>
 <p>To mark footnotes with circled numbers, I searched online and found the <code>pifont</code> package provides such symbols. What I have to do is to redefine the <code>\footnote</code> command such that it uses the circled numbers.</p>
-
-<pre><code class="language-latex">\usepackage{pifont}
-\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{pifont}
+<span style="color:#66d9ef">\renewcommand</span>{<span style="color:#66d9ef">\thefootnote</span>}{<span style="color:#66d9ef">\ding</span>{<span style="color:#66d9ef">\numexpr</span>171+<span style="color:#66d9ef">\value</span>{footnote}}</code></pre></div>
 <p>The <code>pifont</code> package provides a lot of symbols, which can be viewed on its <a href="http://willbenton.com/wb-images/pifont.pdf">quick reference</a>. To use other symbols, simply change the number corresponding to the symbol.</p>
 
 <h2 id="the-font-size">The font size</h2>
