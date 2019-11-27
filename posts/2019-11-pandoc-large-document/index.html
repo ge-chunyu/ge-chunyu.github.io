@@ -1,84 +1,76 @@
 <!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <meta charset="utf-8">
-    
-    <title>用pandoc生成大型中文文档的痛点与解决方案 | 不辍弦歌</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <link rel="apple-touch-icon" sizes="180x180" href=https://ge-chunyu.github.io/apple-touch-icon.png>
-    <link rel="icon" type="image/png" sizes="32x32" href=https://ge-chunyu.github.io/favicon-32x32.png>
-    <link rel="icon" type="image/png" sizes="16x16" href=https://ge-chunyu.github.io/favicon-16x16.png>
-    <link rel="manifest" href=https://ge-chunyu.github.io/site.webmanifest>
-    <link rel="mask-icon" href=https://ge-chunyu.github.io/safari-pinned-tab.svg color="#00416a">
-    <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="theme-color" content="#ffffff">
-    
-    <link rel="me" href="mailto:gechunyu92@hotmail.com">
-    <link rel="me" href="https://github.com/ge-chunyu">
-    
-    
-    
-    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
-    
-    <link rel="stylesheet" href=https://ge-chunyu.github.io/css/fonts.css />
-    <link rel="stylesheet" href=https://ge-chunyu.github.io/css/style.css />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body>
-    <div id="sitelogo">
-        <a class="glyph" alt="Home" href="https://ge-chunyu.github.io/"><img src=https://ge-chunyu.github.io/images/site-logo.svg alt="Site Logo" height="64px" width="64px"></a>
-    </div>
-    <header>
-        <nav>
-    
-    <div id="page-nav">
-        <div class="page-nav-item">
-            <a href="https://ge-chunyu.github.io/">Home</a>
-        </div>
-        
-            <div class="page-nav-item">
-                <a href="/about/">
-                    
-                    <span>About</span>
+
+
+
+<title>用pandoc生成大型中文文档的痛点与解决方案 | 不辍弦歌</title>
+
+<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
+
+
+
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
+<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://ge-chunyu.github.io/about" rel="me">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
                 </a>
-            </div>
-        
-            <div class="page-nav-item">
-                <a href="/">
-                    
-                    <span>不辍弦歌</span>
+              
+                <a href="https://github.com/ge-chunyu/" rel="me">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
                 </a>
-            </div>
-        
-    </div>
-</nav>
-        
-    </header>
+              
+                <a href="https://ge-chunyu.github.io/" rel="me">
+                  <span class="icon">
+                    <i class=""></i>
+                  </span>
+                </a>
+              
+                <a href="https://ge-chunyu.github.io/" rel="me">
+                  <span class="icon">
+                    <i class=""></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
 
-
-
-
+<div class="container">
+  <h2 class="subtitle is-6">November 25, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">用pandoc生成大型中文文档的痛点与解决方案</h1>
+  <div class="content">
     
-
-<div id="content">
-    <article class="h-entry">
-        <header>
-            <h1 class="post-title p-name">用pandoc生成大型中文文档的痛点与解决方案</h1>
-            
-            <p class="post-date">Posted on
-                <time class="dt-published" datetime="2019-11-25T00:00:00Z">
-                25 November, 2019 at 00:00 UTC
-                </time>  by <a href="https://ge-chunyu.github.io/" class="p-author h-card" rel="author">葛淳宇</a>
-            </p>
-            
-            
-        </header>
-        <section class="content e-content">
-            
 
 <p><a href="https://pandoc.org">Pandoc</a>是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 <code>Markdown</code> 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。</p>
 
@@ -226,85 +218,33 @@ header-includes:      # 要加进 LaTeX文件的命令，建议放在一个单�
 <hr />
 
 <ol>
-<li id="fn:1">在<code>Windows</code>里的两个过滤器都是用<code>Python</code>的包管理器<code>pip</code>来装的。所以要装这两个过滤器，要先装<code>Python</code>。除了这里给的命令之外，还可以用<code>python -m pip install packageName</code>来装<code>python</code>第三方包。关于<code>pip install</code>与<code>python -m install</code>的差别，参加<a href="https://snarky.ca/why-you-should-use-python-m-pip/。">https://snarky.ca/why-you-should-use-python-m-pip/。</a>
+<li id="fn:1">在<code>Windows</code>里的两个过滤器都是用<code>Python</code>的包管理器<code>pip</code>来装的。所以要装这两个过滤器，要先装<code>Python</code>。除了这里给的命令之外，还可以用<code>python -m pip install packageName</code>来装<code>python</code>第三方包。关于<code>pip install</code>与<code>python -m install</code>的差别，参见<a href="https://snarky.ca/why-you-should-use-python-m-pip/。">https://snarky.ca/why-you-should-use-python-m-pip/。</a>
  <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
 
-        </section>
-        <footer>
-            <a class="permalink u-url" href="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/">🔗</a>
-            
-        </footer>
-    </article>
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+    <aside><div id="share"></div></aside>
+    <script type="text/javascript">
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+        });
+    </script>
+    
 </div>
 
-    
-    <div class="h-card">
-      <img class="u-photo" src="https://ge-chunyu.github.io/images/site-logo.svg" />
-      <div class="card-content">
-        <h2 class="card-name"><a class="p-name u-url" href="https://ge-chunyu.github.io/" rel="me">Chunyu Ge 葛淳宇</a></h2>
-        <p class="card-subhead">
-          <span class="p-locality">Beijing</span>,
-          <span class="p-country-name">China</span><br />
-          <a class="u-email" href="mailto:gechunyu92@hotmail.com">Email me</a>
-        </p>
-      </div>
-      <p class="p-note">A short description, a few sentences describing the author. Set the &#39;ShowBio&#39; parameter to false to hide this.</p>
-    </div>
-    
-    <div id="footer">
-      
-      <nav id="article-skip">
-        <div class="next">
-          
-          <p>&nbsp;</p>
-          
-        </div>
-        <div class="top">
-          <a alt="Top of page" href="#">Top</a>
-        </div>
-        <div class="prev">
-          
-          <a alt="Older article" href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/">Older &rarr;</a>
-          
-        </div>
-      </nav>
-      
-      <aside id="social">
-  <div id="social-icons">
-    
-    <div class="icon-24x24">
-      <a class="glyph" alt="Email me" href="mailto:gechunyu92@hotmail.com"><img src=https://ge-chunyu.github.io/icons/envelope.svg height="24px" width="24px"></a>
-    </div>
-    
-    
-    
-    
-    <div class="icon-24x24">
-      <a class="glyph" alt="GitHub profile" href="https://github.com/ge-chunyu"><img src=https://ge-chunyu.github.io/icons/github.svg height="24px" width="24px"></a>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/natarajmb">Chunyu Ge</a> 2019</p>
   </div>
-</aside>
-
-      
-      <p class="copyright">
-          Copyright © 2019, Chunyu Ge
-      </p>
-      
-    </div>
+</section>
 
 
-</body>
-</html>
