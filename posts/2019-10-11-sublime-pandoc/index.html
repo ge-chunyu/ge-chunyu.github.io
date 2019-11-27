@@ -61,7 +61,7 @@ Prerequisites To write academic papers in markdown format requires a markdown ed
     <div class="bg-black">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="https://ge-chunyu.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+    <a href="https://ge-chunyu.github.io" class="f3 fw2 hover-white no-underline white-90 dib">
       不辍弦歌
     </a>
     <div class="flex-l items-center">
@@ -179,16 +179,22 @@ Prerequisites To write academic papers in markdown format requires a markdown ed
 <h4 id="transformation-between-md-docx-and-pdf-files">Transformation between .md, .docx, and pdf files</h4>
 
 <p>Transforming .md files into .docx and .pdf files is straightforward. Go to the path where your .md files are, and type in the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd path                              <span style="color:#75715e"># change directory to where your md files are</span>                  
-pandoc file.md -o file.pdf           <span style="color:#75715e"># md -&gt; pdf</span>
-pandoc file.md -o file.docx          <span style="color:#75715e"># md -&gt; docx</span></code></pre></div>
+
+<pre><code class="language-bash">cd path                              # change directory to where your md files are                  
+pandoc file.md -o file.pdf           # md -&gt; pdf
+pandoc file.md -o file.docx          # md -&gt; docx
+</code></pre>
+
 <h4 id="adding-references">Adding references</h4>
 
 <p>Adding references to a markdown file is also straightforward, simply use the <code>pandoc-citeproc</code> program, and specify the path of the bibtex file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># md -&gt; pdf</span>
-pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</span>file.bib file.md -o file.pdf
-<span style="color:#75715e"># md -&gt; docx</span>
-pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</span>file.bib file.md -o file.docx</code></pre></div>
+
+<pre><code class="language-bash"># md -&gt; pdf
+pandoc --filter pandoc-citeproc --bibliography=file.bib file.md -o file.pdf
+# md -&gt; docx
+pandoc --filter pandoc-citeproc --bibliography=file.bib file.md -o file.docx
+</code></pre>
+
 <h4 id="using-templates">Using templates</h4>
 
 <p>You can output .md files to .docx and pdf files with various formats by modifying the default templates (Please also refer to the [<em>Pandoc User&rsquo;s Guide</em>]()).</p>
@@ -196,17 +202,26 @@ pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</spa
 <h5 id="modify-the-default-docx-template">Modify the default docx template</h5>
 
 <p>To modify the default docx template, first print the default dicx template used by Pandoc with the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc --print-default-data-file reference.docx &gt; custom-reference.docx </code></pre></div>
+
+<pre><code class="language-bash">pandoc --print-default-data-file reference.docx &gt; custom-reference.docx 
+</code></pre>
+
 <p>To modify the default docx reference file, it does not work to simply change the style of the contents. Rather, define the styles you would love to use in the Style options provided by MS Word.</p>
 
 <p>To use the sepcifies reference file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc file.md -o file.docx --reference-doc<span style="color:#f92672">=</span>custom-reference.docx</code></pre></div>
+
+<pre><code class="language-bash">pandoc file.md -o file.docx --reference-doc=custom-reference.docx
+</code></pre>
+
 <h5 id="modify-the-default-latex-template">Modify the default LaTeX template</h5>
 
 <h4 id="make-pandoc-compatible-with-chinese-pandoc的中文输出">Make pandoc compatible with Chinese (Pandoc的中文输出)</h4>
 
 <p>To make pandoc compatible with Chinese, we have to specify the pdf engine and the font (this is not required when transforming to .docx):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span style="color:#f92672">=</span>xelatex -V mainfont<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SimSun&#34;</span> file.md -o file.pdf </code></pre></div>
+
+<pre><code class="language-bash">pandoc --pdf-engine=xelatex -V mainfont=&quot;SimSun&quot; file.md -o file.pdf 
+</code></pre>
+
 <p>To use whatever font you like, type in the font name after <code>mainfont=</code>. To know what fonts you have in your laptop, type <code>fc-list :lang=zh</code> in Windows cmd, or look up in <em>Font Book</em> in MacOS.</p>
 
 <p>There is another serious problem with Chinese pdf files created with pandoc. It cannot automatically change line. So a Chinese pdf file simply spans beyond the range of the current file. To overcome this problem, we need to modify the default LaTeX template.</p>
@@ -263,7 +278,7 @@ pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</spa
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://ge-chunyu.github.io/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://ge-chunyu.github.io" >
     &copy; 2019 不辍弦歌
   </a>
     <div>
