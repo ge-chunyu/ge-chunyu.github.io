@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LaTeX on 不辍弦歌</title>
+    <link>https://ge-chunyu.github.io/tags/latex/</link>
+    <description>Recent content in LaTeX on 不辍弦歌</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/natarajmb&#34;&gt;Chunyu Ge&lt;/a&gt; 2019</copyright>
+    <lastBuildDate>Sat, 02 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ge-chunyu.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Customizing pdf output of Pandoc</title>
+      <link>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</guid>
+      <description>I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format to meet the standard of my school.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ge-chunyu.github.io/tags/pandoc/</loc>
+    <lastmod>2019-11-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ge-chunyu.github.io/posts/</loc>
+    <lastmod>2019-11-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ge-chunyu.github.io/tags/</loc>
     <lastmod>2019-11-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -23,8 +33,33 @@
   </url>
   
   <url>
+    <loc>https://ge-chunyu.github.io/tags/latex/</loc>
+    <lastmod>2019-11-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ge-chunyu.github.io/about/</loc>
+    <lastmod>2019-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ge-chunyu.github.io/tags/python/</loc>
+    <lastmod>2019-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</loc>
     <lastmod>2019-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ge-chunyu.github.io/tags/web-scraping/</loc>
+    <lastmod>2019-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ge-chunyu.github.io/tags/sublime-text/</loc>
+    <lastmod>2019-10-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -33,15 +68,7 @@
   </url>
   
   <url>
-    <loc>https://ge-chunyu.github.io/about/</loc>
-  </url>
-  
-  <url>
     <loc>https://ge-chunyu.github.io/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://ge-chunyu.github.io/tags/</loc>
   </url>
   
 </urlset>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sublime text on 不辍弦歌</title>
+    <link>https://ge-chunyu.github.io/tags/sublime-text/</link>
+    <description>Recent content in sublime text on 不辍弦歌</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/natarajmb&#34;&gt;Chunyu Ge&lt;/a&gt; 2019</copyright>
+    <lastBuildDate>Fri, 11 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ge-chunyu.github.io/tags/sublime-text/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Writing academic papers using Sublime Text 3 &#43; Pandoc</title>
+      <link>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</link>
+      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</guid>
+      <description>This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc.
+Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need.</description>
+    </item>
+    
+  </channel>
+</rss>
