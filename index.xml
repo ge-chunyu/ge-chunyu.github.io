@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>不辍弦歌</title>
     <link>https://ge-chunyu.github.io/</link>
     <description>Recent content on 不辍弦歌</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/natarajmb&#34;&gt;Chunyu Ge&lt;/a&gt; 2019</copyright>
+    <language>en-US</language>
+    <copyright>Copyright © 2019, Chunyu Ge</copyright>
     <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ge-chunyu.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://ge-chunyu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,10 +17,159 @@
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/</guid>
-      <description>Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。
-Pandoc 将 Markdown 生成 pdf 的逻辑 用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
-因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
-pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用--header-includes给自带的 template 加上需要的 LaTeX 命令就可以了。</description>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://pandoc.org&#34;&gt;Pandoc&lt;/a&gt;是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 &lt;code&gt;Markdown&lt;/code&gt; 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。&lt;/p&gt;
+
+&lt;h2 id=&#34;pandoc-将-markdown-生成-pdf-的逻辑&#34;&gt;Pandoc 将 Markdown 生成 pdf 的逻辑&lt;/h2&gt;
+
+&lt;p&gt;用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的&lt;code&gt;--pdf-engine&lt;/code&gt;，可选的选项有&lt;code&gt;pdflatex&lt;/code&gt;、&lt;code&gt;xelatex&lt;/code&gt;、&lt;code&gt;lualatex&lt;/code&gt;等。&lt;/p&gt;
+
+&lt;p&gt;因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pandoc --standalone test.md -o test.tex
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用&lt;code&gt;--header-includes&lt;/code&gt;给自带的 template 加上需要的 LaTeX 命令就可以了。&lt;/p&gt;
+
+&lt;p&gt;另外，Pandoc 自身也提供来一些可以自定义的参数，这些参数一般是在文件开头用 &lt;code&gt;yaml&lt;/code&gt; 写的，Pandoc 将这些参数称作“metadata”。所以在用 Pandoc 生成一个自定义格式的大型 pdf 文档时，除了文本文档外，还需要准备&lt;code&gt;preable.tex&lt;/code&gt;与&lt;code&gt;metadata.yaml&lt;/code&gt;两个文件，分别用来自定义 LaTeX 与 Pandoc 自带的参数。&lt;/p&gt;
+
+&lt;h2 id=&#34;用-pandoc-生成中文-pdf&#34;&gt;用 Pandoc 生成中文 pdf&lt;/h2&gt;
+
+&lt;p&gt;要在 Pandoc 生成的 pdf 里显示中文，跟在 LaTeX 里显示中文的逻辑一样，一般用&lt;code&gt;ctex&lt;/code&gt;包或&lt;code&gt;xeCJK&lt;/code&gt;包就可以了。不过不建议用&lt;code&gt;ctex&lt;/code&gt;包，因为它除了显示中文外还定义了太多其他格式。不如直接用&lt;code&gt;xeCJK&lt;/code&gt;来显示中文，再直接用 LaTeX 提供的其他包来指定其他格式。&lt;/p&gt;
+
+&lt;p&gt;用&lt;code&gt;pandoc&lt;/code&gt;来生成中文 pdf 时，需要将默认的&lt;code&gt;--pdf-engine&lt;/code&gt;改成&lt;code&gt;xelatex&lt;/code&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pandoc --pdf-engine=xelatex test.md -o test.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;用pandoc生成大型文档&#34;&gt;用pandoc生成大型文档&lt;/h2&gt;
+
+&lt;p&gt;在用 LaTeX 写作大型文档时，可以用&lt;code&gt;\include{}&lt;/code&gt;来包含单个文件。在用&lt;code&gt;Markdown&lt;/code&gt;写大型文档时，用&lt;code&gt;Pandoc&lt;/code&gt;将多个&lt;code&gt;Markdown&lt;/code&gt;文件转换成一整个文件时，可以将文件名按顺序放在&lt;code&gt;pandoc&lt;/code&gt;命令中进行转换。必须注意的是，要保证生成的文件是按需要的顺序出现的，需要把&lt;code&gt;Markdown&lt;/code&gt;文件按照顺序命名，例如第一章的文件名是&lt;code&gt;1.md&lt;/code&gt;，第二章为&lt;code&gt;2.md&lt;/code&gt;等。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pandoc --pdf-engine=xelatex 1.md 2.md 3.md -o main.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在用这个命令生成大型文档的时候，可能会出现后一个文件变成前一个文件一部分的情况。要避免出现这种情况，必须在每个文档文本后加一个空行。&lt;/p&gt;
+
+&lt;p&gt;另外一个问题是，在&lt;code&gt;Markdown&lt;/code&gt;中的标题用&lt;code&gt;pandoc&lt;/code&gt;生成默认是不编号的。要给标题编号，需要在&lt;code&gt;yaml&lt;/code&gt;文件中加上以下这行。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;numbersections: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在用单个&lt;code&gt;Markdown&lt;/code&gt;文件写作文章时，可以把&lt;code&gt;yaml&lt;/code&gt;参数加在文本上方；但在用多个&lt;code&gt;Markdown&lt;/code&gt;文件写作时，最好将&lt;code&gt;yaml&lt;/code&gt;参数单独保存成一个文件，在&lt;code&gt;pandoc&lt;/code&gt;命令中以&lt;code&gt;--metadata-file&lt;/code&gt;来指定该文件就可以了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pandoc --pdf-engine=xelatex --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;交叉引用&#34;&gt;交叉引用&lt;/h2&gt;
+
+&lt;p&gt;写作大型文档时，尤其是技术或学术文档时，难免要对图表、公式、章节等进行交叉引用。Pandoc 本身提供了对不同部分进行交叉引用的功能。&lt;/p&gt;
+
+&lt;p&gt;Pandoc 本身并没有提供对图表进行交叉引用的功能。要实现这种功能，可以用过滤器&lt;code&gt;--filter&lt;/code&gt;来实现。在&lt;code&gt;MacOS&lt;/code&gt;上，可以用&lt;a href=&#34;http://lierdakil.github.io/pandoc-crossref/&#34;&gt;pandoc-crossref&lt;/a&gt;来处理图表、公式的编号与交叉引用；在&lt;code&gt;Windows&lt;/code&gt;平台上，对图片、表格、公式的交叉引用可以分别用&lt;a href=&#34;https://libraries.io/pypi/pandoc-tablenos&#34;&gt;pandoc-tablenos&lt;/a&gt;、&lt;a href=&#34;https://github.com/tomduck/pandoc-fignos&#34;&gt;pandoc-fignos&lt;/a&gt;、&lt;a href=&#34;https://pypi.org/project/pandoc-eqnos/&#34;&gt;pandoc-eqnos&lt;/a&gt;来实现。这几个过滤器可以用以下表格中的命令来安装&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;filter&lt;/th&gt;
+&lt;th&gt;OS&lt;/th&gt;
+&lt;th&gt;installation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;pandoc-crossref&lt;/td&gt;
+&lt;td&gt;MacOS&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;brew install pandoc-crossref&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pandoc-tablenos&lt;/td&gt;
+&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;pip install pandoc-tablenos&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pandoc-fignos&lt;/td&gt;
+&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;pip install pandoc-fignos&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pandoc-eqnos&lt;/td&gt;
+&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;pip install pandoc-eqnos&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;在 Pandoc 中使用过滤器只要用&lt;code&gt;--filter&lt;/code&gt;参数指定所要用的过滤器即可。这几个过滤器的使用逻辑都是一致的，可以设置的参数包括图表标题前缀（&lt;code&gt;tableTitle&lt;/code&gt;或&lt;code&gt;figureTitle&lt;/code&gt;等）、文中引用前缀(&lt;code&gt;tabPrefix&lt;/code&gt;或&lt;code&gt;figPrefix&lt;/code&gt;)等。其他具体参数可以参考各自的说明文档。&lt;/p&gt;
+
+&lt;p&gt;至此，Pandoc 命令就变成了以下这样（以 MacOS 为例）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pandoc --pdf-engine=xelatex --filter pandoc-crossref --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;章节目录&#34;&gt;章节目录&lt;/h2&gt;
+
+&lt;p&gt;在 LaTeX 中要对特定的标题不编号，可以用&lt;code&gt;\chapter{}&lt;/code&gt;等命令中加&lt;code&gt;*&lt;/code&gt;来实现。Pandoc 也提供了这种功能。对于不想编号的标题，标题后面加上&lt;code&gt;{-}&lt;/code&gt;或者&lt;code&gt;{.unnumbered}&lt;/code&gt;就可以。&lt;/p&gt;
+
+&lt;p&gt;要在生成的文件中自动生成目录，只需要将&lt;code&gt;toc&lt;/code&gt;这一参数指定为&lt;code&gt;true&lt;/code&gt;就可以。文档中包含的表格与图片等也可以自动生成目录，分别将&lt;code&gt;lot&lt;/code&gt;和&lt;code&gt;lof&lt;/code&gt;指定为&lt;code&gt;true&lt;/code&gt;就可以了。但是，在 Pandoc 里可以指定目录的标题，例如&lt;code&gt;toc-title: 目录&lt;/code&gt;，但是表格目录与图片目录的标题没法指定。这个问题可以用 LaTeX 来解决，只要在 LaTeX head 里指定表格目录与图片目录标题就行了：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\renewcommand\listtablename{表\ 格\ 目\ 录}
+\renewcommand\listfigurename{图\ 片\ 目\ 录}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在用 LaTeX 定义章节等标题格式时，经常会用到&lt;code&gt;titlesec&lt;/code&gt;这一 LaTeX 包。但是，在&lt;code&gt;head&lt;/code&gt;里指定了这个包之后，运行 Pandoc 会出现这样的错误信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Error producing PDF.
+! Argument of \paragraph has an extra }.
+&amp;lt;inserted text&amp;gt; 
+                \par 
+l.1628 \ttl@extract\paragraph
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;要解决这个问题，必须在&lt;code&gt;yaml&lt;/code&gt;文件里加上&lt;code&gt;subparagraph: yes&lt;/code&gt;这一行。&lt;/p&gt;
+
+&lt;h2 id=&#34;yaml-文件参数与含义&#34;&gt;&lt;code&gt;yaml&lt;/code&gt;文件参数与含义&lt;/h2&gt;
+
+&lt;p&gt;前面涉及到了很多&lt;code&gt;yaml&lt;/code&gt;文件里的参数。这里将常见的&lt;code&gt;yaml&lt;/code&gt;参数条列如下，并简单说明各自的作用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;title: 标题                     # 指定标题
+author: 作者                    # 指定作者
+numbersections: true           # true 表示给文中的部分编号，默认值为 false
+subparagraph: yes             # 要在 LaTeX head 里用 titlesec 这个包，必须加这一行
+fontsize: 12pt                # 指定字号大小，默认接受10pt、11pt、12pt
+toc: true                     # 生成目录
+toc-title: &amp;quot;目录&amp;quot;             # 指定目录标题
+lot: true                     # 生成表格目录
+lof: true                     # 生成图片目录
+tableTitle: &amp;quot;表&amp;quot;      # 表格标题的前缀，pandoc-crossref 与 pandoc-tablenos 中可用
+figureTitle: &amp;quot;图&amp;quot;     # 图片标题的前缀，pandoc-crossref 与 pandoc-fignos 中可用
+tabPrefix: &amp;quot;表&amp;quot;       # 文中对表格引用的前缀，pandoc-crossref 可用
+figPrefix: &amp;quot;表&amp;quot;       # 文中对图片引用的前缀，pandoc-crossref 可用
+header-includes:      # 要加进 LaTeX文件的命令，建议放在一个单独的 preamble 文件里
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;其他-pandoc-资料&#34;&gt;其他 Pandoc 资料&lt;/h2&gt;
+
+&lt;p&gt;网上有很多其他非常好的 Pandoc 资料，例如：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learnbyexample.github.io/tutorial/ebook-generation/customizing-pandoc/&#34;&gt;Customizing pandoc to generate beautiful pdfs from markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/&#34;&gt;Generating Beautiful PDF from Markdown with Pandoc and Sublime Text&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;在&lt;code&gt;Windows&lt;/code&gt;里的两个过滤器都是用&lt;code&gt;Python&lt;/code&gt;的包管理器&lt;code&gt;pip&lt;/code&gt;来装的。所以要装这两个过滤器，要先装&lt;code&gt;Python&lt;/code&gt;。除了这里给的命令之外，还可以用&lt;code&gt;python -m pip install packageName&lt;/code&gt;来装&lt;code&gt;python&lt;/code&gt;第三方包。关于&lt;code&gt;pip install&lt;/code&gt;与&lt;code&gt;python -m install&lt;/code&gt;的差别，参加&lt;a href=&#34;https://snarky.ca/why-you-should-use-python-m-pip/。&#34;&gt;https://snarky.ca/why-you-should-use-python-m-pip/。&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -30,7 +178,142 @@ pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pa
       <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</guid>
-      <description>I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format to meet the standard of my school.</description>
+      <description>
+
+&lt;p&gt;I am writing my PhD thesis and instead of using &lt;code&gt;LaTeX&lt;/code&gt;, I want to write it in &lt;code&gt;markdown&lt;/code&gt; together with &lt;a href=&#34;https://www.pandoc.org&#34;&gt;Pandoc&lt;/a&gt;. This has several merits. I can easily transform the &lt;code&gt;markdown&lt;/code&gt; file to &lt;code&gt;docx&lt;/code&gt; for my supervisor to revise. It can also easily be transformed to &lt;code&gt;pdf&lt;/code&gt; files through &lt;code&gt;LaTeX&lt;/code&gt;. However, the default &lt;code&gt;pdf&lt;/code&gt; output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the &lt;code&gt;pdf&lt;/code&gt; format to meet the standard of my school.&lt;/p&gt;
+
+&lt;p&gt;There is another problem in customizing the &lt;code&gt;pdf&lt;/code&gt; output. Since I write the thesis in Chinese, how to modify the fonts and other character-related features does not seem to be obvious. To customize the format of the bibliography is an even greater problem.&lt;/p&gt;
+
+&lt;p&gt;As a matter of fact, there are two ways to customize the pdf output of &lt;em&gt;Pandoc&lt;/em&gt;. The first is using a &lt;code&gt;LaTeX&lt;/code&gt; template. Another is to use the &lt;code&gt;--header&lt;/code&gt; option in the &lt;code&gt;Pandoc&lt;/code&gt; command. I will concentrate on the latter approach and maybe a later post will deal with the first.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-format&#34;&gt;The format&lt;/h2&gt;
+
+&lt;p&gt;My graduate school does not specify strictly every detail of the format. The main requirements are :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The font size of the main matter is &lt;strong&gt;10.5&lt;/strong&gt; point, or in No.5 (五号字);&lt;/li&gt;
+&lt;li&gt;The margin for the paper is &lt;strong&gt;2.54&lt;/strong&gt; cm for top and bottom, and &lt;strong&gt;3.17&lt;/strong&gt; cm for left and right;&lt;/li&gt;
+&lt;li&gt;The space of the main matter is &lt;strong&gt;20&lt;/strong&gt; pound;&lt;/li&gt;
+&lt;li&gt;The font of the &lt;em&gt;Chapter&lt;/em&gt; and &lt;em&gt;Section&lt;/em&gt; header is in &lt;strong&gt;Heiti（黑体）&lt;/strong&gt; and the number in Chinese character;&lt;/li&gt;
+&lt;li&gt;The font of the &lt;strong&gt;Subsection&lt;/strong&gt; and below is in &lt;strong&gt;Kaishu (楷书)&lt;/strong&gt; and the number in arabic number;&lt;/li&gt;
+&lt;li&gt;The footnote is in the format of &lt;code&gt;①, ②&lt;/code&gt;, and is numbered by page. The font size of footnote is &lt;strong&gt;9&lt;/strong&gt; point;&lt;/li&gt;
+&lt;li&gt;The font size of the captions of figures and tables is &lt;strong&gt;9&lt;/strong&gt; point.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The requirements are not too detailed, so I think a preamble file will suffice.&lt;/p&gt;
+
+&lt;h2 id=&#34;general-format&#34;&gt;General format&lt;/h2&gt;
+
+&lt;p&gt;The setting of the general format is straightforward. I will use &lt;code&gt;geometry&lt;/code&gt; to set the page margin and &lt;code&gt;setspace&lt;/code&gt; for line spacing.&lt;/p&gt;
+
+&lt;h3 id=&#34;page-margin&#34;&gt;Page margin&lt;/h3&gt;
+
+&lt;p&gt;To set the page margin, simply use the &lt;code&gt;package&lt;/code&gt; geometry and add the corresponding command in the preamble part.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\usepackage{geometry}
+\geometry{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This sets the margin for top and bottom to 2.54cm, and 3.17cm for left and right.&lt;/p&gt;
+
+&lt;h3 id=&#34;line-spacing&#34;&gt;Line spacing&lt;/h3&gt;
+
+&lt;p&gt;Set line spacing is also straightforward using the &lt;code&gt;setspace&lt;/code&gt; package.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\usepackage{setspace}
+\linespread{1.5}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-format-of-chapters-and-sections&#34;&gt;The format of chapters and sections&lt;/h2&gt;
+
+&lt;p&gt;The general format of chapters and sections can be customized using the &lt;code&gt;titlesec&lt;/code&gt; package.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\titleformat{\chapter}{\centering\Large\heiti}{第\zhnum{chapter}章}{1em}{}
+\titleformat*{\section}{\centering\Large\heiti}
+\titleformat*{\subsubsection}{\kaiti}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above commands set the font of chapters and sections to &lt;code&gt;\heiti(黑体)&lt;/code&gt; and that of &lt;code&gt;subsubsections&lt;/code&gt; to &lt;code&gt;\kaiti&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\renewcommand\thesection{第\zhnum{section}节}
+\renewcommand\thesubsection{\zhnum{subsection}、}
+\renewcommand\thesubsubsection{（\zhnum{subsubsection}）}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;font&#34;&gt;Font&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;xeCJK&lt;/code&gt; package provides the support of font for Chinese characters. The fonts I need are &lt;code&gt;Heiti&lt;/code&gt; and &lt;code&gt;Kaiti&lt;/code&gt;, while &lt;code&gt;SimSun&lt;/code&gt; is chosen as the main font. To achieve these, I first set the main font for CJK characters to &lt;code&gt;SimSun&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I also set the font for Roman alphabets to &lt;code&gt;Times New Roman&lt;/code&gt; using the function &lt;code&gt;\setmainfont&lt;/code&gt; provided by the &lt;code&gt;fontspec&lt;/code&gt; package. Note that I didn&amp;rsquo;t import the package explicitly, since it is refered in the &lt;code&gt;xeCJK&lt;/code&gt; package.&lt;/p&gt;
+
+&lt;p&gt;A more serious problem is to specify font for some of the text while not affecting the main font. In this case, &lt;code&gt;xeCJK&lt;/code&gt; has a function &lt;code&gt;\setCJKfamilyfont&lt;/code&gt;, and I use it to define a command that specify the text included in the braces.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\newcommand{\kaiti}{\setCJKfamilyfont{kaiti}{KaiTi} \CJKfamily{kaiti}}
+\newcommand{\heiti}{\setCJKfamilyfont{heiti}{SimHei} \CJKfamily{heiti}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I defined &lt;code&gt;\kaiti&lt;/code&gt; and &lt;code&gt;\heiti&lt;/code&gt; based on the built-in font of &lt;code&gt;xeCJK&lt;/code&gt;. To specify the font of any text, simply put it in the brace as a plain &lt;code&gt;LaTeX&lt;/code&gt; command: &lt;code&gt;\kaiti{楷体}&lt;/code&gt; or &lt;code&gt;\heiti{黑体}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;footnote&#34;&gt;Footnote&lt;/h2&gt;
+
+&lt;p&gt;To number footnote by page, I use the option &lt;code&gt;perpage&lt;/code&gt; in the &lt;code&gt;footmisc&lt;/code&gt; package.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\usepackage[perpage]{footmisc}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To mark footnotes with circled numbers, I searched online and found the &lt;code&gt;pifont&lt;/code&gt; package provides such symbols. What I have to do is to redefine the &lt;code&gt;\footnote&lt;/code&gt; command such that it uses the circled numbers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\usepackage{pifont}
+\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;pifont&lt;/code&gt; package provides a lot of symbols, which can be viewed on its &lt;a href=&#34;http://willbenton.com/wb-images/pifont.pdf&#34;&gt;quick reference&lt;/a&gt;. To use other symbols, simply change the number corresponding to the symbol.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-font-size&#34;&gt;The font size&lt;/h2&gt;
+
+&lt;p&gt;Since the requirement of the format is mixed (It uses Number for body and headings, but points for footnotes and captions), I will use 11pt to approximate No.5 font size in Chinese. Using this specification, 9pt can be defined using the &lt;code&gt;\footnotesize&lt;/code&gt; command, and No.2 size (21pt) can be defined using the &lt;code&gt;\huge&lt;/code&gt; command. As for the size of captions, I use the &lt;code&gt;caption&lt;/code&gt; package.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\usepackage{caption}
+\captionsetup{font=footnotesize}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;output-to-pdf-using-pandoc&#34;&gt;Output to pdf using pandoc&lt;/h2&gt;
+
+&lt;p&gt;To put it all together and store the settings in a file named &lt;code&gt;preable.tex&lt;/code&gt;, the &lt;code&gt;markdown&lt;/code&gt; file can be output to pdf files in the desired form using pandoc.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pandoc --pdf-engine=xelatex -H preamble.tex thesis.md -o thesis.pdf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When running the command, an error occured:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Error producing PDF.
+! Argument of \paragraph has an extra }.
+&amp;lt;inserted text&amp;gt;
+                \par
+l.1628 \ttl@extract\paragraph
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I searched and this post in &lt;a href=&#34;https://stackoverflow.com/questions/42916124/not-able-to-use-titlesec-with-markdown-and-pandoc&#34;&gt;Stack Overflow&lt;/a&gt; solves the problem. Simply add &lt;code&gt;subparagraph: yes&lt;/code&gt; to the header of the markdown file, and the pdf file can be generated. Another tip is to add &lt;code&gt;numbersections: true&lt;/code&gt; to the header to automatically generate numbered sections.&lt;/p&gt;
+
+&lt;h2 id=&#34;to-do&#34;&gt;To do&lt;/h2&gt;
+
+&lt;p&gt;Despite all these effort, another serious problem remain untouched. &lt;em&gt;Citation and bibiliography&lt;/em&gt;. To simply cite and generate bibliography in &lt;code&gt;LaTeX&lt;/code&gt; is effortless through &lt;em&gt;BibTex&lt;/em&gt;. But to generate bibliography in desired Chinese format is a hard problem. I will explore this question later on.&lt;/p&gt;
+
+&lt;p&gt;In fact, I do have a good idea on how to solve this problem. &lt;em&gt;Pandoc&lt;/em&gt; provides a powerful tool called &lt;a href=&#34;https://github.com/citation-style-language/styles&#34;&gt;csl&lt;/a&gt;. To generate bibliography in Chinese format, there are three files to choose from:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;chinese-gb7714-1987-numeric.csl&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chinese-gb7714-2005-numeric.csl&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chinese-gb7714-2005-author-date.csl&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I can follow this line, but the output is not so satisfying, and I decided to do some research in native &lt;code&gt;LaTeX&lt;/code&gt; on how people solve this problem.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -39,8 +322,114 @@ pandoc --standalone test.md -o test.tex  但是，一般的做法是通过给 Pa
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</guid>
-      <description>I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.
-Source of the texts The texts of Luxun are scraped from 子夜星网. As it claimed, it contains all the texts in the Complete works of Luxun(鲁迅全集).</description>
+      <description>
+
+&lt;p&gt;I want to do some text mining practices on the texts of &lt;em&gt;Luxun(鲁迅)&lt;/em&gt;, a great Chinese writer. The first step is to get all the texts by &lt;em&gt;Luxun&lt;/em&gt;, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.&lt;/p&gt;
+
+&lt;h2 id=&#34;source-of-the-texts&#34;&gt;Source of the texts&lt;/h2&gt;
+
+&lt;p&gt;The texts of &lt;em&gt;Luxun&lt;/em&gt; are scraped from &lt;a href=&#34;http://www.ziyexing.com/&#34;&gt;子夜星网&lt;/a&gt;. As it claimed, it contains all the texts in the &lt;em&gt;Complete works of Luxun(鲁迅全集)&lt;/em&gt;. I checked it, and so it did.&lt;/p&gt;
+
+&lt;h2 id=&#34;get-the-urls-and-titles-of-all-the-articles&#34;&gt;Get the urls and titles of all the articles&lt;/h2&gt;
+
+&lt;p&gt;The process starts at getting the contents and the urls of the text of Luxun from the parent url &lt;code&gt;http://www.ziyexing.com/luxun/&lt;/code&gt;. To access all the urls, I constructed a regular expression and selected all &lt;code&gt;a&lt;/code&gt; nodes that share the pattern.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;homepage_res = requests.get(&amp;quot;www.ziyexing.com/luxun/&amp;quot;)
+homepage_soup = BeautifulSoup(res.text, &amp;quot;html.parser&amp;quot;)
+href_re = re.compile(r&amp;quot;luxun_\w+_\w+_\d+.htm&amp;quot;)
+hrefs = homepage_soup.find_all(&amp;quot;a&amp;quot;, {&amp;quot;href&amp;quot;:href_re})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is found that although the regular expression covers most of the patterns, some urls are idiosyncratic and do not conform to the regex. I constructed another regex.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;others_re = re.compile(r&amp;quot;(zhunfengyuetan)|(gushixinbian)|(gujixubaji)|(zgxssl)|(luxun_shici)\w+&amp;quot;)
+other_hrefs = homepage_soup.find_all(&amp;quot;a&amp;quot;, {&amp;quot;href&amp;quot;:others_re})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is, of course, idiosyncratic, but effective. To use two regexes, I have got all the urls.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;links = [href.attrs[&amp;quot;href&amp;quot;] for href in hrefs]
+other_links = [line.attrs[&amp;quot;href&amp;quot;] for line in other_hrefs]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The title of each url can also be accessed in the &lt;code&gt;a&lt;/code&gt; nodes. It can easily accessed using &lt;code&gt;a.text&lt;/code&gt;, yet another problem appeared. The most notorious problem in dealing with non-Latin alphabet languages, especially Chinese, is the problem of encoding. When applying &lt;code&gt;a.text&lt;/code&gt;, the characters did not show normally. I am fortunately enough to have recently learnt that the encoding of an &lt;code&gt;html&lt;/code&gt; page can be seen from the &lt;code&gt;header&lt;/code&gt; of the page. I checked it and found that the page is encoded using &lt;code&gt;gb2312&lt;/code&gt;. To make the texts return to normal requires encoding in &lt;code&gt;Latin1&lt;/code&gt; and subsequently decoding in &lt;code&gt;gb2312&lt;/code&gt;. &lt;code&gt;gbk&lt;/code&gt;, as a superset of &lt;code&gt;gb2312&lt;/code&gt;, works better in decoding.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;titles = [href.text.encode(&amp;quot;latin1&amp;quot;).decode(&amp;quot;gbk&amp;quot;) for href in hrefs]
+other_titles = [line.text.encode(&amp;quot;latin1&amp;quot;).decode(&amp;quot;gbk&amp;quot;) for line in other_hrefs]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Have got all the urls and corresponding titles, I can proceed to the next step, to scrape all the articles. A brief inspection of the article page show that all the contents of the article are embedded in the &lt;code&gt;p&lt;/code&gt; node with property &lt;code&gt;line-height: 150%&lt;/code&gt;. A further inspection of other pages show that the &lt;code&gt;line-height&lt;/code&gt; can also be &lt;code&gt;130%&lt;/code&gt;. So another regex is needed here.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ps_re = re.compile(r&amp;quot;line-height: 1\d0%&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;get-the-texts&#34;&gt;Get the texts&lt;/h2&gt;
+
+&lt;p&gt;Put all the pieces together, I wrote several functions to make the process modular and easy to understand.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;get_soup&lt;/code&gt; function accesses the given &lt;code&gt;url&lt;/code&gt; and returns the &lt;code&gt;BeautifulSoup&lt;/code&gt; object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def get_soup(base_url, url):
+    res = requests.get(base_url + url)
+    soup = BeautifulSoup(res.text, &amp;quot;html.parser&amp;quot;)
+    return soup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;get_ps&lt;/code&gt; function accepts the &lt;code&gt;soup&lt;/code&gt; object and outputs the &lt;code&gt;p&lt;/code&gt; nodes, which contain the texts.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def get_ps(soup):
+    ps_re = re.compile(r&amp;quot;line-height: 1\d0%&amp;quot;)
+    ps = soup.find_all(&amp;quot;p&amp;quot;, {&amp;quot;style&amp;quot;:ps_re})
+    return ps
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;clean_text&lt;/code&gt; function accepts the &lt;code&gt;p&lt;/code&gt; nodes and outputs the cleaned text.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def clean_text(texts):
+    texts_decoded = [text.encode(&amp;quot;latin1&amp;quot;, &amp;quot;ignore&amp;quot;).decode(&amp;quot;gbk&amp;quot;, &amp;quot;ignore&amp;quot;) for text in texts]
+    texts_decoded = [text.strip() for text in texts_decoded]
+    cleaned_texts = [text for text in texts_decoded if text != &amp;quot;&amp;quot;]
+    return cleaned_texts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;write_text&lt;/code&gt; function writes the text data in &lt;code&gt;txt&lt;/code&gt; fromat in a file named after the title of the article.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def write_text(clean_text, titles, n):
+    with open(&amp;quot;luxun/&amp;quot; + titles[n].strip() + &amp;quot;.txt&amp;quot;, &amp;quot;w&amp;quot;, encoding=&amp;quot;utf8&amp;quot;) as file:
+        file.write(&amp;quot;\n&amp;quot;.join(clean_text))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To wrap all these function together, I wrote a &lt;code&gt;main&lt;/code&gt; function which do all these stuff at once.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def main(links, titles):
+    for i in range(len(links)):
+        soup = get_soup(base_url, links[i])
+        ps = get_ps(soup)
+        texts = ps[0].text.split(&amp;quot;\n&amp;quot;)
+        cleaned_texts = clean_text(texts)
+        write_text(cleaned_texts, titles, i)
+        time.sleep(3)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To avoid too much traffic for the site, I used the &lt;code&gt;time.sleep&lt;/code&gt; function to pause for three seconds between urls.&lt;/p&gt;
+
+&lt;p&gt;Running the &lt;code&gt;main()&lt;/code&gt; function, and I got all the articles posted on &lt;a href=&#34;http://www.ziyexing.com/&#34;&gt;子夜星网&lt;/a&gt; by &lt;em&gt;Luxun&lt;/em&gt; in one folder.&lt;/p&gt;
+
+&lt;h2 id=&#34;key-points&#34;&gt;&lt;strong&gt;Key points&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;There are some traps in this toy project, some of which are interesting. I list some key points below.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use a regex to capture the pattern of the desired urls;&lt;/li&gt;
+&lt;li&gt;If a regex can not exhaust the pattern, write another one;&lt;/li&gt;
+&lt;li&gt;Look for encoding schemes in the &lt;code&gt;header&lt;/code&gt; of html files;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Latin-1&lt;/code&gt; works great for Chinese characters!
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;text.encode(&#39;latin1&#39;).decode(&#39;gbk&#39;)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -49,8 +438,121 @@ Source of the texts The texts of Luxun are scraped from 子夜星网. As it clai
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</guid>
-      <description>This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc.
-Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need.</description>
+      <description>
+
+&lt;p&gt;This post explains how to write academic papers using &lt;em&gt;Sublime Text 3&lt;/em&gt; in &lt;em&gt;markdown&lt;/em&gt; format and transform the .md file into .docx and pdf files using &lt;em&gt;pandoc&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;p&gt;To write academic papers in &lt;em&gt;markdown&lt;/em&gt; format requires a &lt;strong&gt;markdown editor&lt;/strong&gt;, a &lt;strong&gt;format trnasformer&lt;/strong&gt;, maybe also a &lt;strong&gt;literature manager&lt;/strong&gt;. I use &lt;em&gt;Sublime Text 3&lt;/em&gt; as the markdown edit, &lt;em&gt;Pandoc&lt;/em&gt; as the format transformer, and &lt;em&gt;Zotero&lt;/em&gt; as the literature manager. This section lists the things we need.&lt;/p&gt;
+
+&lt;h3 id=&#34;sublime-text-3-and-plugins&#34;&gt;Sublime Text 3 and plugins&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.sublimetext.com/3&#34;&gt;Sublime Text 3&lt;/a&gt; is a text editor that can be used for code, markup and prose. It is lightweight and is suitable for long texts. The followings are several plugins (or packages) we need:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ttscoff.github.io/MarkdownEditing/&#34;&gt;MarkdownEditing&lt;/a&gt;: writing markdown in Sublime Text 3;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/facelessuser/MarkdownPreview&#34;&gt;MarkdownPreview&lt;/a&gt;: previewing markdown in the browser;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/demon386/SmartMarkdown&#34;&gt;SmartMarkdown&lt;/a&gt;: folding and unfolding Headings;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mangecoeur/Citer&#34;&gt;Citer&lt;/a&gt;: citing from a bibtex file;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mangecoeur/AcademicMarkdown&#34;&gt;AcademicMarkDown&lt;/a&gt;: highlighting citations and CriticMarkup;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/titoBouzout/WordCount&#34;&gt;WordCount&lt;/a&gt;: counting words and characters;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://criticmarkup.com/&#34;&gt;CriticMarkup&lt;/a&gt;: highlighting revisions (e.g. add, delete, substitute, and comment).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To install packages in Sublime Text 3, first install &lt;em&gt;Package Control&lt;/em&gt; (go to Preferences -&amp;gt; Install Package Control). Use &lt;code&gt;Ctrl+Shift+P&lt;/code&gt; to activate the package control palatte, type &lt;code&gt;Install Packages&lt;/code&gt;, select and then enter the names of whatever packages you want to install.&lt;/p&gt;
+
+&lt;h3 id=&#34;pandoc&#34;&gt;Pandoc&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pandoc.org/&#34;&gt;Pandoc&lt;/a&gt; is a powerful tool for transforming file formats. Installing it on windows by downloading the .exe file or installing it in MacOS by simply typing &lt;code&gt;brew install pandoc&lt;/code&gt; and  &lt;code&gt;brew install pandoc-cite-proc&lt;/code&gt; in the Terminal (given that you have installed &lt;a href=&#34;https://brew.sh/&#34;&gt;HomeBrew&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;p&gt;This section explains how 1) to use Sublime Text 3 to complete tasks like adding citations, 2) to tranform .md files to .docx and pdf files.&lt;/p&gt;
+
+&lt;h3 id=&#34;sublime-text-3-and-plugins-1&#34;&gt;Sublime Text 3 and plugins&lt;/h3&gt;
+
+&lt;p&gt;It is common tasks to add citations, insert tables, and insert figures when writing academic papers. Sublime Text 3, along with various packages, provides us with powerful tools to compelete such tasks.&lt;/p&gt;
+
+&lt;h4 id=&#34;adding-citations-use-citer&#34;&gt;Adding citations use &lt;em&gt;Citer&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Once we have installed Citer via Package Control, we can modify the settings of Citer. Add the following lines into the user settings (Preferences -&amp;gt; Package Settings -&amp;gt; Citer -&amp;gt; Citer Setting-User), and change the &amp;ldquo;bibtex_file_path&amp;rdquo; parameter according to the path of your bibtex files. Multiple bibtex files can be add to the &lt;code&gt;bibtex_file_path&lt;/code&gt; separated by a comma and surrounded with brackets (&lt;code&gt;[]&lt;/code&gt;).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    //REQUIRED:
+
+    &amp;quot;bibtex_file_path&amp;quot;: &amp;quot;your bibtex path&amp;quot;,
+
+    //OPTIONAL:
+  
+    //By default Citer Search looks for your keyword in the 
+    //author, title, year, and Citekey (id) fields
+    &amp;quot;search_fields&amp;quot;: [&amp;quot;author&amp;quot;, &amp;quot;title&amp;quot;, &amp;quot;year&amp;quot;, &amp;quot;id&amp;quot;] ,
+    //Default format is @Citekey
+    &amp;quot;citation_format&amp;quot;: &amp;quot;@%s&amp;quot;,
+    //list of scopes. Could be top level &amp;quot;text&amp;quot; or &amp;quot;source&amp;quot;, or limit to
+    // e.g &amp;quot;text.html.markdown&amp;quot;
+    &amp;quot;completions_scopes&amp;quot;: [&amp;quot;text&amp;quot;],
+    &amp;quot;enable_completions&amp;quot;: true
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Save the setting file. Type &lt;code&gt;Ctrl-Shift-P&lt;/code&gt; and the Package Control palette pops up. Type &lt;code&gt;show all&lt;/code&gt;, and select the command &lt;code&gt;Citer: Show all&lt;/code&gt;, all the entries in the bibtex files should pop up. Select the entry you would like to cite, and press &lt;code&gt;Enter&lt;/code&gt;. The entry appears in the file in this form &lt;code&gt;@author1990&lt;/code&gt; (@authorYear).&lt;/p&gt;
+
+&lt;h3 id=&#34;pandoc-1&#34;&gt;Pandoc&lt;/h3&gt;
+
+&lt;p&gt;Use Pandoc is easy and to modify the templates is rather challenging, especially if you wish to modify the LaTeX template. It implies that you know fairly well about LaTeX. To make Pandoc compatible with Chinese characters is another challenging task. Pandoc is a command line tool, so make sure you enter all the commands in the terminal (or &lt;code&gt;cmd&lt;/code&gt; in Windows)&lt;/p&gt;
+
+&lt;h4 id=&#34;transformation-between-md-docx-and-pdf-files&#34;&gt;Transformation between .md, .docx, and pdf files&lt;/h4&gt;
+
+&lt;p&gt;Transforming .md files into .docx and .pdf files is straightforward. Go to the path where your .md files are, and type in the following commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd path                              # change directory to where your md files are                  
+pandoc file.md -o file.pdf           # md -&amp;gt; pdf
+pandoc file.md -o file.docx          # md -&amp;gt; docx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;adding-references&#34;&gt;Adding references&lt;/h4&gt;
+
+&lt;p&gt;Adding references to a markdown file is also straightforward, simply use the &lt;code&gt;pandoc-citeproc&lt;/code&gt; program, and specify the path of the bibtex file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# md -&amp;gt; pdf
+pandoc --filter pandoc-citeproc --bibliography=file.bib file.md -o file.pdf
+# md -&amp;gt; docx
+pandoc --filter pandoc-citeproc --bibliography=file.bib file.md -o file.docx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;using-templates&#34;&gt;Using templates&lt;/h4&gt;
+
+&lt;p&gt;You can output .md files to .docx and pdf files with various formats by modifying the default templates (Please also refer to the [&lt;em&gt;Pandoc User&amp;rsquo;s Guide&lt;/em&gt;]()).&lt;/p&gt;
+
+&lt;h5 id=&#34;modify-the-default-docx-template&#34;&gt;Modify the default docx template&lt;/h5&gt;
+
+&lt;p&gt;To modify the default docx template, first print the default dicx template used by Pandoc with the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pandoc --print-default-data-file reference.docx &amp;gt; custom-reference.docx 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To modify the default docx reference file, it does not work to simply change the style of the contents. Rather, define the styles you would love to use in the Style options provided by MS Word.&lt;/p&gt;
+
+&lt;p&gt;To use the sepcifies reference file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pandoc file.md -o file.docx --reference-doc=custom-reference.docx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;modify-the-default-latex-template&#34;&gt;Modify the default LaTeX template&lt;/h5&gt;
+
+&lt;h4 id=&#34;make-pandoc-compatible-with-chinese-pandoc的中文输出&#34;&gt;Make pandoc compatible with Chinese (Pandoc的中文输出)&lt;/h4&gt;
+
+&lt;p&gt;To make pandoc compatible with Chinese, we have to specify the pdf engine and the font (this is not required when transforming to .docx):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pandoc --pdf-engine=xelatex -V mainfont=&amp;quot;SimSun&amp;quot; file.md -o file.pdf 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To use whatever font you like, type in the font name after &lt;code&gt;mainfont=&lt;/code&gt;. To know what fonts you have in your laptop, type &lt;code&gt;fc-list :lang=zh&lt;/code&gt; in Windows cmd, or look up in &lt;em&gt;Font Book&lt;/em&gt; in MacOS.&lt;/p&gt;
+
+&lt;p&gt;There is another serious problem with Chinese pdf files created with pandoc. It cannot automatically change line. So a Chinese pdf file simply spans beyond the range of the current file. To overcome this problem, we need to modify the default LaTeX template.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
