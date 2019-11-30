@@ -18,7 +18,7 @@
       <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</guid>
-      <description>I am writing my PhD thesis and instead of using $\LaTeX$, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format to meet the standard of my school.</description>
+      <description>I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format to meet the standard of my school.</description>
     </item>
     
   </channel>
