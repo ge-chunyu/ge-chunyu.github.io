@@ -76,20 +76,20 @@
 
 <h2 id="pandoc-将-markdown-生成-pdf-的逻辑">Pandoc 将 Markdown 生成 pdf 的逻辑</h2>
 
-<p>用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的<code>--pdf-engine</code>，可选的选项有<code>pdflatex</code>、<code>xelatex</code>、<code>lualatex</code>等。</p>
+<p>用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 <code>$\LaTeX$</code> 格式，再通过 <code>$\LaTeX$</code> 把转换后的 <code>$\LaTeX$</code> 文件生成最终的 pdf 文件。在用 <code>$\LaTeX$</code> 生成 pdf 时，可以指定不同的<code>--pdf-engine</code>，可选的选项有<code>pdflatex</code>、<code>xelatex</code>、<code>lualatex</code>等。</p>
 
-<p>因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。</p>
+<p>因为 Pandoc 是通过 <code>$\LaTeX$</code> 来生成 pdf 文件的，所以可以通过修改或添加 <code>$\LaTeX$</code> 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 <code>$\LaTeX$</code>，再在上面自己改格式。</p>
 
 <pre><code>pandoc --standalone test.md -o test.tex
 </code></pre>
 
-<p>但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用<code>--header-includes</code>给自带的 template 加上需要的 LaTeX 命令就可以了。</p>
+<p>但是，一般的做法是通过给 Pandoc 传递 <code>$\LaTeX$</code> 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用<code>--header-includes</code>给自带的 template 加上需要的 <code>$\LaTeX$</code> 命令就可以了。</p>
 
-<p>另外，Pandoc 自身也提供来一些可以自定义的参数，这些参数一般是在文件开头用 <code>yaml</code> 写的，Pandoc 将这些参数称作“metadata”。所以在用 Pandoc 生成一个自定义格式的大型 pdf 文档时，除了文本文档外，还需要准备<code>preable.tex</code>与<code>metadata.yaml</code>两个文件，分别用来自定义 LaTeX 与 Pandoc 自带的参数。</p>
+<p>另外，Pandoc 自身也提供来一些可以自定义的参数，这些参数一般是在文件开头用 <code>yaml</code> 写的，Pandoc 将这些参数称作“metadata”。所以在用 Pandoc 生成一个自定义格式的大型 pdf 文档时，除了文本文档外，还需要准备<code>preable.tex</code>与<code>metadata.yaml</code>两个文件，分别用来自定义 <code>$\LaTeX$</code> 与 Pandoc 自带的参数。</p>
 
 <h2 id="用-pandoc-生成中文-pdf">用 Pandoc 生成中文 pdf</h2>
 
-<p>要在 Pandoc 生成的 pdf 里显示中文，跟在 LaTeX 里显示中文的逻辑一样，一般用<code>ctex</code>包或<code>xeCJK</code>包就可以了。不过不建议用<code>ctex</code>包，因为它除了显示中文外还定义了太多其他格式。不如直接用<code>xeCJK</code>来显示中文，再直接用 LaTeX 提供的其他包来指定其他格式。</p>
+<p>要在 Pandoc 生成的 pdf 里显示中文，跟在 <code>$\LaTeX$</code> 里显示中文的逻辑一样，一般用<code>ctex</code>包或<code>xeCJK</code>包就可以了。不过不建议用<code>ctex</code>包，因为它除了显示中文外还定义了太多其他格式。不如直接用<code>xeCJK</code>来显示中文，再直接用 <code>$\LaTeX$</code> 提供的其他包来指定其他格式。</p>
 
 <p>用<code>pandoc</code>来生成中文 pdf 时，需要将默认的<code>--pdf-engine</code>改成<code>xelatex</code>：</p>
 
@@ -98,7 +98,7 @@
 
 <h2 id="用pandoc生成大型文档">用pandoc生成大型文档</h2>
 
-<p>在用 LaTeX 写作大型文档时，可以用<code>\include{}</code>来包含单个文件。在用<code>Markdown</code>写大型文档时，用<code>Pandoc</code>将多个<code>Markdown</code>文件转换成一整个文件时，可以将文件名按顺序放在<code>pandoc</code>命令中进行转换。必须注意的是，要保证生成的文件是按需要的顺序出现的，需要把<code>Markdown</code>文件按照顺序命名，例如第一章的文件名是<code>1.md</code>，第二章为<code>2.md</code>等。</p>
+<p>在用 <code>$\LaTeX$</code> 写作大型文档时，可以用<code>\include{}</code>来包含单个文件。在用<code>Markdown</code>写大型文档时，用<code>Pandoc</code>将多个<code>Markdown</code>文件转换成一整个文件时，可以将文件名按顺序放在<code>pandoc</code>命令中进行转换。必须注意的是，要保证生成的文件是按需要的顺序出现的，需要把<code>Markdown</code>文件按照顺序命名，例如第一章的文件名是<code>1.md</code>，第二章为<code>2.md</code>等。</p>
 
 <pre><code>pandoc --pdf-engine=xelatex 1.md 2.md 3.md -o main.pdf
 </code></pre>
@@ -166,15 +166,15 @@
 
 <h2 id="章节目录">章节目录</h2>
 
-<p>在 LaTeX 中要对特定的标题不编号，可以用<code>\chapter{}</code>等命令中加<code>*</code>来实现。Pandoc 也提供了这种功能。对于不想编号的标题，标题后面加上<code>{-}</code>或者<code>{.unnumbered}</code>就可以。</p>
+<p>在 <code>$\LaTeX$</code> 中要对特定的标题不编号，可以用<code>\chapter{}</code>等命令中加<code>*</code>来实现。Pandoc 也提供了这种功能。对于不想编号的标题，标题后面加上<code>{-}</code>或者<code>{.unnumbered}</code>就可以。</p>
 
-<p>要在生成的文件中自动生成目录，只需要将<code>toc</code>这一参数指定为<code>true</code>就可以。文档中包含的表格与图片等也可以自动生成目录，分别将<code>lot</code>和<code>lof</code>指定为<code>true</code>就可以了。但是，在 Pandoc 里可以指定目录的标题，例如<code>toc-title: 目录</code>，但是表格目录与图片目录的标题没法指定。这个问题可以用 LaTeX 来解决，只要在 LaTeX head 里指定表格目录与图片目录标题就行了：</p>
+<p>要在生成的文件中自动生成目录，只需要将<code>toc</code>这一参数指定为<code>true</code>就可以。文档中包含的表格与图片等也可以自动生成目录，分别将<code>lot</code>和<code>lof</code>指定为<code>true</code>就可以了。但是，在 Pandoc 里可以指定目录的标题，例如<code>toc-title: 目录</code>，但是表格目录与图片目录的标题没法指定。这个问题可以用 <code>$\LaTeX$</code> 来解决，只要在 <code>$\LaTeX$</code> head 里指定表格目录与图片目录标题就行了：</p>
 
 <pre><code>\renewcommand\listtablename{表\ 格\ 目\ 录}
 \renewcommand\listfigurename{图\ 片\ 目\ 录}
 </code></pre>
 
-<p>在用 LaTeX 定义章节等标题格式时，经常会用到<code>titlesec</code>这一 LaTeX 包。但是，在<code>head</code>里指定了这个包之后，运行 Pandoc 会出现这样的错误信息：</p>
+<p>在用 <code>$\LaTeX$</code> 定义章节等标题格式时，经常会用到<code>titlesec</code>这一 <code>$\LaTeX$</code> 包。但是，在<code>head</code>里指定了这个包之后，运行 Pandoc 会出现这样的错误信息：</p>
 
 <pre><code>Error producing PDF.
 ! Argument of \paragraph has an extra }.
@@ -192,7 +192,7 @@ l.1628 \ttl@extract\paragraph
 <pre><code>title: 标题                     # 指定标题
 author: 作者                    # 指定作者
 numbersections: true           # true 表示给文中的部分编号，默认值为 false
-subparagraph: yes             # 要在 LaTeX head 里用 titlesec 这个包，必须加这一行
+subparagraph: yes             # 要在 `$\LaTeX$` head 里用 titlesec 这个包，必须加这一行
 fontsize: 12pt                # 指定字号大小，默认接受10pt、11pt、12pt
 toc: true                     # 生成目录
 toc-title: &quot;目录&quot;             # 指定目录标题
@@ -202,7 +202,7 @@ tableTitle: &quot;表&quot;      # 表格标题的前缀，pandoc-crossref 与 p
 figureTitle: &quot;图&quot;     # 图片标题的前缀，pandoc-crossref 与 pandoc-fignos 中可用
 tabPrefix: &quot;表&quot;       # 文中对表格引用的前缀，pandoc-crossref 可用
 figPrefix: &quot;表&quot;       # 文中对图片引用的前缀，pandoc-crossref 可用
-header-includes:      # 要加进 LaTeX文件的命令，建议放在一个单独的 preamble 文件里
+header-includes:      # 要加进 `$\LaTeX$`文件的命令，建议放在一个单独的 preamble 文件里
 </code></pre>
 
 <h2 id="其他-pandoc-资料">其他 Pandoc 资料</h2>
