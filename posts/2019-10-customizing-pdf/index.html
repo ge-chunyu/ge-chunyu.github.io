@@ -1,80 +1,82 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.58.3" />
-
-
-<title>Customizing pdf output of Pandoc - 不辍弦歌</title>
-<meta property="og:title" content="Customizing pdf output of Pandoc - 不辍弦歌">
-
-
-  <link href='https://ge-chunyu.github.io/favicon.ico' rel='icon' type='image/x-icon'/>
-
-
-
-  
 
 
 
 
+<title>Customizing pdf output of Pandoc | 不辍弦歌</title>
+
+<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
+
+
+
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
+<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
 
 
 
 
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://ge-chunyu.github.io/about" rel="me">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
+                </a>
+              
+                <a href="https://github.com/ge-chunyu/" rel="me">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://ge-chunyu.github.io/" rel="me">
+                  <span class="icon">
+                    <i class=""></i>
+                  </span>
+                </a>
+              
+                <a href="https://ge-chunyu.github.io/" rel="me">
+                  <span class="icon">
+                    <i class=""></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
 
-
-
-<link rel="stylesheet" href="/css/fonts.css" media="all">
-<link rel="stylesheet" href="/css/main.css" media="all">
-
-
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <nav class="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logo.png"
-         width="50"
-         height="50"
-         alt="Logo">
-  </a>
-
-  <ul class="nav-links">
+<div class="container">
+  <h2 class="subtitle is-6">November 2, 2019</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Customizing pdf output of Pandoc</h1>
+  <div class="content">
     
-    <li><a href=""></a></li>
-    
-    <li><a href="/about/">About</a></li>
-    
-    <li><a href="https://github.com/ge-chunyu/">GitHub</a></li>
-    
-  </ul>
-</nav>
 
-      </header>
-
-
-<main class="content" role="main">
-
-  <article class="article">
-    
-
-    <h1 class="article-title">Customizing pdf output of Pandoc</h1>
-
-    
-
-    <div class="article-content">
-      
-
-<p>I am writing my PhD thesis and instead of using <code>$\LaTeX$</code>, I want to write it in <code>markdown</code> together with <a href="https://www.pandoc.org">Pandoc</a>. This has several merits. I can easily transform the <code>markdown</code> file to <code>docx</code> for my supervisor to revise. It can also easily be transformed to <code>pdf</code> files through <code>$\LaTeX$</code>. However, the default <code>pdf</code> output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the <code>pdf</code> format to meet the standard of my school.</p>
+<p>I am writing my PhD thesis and instead of using <code>LaTeX</code>, I want to write it in <code>markdown</code> together with <a href="https://www.pandoc.org">Pandoc</a>. This has several merits. I can easily transform the <code>markdown</code> file to <code>docx</code> for my supervisor to revise. It can also easily be transformed to <code>pdf</code> files through <code>LaTeX</code>. However, the default <code>pdf</code> output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the <code>pdf</code> format to meet the standard of my school.</p>
 
 <p>There is another problem in customizing the <code>pdf</code> output. Since I write the thesis in Chinese, how to modify the fonts and other character-related features does not seem to be obvious. To customize the format of the bibliography is an even greater problem.</p>
 
-<p>As a matter of fact, there are two ways to customize the pdf output of <em>Pandoc</em>. The first is using a <code>$\LaTeX$</code> template. Another is to use the <code>--header</code> option in the <code>Pandoc</code> command. I will concentrate on the latter approach and maybe a later post will deal with the first.</p>
+<p>As a matter of fact, there are two ways to customize the pdf output of <em>Pandoc</em>. The first is using a <code>LaTeX</code> template. Another is to use the <code>--header</code> option in the <code>Pandoc</code> command. I will concentrate on the latter approach and maybe a later post will deal with the first.</p>
 
 <h2 id="the-format">The format</h2>
 
@@ -147,7 +149,7 @@
 \newcommand{\heiti}{\setCJKfamilyfont{heiti}{SimHei} \CJKfamily{heiti}}
 </code></pre>
 
-<p>I defined <code>\kaiti</code> and <code>\heiti</code> based on the built-in font of <code>xeCJK</code>. To specify the font of any text, simply put it in the brace as a plain <code>$\LaTeX$</code> command: <code>\kaiti{楷体}</code> or <code>\heiti{黑体}</code>.</p>
+<p>I defined <code>\kaiti</code> and <code>\heiti</code> based on the built-in font of <code>xeCJK</code>. To specify the font of any text, simply put it in the brace as a plain <code>LaTeX</code> command: <code>\kaiti{楷体}</code> or <code>\heiti{黑体}</code>.</p>
 
 <h2 id="footnote">Footnote</h2>
 
@@ -192,7 +194,7 @@ l.1628 \ttl@extract\paragraph
 
 <h2 id="to-do">To do</h2>
 
-<p>Despite all these effort, another serious problem remain untouched. <em>Citation and bibiliography</em>. To simply cite and generate bibliography in <code>$\LaTeX$</code> is effortless through <em>BibTex</em>. But to generate bibliography in desired Chinese format is a hard problem. I will explore this question later on.</p>
+<p>Despite all these effort, another serious problem remain untouched. <em>Citation and bibiliography</em>. To simply cite and generate bibliography in <code>LaTeX</code> is effortless through <em>BibTex</em>. But to generate bibliography in desired Chinese format is a hard problem. I will explore this question later on.</p>
 
 <p>In fact, I do have a good idea on how to solve this problem. <em>Pandoc</em> provides a powerful tool called <a href="https://github.com/citation-style-language/styles">csl</a>. To generate bibliography in Chinese format, there are three files to choose from:</p>
 
@@ -202,48 +204,30 @@ l.1628 \ttl@extract\paragraph
 <li><code>chinese-gb7714-2005-author-date.csl</code>.</li>
 </ul>
 
-<p>I can follow this line, but the output is not so satisfying, and I decided to do some research in native <code>$\LaTeX$</code> on how people solve this problem.</p>
+<p>I can follow this line, but the output is not so satisfying, and I decided to do some research in native <code>LaTeX</code> on how people solve this problem.</p>
 
-    </div>
-  </article>
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+    <aside><div id="share"></div></aside>
+    <script type="text/javascript">
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+        });
+    </script>
+    
+</div>
 
+<div class="container has-text-centered">
   
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/natarajmb">Chunyu Ge</a> 2019</p>
+  </div>
+</section>
 
-
-</main>
-
-      <footer class="footer">
-        <ul class="footer-links">
-          <li>
-            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
-          </li>
-          <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
-          </li>
-        </ul>
-      </footer>
-
-    </div>
-    
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
-
-    
-<script src="/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
-    
-  </body>
-</html>
 

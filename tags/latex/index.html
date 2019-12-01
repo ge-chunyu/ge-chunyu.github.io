@@ -1,98 +1,201 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
+
+<div class="container">
+  <!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.58.3" />
-
-
-<title>LaTeX - 不辍弦歌</title>
-<meta property="og:title" content="LaTeX - 不辍弦歌">
-
-
-  <link href='https://ge-chunyu.github.io/favicon.ico' rel='icon' type='image/x-icon'/>
-
-
-
-  
 
 
 
 
+<title>LaTeX | 不辍弦歌</title>
 
-<link href="/tags/latex/index.xml" rel="alternate" type="application/rss+xml" title="不辍弦歌" />
+<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
 
-
-
-<link rel="stylesheet" href="/css/fonts.css" media="all">
-<link rel="stylesheet" href="/css/main.css" media="all">
-
-
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <nav class="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logo.png"
-         width="50"
-         height="50"
-         alt="Logo">
-  </a>
-
-  <ul class="nav-links">
-    
-    <li><a href=""></a></li>
-    
-    <li><a href="/about/">About</a></li>
-    
-    <li><a href="https://github.com/ge-chunyu/">GitHub</a></li>
-    
-  </ul>
-</nav>
-
-      </header>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
 
-<main class="content" role="main">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
 
-  
-  <div class="archive">
-    
-    
-    
-    <h2 class="archive-title">2019</h2>
-    
-    <article class="archive-item">
-      <a href="/posts/2019-10-customizing-pdf/" class="archive-item-link">Customizing pdf output of Pandoc</a>
-      <span class="archive-item-date">
-        2019-11-02
-      </span>
-    </article>
-    
-    
+
+
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
+<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
+
+
+
+
+  <div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://ge-chunyu.github.io/about" rel="me">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
+                </a>
+              
+                <a href="https://github.com/ge-chunyu/" rel="me">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="https://ge-chunyu.github.io/" rel="me">
+                  <span class="icon">
+                    <i class=""></i>
+                  </span>
+                </a>
+              
+                <a href="https://ge-chunyu.github.io/" rel="me">
+                  <span class="icon">
+                    <i class=""></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
   </div>
 
-</main>
+  <main class="container">
+      
+      
+      <h1 class="title is-3">2019</h1>
+      
+      <article class="columns">
+        <div class="column is-2">
+          <h6 class="is-inline" style="white-space: nowrap">Nov 25</h2>
+        </div>
+        <div class="column">
+          <h2 class="subtitle is-inline is-size-4-mobile is-size-3-desktop"><a href="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/">用pandoc生成大型中文文档的痛点与解决方案</a></h1>
+          <div class="content is-hidden-mobile">
+            Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。
+Pandoc 将 Markdown 生成 pdf 的逻辑 用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
+因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX …
+            
+            <br>
+            <a class="button is-marginless is-paddingless" href="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/">
+            <span class="icon-link is-small" style="line-height: 100%">
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              </span>
+              <p style="padding:0 5px"></p>more</p>
+            </a>
+            
+          </div>
+      </article>
+      
+      <article class="columns">
+        <div class="column is-2">
+          <h6 class="is-inline" style="white-space: nowrap">Nov 2</h2>
+        </div>
+        <div class="column">
+          <h2 class="subtitle is-inline is-size-4-mobile is-size-3-desktop"><a href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/">Customizing pdf output of Pandoc</a></h1>
+          <div class="content is-hidden-mobile">
+            I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize …
+            
+            <br>
+            <a class="button is-marginless is-paddingless" href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/">
+            <span class="icon-link is-small" style="line-height: 100%">
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              </span>
+              <p style="padding:0 5px"></p>more</p>
+            </a>
+            
+          </div>
+      </article>
+      
+      <article class="columns">
+        <div class="column is-2">
+          <h6 class="is-inline" style="white-space: nowrap">Oct 12</h2>
+        </div>
+        <div class="column">
+          <h2 class="subtitle is-inline is-size-4-mobile is-size-3-desktop"><a href="https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/">Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)</a></h1>
+          <div class="content is-hidden-mobile">
+            I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.
+Source of the texts The texts of Luxun are scraped from 子夜星网. As it claimed, it contains all the texts in the Complete works of Luxun(鲁迅全集).
+            
+            <br>
+            <a class="button is-marginless is-paddingless" href="https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/">
+            <span class="icon-link is-small" style="line-height: 100%">
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              </span>
+              <p style="padding:0 5px"></p>more</p>
+            </a>
+            
+          </div>
+      </article>
+      
+      <article class="columns">
+        <div class="column is-2">
+          <h6 class="is-inline" style="white-space: nowrap">Oct 11</h2>
+        </div>
+        <div class="column">
+          <h2 class="subtitle is-inline is-size-4-mobile is-size-3-desktop"><a href="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/">Writing academic papers using Sublime Text 3 &#43; Pandoc</a></h1>
+          <div class="content is-hidden-mobile">
+            This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc.
+Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature …
+            
+            <br>
+            <a class="button is-marginless is-paddingless" href="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/">
+            <span class="icon-link is-small" style="line-height: 100%">
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              </span>
+              <p style="padding:0 5px"></p>more</p>
+            </a>
+            
+          </div>
+      </article>
+      
+      
+      
+  </main>
+  <section class="section">
+  <div class="container">
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          
+          <a class="button is-rounded" disabled>
+            <span class="icon is-small is-marginless">
+              <i class="fa fa-angle-left"></i>
+            </span>
+            Newer
+          </a>
+          
+        </div>
+      </div>
+      <div class="level-right is-marginless">
+        <div class="level-item">
+          
+          <a class="button is-rounded" disabled>
+            Older
+            <span class="icon is-small is-marginless">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
 
-      <footer class="footer">
-        <ul class="footer-links">
-          <li>
-            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
-          </li>
-          <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
-          </li>
-        </ul>
-      </footer>
+  <section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/natarajmb">Chunyu Ge</a> 2019</p>
+  </div>
+</section>
 
-    </div>
-    
 
-    
-
-    
-  </body>
-</html>
-
+</div>
