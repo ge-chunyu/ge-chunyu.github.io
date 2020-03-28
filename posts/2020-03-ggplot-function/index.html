@@ -69,43 +69,43 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <p><code>ggplot2</code> is great for visualization, but sometimes we need to include <code>ggplot2</code> functions within another function. <code>ggplot()</code> uses <code>aes()</code> to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using <code>ggplot()</code>? In this post I will present several approaches.</p>
 
 <p>First of all, let&rsquo;s load the required packages and some test data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">library(ggplot2)
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">library(ggplot2)
 library(dplyr)
 data(&#34;mtcars&#34;)</pre></div>
 <h2 id="using-aes-string">Using <code>aes_string()</code></h2>
 
 <p>There are two standard ways to define aesthetic mappings in <code>ggplot2</code>, <code>aes_string()</code> and <code>aes_()</code>. Writing a function using <code>aes_string()</code> is the same as using <code>aes()</code>, but calling the function requires passing the variable names as strings to the function.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes_string &lt;- function(data, x, y, c) {
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes_string &lt;- function(data, x, y, c) {
   ggplot(data, aes_string(x, y, color = c)) +
     geom_point() +
     theme_light()
-}</pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes_string(mtcars, &#34;mpg&#34;, &#34;wt&#34;, &#34;cyl&#34;)</pre></div>
+}</pre></div><div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes_string(mtcars, &#34;mpg&#34;, &#34;wt&#34;, &#34;cyl&#34;)</pre></div>
 <p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-3-1.png" alt="" /><!-- --></p>
 
 <h2 id="use-aes">Use <code>aes_()</code></h2>
 
 <p>Alternatively, we can use <code>aes_()</code>, which is slightly different from <code>aes_string()</code>. Wrapping <code>aes_()</code> into a function is the same as <code>aes()</code> and <code>aes_string()</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes &lt;- function(data, x, y, c) {
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes &lt;- function(data, x, y, c) {
   ggplot(data, aes_(x, y, color = c)) +
     geom_point() +
     theme_light()
 }</pre></div>
 <p>The difference is the way to pass variable names. We can either pass the variable names as one-sided equations (<code>~variable names</code>) or as quotes (<code>quote(variable name)</code>).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes(mtcars, ~mpg, ~wt, ~cyl)</pre></div>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes(mtcars, ~mpg, ~wt, ~cyl)</pre></div>
 <p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-5-1.png" alt="" /><!-- --></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes(mtcars, quote(mpg), quote(wt), quote(cyl))</pre></div>
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point_aes(mtcars, quote(mpg), quote(wt), quote(cyl))</pre></div>
 <p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-6-1.png" alt="" /><!-- --></p>
 
 <h2 id="another-alternative">Another alternative</h2>
 
 <p>I happened to work out another method which circumvent both <code>aes_string()</code> and <code>aes_()</code>. Simply define the aesthetic mappings in the function, and later rename the variable names in the data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point &lt;- function(data, x, y, c) {
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">plot_point &lt;- function(data, x, y, c) {
   ggplot(data, aes(x, y, color = c)) +
     geom_point() +
     theme_light()
 }</pre></div>
 <p>Applying the tidy approach and using <code>mutate</code> to rename the variable names, which does not cause any side effect to the original data. But one thing to note is that the labels of the axes are what defined in the function.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mtcars %&gt;%
+<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">mtcars %&gt;%
   mutate(x = mpg) %&gt;%
   mutate(y = wt) %&gt;%
   mutate(c = cyl) %&gt;%
