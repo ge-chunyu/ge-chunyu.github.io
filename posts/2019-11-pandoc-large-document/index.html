@@ -73,7 +73,7 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <p>用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 <code>LaTeX</code> 格式，再通过 <code>LaTeX</code> 把转换后的 <code>LaTeX</code> 文件生成最终的 pdf 文件。在用 <code>LaTeX</code> 生成 pdf 时，可以指定不同的<code>--pdf-engine</code>，可选的选项有<code>pdflatex</code>、<code>xelatex</code>、<code>lualatex</code>等。</p>
 
 <p>因为 Pandoc 是通过 <code>LaTeX</code> 来生成 pdf 文件的，所以可以通过修改或添加 <code>LaTeX</code> 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 <code>LaTeX</code>，再在上面自己改格式。</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --standalone test.md -o test.tex</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --standalone test.md -o test.tex</pre></div>
 <p>但是，一般的做法是通过给 Pandoc 传递 <code>LaTeX</code> 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用<code>--header-includes</code>给自带的 template 加上需要的 <code>LaTeX</code> 命令就可以了。</p>
 
 <p>另外，Pandoc 自身也提供来一些可以自定义的参数，这些参数一般是在文件开头用 <code>yaml</code> 写的，Pandoc 将这些参数称作“metadata”。所以在用 Pandoc 生成一个自定义格式的大型 pdf 文档时，除了文本文档外，还需要准备<code>preable.tex</code>与<code>metadata.yaml</code>两个文件，分别用来自定义 <code>LaTeX</code> 与 Pandoc 自带的参数。</p>
@@ -83,17 +83,17 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <p>要在 Pandoc 生成的 pdf 里显示中文，跟在 <code>LaTeX</code> 里显示中文的逻辑一样，一般用<code>ctex</code>包或<code>xeCJK</code>包就可以了。不过不建议用<code>ctex</code>包，因为它除了显示中文外还定义了太多其他格式。不如直接用<code>xeCJK</code>来显示中文，再直接用 <code>LaTeX</code> 提供的其他包来指定其他格式。</p>
 
 <p>用<code>pandoc</code>来生成中文 pdf 时，需要将默认的<code>--pdf-engine</code>改成<code>xelatex</code>：</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex test.md -o test.pdf</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex test.md -o test.pdf</pre></div>
 <h2 id="用pandoc生成大型文档">用pandoc生成大型文档</h2>
 
 <p>在用 <code>LaTeX</code> 写作大型文档时，可以用<code>\include{}</code>来包含单个文件。在用<code>Markdown</code>写大型文档时，用<code>Pandoc</code>将多个<code>Markdown</code>文件转换成一整个文件时，可以将文件名按顺序放在<code>pandoc</code>命令中进行转换。必须注意的是，要保证生成的文件是按需要的顺序出现的，需要把<code>Markdown</code>文件按照顺序命名，例如第一章的文件名是<code>1.md</code>，第二章为<code>2.md</code>等。</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex 1.md 2.md 3.md -o main.pdf</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex 1.md 2.md 3.md -o main.pdf</pre></div>
 <p>在用这个命令生成大型文档的时候，可能会出现后一个文件变成前一个文件一部分的情况。要避免出现这种情况，必须在每个文档文本后加一个空行。</p>
 
 <p>另外一个问题是，在<code>Markdown</code>中的标题用<code>pandoc</code>生成默认是不编号的。要给标题编号，需要在<code>yaml</code>文件中加上以下这行。</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">numbersections: true</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">numbersections: true</pre></div>
 <p>在用单个<code>Markdown</code>文件写作文章时，可以把<code>yaml</code>参数加在文本上方；但在用多个<code>Markdown</code>文件写作时，最好将<code>yaml</code>参数单独保存成一个文件，在<code>pandoc</code>命令中以<code>--metadata-file</code>来指定该文件就可以了。</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf</pre></div>
 <h2 id="交叉引用">交叉引用</h2>
 
 <p>写作大型文档时，尤其是技术或学术文档时，难免要对图表、公式、章节等进行交叉引用。Pandoc 本身提供了对不同部分进行交叉引用的功能。</p>
@@ -139,16 +139,16 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <p>在 Pandoc 中使用过滤器只要用<code>--filter</code>参数指定所要用的过滤器即可。这几个过滤器的使用逻辑都是一致的，可以设置的参数包括图表标题前缀（<code>tableTitle</code>或<code>figureTitle</code>等）、文中引用前缀(<code>tabPrefix</code>或<code>figPrefix</code>)等。其他具体参数可以参考各自的说明文档。</p>
 
 <p>至此，Pandoc 命令就变成了以下这样（以 MacOS 为例）：</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex --filter pandoc-crossref --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex --filter pandoc-crossref --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf</pre></div>
 <h2 id="章节目录">章节目录</h2>
 
 <p>在 <code>LaTeX</code> 中要对特定的标题不编号，可以用<code>\chapter{}</code>等命令中加<code>*</code>来实现。Pandoc 也提供了这种功能。对于不想编号的标题，标题后面加上<code>{-}</code>或者<code>{.unnumbered}</code>就可以。</p>
 
 <p>要在生成的文件中自动生成目录，只需要将<code>toc</code>这一参数指定为<code>true</code>就可以。文档中包含的表格与图片等也可以自动生成目录，分别将<code>lot</code>和<code>lof</code>指定为<code>true</code>就可以了。但是，在 Pandoc 里可以指定目录的标题，例如<code>toc-title: 目录</code>，但是表格目录与图片目录的标题没法指定。这个问题可以用 <code>LaTeX</code> 来解决，只要在 <code>LaTeX</code> head 里指定表格目录与图片目录标题就行了：</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">\renewcommand\listtablename{表\ 格\ 目\ 录}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">\renewcommand\listtablename{表\ 格\ 目\ 录}
 \renewcommand\listfigurename{图\ 片\ 目\ 录}</pre></div>
 <p>在用 <code>LaTeX</code> 定义章节等标题格式时，经常会用到<code>titlesec</code>这一 <code>LaTeX</code> 包。但是，在<code>head</code>里指定了这个包之后，运行 Pandoc 会出现这样的错误信息：</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Error producing PDF.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Error producing PDF.
 ! Argument of \paragraph has an extra }.
 &lt;inserted text&gt; 
                 \par 
@@ -158,7 +158,7 @@ l.1628 \ttl@extract\paragraph</pre></div>
 <h2 id="yaml-文件参数与含义"><code>yaml</code>文件参数与含义</h2>
 
 <p>前面涉及到了很多<code>yaml</code>文件里的参数。这里将常见的<code>yaml</code>参数条列如下，并简单说明各自的作用。</p>
-<div class="highlight"><pre style="color:#e7e9db;background-color:#2f1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4">title: 标题                     # 指定标题
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">title: 标题                     # 指定标题
 author: 作者                    # 指定作者
 numbersections: true           # true 表示给文中的部分编号，默认值为 false
 subparagraph: yes             # 要在 `LaTeX` head 里用 titlesec 这个包，必须加这一行
