@@ -95,58 +95,58 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <h3 id="page-margin">Page margin</h3>
 
 <p>To set the page margin, simply use the <code>package</code> geometry and add the corresponding command in the preamble part.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{geometry}
-<span style="color:#66d9ef">\geometry</span>{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#ff79c6">\usepackage</span><span style="color:#8be9fd;font-style:italic">{</span>geometry<span style="color:#8be9fd;font-style:italic">}</span>
+<span style="color:#ff79c6">\geometry</span><span style="color:#8be9fd;font-style:italic">{</span>top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm<span style="color:#8be9fd;font-style:italic">}</span></code></pre></div>
 <p>This sets the margin for top and bottom to 2.54cm, and 3.17cm for left and right.</p>
 
 <h3 id="line-spacing">Line spacing</h3>
 
 <p>Set line spacing is also straightforward using the <code>setspace</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{setspace}
-<span style="color:#66d9ef">\linespread</span>{1.5}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#ff79c6">\usepackage</span><span style="color:#8be9fd;font-style:italic">{</span>setspace<span style="color:#8be9fd;font-style:italic">}</span>
+<span style="color:#ff79c6">\linespread</span><span style="color:#8be9fd;font-style:italic">{</span>1.5<span style="color:#8be9fd;font-style:italic">}</span></code></pre></div>
 <h2 id="the-format-of-chapters-and-sections">The format of chapters and sections</h2>
 
 <p>The general format of chapters and sections can be customized using the <code>titlesec</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\titleformat</span>{<span style="color:#66d9ef">\chapter</span>}{<span style="color:#66d9ef">\centering\Large\heiti</span>}{第<span style="color:#66d9ef">\zhnum</span>{chapter}章}{1em}{}
-<span style="color:#66d9ef">\titleformat*</span>{<span style="color:#66d9ef">\section</span>}{<span style="color:#66d9ef">\centering\Large\heiti</span>}
-<span style="color:#66d9ef">\titleformat*</span>{<span style="color:#66d9ef">\subsubsection</span>}{<span style="color:#66d9ef">\kaiti</span>}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#ff79c6">\titleformat</span><span style="color:#8be9fd;font-style:italic">{</span><span style="color:#ff79c6">\chapter</span><span style="color:#8be9fd;font-style:italic">}{</span><span style="color:#ff79c6">\centering\Large\heiti</span><span style="color:#8be9fd;font-style:italic">}{</span>第<span style="color:#ff79c6">\zhnum</span><span style="color:#8be9fd;font-style:italic">{</span>chapter<span style="color:#8be9fd;font-style:italic">}</span>章<span style="color:#8be9fd;font-style:italic">}{</span>1em<span style="color:#8be9fd;font-style:italic">}{}</span>
+<span style="color:#ff79c6">\titleformat*</span><span style="color:#8be9fd;font-style:italic">{</span><span style="color:#ff79c6">\section</span><span style="color:#8be9fd;font-style:italic">}{</span><span style="color:#ff79c6">\centering\Large\heiti</span><span style="color:#8be9fd;font-style:italic">}</span>
+<span style="color:#ff79c6">\titleformat*</span><span style="color:#8be9fd;font-style:italic">{</span><span style="color:#ff79c6">\subsubsection</span><span style="color:#8be9fd;font-style:italic">}{</span><span style="color:#ff79c6">\kaiti</span><span style="color:#8be9fd;font-style:italic">}</span></code></pre></div>
 <p>The above commands set the font of chapters and sections to <code>\heiti(黑体)</code> and that of <code>subsubsections</code> to <code>\kaiti</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\renewcommand\thesection</span>{第<span style="color:#66d9ef">\zhnum</span>{section}节}
-<span style="color:#66d9ef">\renewcommand\thesubsection</span>{<span style="color:#66d9ef">\zhnum</span>{subsection}、}
-<span style="color:#66d9ef">\renewcommand\thesubsubsection</span>{（<span style="color:#66d9ef">\zhnum</span>{subsubsection}）}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#ff79c6">\renewcommand\thesection</span><span style="color:#8be9fd;font-style:italic">{</span>第<span style="color:#ff79c6">\zhnum</span><span style="color:#8be9fd;font-style:italic">{</span>section<span style="color:#8be9fd;font-style:italic">}</span>节<span style="color:#8be9fd;font-style:italic">}</span>
+<span style="color:#ff79c6">\renewcommand\thesubsection</span><span style="color:#8be9fd;font-style:italic">{</span><span style="color:#ff79c6">\zhnum</span><span style="color:#8be9fd;font-style:italic">{</span>subsection<span style="color:#8be9fd;font-style:italic">}</span>、<span style="color:#8be9fd;font-style:italic">}</span>
+<span style="color:#ff79c6">\renewcommand\thesubsubsection</span><span style="color:#8be9fd;font-style:italic">{</span>（<span style="color:#ff79c6">\zhnum</span><span style="color:#8be9fd;font-style:italic">{</span>subsubsection<span style="color:#8be9fd;font-style:italic">}</span>）<span style="color:#8be9fd;font-style:italic">}</span></code></pre></div>
 <h2 id="font">Font</h2>
 
 <p>The <code>xeCJK</code> package provides the support of font for Chinese characters. The fonts I need are <code>Heiti</code> and <code>Kaiti</code>, while <code>SimSun</code> is chosen as the main font. To achieve these, I first set the main font for CJK characters to <code>SimSun</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{xeCJK}
-<span style="color:#66d9ef">\setmainfont</span>{Times New Roman}
-<span style="color:#66d9ef">\setCJKmainfont</span>{SimSun}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#ff79c6">\usepackage</span><span style="color:#8be9fd;font-style:italic">{</span>xeCJK<span style="color:#8be9fd;font-style:italic">}</span>
+<span style="color:#ff79c6">\setmainfont</span><span style="color:#8be9fd;font-style:italic">{</span>Times New Roman<span style="color:#8be9fd;font-style:italic">}</span>
+<span style="color:#ff79c6">\setCJKmainfont</span><span style="color:#8be9fd;font-style:italic">{</span>SimSun<span style="color:#8be9fd;font-style:italic">}</span></code></pre></div>
 <p>I also set the font for Roman alphabets to <code>Times New Roman</code> using the function <code>\setmainfont</code> provided by the <code>fontspec</code> package. Note that I didn&rsquo;t import the package explicitly, since it is refered in the <code>xeCJK</code> package.</p>
 
 <p>A more serious problem is to specify font for some of the text while not affecting the main font. In this case, <code>xeCJK</code> has a function <code>\setCJKfamilyfont</code>, and I use it to define a command that specify the text included in the braces.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\newcommand</span>{<span style="color:#66d9ef">\kaiti</span>}{<span style="color:#66d9ef">\setCJKfamilyfont</span>{kaiti}{KaiTi} <span style="color:#66d9ef">\CJKfamily</span>{kaiti}}
-<span style="color:#66d9ef">\newcommand</span>{<span style="color:#66d9ef">\heiti</span>}{<span style="color:#66d9ef">\setCJKfamilyfont</span>{heiti}{SimHei} <span style="color:#66d9ef">\CJKfamily</span>{heiti}}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#ff79c6">\newcommand</span><span style="color:#8be9fd;font-style:italic">{</span><span style="color:#ff79c6">\kaiti</span><span style="color:#8be9fd;font-style:italic">}{</span><span style="color:#ff79c6">\setCJKfamilyfont</span><span style="color:#8be9fd;font-style:italic">{</span>kaiti<span style="color:#8be9fd;font-style:italic">}{</span>KaiTi<span style="color:#8be9fd;font-style:italic">}</span> <span style="color:#ff79c6">\CJKfamily</span><span style="color:#8be9fd;font-style:italic">{</span>kaiti<span style="color:#8be9fd;font-style:italic">}}</span>
+<span style="color:#ff79c6">\newcommand</span><span style="color:#8be9fd;font-style:italic">{</span><span style="color:#ff79c6">\heiti</span><span style="color:#8be9fd;font-style:italic">}{</span><span style="color:#ff79c6">\setCJKfamilyfont</span><span style="color:#8be9fd;font-style:italic">{</span>heiti<span style="color:#8be9fd;font-style:italic">}{</span>SimHei<span style="color:#8be9fd;font-style:italic">}</span> <span style="color:#ff79c6">\CJKfamily</span><span style="color:#8be9fd;font-style:italic">{</span>heiti<span style="color:#8be9fd;font-style:italic">}}</span></code></pre></div>
 <p>I defined <code>\kaiti</code> and <code>\heiti</code> based on the built-in font of <code>xeCJK</code>. To specify the font of any text, simply put it in the brace as a plain <code>LaTeX</code> command: <code>\kaiti{楷体}</code> or <code>\heiti{黑体}</code>.</p>
 
 <h2 id="footnote">Footnote</h2>
 
 <p>To number footnote by page, I use the option <code>perpage</code> in the <code>footmisc</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[perpage]</span>{footmisc}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#ff79c6">\usepackage</span><span style="color:#50fa7b">[perpage]</span><span style="color:#8be9fd;font-style:italic">{</span>footmisc<span style="color:#8be9fd;font-style:italic">}</span></code></pre></div>
 <p>To mark footnotes with circled numbers, I searched online and found the <code>pifont</code> package provides such symbols. What I have to do is to redefine the <code>\footnote</code> command such that it uses the circled numbers.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{pifont}
-<span style="color:#66d9ef">\renewcommand</span>{<span style="color:#66d9ef">\thefootnote</span>}{<span style="color:#66d9ef">\ding</span>{<span style="color:#66d9ef">\numexpr</span>171+<span style="color:#66d9ef">\value</span>{footnote}}</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#ff79c6">\usepackage</span><span style="color:#8be9fd;font-style:italic">{</span>pifont<span style="color:#8be9fd;font-style:italic">}</span>
+<span style="color:#ff79c6">\renewcommand</span><span style="color:#8be9fd;font-style:italic">{</span><span style="color:#ff79c6">\thefootnote</span><span style="color:#8be9fd;font-style:italic">}{</span><span style="color:#ff79c6">\ding</span><span style="color:#8be9fd;font-style:italic">{</span><span style="color:#ff79c6">\numexpr</span>171+<span style="color:#ff79c6">\value</span><span style="color:#8be9fd;font-style:italic">{</span>footnote<span style="color:#8be9fd;font-style:italic">}}</span></code></pre></div>
 <p>The <code>pifont</code> package provides a lot of symbols, which can be viewed on its <a href="http://willbenton.com/wb-images/pifont.pdf">quick reference</a>. To use other symbols, simply change the number corresponding to the symbol.</p>
 
 <h2 id="the-font-size">The font size</h2>
 
 <p>Since the requirement of the format is mixed (It uses Number for body and headings, but points for footnotes and captions), I will use 11pt to approximate No.5 font size in Chinese. Using this specification, 9pt can be defined using the <code>\footnotesize</code> command, and No.2 size (21pt) can be defined using the <code>\huge</code> command. As for the size of captions, I use the <code>caption</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">\usepackage{caption}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">\usepackage{caption}
 \captionsetup{font=footnotesize}</pre></div>
 <h2 id="output-to-pdf-using-pandoc">Output to pdf using pandoc</h2>
 
 <p>To put it all together and store the settings in a file named <code>preable.tex</code>, the <code>markdown</code> file can be output to pdf files in the desired form using pandoc.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex -H preamble.tex thesis.md -o thesis.pdf</pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">pandoc --pdf-engine=xelatex -H preamble.tex thesis.md -o thesis.pdf</pre></div>
 <p>When running the command, an error occured:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Error producing PDF.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Error producing PDF.
 ! Argument of \paragraph has an extra }.
 &lt;inserted text&gt;
                 \par
