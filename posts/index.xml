@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019</copyright>
-    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Define aesthetic mappings of ggplot2 within another function</title>
+      <link>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</guid>
+      <description>ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches.
+First of all, let&amp;rsquo;s load the required packages and some test data.
+library(ggplot2) library(dplyr) data(&amp;quot;mtcars&amp;quot;)  Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2, aes_string() and aes_().</description>
+    </item>
     
     <item>
       <title>Writing Praat scripts in a modular way</title>

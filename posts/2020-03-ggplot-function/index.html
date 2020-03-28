@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<title>Define aesthetic mappings of ggplot2 within another function | 不辍弦歌</title>
+
+<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
+
+
+
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
+<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
+
+
+
+
+<div class="container">
+    <nav class="navbar level">
+      <div class="navbar-brand">
+          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
+      </div>           
+      <div class="navbar-menu has-text-centered is-active">
+          <div class="navbar-end is-centered">
+              
+                <a href="https://ge-chunyu.github.io/about" rel="me">
+                  <span class="icon">
+                    <i class="fas fa-info"></i>
+                  </span>
+                </a>
+              
+                <a href="https://github.com/ge-chunyu/" rel="me">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                </a>
+              
+                <a href="mailto:gechunyu92@hotmail.com" rel="me">
+                  <span class="icon">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </a>
+              
+                <a href="https://ge-chunyu.github.io/" rel="me">
+                  <span class="icon">
+                    <i class=""></i>
+                  </span>
+                </a>
+              
+                <a href="https://ge-chunyu.github.io/" rel="me">
+                  <span class="icon">
+                    <i class=""></i>
+                  </span>
+                </a>
+              
+           </div>
+      </div>
+    </nav>
+  </div>
+
+<div class="container">
+  <h2 class="subtitle is-6">March 28, 2020</h2>
+  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Define aesthetic mappings of ggplot2 within another function</h1>
+  <div class="content">
+    
+
+<p><code>ggplot2</code> is great for visualization, but sometimes we need to include <code>ggplot2</code> functions within another function. <code>ggplot()</code> uses <code>aes()</code> to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using <code>ggplot()</code>? In this post I will present several approaches.</p>
+
+<p>First of all, let&rsquo;s load the required packages and some test data.</p>
+
+<pre><code class="language-r">library(ggplot2)
+library(dplyr)
+data(&quot;mtcars&quot;)
+</code></pre>
+
+<h2 id="using-aes-string">Using <code>aes_string()</code></h2>
+
+<p>There are two standard ways to define aesthetic mappings in <code>ggplot2</code>, <code>aes_string()</code> and <code>aes_()</code>. Writing a function using <code>aes_string()</code> is the same as using <code>aes()</code>, but calling the function requires passing the variable names as strings to the function.</p>
+
+<pre><code class="language-r">plot_point_aes_string &lt;- function(data, x, y, c) {
+  ggplot(data, aes_string(x, y, color = c)) +
+    geom_point() +
+    theme_light()
+}
+</code></pre>
+
+<pre><code class="language-r">plot_point_aes_string(mtcars, &quot;mpg&quot;, &quot;wt&quot;, &quot;cyl&quot;)
+</code></pre>
+
+<p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-3-1.png" alt="" /><!-- --></p>
+
+<h2 id="use-aes">Use <code>aes_()</code></h2>
+
+<p>Alternatively, we can use <code>aes_()</code>, which is slightly different from <code>aes_string()</code>. Wrapping <code>aes_()</code> into a function is the same as <code>aes()</code> and <code>aes_string()</code>.</p>
+
+<pre><code class="language-r">plot_point_aes &lt;- function(data, x, y, c) {
+  ggplot(data, aes_(x, y, color = c)) +
+    geom_point() +
+    theme_light()
+}
+</code></pre>
+
+<p>The difference is the way to pass variable names. We can either pass the variable names as one-sided equations (<code>~variable names</code>) or as quotes (<code>quote(variable name)</code>).</p>
+
+<pre><code class="language-r">plot_point_aes(mtcars, ~mpg, ~wt, ~cyl)
+</code></pre>
+
+<p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-5-1.png" alt="" /><!-- --></p>
+
+<pre><code class="language-r">plot_point_aes(mtcars, quote(mpg), quote(wt), quote(cyl))
+</code></pre>
+
+<p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-6-1.png" alt="" /><!-- --></p>
+
+<h2 id="another-alternative">Another alternative</h2>
+
+<p>I happened to work out another method which circumvent both <code>aes_string()</code> and <code>aes_()</code>. Simply define the aesthetic mappings in the function, and later rename the variable names in the data.</p>
+
+<pre><code class="language-r">plot_point &lt;- function(data, x, y, c) {
+  ggplot(data, aes(x, y, color = c)) +
+    geom_point() +
+    theme_light()
+}
+</code></pre>
+
+<p>Applying the tidy approach and using <code>mutate</code> to rename the variable names, which does not cause any side effect to the original data. But one thing to note is that the labels of the axes are what defined in the function.</p>
+
+<pre><code class="language-r">mtcars %&gt;%
+  mutate(x = mpg) %&gt;%
+  mutate(y = wt) %&gt;%
+  mutate(c = cyl) %&gt;%
+  plot_point(mtcars)
+</code></pre>
+
+<p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-8-1.png" alt="" /><!-- --></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/50960339/create-ggplot2-function-and-specify-arguments-as-variables-in-data-as-per-ggplot">Creare ggplot2 function and specify arguments as variables in data as per ggolot</a></li>
+<li><a href="https://stackoverflow.com/questions/5106782/use-of-ggplot-within-another-function-in-r">Use of ggplot within another function</a></li>
+</ul>
+
+  </div>
+</div>
+<div class="container has-text-centered">
+    
+    <aside><div id="share"></div></aside>
+    <script type="text/javascript">
+        $("#share").jsSocials({
+            showLabel: false,
+            showCount: false,
+            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+        });
+    </script>
+    
+</div>
+
+<div class="container has-text-centered">
+  
+</div>
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019</p>
+  </div>
+</section>
+
+
