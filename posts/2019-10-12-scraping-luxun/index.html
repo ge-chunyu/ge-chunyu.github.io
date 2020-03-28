@@ -75,84 +75,54 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <h2 id="get-the-urls-and-titles-of-all-the-articles">Get the urls and titles of all the articles</h2>
 
 <p>The process starts at getting the contents and the urls of the text of Luxun from the parent url <code>http://www.ziyexing.com/luxun/</code>. To access all the urls, I constructed a regular expression and selected all <code>a</code> nodes that share the pattern.</p>
-
-<pre><code class="language-python">homepage_res = requests.get(&quot;www.ziyexing.com/luxun/&quot;)
-homepage_soup = BeautifulSoup(res.text, &quot;html.parser&quot;)
-href_re = re.compile(r&quot;luxun_\w+_\w+_\d+.htm&quot;)
-hrefs = homepage_soup.find_all(&quot;a&quot;, {&quot;href&quot;:href_re})
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">homepage_res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;www.ziyexing.com/luxun/&#34;</span>)
+homepage_soup <span style="color:#f92672">=</span> BeautifulSoup(res<span style="color:#f92672">.</span>text, <span style="color:#e6db74">&#34;html.parser&#34;</span>)
+href_re <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;luxun_\w+_\w+_\d+.htm&#34;</span>)
+hrefs <span style="color:#f92672">=</span> homepage_soup<span style="color:#f92672">.</span>find_all(<span style="color:#e6db74">&#34;a&#34;</span>, {<span style="color:#e6db74">&#34;href&#34;</span>:href_re})</code></pre></div>
 <p>It is found that although the regular expression covers most of the patterns, some urls are idiosyncratic and do not conform to the regex. I constructed another regex.</p>
-
-<pre><code class="language-python">others_re = re.compile(r&quot;(zhunfengyuetan)|(gushixinbian)|(gujixubaji)|(zgxssl)|(luxun_shici)\w+&quot;)
-other_hrefs = homepage_soup.find_all(&quot;a&quot;, {&quot;href&quot;:others_re})
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">others_re <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;(zhunfengyuetan)|(gushixinbian)|(gujixubaji)|(zgxssl)|(luxun_shici)\w+&#34;</span>)
+other_hrefs <span style="color:#f92672">=</span> homepage_soup<span style="color:#f92672">.</span>find_all(<span style="color:#e6db74">&#34;a&#34;</span>, {<span style="color:#e6db74">&#34;href&#34;</span>:others_re})</code></pre></div>
 <p>It is, of course, idiosyncratic, but effective. To use two regexes, I have got all the urls.</p>
-
-<pre><code class="language-python">links = [href.attrs[&quot;href&quot;] for href in hrefs]
-other_links = [line.attrs[&quot;href&quot;] for line in other_hrefs]
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">links <span style="color:#f92672">=</span> [href<span style="color:#f92672">.</span>attrs[<span style="color:#e6db74">&#34;href&#34;</span>] <span style="color:#66d9ef">for</span> href <span style="color:#f92672">in</span> hrefs]
+other_links <span style="color:#f92672">=</span> [line<span style="color:#f92672">.</span>attrs[<span style="color:#e6db74">&#34;href&#34;</span>] <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> other_hrefs]</code></pre></div>
 <p>The title of each url can also be accessed in the <code>a</code> nodes. It can easily accessed using <code>a.text</code>, yet another problem appeared. The most notorious problem in dealing with non-Latin alphabet languages, especially Chinese, is the problem of encoding. When applying <code>a.text</code>, the characters did not show normally. I am fortunately enough to have recently learnt that the encoding of an <code>html</code> page can be seen from the <code>header</code> of the page. I checked it and found that the page is encoded using <code>gb2312</code>. To make the texts return to normal requires encoding in <code>Latin1</code> and subsequently decoding in <code>gb2312</code>. <code>gbk</code>, as a superset of <code>gb2312</code>, works better in decoding.</p>
-
-<pre><code class="language-python">titles = [href.text.encode(&quot;latin1&quot;).decode(&quot;gbk&quot;) for href in hrefs]
-other_titles = [line.text.encode(&quot;latin1&quot;).decode(&quot;gbk&quot;) for line in other_hrefs]
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">titles <span style="color:#f92672">=</span> [href<span style="color:#f92672">.</span>text<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;latin1&#34;</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;gbk&#34;</span>) <span style="color:#66d9ef">for</span> href <span style="color:#f92672">in</span> hrefs]
+other_titles <span style="color:#f92672">=</span> [line<span style="color:#f92672">.</span>text<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;latin1&#34;</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;gbk&#34;</span>) <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> other_hrefs]</code></pre></div>
 <p>Have got all the urls and corresponding titles, I can proceed to the next step, to scrape all the articles. A brief inspection of the article page show that all the contents of the article are embedded in the <code>p</code> node with property <code>line-height: 150%</code>. A further inspection of other pages show that the <code>line-height</code> can also be <code>130%</code>. So another regex is needed here.</p>
-
-<pre><code>ps_re = re.compile(r&quot;line-height: 1\d0%&quot;)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ps_re = re.compile(r&#34;line-height: 1\d0%&#34;)</pre></div>
 <h2 id="get-the-texts">Get the texts</h2>
 
 <p>Put all the pieces together, I wrote several functions to make the process modular and easy to understand.</p>
 
 <p>The <code>get_soup</code> function accesses the given <code>url</code> and returns the <code>BeautifulSoup</code> object.</p>
-
-<pre><code class="language-python">def get_soup(base_url, url):
-    res = requests.get(base_url + url)
-    soup = BeautifulSoup(res.text, &quot;html.parser&quot;)
-    return soup
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_soup</span>(base_url, url):
+    res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(base_url <span style="color:#f92672">+</span> url)
+    soup <span style="color:#f92672">=</span> BeautifulSoup(res<span style="color:#f92672">.</span>text, <span style="color:#e6db74">&#34;html.parser&#34;</span>)
+    <span style="color:#66d9ef">return</span> soup</code></pre></div>
 <p>The <code>get_ps</code> function accepts the <code>soup</code> object and outputs the <code>p</code> nodes, which contain the texts.</p>
-
-<pre><code class="language-python">def get_ps(soup):
-    ps_re = re.compile(r&quot;line-height: 1\d0%&quot;)
-    ps = soup.find_all(&quot;p&quot;, {&quot;style&quot;:ps_re})
-    return ps
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_ps</span>(soup):
+    ps_re <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;line-height: 1\d0%&#34;</span>)
+    ps <span style="color:#f92672">=</span> soup<span style="color:#f92672">.</span>find_all(<span style="color:#e6db74">&#34;p&#34;</span>, {<span style="color:#e6db74">&#34;style&#34;</span>:ps_re})
+    <span style="color:#66d9ef">return</span> ps</code></pre></div>
 <p>The <code>clean_text</code> function accepts the <code>p</code> nodes and outputs the cleaned text.</p>
-
-<pre><code class="language-python">def clean_text(texts):
-    texts_decoded = [text.encode(&quot;latin1&quot;, &quot;ignore&quot;).decode(&quot;gbk&quot;, &quot;ignore&quot;) for text in texts]
-    texts_decoded = [text.strip() for text in texts_decoded]
-    cleaned_texts = [text for text in texts_decoded if text != &quot;&quot;]
-    return cleaned_texts
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">clean_text</span>(texts):
+    texts_decoded <span style="color:#f92672">=</span> [text<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;latin1&#34;</span>, <span style="color:#e6db74">&#34;ignore&#34;</span>)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;gbk&#34;</span>, <span style="color:#e6db74">&#34;ignore&#34;</span>) <span style="color:#66d9ef">for</span> text <span style="color:#f92672">in</span> texts]
+    texts_decoded <span style="color:#f92672">=</span> [text<span style="color:#f92672">.</span>strip() <span style="color:#66d9ef">for</span> text <span style="color:#f92672">in</span> texts_decoded]
+    cleaned_texts <span style="color:#f92672">=</span> [text <span style="color:#66d9ef">for</span> text <span style="color:#f92672">in</span> texts_decoded <span style="color:#66d9ef">if</span> text <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>]
+    <span style="color:#66d9ef">return</span> cleaned_texts</code></pre></div>
 <p>The <code>write_text</code> function writes the text data in <code>txt</code> fromat in a file named after the title of the article.</p>
-
-<pre><code class="language-python">def write_text(clean_text, titles, n):
-    with open(&quot;luxun/&quot; + titles[n].strip() + &quot;.txt&quot;, &quot;w&quot;, encoding=&quot;utf8&quot;) as file:
-        file.write(&quot;\n&quot;.join(clean_text))
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">write_text</span>(clean_text, titles, n):
+    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;luxun/&#34;</span> <span style="color:#f92672">+</span> titles[n]<span style="color:#f92672">.</span>strip() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.txt&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf8&#34;</span>) <span style="color:#66d9ef">as</span> file:
+        file<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(clean_text))</code></pre></div>
 <p>To wrap all these function together, I wrote a <code>main</code> function which do all these stuff at once.</p>
-
-<pre><code class="language-python">def main(links, titles):
-    for i in range(len(links)):
-        soup = get_soup(base_url, links[i])
-        ps = get_ps(soup)
-        texts = ps[0].text.split(&quot;\n&quot;)
-        cleaned_texts = clean_text(texts)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(links, titles):
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(links)):
+        soup <span style="color:#f92672">=</span> get_soup(base_url, links[i])
+        ps <span style="color:#f92672">=</span> get_ps(soup)
+        texts <span style="color:#f92672">=</span> ps[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+        cleaned_texts <span style="color:#f92672">=</span> clean_text(texts)
         write_text(cleaned_texts, titles, i)
-        time.sleep(3)
-</code></pre>
-
+        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">3</span>)</code></pre></div>
 <p>To avoid too much traffic for the site, I used the <code>time.sleep</code> function to pause for three seconds between urls.</p>
 
 <p>Running the <code>main()</code> function, and I got all the articles posted on <a href="http://www.ziyexing.com/">子夜星网</a> by <em>Luxun</em> in one folder.</p>
