@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 不辍弦歌</title>
-    <link>https://ge-chunyu.github.io/posts/</link>
-    <description>Recent content in Posts on 不辍弦歌</description>
+    <title>天文学 on 不辍弦歌</title>
+    <link>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87%E5%AD%A6/</link>
+    <description>Recent content in 天文学 on 不辍弦歌</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2020</copyright>
     <lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -25,68 +25,6 @@
 日食是有一定周期的。巴比伦天文学家发现了沙罗周期（Saros），认为只要知道发生了一次日食，则经过 223 个朔望月（或 18 年 11 天 8 小时）就会发生一次同样的日食。但是，《春秋》中记载了好几次频年日食、甚至频月日食的现象，也就是连续两年或连续两个月都发生日食。例如，襄公十四年二月日食，而十五年八月又日食；襄公二十四年七月日食，八月又日食。《正义》说：“今七月日食既，而八月又食，于推步之术，必无此理。盖古书磨灭，置有错误。”古人将天体的运行比作行走，日月运行就称作“日躔月离”。《说文》：“躔，践也。”而“践，履也。”躔、践、履都有行走的意思。所以就把推算天体运行的学说称作“推步之学”。
 日食在古人看来是一件大事。日食发生时要举行特别的仪式。在传说中的夏朝就有日食时举行的特殊仪式。昭公十七年鲁国太史引用《夏书》说：“辰不集于房，瞽奏鼓，啬夫驰，庶人走。”所谓“辰不集于房”就是天体不在它应该在的位置。辰在早期可以用来指任何重要的天体，在这里就是指太阳。到了周朝，“封建亲戚，以藩屏周”，天子、诸侯各有不同的仪式。同样是昭公十七年日食，叔孙昭子说：“日有食之，天子不举，伐鼓于社，诸侯用币于社，伐鼓于朝。”天子不举乐，在社击鼓，而诸侯则是在社献上牺牲，在朝击鼓。所以，庄公二十五年：“六月，辛未，朔，日有食之，鼓，用牲于社。”但是并不是每次日食发生都会举行这样的仪式，只有在特定的月份发生日食才会举行。《左传》说：“唯正月之朔，慝未作，日有食之，于是乎用币于社，伐鼓于朝。”只有当正月发生日食，才会举行这一套仪式；但是这里的正月并不是现在的农历正月。杜预注说：“正月，夏之四月，周之六月，谓正阳之月。”指的是周朝的六月。因此，昭公十七年六月初一日食，理应用牲于社，伐鼓于朝，但是季平子却百般阻挠，所以叔孙昭子说：“夫子将有异志，不君君矣。”季平子对昭公不满，所以到了昭公二十五年，昭公就被季氏赶出了鲁国，“孙于齐”了。
 日食是非常罕见的天文现象，古人将天文现象与人事吉凶相互联系起来。但是何者为吉，何者为凶往往各执一词。昭公二十一年七月初一（壬午）日食，鲁昭公问梓慎这场日食到底是吉是凶。梓慎说，：“二至二分，日有食之，不为灾。日月之行也，分，同道也；至，相过也。其他月则为灾。阳不克也，故常为水。”梓慎认为日食是阳气不敌阴气，所以日食发生的年份大多发生水灾。二十四年五月又发生了日食，梓慎还是说会有水灾，叔孙昭子不同意，说：“旱也。日过分而阳犹不克，克必甚，能无旱乎？”叔孙昭子认为太阳已经经过了春分点而阳气仍然不敌阴气，因此阳气积聚，将会导致旱灾。然而日食发生，并不是所有地区都会出现同样的灾异；古人认为灾异的发生与太阳所在位置有关。昭公七年四月初一（甲辰）日食，晋昭公问士文伯谁将当日食，士文伯回答说鲁国和魏国将要遭受日食的灾异，原因在于“去卫地，如鲁地”。如何知道这次日食是“去卫如鲁”呢？古人将黄道分为十二个天区，即十二次，并将这十二个天区与十二诸侯相配，说明天空中的区域与地理上的对应关系，这就是分野。鲁国对应于降娄，卫国对应于娵訾，娵訾又名豕韦。日食的时候太阳在豕韦之末，到降娄之始才结束。因此鲁卫会发生灾祸。那么十二次到底是如何来的呢？下一篇《星象》将会讨论这个问题。</description>
-    </item>
-    
-    <item>
-      <title>How to define aesthetic mappings of ggplot2 within another function</title>
-      <link>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</link>
-      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</guid>
-      <description>ggplot2 is great for data visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches.
-First of all, let&amp;rsquo;s load the required packages and some test data.
-library(ggplot2) library(dplyr) data(&amp;#34;mtcars&amp;#34;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2, aes_string() and aes_().</description>
-    </item>
-    
-    <item>
-      <title>Writing Praat scripts in a modular way</title>
-      <link>https://ge-chunyu.github.io/posts/2019-12-praat/</link>
-      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ge-chunyu.github.io/posts/2019-12-praat/</guid>
-      <description>Praat is widely used in phonetic research. Working with Praat involves inevitably the Praat scripting. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself?
-Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the scripts.</description>
-    </item>
-    
-    <item>
-      <title>用pandoc生成大型中文文档的痛点与解决方案</title>
-      <link>https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/</link>
-      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/</guid>
-      <description>Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。
-Pandoc 将 Markdown 生成 pdf 的逻辑 用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的--pdf-engine，可选的选项有pdflatex、xelatex、lualatex等。
-因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。
-pandoc --standalone test.md -o test.tex 但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用--header-includes给自带的 template 加上需要的 LaTeX 命令就可以了。</description>
-    </item>
-    
-    <item>
-      <title>Customizing pdf output of Pandoc</title>
-      <link>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</link>
-      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</guid>
-      <description>I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format to meet the standard of my school.</description>
-    </item>
-    
-    <item>
-      <title>Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)</title>
-      <link>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</link>
-      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</guid>
-      <description>I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.
-Source of the texts The texts of Luxun are scraped from 子夜星网. As it claimed, it contains all the texts in the Complete works of Luxun(鲁迅全集).</description>
-    </item>
-    
-    <item>
-      <title>Writing academic papers using Sublime Text 3 &#43; Pandoc</title>
-      <link>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</link>
-      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</guid>
-      <description>This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc.
-Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need.</description>
     </item>
     
   </channel>

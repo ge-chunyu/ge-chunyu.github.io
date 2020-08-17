@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2020</copyright>
-    <lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ge-chunyu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>天文学</title>
+      <link>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87%E5%AD%A6/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87%E5%AD%A6/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>R, ggplot2</title>
