@@ -29,6 +29,38 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 
 
 
+<script type="text/javascript"
+    async
+    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\[\[','\]\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
+        }
+    });
+
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i = 0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
 <div class="container">
     <nav class="navbar level">
       <div class="navbar-brand">
@@ -160,9 +192,9 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 
 <p>但事实上木星的周期为 11.86 年，并不是准确的十二年。《史记·天官书》：“岁行三十度十六分度之七，率日行十二分度之一，十二岁而周天。”《淮南子·天文训》中的说法一模一样。与西方人将一周划分为 360 度不同，中国古人将一周分为 365.25 度。古人已经发现一个回归年的长度大约为 365.25 天<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>，将一周分为 365.25 度，则太阳一天走一度，一年之后重新回到原处。根据《天官书》和《天文训》的说法，木星十二年正好走一周，也就是 365.25 度。</p>
 
-<p>$$ 12 \times 30 \frac{7}{16} = 12 \times 365.25 \times \frac{1}{12} = 365.25 $$</p>
+<p>$$12 \times 30 \frac{7}{16} = 12 \times 365.25 \times \frac{1}{12} = 365.25$$</p>
 
-<p>这说明《天官书》和《天文训》是以十二年的周期算出木星的平均运行速度，并不是实测。由于木星的周期比十二年略差一点，所以每隔大约七个周期，木星就要比预计的多走一次。也就是 $ 1 / (12 - 11.86) = 7.14 $。春秋时候的人把这种现象叫做“淫行失次”，就是木星走快了，多走了一次。为了解决这种矛盾，刘歆提出了“超辰法”，也就是每过七个周期，把十二次往后挪一个，这就跟木星实际的位置一致了。</p>
+<p>这说明《天官书》和《天文训》是以十二年的周期算出木星的平均运行速度，并不是实测。由于木星的周期比十二年略差一点，所以每隔大约七个周期，木星就要比预计的多走一次。也就是 $1 / (12 - 11.86) = 7.14$。春秋时候的人把这种现象叫做“淫行失次”，就是木星走快了，多走了一次。为了解决这种矛盾，刘歆提出了“超辰法”，也就是每过七个周期，把十二次往后挪一个，这就跟木星实际的位置一致了。</p>
 
 <p>十二次与分野的起源应该相当早。在十二次和分野的对应关系中，可以发现晋国对应实沈，这是上一篇《星象》中讨论过的，实沈是很早的传说，到晋悼公的时候连晋国都没人知道了。另外，大火对应宋，宋是商人的后裔，商人主火也是上一篇就提到了的。襄公九年《左传》也说：“心为大火，陶唐氏之火正阏伯，居商丘，祀大火，而火纪时焉，相土因之，故商主大火，商人阅其祸败之衅，必始于火。”商人是用大火星来纪时的，所以将大火与商人的后裔宋人对应。在上古时期，不同地区的人往往通过观测不同的天体来确定时间，预测气候。古埃及人就用天狼星（Sirius）来预测尼罗河的泛滥。十二次可能就是在此基础上发展而来的<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>。</p>
 
