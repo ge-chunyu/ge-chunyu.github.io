@@ -1,114 +1,114 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
+    <loc>https://ge-chunyu.github.io/posts/</loc>
     <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/</loc>
+    <loc>https://ge-chunyu.github.io/tags/</loc>
     <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>https://ge-chunyu.github.io/</loc>
     <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/%E5%A4%A9%E6%96%87/</loc>
+    <loc>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87/</loc>
     <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-08-cq-fenye/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2020-08-cq-fenye/</loc>
     <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-08-cq-astrology/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2020-08-cq-astrology/</loc>
     <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-08-cq-eclipse/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2020-08-cq-eclipse/</loc>
     <lastmod>2020-08-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-03-ggplot-function/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r-ggplot2/</loc>
+    <loc>https://ge-chunyu.github.io/tags/r-ggplot2/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/praat/</loc>
+    <loc>https://ge-chunyu.github.io/tags/praat/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2019-12-praat/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-12-praat/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/pandoc/</loc>
+    <loc>https://ge-chunyu.github.io/tags/pandoc/</loc>
     <lastmod>2019-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2019-11-pandoc-large-document/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/</loc>
     <lastmod>2019-11-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2019-10-customizing-pdf/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</loc>
     <lastmod>2019-11-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/latex/</loc>
+    <loc>https://ge-chunyu.github.io/tags/latex/</loc>
     <lastmod>2019-11-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://ge-chunyu.github.io/about/</loc>
     <lastmod>2019-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/python/</loc>
+    <loc>https://ge-chunyu.github.io/tags/python/</loc>
     <lastmod>2019-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2019-10-12-scraping-luxun/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</loc>
     <lastmod>2019-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/web-scraping/</loc>
+    <loc>https://ge-chunyu.github.io/tags/web-scraping/</loc>
     <lastmod>2019-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/sublime-text/</loc>
+    <loc>https://ge-chunyu.github.io/tags/sublime-text/</loc>
     <lastmod>2019-10-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2019-10-11-sublime-pandoc/</loc>
+    <loc>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</loc>
     <lastmod>2019-10-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://ge-chunyu.github.io/categories/</loc>
   </url>
   
 </urlset>

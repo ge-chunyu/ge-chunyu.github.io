@@ -96,18 +96,11 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
   <h2 class="subtitle is-6">October 11, 2019</h2>
   <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Writing academic papers using Sublime Text 3 &#43; Pandoc</h1>
   <div class="content">
-    
-
-<p>This post explains how to write academic papers using <em>Sublime Text 3</em> in <em>markdown</em> format and transform the .md file into .docx and pdf files using <em>pandoc</em>.</p>
-
+    <p>This post explains how to write academic papers using <em>Sublime Text 3</em> in <em>markdown</em> format and transform the .md file into .docx and pdf files using <em>pandoc</em>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-
 <p>To write academic papers in <em>markdown</em> format requires a <strong>markdown editor</strong>, a <strong>format trnasformer</strong>, maybe also a <strong>literature manager</strong>. I use <em>Sublime Text 3</em> as the markdown edit, <em>Pandoc</em> as the format transformer, and <em>Zotero</em> as the literature manager. This section lists the things we need.</p>
-
 <h3 id="sublime-text-3-and-plugins">Sublime Text 3 and plugins</h3>
-
 <p><a href="https://www.sublimetext.com/3">Sublime Text 3</a> is a text editor that can be used for code, markup and prose. It is lightweight and is suitable for long texts. The followings are several plugins (or packages) we need:</p>
-
 <ul>
 <li><a href="http://ttscoff.github.io/MarkdownEditing/">MarkdownEditing</a>: writing markdown in Sublime Text 3;</li>
 <li><a href="https://github.com/facelessuser/MarkdownPreview">MarkdownPreview</a>: previewing markdown in the browser;</li>
@@ -117,25 +110,16 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <li><a href="https://github.com/titoBouzout/WordCount">WordCount</a>: counting words and characters;</li>
 <li><a href="http://criticmarkup.com/">CriticMarkup</a>: highlighting revisions (e.g. add, delete, substitute, and comment).</li>
 </ul>
-
 <p>To install packages in Sublime Text 3, first install <em>Package Control</em> (go to Preferences -&gt; Install Package Control). Use <code>Ctrl+Shift+P</code> to activate the package control palatte, type <code>Install Packages</code>, select and then enter the names of whatever packages you want to install.</p>
-
 <h3 id="pandoc">Pandoc</h3>
-
 <p><a href="http://pandoc.org/">Pandoc</a> is a powerful tool for transforming file formats. Installing it on windows by downloading the .exe file or installing it in MacOS by simply typing <code>brew install pandoc</code> and  <code>brew install pandoc-cite-proc</code> in the Terminal (given that you have installed <a href="https://brew.sh/">HomeBrew</a>).</p>
-
 <h2 id="usage">Usage</h2>
-
 <p>This section explains how 1) to use Sublime Text 3 to complete tasks like adding citations, 2) to tranform .md files to .docx and pdf files.</p>
-
 <h3 id="sublime-text-3-and-plugins-1">Sublime Text 3 and plugins</h3>
-
 <p>It is common tasks to add citations, insert tables, and insert figures when writing academic papers. Sublime Text 3, along with various packages, provides us with powerful tools to compelete such tasks.</p>
-
 <h4 id="adding-citations-use-citer">Adding citations use <em>Citer</em></h4>
-
 <p>Once we have installed Citer via Package Control, we can modify the settings of Citer. Add the following lines into the user settings (Preferences -&gt; Package Settings -&gt; Citer -&gt; Citer Setting-User), and change the &ldquo;bibtex_file_path&rdquo; parameter according to the path of your bibtex files. Multiple bibtex files can be add to the <code>bibtex_file_path</code> separated by a comma and surrounded with brackets (<code>[]</code>).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{
     //REQUIRED:
 
     &#34;bibtex_file_path&#34;: &#34;your bibtex path&#34;,
@@ -151,46 +135,34 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
     // e.g &#34;text.html.markdown&#34;
     &#34;completions_scopes&#34;: [&#34;text&#34;],
     &#34;enable_completions&#34;: true
-}</pre></div>
-<p>Save the setting file. Type <code>Ctrl-Shift-P</code> and the Package Control palette pops up. Type <code>show all</code>, and select the command <code>Citer: Show all</code>, all the entries in the bibtex files should pop up. Select the entry you would like to cite, and press <code>Enter</code>. The entry appears in the file in this form <code>@author1990</code> (@authorYear).</p>
-
+}
+</code></pre></div><p>Save the setting file. Type <code>Ctrl-Shift-P</code> and the Package Control palette pops up. Type <code>show all</code>, and select the command <code>Citer: Show all</code>, all the entries in the bibtex files should pop up. Select the entry you would like to cite, and press <code>Enter</code>. The entry appears in the file in this form <code>@author1990</code> (@authorYear).</p>
 <h3 id="pandoc-1">Pandoc</h3>
-
 <p>Use Pandoc is easy and to modify the templates is rather challenging, especially if you wish to modify the LaTeX template. It implies that you know fairly well about LaTeX. To make Pandoc compatible with Chinese characters is another challenging task. Pandoc is a command line tool, so make sure you enter all the commands in the terminal (or <code>cmd</code> in Windows)</p>
-
 <h4 id="transformation-between-md-docx-and-pdf-files">Transformation between .md, .docx, and pdf files</h4>
-
 <p>Transforming .md files into .docx and .pdf files is straightforward. Go to the path where your .md files are, and type in the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd path                              <span style="color:#75715e"># change directory to where your md files are</span>                  
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd path                              <span style="color:#75715e"># change directory to where your md files are                  </span>
 pandoc file.md -o file.pdf           <span style="color:#75715e"># md -&gt; pdf</span>
-pandoc file.md -o file.docx          <span style="color:#75715e"># md -&gt; docx</span></code></pre></div>
-<h4 id="adding-references">Adding references</h4>
-
+pandoc file.md -o file.docx          <span style="color:#75715e"># md -&gt; docx</span>
+</code></pre></div><h4 id="adding-references">Adding references</h4>
 <p>Adding references to a markdown file is also straightforward, simply use the <code>pandoc-citeproc</code> program, and specify the path of the bibtex file:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># md -&gt; pdf</span>
 pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</span>file.bib file.md -o file.pdf
 <span style="color:#75715e"># md -&gt; docx</span>
-pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</span>file.bib file.md -o file.docx</code></pre></div>
-<h4 id="using-templates">Using templates</h4>
-
-<p>You can output .md files to .docx and pdf files with various formats by modifying the default templates (Please also refer to the [<em>Pandoc User&rsquo;s Guide</em>]()).</p>
-
+pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</span>file.bib file.md -o file.docx
+</code></pre></div><h4 id="using-templates">Using templates</h4>
+<p>You can output .md files to .docx and pdf files with various formats by modifying the default templates (Please also refer to the <a href=""><em>Pandoc User&rsquo;s Guide</em></a>).</p>
 <h5 id="modify-the-default-docx-template">Modify the default docx template</h5>
-
 <p>To modify the default docx template, first print the default dicx template used by Pandoc with the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc --print-default-data-file reference.docx &gt; custom-reference.docx </code></pre></div>
-<p>To modify the default docx reference file, it does not work to simply change the style of the contents. Rather, define the styles you would love to use in the Style options provided by MS Word.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc --print-default-data-file reference.docx &gt; custom-reference.docx 
+</code></pre></div><p>To modify the default docx reference file, it does not work to simply change the style of the contents. Rather, define the styles you would love to use in the Style options provided by MS Word.</p>
 <p>To use the sepcifies reference file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc file.md -o file.docx --reference-doc<span style="color:#f92672">=</span>custom-reference.docx</code></pre></div>
-<h5 id="modify-the-default-latex-template">Modify the default LaTeX template</h5>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc file.md -o file.docx --reference-doc<span style="color:#f92672">=</span>custom-reference.docx
+</code></pre></div><h5 id="modify-the-default-latex-template">Modify the default LaTeX template</h5>
 <h4 id="make-pandoc-compatible-with-chinese-pandoc的中文输出">Make pandoc compatible with Chinese (Pandoc的中文输出)</h4>
-
 <p>To make pandoc compatible with Chinese, we have to specify the pdf engine and the font (this is not required when transforming to .docx):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span style="color:#f92672">=</span>xelatex -V mainfont<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SimSun&#34;</span> file.md -o file.pdf </code></pre></div>
-<p>To use whatever font you like, type in the font name after <code>mainfont=</code>. To know what fonts you have in your laptop, type <code>fc-list :lang=zh</code> in Windows cmd, or look up in <em>Font Book</em> in MacOS.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span style="color:#f92672">=</span>xelatex -V mainfont<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SimSun&#34;</span> file.md -o file.pdf 
+</code></pre></div><p>To use whatever font you like, type in the font name after <code>mainfont=</code>. To know what fonts you have in your laptop, type <code>fc-list :lang=zh</code> in Windows cmd, or look up in <em>Font Book</em> in MacOS.</p>
 <p>There is another serious problem with Chinese pdf files created with pandoc. It cannot automatically change line. So a Chinese pdf file simply spans beyond the range of the current file. To overcome this problem, we need to modify the default LaTeX template.</p>
 
   </div>

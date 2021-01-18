@@ -1,84 +1,82 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on </title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on </description>
+    <title>Tags on 不辍弦歌</title>
+    <link>https://ge-chunyu.github.io/tags/</link>
+    <description>Recent content in Tags on 不辍弦歌</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 20 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2020</copyright>
+    <lastBuildDate>Thu, 20 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>天文</title>
-      <link>/tags/%E5%A4%A9%E6%96%87/</link>
+      <link>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87/</link>
       <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/%E5%A4%A9%E6%96%87/</guid>
+      <guid>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R, ggplot2</title>
-      <link>/tags/r-ggplot2/</link>
+      <link>https://ge-chunyu.github.io/tags/r-ggplot2/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-ggplot2/</guid>
+      <guid>https://ge-chunyu.github.io/tags/r-ggplot2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>praat</title>
-      <link>/tags/praat/</link>
+      <link>https://ge-chunyu.github.io/tags/praat/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/praat/</guid>
+      <guid>https://ge-chunyu.github.io/tags/praat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pandoc</title>
-      <link>/tags/pandoc/</link>
+      <link>https://ge-chunyu.github.io/tags/pandoc/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/pandoc/</guid>
+      <guid>https://ge-chunyu.github.io/tags/pandoc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LaTeX</title>
-      <link>/tags/latex/</link>
+      <link>https://ge-chunyu.github.io/tags/latex/</link>
       <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/latex/</guid>
+      <guid>https://ge-chunyu.github.io/tags/latex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>/tags/python/</link>
+      <link>https://ge-chunyu.github.io/tags/python/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/python/</guid>
+      <guid>https://ge-chunyu.github.io/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>web-scraping</title>
-      <link>/tags/web-scraping/</link>
+      <link>https://ge-chunyu.github.io/tags/web-scraping/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/web-scraping/</guid>
+      <guid>https://ge-chunyu.github.io/tags/web-scraping/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sublime text</title>
-      <link>/tags/sublime-text/</link>
+      <link>https://ge-chunyu.github.io/tags/sublime-text/</link>
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/sublime-text/</guid>
+      <guid>https://ge-chunyu.github.io/tags/sublime-text/</guid>
       <description></description>
     </item>
     

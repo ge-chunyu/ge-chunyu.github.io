@@ -96,39 +96,26 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
   <h2 class="subtitle is-6">December 6, 2019</h2>
   <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Writing Praat scripts in a modular way</h1>
   <div class="content">
-    
-
-<p><a href="https://praat.org">Praat</a> is widely used in phonetic research. Working with Praat involves inevitably the <em>Praat scripting</em>. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself?</p>
-
+    <p><a href="https://praat.org">Praat</a> is widely used in phonetic research. Working with Praat involves inevitably the <em>Praat scripting</em>. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself?</p>
 <p>Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the scripts. Users of Praat may be great phoneticians, but rarely are they professional programmers. When I write my own Praat scripts, I try to explicitly adopt some principles and conventions to facilitate the reusability of code. This post is about these principles and conventions.</p>
-
 <h2 id="drawbacks-of-existing-praat-scripts">Drawbacks of existing Praat scripts</h2>
-
 <p>In working with various Praat scripts, I find two drawbacks of some scripts:</p>
-
 <ol>
 <li>Functions of some scripts are too specific</li>
 <li>Some scripts are designed to perform two or more tasks simultaneously</li>
 </ol>
-
 <p>These two features have some negative effects. Using scripts with specific functions can lead to tailoring when customizing them to one&rsquo;s own needs. Sometimes, the tinkering even takes more time than if one decides to write his own scripts right away. To perform several tasks at the same time may save some time, but doing research is never an once for all affair. It is usual for one to go back to revise some of the steps he has taken before. Now the scripts with too many functions get on his way. Undesirable functions distract him, and if he wants to get rid of it, once again he falls into the trap of tailoring.</p>
-
 <h2 id="the-unix-pholosophy-and-modular-programming">The Unix pholosophy and modular programming</h2>
-
 <p>Professional programmers offer their wisdom. The <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix Philosophy</a> and the <a href="https://en.wikipedia.org/wiki/Modular_programming">modular programming</a>[^1] are priceless in this scenario. The Unix philosophy says that <em>Small is beatiful</em> and requires programs to <em>do one thing well</em>. This inspired me to reflect on the workflow of phonetic research using Praat. Phonetic research starts with <em>annotation</em> and <em>segmentation</em> in Praat, and steps to <em>acoustic analysis</em>. Annotation and segmentation are two separate tasks. It is better to do these tasks using separate scripts.</p>
-
 <p>Another useful idea is <a href="https://en.wikipedia.org/wiki/Modular_programming">modular programming</a>. Modular programming is the practice of splitting a large programme into separate modes. It improves the reusability of codes. Modular programming requires you to pay attention to <a href="https://www.oreilly.com/library/view/the-pragmatic-programmer/9780135956977/f_0028.xhtml">orthogonality</a>. I will illustrate this idea in the next section.</p>
-
 <h2 id="use-procedure">Use <code>procedure</code></h2>
-
 <p>We can abstract common tasks into functions. Praat provide a mechanism called <code>procedure</code>, which can accept parameters and do certain commands. It differs from a <code>function</code> command in other programming languages in that <code>procedure</code> can not return values or objects.</p>
-
 <p>Making illustrations with Praat is tedious manually. Using <code>procedure</code>, it is much easier to make illustrations, and minor revisions are needed to customize the pictures. Suppose I want to draw the waveform of a sound file together with the annotation file. It is OK to select both obeject and draw them together, as follows.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">selectObject: &#34;Sound test&#34;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">selectObject: &#34;Sound test&#34;
 plusObject: &#34;TextGrid test&#34;
-Draw: 0, 0, &#34;yes&#34;, &#34;yes&#34;, &#34;yes&#34;</pre></div>
-<p>However, this approach is not modular. Suppose later I want to draw the spectrogram of the sound file together with its annotation, there is no available function as to &ldquo;draw TextGrid together with a spectrogram&rdquo;. This leads me to abstract the drawing of <code>TextGrid</code> as a procedure, which can be used together with other procedures.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">procedure draw_TextGrid: .baseName$, .start, .end
+Draw: 0, 0, &#34;yes&#34;, &#34;yes&#34;, &#34;yes&#34;
+</code></pre></div><p>However, this approach is not modular. Suppose later I want to draw the spectrogram of the sound file together with its annotation, there is no available function as to &ldquo;draw TextGrid together with a spectrogram&rdquo;. This leads me to abstract the drawing of <code>TextGrid</code> as a procedure, which can be used together with other procedures.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">procedure draw_TextGrid: .baseName$, .start, .end
     selectObject: &#34;TextGrid &#34; + .baseName$
     Select inner viewport: 1, 4, 1, 3
     Draw: .start, .end, &#34;yes&#34;, &#34;yes&#34;, &#34;no&#34;
@@ -136,15 +123,15 @@ Draw: 0, 0, &#34;yes&#34;, &#34;yes&#34;, &#34;yes&#34;</pre></div>
     Axes: 0, .end - .start, 0, 5000
     Marks bottom: 5, &#34;yes&#34;, &#34;yes&#34;, &#34;no&#34;
     Text bottom: &#34;yes&#34;, &#34;Time (s)&#34;
-endproc</pre></div>
-<p>At first glance, this procedure contains more lines than the previous block. The advantage of this procedure is that you can use it independently in any occassion you want, together with other procedures you define. To illustrate, I wrote another procedure which draws the waveform of a sound.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">procedure draw_waveform: .baseName$, .start, .end
+endproc
+</code></pre></div><p>At first glance, this procedure contains more lines than the previous block. The advantage of this procedure is that you can use it independently in any occassion you want, together with other procedures you define. To illustrate, I wrote another procedure which draws the waveform of a sound.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">procedure draw_waveform: .baseName$, .start, .end
     selectObject: &#34;Sound &#34; + baseName$
     Select inner viewport: 1, 4, 1, 2.15
     Draw: .start, .end, 0, 0, &#34;no&#34;, &#34;Curve&#34;
-endproc</pre></div>
-<p>And another procedure which draws the spectrogram:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">procedure draw_spectrogram: .baseName$, .start, .end
+endproc
+</code></pre></div><p>And another procedure which draws the spectrogram:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">procedure draw_spectrogram: .baseName$, .start, .end
     selectObject: &#34;Sound &#34; + .baseName$
     To Spectrogram: 0.005, 5000, 0.002, 20, &#34;Gaussian&#34;
     selectObject: &#34;Spectrogram &#34; + .baseName$
@@ -153,9 +140,9 @@ endproc</pre></div>
     Axes: .start, .end, 0, 5000
     Marks left: 6, &#34;yes&#34;, &#34;yes&#34;, &#34;no&#34;
     Text left: &#34;yes&#34;, &#34;Frequency (Hz)&#34;
-endproc</pre></div>
-<p>The <code>draw_TextGrid</code> function can be used together with <code>draw_sound</code> or <code>draw_spectrogram</code> to draw the waveform or spectrogram together with the annotation. To change the size of the window, I only need to modify two parameters (<code>.start</code> and <code>.end</code>). I can even write another procedure which draws the pitch of the sound:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">procedure draw_pitch: .baseName$, .floor, .ceiling, .start, .end
+endproc
+</code></pre></div><p>The <code>draw_TextGrid</code> function can be used together with <code>draw_sound</code> or <code>draw_spectrogram</code> to draw the waveform or spectrogram together with the annotation. To change the size of the window, I only need to modify two parameters (<code>.start</code> and <code>.end</code>). I can even write another procedure which draws the pitch of the sound:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">procedure draw_pitch: .baseName$, .floor, .ceiling, .start, .end
     @smooth_pitch: .baseName$, .floor, .ceiling
     selectObject: &#34;Pitch smooth&#34;
     Select inner viewport: 1, 4, 1, 2.15
@@ -168,54 +155,38 @@ endproc</pre></div>
     Colour: &#34;Black&#34;
     Marks right: 4, &#34;yes&#34;, &#34;yes&#34;, &#34;no&#34;
     Text right: &#34;yes&#34;, &#34;Pitch (Hz)&#34;
-endproc</pre></div>
-<p>The procedure even calls another procedure within it.  It is this modular design that enables me to do complex things with Praat. The main structure remains highly readable. For example, to draw the waveform, spectrogram, pitch and annotation together, I only need to call these precedures in turn.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">@draw_spectrogram: baseName$, start, end
+endproc
+</code></pre></div><p>The procedure even calls another procedure within it.  It is this modular design that enables me to do complex things with Praat. The main structure remains highly readable. For example, to draw the waveform, spectrogram, pitch and annotation together, I only need to call these precedures in turn.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">@draw_spectrogram: baseName$, start, end
 @draw_tg: baseName$, start, end
-@draw_pitch: baseName$, floor, ceiling, start, end</pre></div>
-<p>It is like <a href="https://lego.com">lego</a>, that we can put simple pieces into amazing things.</p>
-
+@draw_pitch: baseName$, floor, ceiling, start, end
+</code></pre></div><p>It is like <a href="https://lego.com">lego</a>, that we can put simple pieces into amazing things.</p>
 <h2 id="the-structure-of-a-script">The structure of a script</h2>
-
 <p>Most of the Praat scripts are written to do <strong>batch</strong> tasks. Therefore, a general structure of script can be abstracted.</p>
-
 <p>To do a batch job, a script can be decomposed into the following parts:</p>
-
 <ul>
 <li>an I/O interface to the user: a <code>form</code> in Praat terms;</li>
 <li>a series of files/directories to be processed: a <code>String</code> in Praat terms;</li>
 <li>some thing to do to the files/directories: a <code>procedure</code> in Praat terms.</li>
 </ul>
-
 <p>People usually write a for loop and put all the things to do within it. This approach is not modular and reproducible. As illustrated in the previous section, to decompose the things to do into clearly-defined steps and wrap them using <code>procedure</code> can be useful. The functionality of a <code>procedure</code> can be easily used by other scripts, and it increases the <em>reusability</em> of codes.</p>
-
 <p>I included a <code>script_strcture.praat</code> script in this repo. It serves as a template for scripting. Simply add <code>procedures</code> at the end of the script and put them into the for loop. This saves a lot of typing.</p>
-
 <h2 id="conventions-of-writing-praat-scripts">Conventions of writing Praat scripts</h2>
-
 <p>To keep code clean easy to understand, it is good to maintain a consistent style. For <code>R</code>, there is the famous <a href="http://adv-r.had.co.nz/Style.html">style guide</a> by Hadley Wickham, and for <code>Python</code>, there is <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>. I apply some simple conventions to Praat scripting.</p>
-
 <p>When scripting in Praat, I keep some these conventions:</p>
-
 <ul>
 <li>camel case for variable names: <code>baseName$</code>;</li>
 <li>snake case for procedure names: <code>draw_waveform</code>.</li>
 </ul>
-
 <p>To keep procedures modular, I use consistent and meaningful variable names across all scripts. Some frequent variables are listed below:</p>
-
 <ul>
 <li><code>baseName$</code>: the name of sound files or TextGrid files without extensions. It&rsquo;s used to refer to objects in Praat editors;</li>
 <li><code>extension$</code>: the file extension. It can also be</li>
 <li><code>fileList$</code>: the name of the <code>String of file</code> in Praat.</li>
 </ul>
-
 <p>Of course you can have your own conventions, but make sure to keep them consistent. For other style options, I always refer to the style guides of <a href="http://adv-r.had.co.nz/Style.html">R</a> and <a href="https://www.python.org/dev/peps/pep-0008/">Python</a>.</p>
-
 <p>I put some of the scripts I wrote in this <a href="https://github.com/ge-chunyu/praat_scripts/">repository</a>, and I will keep updating.</p>
-
 <h2 id="resources-of-praat-scripts">Resources of praat scripts</h2>
-
 <ul>
 <li><a href="http://praatscripting.lingphon.net/">Praat Scripting Tutorial</a>;</li>
 <li><a href="http://phonetics.linguistics.ucla.edu/facilities/acoustic/praat.html">Praat Script Resources</a>;</li>
