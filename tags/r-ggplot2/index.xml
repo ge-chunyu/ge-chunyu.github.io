@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R, ggplot2 on 不辍弦歌</title>
-    <link>https://ge-chunyu.github.io/tags/r-ggplot2/</link>
-    <description>Recent content in R, ggplot2 on 不辍弦歌</description>
+    <title>R, ggplot2 on </title>
+    <link>/tags/r-ggplot2/</link>
+    <description>Recent content in R, ggplot2 on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2020</copyright>
     <lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ge-chunyu.github.io/tags/r-ggplot2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/r-ggplot2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to define aesthetic mappings of ggplot2 within another function</title>
-      <link>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</link>
+      <link>/posts/2020-03-ggplot-function/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</guid>
+      <guid>/posts/2020-03-ggplot-function/</guid>
       <description>ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches.
 First of all, let&amp;rsquo;s load the required packages and some test data.
-library(ggplot2) library(dplyr) data(&amp;#34;mtcars&amp;#34;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2, aes_string() and aes_().</description>
+library(ggplot2) library(dplyr) data(&amp;quot;mtcars&amp;quot;)  Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2, aes_string() and aes_().</description>
     </item>
     
   </channel>
