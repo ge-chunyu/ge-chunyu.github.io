@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 不辍弦歌</title>
+    <title>Tags on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/</link>
-    <description>Recent content in Tags on 不辍弦歌</description>
+    <description>Recent content in Tags on Chunyu Ge</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2020</copyright>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2022</copyright>
     <lastBuildDate>Thu, 20 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>天文</title>
-      <link>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87/</link>
+      <title>astronomy</title>
+      <link>https://ge-chunyu.github.io/tags/astronomy/</link>
       <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87/</guid>
+      <guid>https://ge-chunyu.github.io/tags/astronomy/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R, ggplot2</title>
-      <link>https://ge-chunyu.github.io/tags/r-ggplot2/</link>
+      <title>ggplot2</title>
+      <link>https://ge-chunyu.github.io/tags/ggplot2/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ge-chunyu.github.io/tags/r-ggplot2/</guid>
+      <guid>https://ge-chunyu.github.io/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://ge-chunyu.github.io/tags/r/</link>
+      <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/tags/r/</guid>
       <description></description>
     </item>
     

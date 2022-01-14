@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on 不辍弦歌</title>
+    <title>Categories on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/categories/</link>
-    <description>Recent content in Categories on 不辍弦歌</description>
+    <description>Recent content in Categories on Chunyu Ge</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2020</copyright><atom:link href="https://ge-chunyu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2022</copyright><atom:link href="https://ge-chunyu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

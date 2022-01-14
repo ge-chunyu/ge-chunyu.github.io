@@ -1,102 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang='' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 
 
+<title>春秋时期的天文：十二次与分野 | Chunyu Ge</title>
+<link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
+<script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
 
 
-<title>春秋时期的天文：十二次与分野 | 不辍弦歌</title>
-
-<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
-integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
-
-
-
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
-<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
-
-
-
-
-<script type="text/javascript"
-    async
-    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [['$','$'], ['\\(','\\)']],
-            displayMath: [['$$','$$'], ['\[\[','\]\]']],
-            processEscapes: true,
-            processEnvironments: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
-        }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
     });
-
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i = 0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
+  });
 </script>
 
-<style>
-    code.has-jax {
-        font: inherit;
-        font-size: 100%;
-        background: inherit;
-        border: inherit;
-        color: #515151;
+
+
+<meta name="description"
+  content="天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"春秋时期的天文：十二次与分野",
+      "item":"https://ge-chunyu.github.io/posts/2020-08-cq-fenye/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2020-08-cq-fenye/"
+    },
+    "headline": "春秋时期的天文：十二次与分野 | Chunyu Ge","datePublished": "2020-08-20T00:00:00+00:00",
+    "dateModified": "2020-08-20T00:00:00+00:00",
+    "wordCount":  3263 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球"
+}
+</script><meta property="og:title" content="春秋时期的天文：十二次与分野 | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2020-08-cq-fenye/" />
+
+
+
+
+<meta property="og:description" content="天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球" />
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-08-20T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-08-20T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="astronomy" />
+
+
+
+
+
+<meta property="og:see_also" content="https://ge-chunyu.github.io/posts/2020-08-cq-astrology/" />
+
+<meta property="og:see_also" content="https://ge-chunyu.github.io/posts/2020-08-cq-eclipse/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-</style>
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-<div class="container">
-    <nav class="navbar level">
-      <div class="navbar-brand">
-          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
-      </div>           
-      <div class="navbar-menu has-text-centered is-active">
-          <div class="navbar-end is-centered">
-              
-                <a href="https://ge-chunyu.github.io/about" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-info"></i>
-                  </span>
-                </a>
-              
-                <a href="https://github.com/ge-chunyu/" rel="me">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                </a>
-              
-                <a href="mailto:gechunyu92@hotmail.com" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                </a>
-              
-           </div>
-      </div>
-    </nav>
-  </div>
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
 
-<div class="container">
-  <h2 class="subtitle is-6">August 20, 2020</h2>
-  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">春秋时期的天文：十二次与分野</h1>
-  <div class="content">
-    <p>天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球之间的相对位置不同会导致地球上所能看到行星反射太阳光面积大小不同的情况。同样的原因造成了月圆月缺，行星也有类似的现象，比如金星就有相位变化。但是由于金星离地球较远，又有致密的大气层，所以直到伽利略才通过望远镜发现金星也有相位变化。</p>
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">春秋时期的天文：十二次与分野</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-08-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>7 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球之间的相对位置不同会导致地球上所能看到行星反射太阳光面积大小不同的情况。同样的原因造成了月圆月缺，行星也有类似的现象，比如金星就有相位变化。但是由于金星离地球较远，又有致密的大气层，所以直到伽利略才通过望远镜发现金星也有相位变化。</p>
 <p>太阳系有九颗行星，离太阳由近到远分别是水星、金星、地球、火星、木星、土星、天王星、海王星。天王星和海王星直到十九世纪才被发现，天王星是 William Herschel 通过望远镜发现的，而海王星最早则是英法两国的学者通过计算发现的（这还引起了英法两国争夺海王星命名的<a href="https://aeon.co/essays/how-gods-beat-astronomers-in-the-solar-system-name-game">争论</a>）。除了我们赖以生存的地球之外，不借助望远镜，人类只能看到水星、金星、火星、木星、土星五颗行星。古人认为这五颗行星代表了五行。襄公二十八年《正义》：“五星者，五行之精也。历书称木精曰岁星，火精曰荧惑，土精曰镇星，金精曰太白，水精曰辰星。此五者皆右行于天。”木星最初叫岁星、火星叫荧惑、土星叫镇星、金星叫太白、水星叫辰星。火星之所以叫荧惑，是因为火星的轨道运动导致它在地球上的视运动极其复杂，足以令人迷惑。土星叫镇星，镇和填是一样的，即指土星为土精。金星叫太白是以金星的颜色来命名的。金星又叫启明和长庚。《诗经·谷风之什·大东》：“东有启明，西有长庚。”金星是内行星，与太阳的距离不会太远，因此一般在日出之前或日落之后最便于观测。金星在日出之前出现就叫启明，在日落之后出现就叫长庚，取赓续日光之义。水星叫辰星。《星象》中认为“辰”可以指任何鲜明的天体，因而又可以指水星。问题在于，水星作为离太阳最近的行星，常常为日光所掩，不便观测，实在称不上鲜明。木星叫岁星的原因就是本篇的主题。</p>
 <p>襄公九年晋悼公问季武子鲁襄公的年纪，季武子说：“会于沙随之岁，寡君以生。”晋悼公说：“十二年矣。是谓一终，一星终也。”杜预注：“岁星十二年而一周天。”《正义》：“知是岁星者，以古今历书推步五星，金、水日行一度；土三百七十七日，行星十二度；火七百八十日，行星四百一十五度，四者皆不得十二年而一终。唯木三百九十八日，行星三十三度，十二年而强一周。”木星的公转周期是 11.86 年，因此说十二年而走一周多。因为知道木星的周期大约为十二年，古人将黄道分为十二部分。这样就可以根据木星的位置来纪年。在春秋时期，各国都以国君来纪年，这对于国际交流极其不便。以木星的位置来纪年就迎合了这种需求。这就是木星被称作岁星的原因。</p>
 <p>黄道是太阳与行星视运动轨迹扫过的一片天区。黄道分为的十二个部分就称之为十二次。古人不仅将黄道划分为十二次，还把地理区域与十二次对应起来。地理区域与黄道天区的对应就称之为分野。十二次主要记载在《周礼·春官·保章氏》郑玄注中；《尔雅·释天》中也记载了其中几个星次；《汉书·律历志》也记载了十二次，并把十二次与二十八宿对应起来。二十八宿与十二次一样，都是黄道天区，二十八宿各有距星，古人以天体离距星的距离和离北天极的距离来作为天体的坐标。天体离北天极的距离称为去极度，为赤纬的余角；而天体的赤经与现代通用的以春分点来作为标准不同，是以二十八宿的距星为标准的，这称之为入宿度。二十八宿并不是等分的，而为了配合岁星大约十二年一周的运行周期，古人将黄道大致平均分为十二次。因此，十二次可以与二十八宿对应，又可以与地理区域对应；另外，由于岁星可以用来纪年，岁星还可以与十二地支对应；古人又假想了与岁星对应的在地上运行的太岁，它与岁星对应，经过的十二个区域称为岁阴。下面这张表就说明了十二次与二十八宿、十二地支、列国分野、岁阴的对应关系。</p>
@@ -199,28 +327,68 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 </ol>
 </section>
 
-  </div>
-</div>
-<div class="container has-text-centered">
+        </div>
+        
+        <div class="my-4">
     
-    <aside><div id="share"></div></aside>
-    <script type="text/javascript">
-        $("#share").jsSocials({
-            showLabel: false,
-            showCount: false,
-            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
-        });
-    </script>
+    <a href="https://ge-chunyu.github.io/tags/astronomy/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#astronomy</a>
     
 </div>
-
-<div class="container has-text-centered">
-  
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2020-08-cq-astrology/" class="block">春秋时期的天文：星象</a>
+        
+    </div>
 </div>
-<section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2020</p>
-  </div>
-</section>
 
+        
+    </div>
+    
 
+    
+    
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">See Also</h2>
+        <div class="content">
+            
+            <a href="https://ge-chunyu.github.io/posts/2020-08-cq-astrology/">春秋时期的天文：星象</a>
+            <br />
+            
+            <a href="https://ge-chunyu.github.io/posts/2020-08-cq-eclipse/">春秋时期的天文：日食</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2022 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>

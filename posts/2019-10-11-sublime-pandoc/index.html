@@ -1,102 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang='' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 
 
+<title>Writing academic papers using Sublime Text 3 &#43; Pandoc | Chunyu Ge</title>
+<link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
+<script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
 
 
-<title>Writing academic papers using Sublime Text 3 &#43; Pandoc | 不辍弦歌</title>
-
-<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
-integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
-
-
-
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
-<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
-
-
-
-
-<script type="text/javascript"
-    async
-    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [['$','$'], ['\\(','\\)']],
-            displayMath: [['$$','$$'], ['\[\[','\]\]']],
-            processEscapes: true,
-            processEnvironments: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
-        }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
     });
-
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i = 0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
+  });
 </script>
 
-<style>
-    code.has-jax {
-        font: inherit;
-        font-size: 100%;
-        background: inherit;
-        border: inherit;
-        color: #515151;
+
+
+<meta name="description"
+  content="This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc. Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need. Sublime">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Writing academic papers using Sublime Text 3 + Pandoc",
+      "item":"https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/"
+    },
+    "headline": "Writing academic papers using Sublime Text 3 \u002b Pandoc | Chunyu Ge","datePublished": "2019-10-11T00:00:00+00:00",
+    "dateModified": "2019-10-11T00:00:00+00:00",
+    "wordCount":  889 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc. Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need. Sublime"
+}
+</script><meta property="og:title" content="Writing academic papers using Sublime Text 3 &#43; Pandoc | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/" />
+
+
+
+
+<meta property="og:description" content="This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc. Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need. Sublime" />
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-10-11T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-10-11T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="pandoc" />
+
+<meta property="article:tag" content="sublime text" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-</style>
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-<div class="container">
-    <nav class="navbar level">
-      <div class="navbar-brand">
-          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
-      </div>           
-      <div class="navbar-menu has-text-centered is-active">
-          <div class="navbar-end is-centered">
-              
-                <a href="https://ge-chunyu.github.io/about" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-info"></i>
-                  </span>
-                </a>
-              
-                <a href="https://github.com/ge-chunyu/" rel="me">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                </a>
-              
-                <a href="mailto:gechunyu92@hotmail.com" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                </a>
-              
-           </div>
-      </div>
-    </nav>
-  </div>
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
 
-<div class="container">
-  <h2 class="subtitle is-6">October 11, 2019</h2>
-  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Writing academic papers using Sublime Text 3 &#43; Pandoc</h1>
-  <div class="content">
-    <p>This post explains how to write academic papers using <em>Sublime Text 3</em> in <em>markdown</em> format and transform the .md file into .docx and pdf files using <em>pandoc</em>.</p>
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Writing academic papers using Sublime Text 3 &#43; Pandoc</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-10-11</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>This post explains how to write academic papers using <em>Sublime Text 3</em> in <em>markdown</em> format and transform the .md file into .docx and pdf files using <em>pandoc</em>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>To write academic papers in <em>markdown</em> format requires a <strong>markdown editor</strong>, a <strong>format trnasformer</strong>, maybe also a <strong>literature manager</strong>. I use <em>Sublime Text 3</em> as the markdown edit, <em>Pandoc</em> as the format transformer, and <em>Zotero</em> as the literature manager. This section lists the things we need.</p>
 <h3 id="sublime-text-3-and-plugins">Sublime Text 3 and plugins</h3>
@@ -119,74 +243,156 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <p>It is common tasks to add citations, insert tables, and insert figures when writing academic papers. Sublime Text 3, along with various packages, provides us with powerful tools to compelete such tasks.</p>
 <h4 id="adding-citations-use-citer">Adding citations use <em>Citer</em></h4>
 <p>Once we have installed Citer via Package Control, we can modify the settings of Citer. Add the following lines into the user settings (Preferences -&gt; Package Settings -&gt; Citer -&gt; Citer Setting-User), and change the &ldquo;bibtex_file_path&rdquo; parameter according to the path of your bibtex files. Multiple bibtex files can be add to the <code>bibtex_file_path</code> separated by a comma and surrounded with brackets (<code>[]</code>).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">{
+<pre><code>{
     //REQUIRED:
 
-    &#34;bibtex_file_path&#34;: &#34;your bibtex path&#34;,
+    &quot;bibtex_file_path&quot;: &quot;your bibtex path&quot;,
 
     //OPTIONAL:
   
     //By default Citer Search looks for your keyword in the 
     //author, title, year, and Citekey (id) fields
-    &#34;search_fields&#34;: [&#34;author&#34;, &#34;title&#34;, &#34;year&#34;, &#34;id&#34;] ,
+    &quot;search_fields&quot;: [&quot;author&quot;, &quot;title&quot;, &quot;year&quot;, &quot;id&quot;] ,
     //Default format is @Citekey
-    &#34;citation_format&#34;: &#34;@%s&#34;,
-    //list of scopes. Could be top level &#34;text&#34; or &#34;source&#34;, or limit to
-    // e.g &#34;text.html.markdown&#34;
-    &#34;completions_scopes&#34;: [&#34;text&#34;],
-    &#34;enable_completions&#34;: true
+    &quot;citation_format&quot;: &quot;@%s&quot;,
+    //list of scopes. Could be top level &quot;text&quot; or &quot;source&quot;, or limit to
+    // e.g &quot;text.html.markdown&quot;
+    &quot;completions_scopes&quot;: [&quot;text&quot;],
+    &quot;enable_completions&quot;: true
 }
-</code></pre></div><p>Save the setting file. Type <code>Ctrl-Shift-P</code> and the Package Control palette pops up. Type <code>show all</code>, and select the command <code>Citer: Show all</code>, all the entries in the bibtex files should pop up. Select the entry you would like to cite, and press <code>Enter</code>. The entry appears in the file in this form <code>@author1990</code> (@authorYear).</p>
+</code></pre>
+<p>Save the setting file. Type <code>Ctrl-Shift-P</code> and the Package Control palette pops up. Type <code>show all</code>, and select the command <code>Citer: Show all</code>, all the entries in the bibtex files should pop up. Select the entry you would like to cite, and press <code>Enter</code>. The entry appears in the file in this form <code>@author1990</code> (@authorYear).</p>
 <h3 id="pandoc-1">Pandoc</h3>
 <p>Use Pandoc is easy and to modify the templates is rather challenging, especially if you wish to modify the LaTeX template. It implies that you know fairly well about LaTeX. To make Pandoc compatible with Chinese characters is another challenging task. Pandoc is a command line tool, so make sure you enter all the commands in the terminal (or <code>cmd</code> in Windows)</p>
 <h4 id="transformation-between-md-docx-and-pdf-files">Transformation between .md, .docx, and pdf files</h4>
 <p>Transforming .md files into .docx and .pdf files is straightforward. Go to the path where your .md files are, and type in the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd path                              <span style="color:#75715e"># change directory to where your md files are                  </span>
-pandoc file.md -o file.pdf           <span style="color:#75715e"># md -&gt; pdf</span>
-pandoc file.md -o file.docx          <span style="color:#75715e"># md -&gt; docx</span>
-</code></pre></div><h4 id="adding-references">Adding references</h4>
+<pre><code class="language-bash">cd path                              # change directory to where your md files are                  
+pandoc file.md -o file.pdf           # md -&gt; pdf
+pandoc file.md -o file.docx          # md -&gt; docx
+</code></pre>
+<h4 id="adding-references">Adding references</h4>
 <p>Adding references to a markdown file is also straightforward, simply use the <code>pandoc-citeproc</code> program, and specify the path of the bibtex file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># md -&gt; pdf</span>
-pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</span>file.bib file.md -o file.pdf
-<span style="color:#75715e"># md -&gt; docx</span>
-pandoc --filter pandoc-citeproc --bibliography<span style="color:#f92672">=</span>file.bib file.md -o file.docx
-</code></pre></div><h4 id="using-templates">Using templates</h4>
+<pre><code class="language-bash"># md -&gt; pdf
+pandoc --filter pandoc-citeproc --bibliography=file.bib file.md -o file.pdf
+# md -&gt; docx
+pandoc --filter pandoc-citeproc --bibliography=file.bib file.md -o file.docx
+</code></pre>
+<h4 id="using-templates">Using templates</h4>
 <p>You can output .md files to .docx and pdf files with various formats by modifying the default templates (Please also refer to the <a href=""><em>Pandoc User&rsquo;s Guide</em></a>).</p>
 <h5 id="modify-the-default-docx-template">Modify the default docx template</h5>
 <p>To modify the default docx template, first print the default dicx template used by Pandoc with the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc --print-default-data-file reference.docx &gt; custom-reference.docx 
-</code></pre></div><p>To modify the default docx reference file, it does not work to simply change the style of the contents. Rather, define the styles you would love to use in the Style options provided by MS Word.</p>
+<pre><code class="language-bash">pandoc --print-default-data-file reference.docx &gt; custom-reference.docx 
+</code></pre>
+<p>To modify the default docx reference file, it does not work to simply change the style of the contents. Rather, define the styles you would love to use in the Style options provided by MS Word.</p>
 <p>To use the sepcifies reference file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc file.md -o file.docx --reference-doc<span style="color:#f92672">=</span>custom-reference.docx
-</code></pre></div><h5 id="modify-the-default-latex-template">Modify the default LaTeX template</h5>
+<pre><code class="language-bash">pandoc file.md -o file.docx --reference-doc=custom-reference.docx
+</code></pre>
+<h5 id="modify-the-default-latex-template">Modify the default LaTeX template</h5>
 <h4 id="make-pandoc-compatible-with-chinese-pandoc的中文输出">Make pandoc compatible with Chinese (Pandoc的中文输出)</h4>
 <p>To make pandoc compatible with Chinese, we have to specify the pdf engine and the font (this is not required when transforming to .docx):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span style="color:#f92672">=</span>xelatex -V mainfont<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SimSun&#34;</span> file.md -o file.pdf 
-</code></pre></div><p>To use whatever font you like, type in the font name after <code>mainfont=</code>. To know what fonts you have in your laptop, type <code>fc-list :lang=zh</code> in Windows cmd, or look up in <em>Font Book</em> in MacOS.</p>
+<pre><code class="language-bash">pandoc --pdf-engine=xelatex -V mainfont=&quot;SimSun&quot; file.md -o file.pdf 
+</code></pre>
+<p>To use whatever font you like, type in the font name after <code>mainfont=</code>. To know what fonts you have in your laptop, type <code>fc-list :lang=zh</code> in Windows cmd, or look up in <em>Font Book</em> in MacOS.</p>
 <p>There is another serious problem with Chinese pdf files created with pandoc. It cannot automatically change line. So a Chinese pdf file simply spans beyond the range of the current file. To overcome this problem, we need to modify the default LaTeX template.</p>
 
-  </div>
-</div>
-<div class="container has-text-centered">
+        </div>
+        
+        <div class="my-4">
     
-    <aside><div id="share"></div></aside>
-    <script type="text/javascript">
-        $("#share").jsSocials({
-            showLabel: false,
-            showCount: false,
-            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
-        });
-    </script>
+    <a href="https://ge-chunyu.github.io/tags/pandoc/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#pandoc</a>
+    
+    <a href="https://ge-chunyu.github.io/tags/sublime-text/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#sublime text</a>
     
 </div>
-
-<div class="container has-text-centered">
-  
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/" class="block">Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+    </div>
 </div>
-<section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2020</p>
-  </div>
-</section>
 
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a>
+      <ul>
+        <li><a href="#sublime-text-3-and-plugins">Sublime Text 3 and plugins</a></li>
+        <li><a href="#pandoc">Pandoc</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#sublime-text-3-and-plugins-1">Sublime Text 3 and plugins</a>
+          <ul>
+            <li><a href="#adding-citations-use-citer">Adding citations use <em>Citer</em></a></li>
+          </ul>
+        </li>
+        <li><a href="#pandoc-1">Pandoc</a>
+          <ul>
+            <li><a href="#transformation-between-md-docx-and-pdf-files">Transformation between .md, .docx, and pdf files</a></li>
+            <li><a href="#adding-references">Adding references</a></li>
+            <li><a href="#using-templates">Using templates</a>
+              <ul>
+                <li><a href="#modify-the-default-docx-template">Modify the default docx template</a></li>
+                <li><a href="#modify-the-default-latex-template">Modify the default LaTeX template</a></li>
+              </ul>
+            </li>
+            <li><a href="#make-pandoc-compatible-with-chinese-pandoc的中文输出">Make pandoc compatible with Chinese (Pandoc的中文输出)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
 
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2022 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>

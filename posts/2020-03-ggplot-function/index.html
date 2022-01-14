@@ -1,169 +1,332 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang='' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 
 
+<title>How to define aesthetic mappings of ggplot2 within another function | Chunyu Ge</title>
+<link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
+<script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
 
 
-<title>How to define aesthetic mappings of ggplot2 within another function | 不辍弦歌</title>
-
-<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
-integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
-
-
-
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
-<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
-
-
-
-
-<script type="text/javascript"
-    async
-    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [['$','$'], ['\\(','\\)']],
-            displayMath: [['$$','$$'], ['\[\[','\]\]']],
-            processEscapes: true,
-            processEnvironments: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
-        }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
     });
-
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i = 0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
+  });
 </script>
 
-<style>
-    code.has-jax {
-        font: inherit;
-        font-size: 100%;
-        background: inherit;
-        border: inherit;
-        color: #515151;
-    }
-</style>
 
-<div class="container">
-    <nav class="navbar level">
-      <div class="navbar-brand">
-          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
-      </div>           
-      <div class="navbar-menu has-text-centered is-active">
-          <div class="navbar-end is-centered">
-              
-                <a href="https://ge-chunyu.github.io/about" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-info"></i>
-                  </span>
-                </a>
-              
-                <a href="https://github.com/ge-chunyu/" rel="me">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                </a>
-              
-                <a href="mailto:gechunyu92@hotmail.com" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                </a>
-              
-           </div>
-      </div>
-    </nav>
-  </div>
 
-<div class="container">
-  <h2 class="subtitle is-6">March 28, 2020</h2>
-  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">How to define aesthetic mappings of ggplot2 within another function</h1>
-  <div class="content">
-    <p><code>ggplot2</code> is great for visualization, but sometimes we need to include <code>ggplot2</code> functions within another function. <code>ggplot()</code> uses <code>aes()</code> to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using <code>ggplot()</code>? In this post I will present several approaches.</p>
-<p>First of all, let&rsquo;s load the required packages and some test data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(ggplot2)
-<span style="color:#a6e22e">library</span>(dplyr)
-<span style="color:#a6e22e">data</span>(<span style="color:#e6db74">&#34;mtcars&#34;</span>)
-</code></pre></div><h2 id="using-aes_string">Using <code>aes_string()</code></h2>
-<p>There are two standard ways to define aesthetic mappings in <code>ggplot2</code>, <code>aes_string()</code> and <code>aes_()</code>. Writing a function using <code>aes_string()</code> is the same as using <code>aes()</code>, but calling the function requires passing the variable names as strings to the function.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">plot_point_aes_string <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(data, x, y, c) {
-  <span style="color:#a6e22e">ggplot</span>(data, <span style="color:#a6e22e">aes_string</span>(x, y, color <span style="color:#f92672">=</span> c)) <span style="color:#f92672">+</span>
-    <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
-    <span style="color:#a6e22e">theme_light</span>()
+<meta name="description"
+  content="ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let&rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(&quot;mtcars&quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"How to define aesthetic mappings of ggplot2 within another function",
+      "item":"https://ge-chunyu.github.io/posts/2020-03-ggplot-function/"}]
 }
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">plot_point_aes_string</span>(mtcars, <span style="color:#e6db74">&#34;mpg&#34;</span>, <span style="color:#e6db74">&#34;wt&#34;</span>, <span style="color:#e6db74">&#34;cyl&#34;</span>)
-</code></pre></div><p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-3-1.png" alt=""><!-- raw HTML omitted --></p>
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2020-03-ggplot-function/"
+    },
+    "headline": "How to define aesthetic mappings of ggplot2 within another function | Chunyu Ge","datePublished": "2020-03-28T00:00:00+00:00",
+    "dateModified": "2020-03-28T00:00:00+00:00",
+    "wordCount":  328 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let\u0026rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(\u0026quot;mtcars\u0026quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,"
+}
+</script><meta property="og:title" content="How to define aesthetic mappings of ggplot2 within another function | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2020-03-ggplot-function/" />
+
+
+
+
+<meta property="og:description" content="ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let&rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(&quot;mtcars&quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2," />
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2020-03-28T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2020-03-28T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="R" />
+
+<meta property="article:tag" content="ggplot2" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">How to define aesthetic mappings of ggplot2 within another function</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-03-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p><code>ggplot2</code> is great for visualization, but sometimes we need to include <code>ggplot2</code> functions within another function. <code>ggplot()</code> uses <code>aes()</code> to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using <code>ggplot()</code>? In this post I will present several approaches.</p>
+<p>First of all, let&rsquo;s load the required packages and some test data.</p>
+<pre><code class="language-r">library(ggplot2)
+library(dplyr)
+data(&quot;mtcars&quot;)
+</code></pre>
+<h2 id="using-aes_string">Using <code>aes_string()</code></h2>
+<p>There are two standard ways to define aesthetic mappings in <code>ggplot2</code>, <code>aes_string()</code> and <code>aes_()</code>. Writing a function using <code>aes_string()</code> is the same as using <code>aes()</code>, but calling the function requires passing the variable names as strings to the function.</p>
+<pre><code class="language-r">plot_point_aes_string &lt;- function(data, x, y, c) {
+  ggplot(data, aes_string(x, y, color = c)) +
+    geom_point() +
+    theme_light()
+}
+</code></pre>
+<pre><code class="language-r">plot_point_aes_string(mtcars, &quot;mpg&quot;, &quot;wt&quot;, &quot;cyl&quot;)
+</code></pre>
+<p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-3-1.png" alt=""><!-- --></p>
 <h2 id="use-aes_">Use <code>aes_()</code></h2>
 <p>Alternatively, we can use <code>aes_()</code>, which is slightly different from <code>aes_string()</code>. Wrapping <code>aes_()</code> into a function is the same as <code>aes()</code> and <code>aes_string()</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">plot_point_aes <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(data, x, y, c) {
-  <span style="color:#a6e22e">ggplot</span>(data, <span style="color:#a6e22e">aes_</span>(x, y, color <span style="color:#f92672">=</span> c)) <span style="color:#f92672">+</span>
-    <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
-    <span style="color:#a6e22e">theme_light</span>()
+<pre><code class="language-r">plot_point_aes &lt;- function(data, x, y, c) {
+  ggplot(data, aes_(x, y, color = c)) +
+    geom_point() +
+    theme_light()
 }
-</code></pre></div><p>The difference is the way to pass variable names. We can either pass the variable names as one-sided equations (<code>~variable names</code>) or as quotes (<code>quote(variable name)</code>).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">plot_point_aes</span>(mtcars, <span style="color:#f92672">~</span>mpg, <span style="color:#f92672">~</span>wt, <span style="color:#f92672">~</span>cyl)
-</code></pre></div><p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-5-1.png" alt=""><!-- raw HTML omitted --></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">plot_point_aes</span>(mtcars, <span style="color:#a6e22e">quote</span>(mpg), <span style="color:#a6e22e">quote</span>(wt), <span style="color:#a6e22e">quote</span>(cyl))
-</code></pre></div><p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-6-1.png" alt=""><!-- raw HTML omitted --></p>
+</code></pre>
+<p>The difference is the way to pass variable names. We can either pass the variable names as one-sided equations (<code>~variable names</code>) or as quotes (<code>quote(variable name)</code>).</p>
+<pre><code class="language-r">plot_point_aes(mtcars, ~mpg, ~wt, ~cyl)
+</code></pre>
+<p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-5-1.png" alt=""><!-- --></p>
+<pre><code class="language-r">plot_point_aes(mtcars, quote(mpg), quote(wt), quote(cyl))
+</code></pre>
+<p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-6-1.png" alt=""><!-- --></p>
 <h2 id="another-alternative">Another alternative</h2>
 <p>I happened to work out another method which circumvent both <code>aes_string()</code> and <code>aes_()</code>. Simply define the aesthetic mappings in the function, and later rename the variable names in the data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">plot_point <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(data, x, y, c) {
-  <span style="color:#a6e22e">ggplot</span>(data, <span style="color:#a6e22e">aes</span>(x, y, color <span style="color:#f92672">=</span> c)) <span style="color:#f92672">+</span>
-    <span style="color:#a6e22e">geom_point</span>() <span style="color:#f92672">+</span>
-    <span style="color:#a6e22e">theme_light</span>()
+<pre><code class="language-r">plot_point &lt;- function(data, x, y, c) {
+  ggplot(data, aes(x, y, color = c)) +
+    geom_point() +
+    theme_light()
 }
-</code></pre></div><p>Applying the tidy approach and using <code>mutate</code> to rename the variable names, which does not cause any side effect to the original data. But one thing to note is that the labels of the axes are what defined in the function.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">mtcars <span style="color:#f92672">%&gt;%</span>
-  <span style="color:#a6e22e">mutate</span>(x <span style="color:#f92672">=</span> mpg) <span style="color:#f92672">%&gt;%</span>
-  <span style="color:#a6e22e">mutate</span>(y <span style="color:#f92672">=</span> wt) <span style="color:#f92672">%&gt;%</span>
-  <span style="color:#a6e22e">mutate</span>(c <span style="color:#f92672">=</span> cyl) <span style="color:#f92672">%&gt;%</span>
-  <span style="color:#a6e22e">plot_point</span>(mtcars)
-</code></pre></div><p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-8-1.png" alt=""><!-- raw HTML omitted --></p>
+</code></pre>
+<p>Applying the tidy approach and using <code>mutate</code> to rename the variable names, which does not cause any side effect to the original data. But one thing to note is that the labels of the axes are what defined in the function.</p>
+<pre><code class="language-r">mtcars %&gt;%
+  mutate(x = mpg) %&gt;%
+  mutate(y = wt) %&gt;%
+  mutate(c = cyl) %&gt;%
+  plot_point(mtcars)
+</code></pre>
+<p><img src="/img/2020-03-ggplot-function_files/figure-html/unnamed-chunk-8-1.png" alt=""><!-- --></p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/50960339/create-ggplot2-function-and-specify-arguments-as-variables-in-data-as-per-ggplot">Creare ggplot2 function and specify arguments as variables in data as per ggolot</a></li>
 <li><a href="https://stackoverflow.com/questions/5106782/use-of-ggplot-within-another-function-in-r">Use of ggplot within another function</a></li>
 </ul>
 
-  </div>
-</div>
-<div class="container has-text-centered">
+        </div>
+        
+        <div class="my-4">
     
-    <aside><div id="share"></div></aside>
-    <script type="text/javascript">
-        $("#share").jsSocials({
-            showLabel: false,
-            showCount: false,
-            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
-        });
-    </script>
+    <a href="https://ge-chunyu.github.io/tags/r/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#R</a>
+    
+    <a href="https://ge-chunyu.github.io/tags/ggplot2/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#ggplot2</a>
     
 </div>
-
-<div class="container has-text-centered">
-  
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="https://ge-chunyu.github.io/posts/2020-08-cq-eclipse/" class="block">春秋时期的天文：日食</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2019-12-praat/" class="block">Writing Praat scripts in a modular way</a>
+        
+    </div>
 </div>
-<section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2020</p>
-  </div>
-</section>
 
+        
+    </div>
+    
 
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2022 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>

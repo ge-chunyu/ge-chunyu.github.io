@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>web-scraping on 不辍弦歌</title>
+    <title>web-scraping on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/web-scraping/</link>
-    <description>Recent content in web-scraping on 不辍弦歌</description>
+    <description>Recent content in web-scraping on Chunyu Ge</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2020</copyright>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2022</copyright>
     <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/web-scraping/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)</title>
@@ -14,8 +13,7 @@
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</guid>
-      <description>I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.
-Source of the texts The texts of Luxun are scraped from 子夜星网. As it claimed, it contains all the texts in the Complete works of Luxun(鲁迅全集).</description>
+      <description>I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source. Source of the texts The texts of Luxun are scraped from 子夜星网</description>
     </item>
     
   </channel>

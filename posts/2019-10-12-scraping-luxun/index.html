@@ -1,153 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang='' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 
 
+<title>Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》) | Chunyu Ge</title>
+<link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
+<script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
 
 
-<title>Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》) | 不辍弦歌</title>
-
-<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
-integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
-
-
-
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
-<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
-
-
-
-
-<script type="text/javascript"
-    async
-    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [['$','$'], ['\\(','\\)']],
-            displayMath: [['$$','$$'], ['\[\[','\]\]']],
-            processEscapes: true,
-            processEnvironments: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
-        }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
     });
-
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i = 0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
+  });
 </script>
 
-<style>
-    code.has-jax {
-        font: inherit;
-        font-size: 100%;
-        background: inherit;
-        border: inherit;
-        color: #515151;
+
+
+<meta name="description"
+  content="I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source. Source of the texts The texts of Luxun are scraped from 子夜星网">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)",
+      "item":"https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/"
+    },
+    "headline": "Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》) | Chunyu Ge","datePublished": "2019-10-12T00:00:00+00:00",
+    "dateModified": "2019-10-12T00:00:00+00:00",
+    "wordCount":  727 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source. Source of the texts The texts of Luxun are scraped from 子夜星网"
+}
+</script><meta property="og:title" content="Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》) | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/" />
+
+
+
+
+<meta property="og:description" content="I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source. Source of the texts The texts of Luxun are scraped from 子夜星网" />
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-10-12T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-10-12T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="python" />
+
+<meta property="article:tag" content="web-scraping" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-</style>
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-<div class="container">
-    <nav class="navbar level">
-      <div class="navbar-brand">
-          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
-      </div>           
-      <div class="navbar-menu has-text-centered is-active">
-          <div class="navbar-end is-centered">
-              
-                <a href="https://ge-chunyu.github.io/about" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-info"></i>
-                  </span>
-                </a>
-              
-                <a href="https://github.com/ge-chunyu/" rel="me">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                </a>
-              
-                <a href="mailto:gechunyu92@hotmail.com" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                </a>
-              
-           </div>
-      </div>
-    </nav>
-  </div>
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
 
-<div class="container">
-  <h2 class="subtitle is-6">October 12, 2019</h2>
-  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)</h1>
-  <div class="content">
-    <p>I want to do some text mining practices on the texts of <em>Luxun(鲁迅)</em>, a great Chinese writer. The first step is to get all the texts by <em>Luxun</em>, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.</p>
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-10-12</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>I want to do some text mining practices on the texts of <em>Luxun(鲁迅)</em>, a great Chinese writer. The first step is to get all the texts by <em>Luxun</em>, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.</p>
 <h2 id="source-of-the-texts">Source of the texts</h2>
 <p>The texts of <em>Luxun</em> are scraped from <a href="http://www.ziyexing.com/">子夜星网</a>. As it claimed, it contains all the texts in the <em>Complete works of Luxun(鲁迅全集)</em>. I checked it, and so it did.</p>
 <h2 id="get-the-urls-and-titles-of-all-the-articles">Get the urls and titles of all the articles</h2>
 <p>The process starts at getting the contents and the urls of the text of Luxun from the parent url <code>http://www.ziyexing.com/luxun/</code>. To access all the urls, I constructed a regular expression and selected all <code>a</code> nodes that share the pattern.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">homepage_res = requests.get(&#34;www.ziyexing.com/luxun/&#34;)
-homepage_soup = BeautifulSoup(res.text, &#34;html.parser&#34;)
-href_re = re.compile(r&#34;luxun_\w+_\w+_\d+.htm&#34;)
-hrefs = homepage_soup.find_all(&#34;a&#34;, {&#34;href&#34;:href_re})
-</code></pre></div><p>It is found that although the regular expression covers most of the patterns, some urls are idiosyncratic and do not conform to the regex. I constructed another regex.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">others_re = re.compile(r&#34;(zhunfengyuetan)|(gushixinbian)|(gujixubaji)|(zgxssl)|(luxun_shici)\w+&#34;)
-other_hrefs = homepage_soup.find_all(&#34;a&#34;, {&#34;href&#34;:others_re})
-</code></pre></div><p>It is, of course, idiosyncratic, but effective. To use two regexes, I have got all the urls.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">links = [href.attrs[&#34;href&#34;] for href in hrefs]
-other_links = [line.attrs[&#34;href&#34;] for line in other_hrefs]
-</code></pre></div><p>The title of each url can also be accessed in the <code>a</code> nodes. It can easily accessed using <code>a.text</code>, yet another problem appeared. The most notorious problem in dealing with non-Latin alphabet languages, especially Chinese, is the problem of encoding. When applying <code>a.text</code>, the characters did not show normally. I am fortunately enough to have recently learnt that the encoding of an <code>html</code> page can be seen from the <code>header</code> of the page. I checked it and found that the page is encoded using <code>gb2312</code>. To make the texts return to normal requires encoding in <code>Latin1</code> and subsequently decoding in <code>gb2312</code>. <code>gbk</code>, as a superset of <code>gb2312</code>, works better in decoding.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">titles = [href.text.encode(&#34;latin1&#34;).decode(&#34;gbk&#34;) for href in hrefs]
-other_titles = [line.text.encode(&#34;latin1&#34;).decode(&#34;gbk&#34;) for line in other_hrefs]
-</code></pre></div><p>Have got all the urls and corresponding titles, I can proceed to the next step, to scrape all the articles. A brief inspection of the article page show that all the contents of the article are embedded in the <code>p</code> node with property <code>line-height: 150%</code>. A further inspection of other pages show that the <code>line-height</code> can also be <code>130%</code>. So another regex is needed here.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ps_re = re.compile(r&#34;line-height: 1\d0%&#34;)
-</code></pre></div><h2 id="get-the-texts">Get the texts</h2>
+<pre><code class="language-{python}">homepage_res = requests.get(&quot;www.ziyexing.com/luxun/&quot;)
+homepage_soup = BeautifulSoup(res.text, &quot;html.parser&quot;)
+href_re = re.compile(r&quot;luxun_\w+_\w+_\d+.htm&quot;)
+hrefs = homepage_soup.find_all(&quot;a&quot;, {&quot;href&quot;:href_re})
+</code></pre>
+<p>It is found that although the regular expression covers most of the patterns, some urls are idiosyncratic and do not conform to the regex. I constructed another regex.</p>
+<pre><code class="language-{python}">others_re = re.compile(r&quot;(zhunfengyuetan)|(gushixinbian)|(gujixubaji)|(zgxssl)|(luxun_shici)\w+&quot;)
+other_hrefs = homepage_soup.find_all(&quot;a&quot;, {&quot;href&quot;:others_re})
+</code></pre>
+<p>It is, of course, idiosyncratic, but effective. To use two regexes, I have got all the urls.</p>
+<pre><code class="language-{python}">links = [href.attrs[&quot;href&quot;] for href in hrefs]
+other_links = [line.attrs[&quot;href&quot;] for line in other_hrefs]
+</code></pre>
+<p>The title of each url can also be accessed in the <code>a</code> nodes. It can easily accessed using <code>a.text</code>, yet another problem appeared. The most notorious problem in dealing with non-Latin alphabet languages, especially Chinese, is the problem of encoding. When applying <code>a.text</code>, the characters did not show normally. I am fortunately enough to have recently learnt that the encoding of an <code>html</code> page can be seen from the <code>header</code> of the page. I checked it and found that the page is encoded using <code>gb2312</code>. To make the texts return to normal requires encoding in <code>Latin1</code> and subsequently decoding in <code>gb2312</code>. <code>gbk</code>, as a superset of <code>gb2312</code>, works better in decoding.</p>
+<pre><code class="language-{python}">titles = [href.text.encode(&quot;latin1&quot;).decode(&quot;gbk&quot;) for href in hrefs]
+other_titles = [line.text.encode(&quot;latin1&quot;).decode(&quot;gbk&quot;) for line in other_hrefs]
+</code></pre>
+<p>Have got all the urls and corresponding titles, I can proceed to the next step, to scrape all the articles. A brief inspection of the article page show that all the contents of the article are embedded in the <code>p</code> node with property <code>line-height: 150%</code>. A further inspection of other pages show that the <code>line-height</code> can also be <code>130%</code>. So another regex is needed here.</p>
+<pre><code>ps_re = re.compile(r&quot;line-height: 1\d0%&quot;)
+</code></pre>
+<h2 id="get-the-texts">Get the texts</h2>
 <p>Put all the pieces together, I wrote several functions to make the process modular and easy to understand.</p>
 <p>The <code>get_soup</code> function accesses the given <code>url</code> and returns the <code>BeautifulSoup</code> object.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def get_soup(base_url, url):
+<pre><code class="language-{python}">def get_soup(base_url, url):
     res = requests.get(base_url + url)
-    soup = BeautifulSoup(res.text, &#34;html.parser&#34;)
+    soup = BeautifulSoup(res.text, &quot;html.parser&quot;)
     return soup
-</code></pre></div><p>The <code>get_ps</code> function accepts the <code>soup</code> object and outputs the <code>p</code> nodes, which contain the texts.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def get_ps(soup):
-    ps_re = re.compile(r&#34;line-height: 1\d0%&#34;)
-    ps = soup.find_all(&#34;p&#34;, {&#34;style&#34;:ps_re})
+</code></pre>
+<p>The <code>get_ps</code> function accepts the <code>soup</code> object and outputs the <code>p</code> nodes, which contain the texts.</p>
+<pre><code class="language-{python}">def get_ps(soup):
+    ps_re = re.compile(r&quot;line-height: 1\d0%&quot;)
+    ps = soup.find_all(&quot;p&quot;, {&quot;style&quot;:ps_re})
     return ps
-</code></pre></div><p>The <code>clean_text</code> function accepts the <code>p</code> nodes and outputs the cleaned text.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def clean_text(texts):
-    texts_decoded = [text.encode(&#34;latin1&#34;, &#34;ignore&#34;).decode(&#34;gbk&#34;, &#34;ignore&#34;) for text in texts]
+</code></pre>
+<p>The <code>clean_text</code> function accepts the <code>p</code> nodes and outputs the cleaned text.</p>
+<pre><code class="language-{python}">def clean_text(texts):
+    texts_decoded = [text.encode(&quot;latin1&quot;, &quot;ignore&quot;).decode(&quot;gbk&quot;, &quot;ignore&quot;) for text in texts]
     texts_decoded = [text.strip() for text in texts_decoded]
-    cleaned_texts = [text for text in texts_decoded if text != &#34;&#34;]
+    cleaned_texts = [text for text in texts_decoded if text != &quot;&quot;]
     return cleaned_texts
-</code></pre></div><p>The <code>write_text</code> function writes the text data in <code>txt</code> fromat in a file named after the title of the article.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def write_text(clean_text, titles, n):
-    with open(&#34;luxun/&#34; + titles[n].strip() + &#34;.txt&#34;, &#34;w&#34;, encoding=&#34;utf8&#34;) as file:
-        file.write(&#34;\n&#34;.join(clean_text))
-</code></pre></div><p>To wrap all these function together, I wrote a <code>main</code> function which do all these stuff at once.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">def main(links, titles):
+</code></pre>
+<p>The <code>write_text</code> function writes the text data in <code>txt</code> fromat in a file named after the title of the article.</p>
+<pre><code class="language-{python}">def write_text(clean_text, titles, n):
+    with open(&quot;luxun/&quot; + titles[n].strip() + &quot;.txt&quot;, &quot;w&quot;, encoding=&quot;utf8&quot;) as file:
+        file.write(&quot;\n&quot;.join(clean_text))
+</code></pre>
+<p>To wrap all these function together, I wrote a <code>main</code> function which do all these stuff at once.</p>
+<pre><code class="language-{python}">def main(links, titles):
     for i in range(len(links)):
         soup = get_soup(base_url, links[i])
         ps = get_ps(soup)
-        texts = ps[0].text.split(&#34;\n&#34;)
+        texts = ps[0].text.split(&quot;\n&quot;)
         cleaned_texts = clean_text(texts)
         write_text(cleaned_texts, titles, i)
         time.sleep(3)
-</code></pre></div><p>To avoid too much traffic for the site, I used the <code>time.sleep</code> function to pause for three seconds between urls.</p>
+</code></pre>
+<p>To avoid too much traffic for the site, I used the <code>time.sleep</code> function to pause for three seconds between urls.</p>
 <p>Running the <code>main()</code> function, and I got all the articles posted on <a href="http://www.ziyexing.com/">子夜星网</a> by <em>Luxun</em> in one folder.</p>
 <h2 id="key-points"><strong>Key points</strong></h2>
 <p>There are some traps in this toy project, some of which are interesting. I list some key points below.</p>
@@ -162,28 +296,83 @@ other_titles = [line.text.encode(&#34;latin1&#34;).decode(&#34;gbk&#34;) for lin
 </li>
 </ul>
 
-  </div>
-</div>
-<div class="container has-text-centered">
+        </div>
+        
+        <div class="my-4">
     
-    <aside><div id="share"></div></aside>
-    <script type="text/javascript">
-        $("#share").jsSocials({
-            showLabel: false,
-            showCount: false,
-            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
-        });
-    </script>
+    <a href="https://ge-chunyu.github.io/tags/python/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#python</a>
+    
+    <a href="https://ge-chunyu.github.io/tags/web-scraping/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#web-scraping</a>
     
 </div>
-
-<div class="container has-text-centered">
-  
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/" class="block">Customizing pdf output of Pandoc</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/" class="block">Writing academic papers using Sublime Text 3 &#43; Pandoc</a>
+        
+    </div>
 </div>
-<section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2020</p>
-  </div>
-</section>
 
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#source-of-the-texts">Source of the texts</a></li>
+    <li><a href="#get-the-urls-and-titles-of-all-the-articles">Get the urls and titles of all the articles</a></li>
+    <li><a href="#get-the-texts">Get the texts</a></li>
+    <li><a href="#key-points"><strong>Key points</strong></a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
 
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2022 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>

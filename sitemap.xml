@@ -3,22 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ge-chunyu.github.io/</loc>
+    <lastmod>2022-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ge-chunyu.github.io/cv/</loc>
+    <lastmod>2022-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ge-chunyu.github.io/tags/astronomy/</loc>
+    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ge-chunyu.github.io/posts/</loc>
     <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ge-chunyu.github.io/tags/</loc>
-    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ge-chunyu.github.io/</loc>
-    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ge-chunyu.github.io/tags/%E5%A4%A9%E6%96%87/</loc>
     <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,12 +43,17 @@
   </url>
   
   <url>
+    <loc>https://ge-chunyu.github.io/tags/ggplot2/</loc>
+    <lastmod>2020-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ge-chunyu.github.io/tags/r-ggplot2/</loc>
+    <loc>https://ge-chunyu.github.io/tags/r/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -108,7 +118,15 @@
   </url>
   
   <url>
+    <loc>https://ge-chunyu.github.io/authors/</loc>
+  </url>
+  
+  <url>
     <loc>https://ge-chunyu.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ge-chunyu.github.io/series/</loc>
   </url>
   
 </urlset>

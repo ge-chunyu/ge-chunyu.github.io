@@ -1,102 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang='' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 
 
+<title>Customizing pdf output of Pandoc | Chunyu Ge</title>
+<link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
+<script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
 
 
-<title>Customizing pdf output of Pandoc | 不辍弦歌</title>
-
-<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
-integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
-
-
-
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
-<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
-
-
-
-
-<script type="text/javascript"
-    async
-    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [['$','$'], ['\\(','\\)']],
-            displayMath: [['$$','$$'], ['\[\[','\]\]']],
-            processEscapes: true,
-            processEnvironments: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
-        }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
     });
-
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i = 0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
+  });
 </script>
 
-<style>
-    code.has-jax {
-        font: inherit;
-        font-size: 100%;
-        background: inherit;
-        border: inherit;
-        color: #515151;
+
+
+<meta name="description"
+  content="I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Customizing pdf output of Pandoc",
+      "item":"https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/"
+    },
+    "headline": "Customizing pdf output of Pandoc | Chunyu Ge","datePublished": "2019-11-02T00:00:00+00:00",
+    "dateModified": "2019-11-02T00:00:00+00:00",
+    "wordCount":  1237 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn\u0026rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format"
+}
+</script><meta property="og:title" content="Customizing pdf output of Pandoc | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/" />
+
+
+
+
+<meta property="og:description" content="I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format" />
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-11-02T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-11-02T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="LaTeX" />
+
+<meta property="article:tag" content="pandoc" />
+
+
+
+
+
+<meta property="og:see_also" content="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-</style>
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-<div class="container">
-    <nav class="navbar level">
-      <div class="navbar-brand">
-          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
-      </div>           
-      <div class="navbar-menu has-text-centered is-active">
-          <div class="navbar-end is-centered">
-              
-                <a href="https://ge-chunyu.github.io/about" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-info"></i>
-                  </span>
-                </a>
-              
-                <a href="https://github.com/ge-chunyu/" rel="me">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                </a>
-              
-                <a href="mailto:gechunyu92@hotmail.com" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                </a>
-              
-           </div>
-      </div>
-    </nav>
-  </div>
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
 
-<div class="container">
-  <h2 class="subtitle is-6">November 2, 2019</h2>
-  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">Customizing pdf output of Pandoc</h1>
-  <div class="content">
-    <p>I am writing my PhD thesis and instead of using <code>LaTeX</code>, I want to write it in <code>markdown</code> together with <a href="https://www.pandoc.org">Pandoc</a>. This has several merits. I can easily transform the <code>markdown</code> file to <code>docx</code> for my supervisor to revise. It can also easily be transformed to <code>pdf</code> files through <code>LaTeX</code>. However, the default <code>pdf</code> output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the <code>pdf</code> format to meet the standard of my school.</p>
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Customizing pdf output of Pandoc</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-11-02</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>I am writing my PhD thesis and instead of using <code>LaTeX</code>, I want to write it in <code>markdown</code> together with <a href="https://www.pandoc.org">Pandoc</a>. This has several merits. I can easily transform the <code>markdown</code> file to <code>docx</code> for my supervisor to revise. It can also easily be transformed to <code>pdf</code> files through <code>LaTeX</code>. However, the default <code>pdf</code> output doesn&rsquo;t conform to the format my school requires. What I am going to do is to customize the <code>pdf</code> format to meet the standard of my school.</p>
 <p>There is another problem in customizing the <code>pdf</code> output. Since I write the thesis in Chinese, how to modify the fonts and other character-related features does not seem to be obvious. To customize the format of the bibliography is an even greater problem.</p>
 <p>As a matter of fact, there are two ways to customize the pdf output of <em>Pandoc</em>. The first is using a <code>LaTeX</code> template. Another is to use the <code>--header</code> option in the <code>Pandoc</code> command. I will concentrate on the latter approach and maybe a later post will deal with the first.</p>
 <h2 id="the-format">The format</h2>
@@ -115,53 +243,64 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 <p>The setting of the general format is straightforward. I will use <code>geometry</code> to set the page margin and <code>setspace</code> for line spacing.</p>
 <h3 id="page-margin">Page margin</h3>
 <p>To set the page margin, simply use the <code>package</code> geometry and add the corresponding command in the preamble part.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{geometry}
-<span style="color:#66d9ef">\geometry</span>{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm}
-</code></pre></div><p>This sets the margin for top and bottom to 2.54cm, and 3.17cm for left and right.</p>
+<pre><code class="language-latex">\usepackage{geometry}
+\geometry{top=2.54cm, bottom=2.54cm, left=3.17cm, right=3.17cm}
+</code></pre>
+<p>This sets the margin for top and bottom to 2.54cm, and 3.17cm for left and right.</p>
 <h3 id="line-spacing">Line spacing</h3>
 <p>Set line spacing is also straightforward using the <code>setspace</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{setspace}
-<span style="color:#66d9ef">\linespread</span>{1.5}
-</code></pre></div><h2 id="the-format-of-chapters-and-sections">The format of chapters and sections</h2>
+<pre><code class="language-latex">\usepackage{setspace}
+\linespread{1.5}
+</code></pre>
+<h2 id="the-format-of-chapters-and-sections">The format of chapters and sections</h2>
 <p>The general format of chapters and sections can be customized using the <code>titlesec</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\titleformat</span>{<span style="color:#66d9ef">\chapter</span>}{<span style="color:#66d9ef">\centering\Large\heiti</span>}{第<span style="color:#66d9ef">\zhnum</span>{chapter}章}{1em}{}
-<span style="color:#66d9ef">\titleformat*</span>{<span style="color:#66d9ef">\section</span>}{<span style="color:#66d9ef">\centering\Large\heiti</span>}
-<span style="color:#66d9ef">\titleformat*</span>{<span style="color:#66d9ef">\subsubsection</span>}{<span style="color:#66d9ef">\kaiti</span>}
-</code></pre></div><p>The above commands set the font of chapters and sections to <code>\heiti(黑体)</code> and that of <code>subsubsections</code> to <code>\kaiti</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\renewcommand\thesection</span>{第<span style="color:#66d9ef">\zhnum</span>{section}节}
-<span style="color:#66d9ef">\renewcommand\thesubsection</span>{<span style="color:#66d9ef">\zhnum</span>{subsection}、}
-<span style="color:#66d9ef">\renewcommand\thesubsubsection</span>{（<span style="color:#66d9ef">\zhnum</span>{subsubsection}）}
-</code></pre></div><h2 id="font">Font</h2>
+<pre><code class="language-latex">\titleformat{\chapter}{\centering\Large\heiti}{第\zhnum{chapter}章}{1em}{}
+\titleformat*{\section}{\centering\Large\heiti}
+\titleformat*{\subsubsection}{\kaiti}
+</code></pre>
+<p>The above commands set the font of chapters and sections to <code>\heiti(黑体)</code> and that of <code>subsubsections</code> to <code>\kaiti</code>.</p>
+<pre><code class="language-latex">\renewcommand\thesection{第\zhnum{section}节}
+\renewcommand\thesubsection{\zhnum{subsection}、}
+\renewcommand\thesubsubsection{（\zhnum{subsubsection}）}
+</code></pre>
+<h2 id="font">Font</h2>
 <p>The <code>xeCJK</code> package provides the support of font for Chinese characters. The fonts I need are <code>Heiti</code> and <code>Kaiti</code>, while <code>SimSun</code> is chosen as the main font. To achieve these, I first set the main font for CJK characters to <code>SimSun</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{xeCJK}
-<span style="color:#66d9ef">\setmainfont</span>{Times New Roman}
-<span style="color:#66d9ef">\setCJKmainfont</span>{SimSun}
-</code></pre></div><p>I also set the font for Roman alphabets to <code>Times New Roman</code> using the function <code>\setmainfont</code> provided by the <code>fontspec</code> package. Note that I didn&rsquo;t import the package explicitly, since it is refered in the <code>xeCJK</code> package.</p>
+<pre><code class="language-latex">\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+</code></pre>
+<p>I also set the font for Roman alphabets to <code>Times New Roman</code> using the function <code>\setmainfont</code> provided by the <code>fontspec</code> package. Note that I didn&rsquo;t import the package explicitly, since it is refered in the <code>xeCJK</code> package.</p>
 <p>A more serious problem is to specify font for some of the text while not affecting the main font. In this case, <code>xeCJK</code> has a function <code>\setCJKfamilyfont</code>, and I use it to define a command that specify the text included in the braces.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\newcommand</span>{<span style="color:#66d9ef">\kaiti</span>}{<span style="color:#66d9ef">\setCJKfamilyfont</span>{kaiti}{KaiTi} <span style="color:#66d9ef">\CJKfamily</span>{kaiti}}
-<span style="color:#66d9ef">\newcommand</span>{<span style="color:#66d9ef">\heiti</span>}{<span style="color:#66d9ef">\setCJKfamilyfont</span>{heiti}{SimHei} <span style="color:#66d9ef">\CJKfamily</span>{heiti}}
-</code></pre></div><p>I defined <code>\kaiti</code> and <code>\heiti</code> based on the built-in font of <code>xeCJK</code>. To specify the font of any text, simply put it in the brace as a plain <code>LaTeX</code> command: <code>\kaiti{楷体}</code> or <code>\heiti{黑体}</code>.</p>
+<pre><code class="language-latex">\newcommand{\kaiti}{\setCJKfamilyfont{kaiti}{KaiTi} \CJKfamily{kaiti}}
+\newcommand{\heiti}{\setCJKfamilyfont{heiti}{SimHei} \CJKfamily{heiti}}
+</code></pre>
+<p>I defined <code>\kaiti</code> and <code>\heiti</code> based on the built-in font of <code>xeCJK</code>. To specify the font of any text, simply put it in the brace as a plain <code>LaTeX</code> command: <code>\kaiti{楷体}</code> or <code>\heiti{黑体}</code>.</p>
 <h2 id="footnote">Footnote</h2>
 <p>To number footnote by page, I use the option <code>perpage</code> in the <code>footmisc</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[perpage]</span>{footmisc}
-</code></pre></div><p>To mark footnotes with circled numbers, I searched online and found the <code>pifont</code> package provides such symbols. What I have to do is to redefine the <code>\footnote</code> command such that it uses the circled numbers.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-latex" data-lang="latex"><span style="color:#66d9ef">\usepackage</span>{pifont}
-<span style="color:#66d9ef">\renewcommand</span>{<span style="color:#66d9ef">\thefootnote</span>}{<span style="color:#66d9ef">\ding</span>{<span style="color:#66d9ef">\numexpr</span>171+<span style="color:#66d9ef">\value</span>{footnote}}
-</code></pre></div><p>The <code>pifont</code> package provides a lot of symbols, which can be viewed on its <a href="http://willbenton.com/wb-images/pifont.pdf">quick reference</a>. To use other symbols, simply change the number corresponding to the symbol.</p>
+<pre><code class="language-latex">\usepackage[perpage]{footmisc}
+</code></pre>
+<p>To mark footnotes with circled numbers, I searched online and found the <code>pifont</code> package provides such symbols. What I have to do is to redefine the <code>\footnote</code> command such that it uses the circled numbers.</p>
+<pre><code class="language-latex">\usepackage{pifont}
+\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}
+</code></pre>
+<p>The <code>pifont</code> package provides a lot of symbols, which can be viewed on its <a href="http://willbenton.com/wb-images/pifont.pdf">quick reference</a>. To use other symbols, simply change the number corresponding to the symbol.</p>
 <h2 id="the-font-size">The font size</h2>
 <p>Since the requirement of the format is mixed (It uses Number for body and headings, but points for footnotes and captions), I will use 11pt to approximate No.5 font size in Chinese. Using this specification, 9pt can be defined using the <code>\footnotesize</code> command, and No.2 size (21pt) can be defined using the <code>\huge</code> command. As for the size of captions, I use the <code>caption</code> package.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">\usepackage{caption}
+<pre><code>\usepackage{caption}
 \captionsetup{font=footnotesize}
-</code></pre></div><h2 id="output-to-pdf-using-pandoc">Output to pdf using pandoc</h2>
+</code></pre>
+<h2 id="output-to-pdf-using-pandoc">Output to pdf using pandoc</h2>
 <p>To put it all together and store the settings in a file named <code>preable.tex</code>, the <code>markdown</code> file can be output to pdf files in the desired form using pandoc.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pandoc --pdf-engine=xelatex -H preamble.tex thesis.md -o thesis.pdf
-</code></pre></div><p>When running the command, an error occured:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Error producing PDF.
+<pre><code>pandoc --pdf-engine=xelatex -H preamble.tex thesis.md -o thesis.pdf
+</code></pre>
+<p>When running the command, an error occured:</p>
+<pre><code>Error producing PDF.
 ! Argument of \paragraph has an extra }.
 &lt;inserted text&gt;
                 \par
 l.1628 \ttl@extract\paragraph
-</code></pre></div><p>I searched and this post in <a href="https://stackoverflow.com/questions/42916124/not-able-to-use-titlesec-with-markdown-and-pandoc">Stack Overflow</a> solves the problem. Simply add <code>subparagraph: yes</code> to the header of the markdown file, and the pdf file can be generated. Another tip is to add <code>numbersections: true</code> to the header to automatically generate numbered sections.</p>
+</code></pre>
+<p>I searched and this post in <a href="https://stackoverflow.com/questions/42916124/not-able-to-use-titlesec-with-markdown-and-pandoc">Stack Overflow</a> solves the problem. Simply add <code>subparagraph: yes</code> to the header of the markdown file, and the pdf file can be generated. Another tip is to add <code>numbersections: true</code> to the header to automatically generate numbered sections.</p>
 <h2 id="to-do">To do</h2>
 <p>Despite all these effort, another serious problem remain untouched. <em>Citation and bibiliography</em>. To simply cite and generate bibliography in <code>LaTeX</code> is effortless through <em>BibTex</em>. But to generate bibliography in desired Chinese format is a hard problem. I will explore this question later on.</p>
 <p>In fact, I do have a good idea on how to solve this problem. <em>Pandoc</em> provides a powerful tool called <a href="https://github.com/citation-style-language/styles">csl</a>. To generate bibliography in Chinese format, there are three files to choose from:</p>
@@ -172,28 +311,103 @@ l.1628 \ttl@extract\paragraph
 </ul>
 <p>I can follow this line, but the output is not so satisfying, and I decided to do some research in native <code>LaTeX</code> on how people solve this problem.</p>
 
-  </div>
-</div>
-<div class="container has-text-centered">
+        </div>
+        
+        <div class="my-4">
     
-    <aside><div id="share"></div></aside>
-    <script type="text/javascript">
-        $("#share").jsSocials({
-            showLabel: false,
-            showCount: false,
-            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
-        });
-    </script>
+    <a href="https://ge-chunyu.github.io/tags/latex/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#LaTeX</a>
+    
+    <a href="https://ge-chunyu.github.io/tags/pandoc/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#pandoc</a>
     
 </div>
-
-<div class="container has-text-centered">
-  
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/" class="block">用pandoc生成大型中文文档的痛点与解决方案</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/" class="block">Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)</a>
+        
+    </div>
 </div>
-<section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2020</p>
-  </div>
-</section>
 
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-format">The format</a></li>
+    <li><a href="#general-format">General format</a>
+      <ul>
+        <li><a href="#page-margin">Page margin</a></li>
+        <li><a href="#line-spacing">Line spacing</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-format-of-chapters-and-sections">The format of chapters and sections</a></li>
+    <li><a href="#font">Font</a></li>
+    <li><a href="#footnote">Footnote</a></li>
+    <li><a href="#the-font-size">The font size</a></li>
+    <li><a href="#output-to-pdf-using-pandoc">Output to pdf using pandoc</a></li>
+    <li><a href="#to-do">To do</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
 
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">See Also</h2>
+        <div class="content">
+            
+            <a href="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/">Writing academic papers using Sublime Text 3 &#43; Pandoc</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2022 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>

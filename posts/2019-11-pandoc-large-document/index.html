@@ -1,121 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang='' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
 
 
+<title>用pandoc生成大型中文文档的痛点与解决方案 | Chunyu Ge</title>
+<link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
+<script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
 
 
-<title>用pandoc生成大型中文文档的痛点与解决方案 | 不辍弦歌</title>
-
-<link rel="stylesheet" href="https://ge-chunyu.github.io//css/styles.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
-integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="https://ge-chunyu.github.io//js/highlight.js"></script>
-
-
-
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
-<script type="text/javascript" src="https://ge-chunyu.github.io//js/jssocials.js"></script>
-
-
-
-
-<script type="text/javascript"
-    async
-    src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [['$','$'], ['\\(','\\)']],
-            displayMath: [['$$','$$'], ['\[\[','\]\]']],
-            processEscapes: true,
-            processEnvironments: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            TeX: { equationNumbers: { autoNumber: "AMS" }, extensions: ["AMSmath.js", "AMSsymbols.js"] }
-        }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
     });
-
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i = 0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
+  });
 </script>
 
-<style>
-    code.has-jax {
-        font: inherit;
-        font-size: 100%;
-        background: inherit;
-        border: inherit;
-        color: #515151;
+
+
+<meta name="description"
+  content="Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"用pandoc生成大型中文文档的痛点与解决方案",
+      "item":"https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/"
+    },
+    "headline": "用pandoc生成大型中文文档的痛点与解决方案 | Chunyu Ge","datePublished": "2019-11-25T00:00:00+00:00",
+    "dateModified": "2019-11-25T00:00:00+00:00",
+    "wordCount":  2708 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown"
+}
+</script><meta property="og:title" content="用pandoc生成大型中文文档的痛点与解决方案 | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/" />
+
+
+
+
+<meta property="og:description" content="Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown" />
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-11-25T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-11-25T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="pandoc" />
+
+
+
+
+
+<meta property="og:see_also" content="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/" />
+
+<meta property="og:see_also" content="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+    <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-</style>
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-<div class="container">
-    <nav class="navbar level">
-      <div class="navbar-brand">
-          <a class="nav-item" href="https://ge-chunyu.github.io/"><h1 class="title is-3">不辍弦歌</h1></a>
-      </div>           
-      <div class="navbar-menu has-text-centered is-active">
-          <div class="navbar-end is-centered">
-              
-                <a href="https://ge-chunyu.github.io/about" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-info"></i>
-                  </span>
-                </a>
-              
-                <a href="https://github.com/ge-chunyu/" rel="me">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                </a>
-              
-                <a href="mailto:gechunyu92@hotmail.com" rel="me">
-                  <span class="icon">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                </a>
-              
-           </div>
-      </div>
-    </nav>
-  </div>
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
 
-<div class="container">
-  <h2 class="subtitle is-6">November 25, 2019</h2>
-  <h1 class="subtitle is-size-4-mobile is-size-3-desktop">用pandoc生成大型中文文档的痛点与解决方案</h1>
-  <div class="content">
-    <p><a href="https://pandoc.org">Pandoc</a>是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。</p>
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="flex-grow pt-16">
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">用pandoc生成大型中文文档的痛点与解决方案</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-11-25</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>6 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p><a href="https://pandoc.org">Pandoc</a>是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。</p>
 <h2 id="pandoc-将-markdown-生成-pdf-的逻辑">Pandoc 将 Markdown 生成 pdf 的逻辑</h2>
 <p>用 Pandoc 将 Markdown 文件生成 pdf，其实是先把 Markdown 格式转换成 LaTeX 格式，再通过 LaTeX 把转换后的 LaTeX 文件生成最终的 pdf 文件。在用 LaTeX 生成 pdf 时，可以指定不同的<code>--pdf-engine</code>，可选的选项有<code>pdflatex</code>、<code>xelatex</code>、<code>lualatex</code>等。</p>
 <p>因为 Pandoc 是通过 LaTeX 来生成 pdf 文件的，所以可以通过修改或添加 LaTeX 源文件来修改最终的 pdf 格式。如果不怕麻烦，可以先用 Pandoc 把 Markdown 文件转换成 LaTeX，再在上面自己改格式。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pandoc --standalone test.md -o test.tex
-</code></pre></div><p>但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用<code>--header-includes</code>给自带的 template 加上需要的 LaTeX 命令就可以了。</p>
+<pre><code>pandoc --standalone test.md -o test.tex
+</code></pre>
+<p>但是，一般的做法是通过给 Pandoc 传递 LaTeX 命令和 Pandoc 自带的参数来修改 pdf 格式的。当然，也可以直接在 Pandoc 的 pdf template 上进行修改。不过 Pandoc 自带的 template 很复杂，一般用<code>--header-includes</code>给自带的 template 加上需要的 LaTeX 命令就可以了。</p>
 <p>另外，Pandoc 自身也提供来一些可以自定义的参数，这些参数一般是在文件开头用 <code>yaml</code> 写的，Pandoc 将这些参数称作“metadata”。所以在用 Pandoc 生成一个自定义格式的大型 pdf 文档时，除了文本文档外，还需要准备<code>preable.tex</code>与<code>metadata.yaml</code>两个文件，分别用来自定义 LaTeX 与 Pandoc 自带的参数。</p>
 <h2 id="用-pandoc-生成中文-pdf">用 Pandoc 生成中文 pdf</h2>
 <p>要在 Pandoc 生成的 pdf 里显示中文，跟在 LaTeX 里显示中文的逻辑一样，一般用<code>ctex</code>包或<code>xeCJK</code>包就可以了。不过不建议用<code>ctex</code>包，因为它除了显示中文外还定义了太多其他格式。不如直接用<code>xeCJK</code>来显示中文，再直接用 LaTeX 提供的其他包来指定其他格式。</p>
 <p>用<code>pandoc</code>来生成中文 pdf 时，需要将默认的<code>--pdf-engine</code>改成<code>xelatex</code>：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pandoc --pdf-engine=xelatex test.md -o test.pdf
-</code></pre></div><h2 id="用pandoc生成大型文档">用pandoc生成大型文档</h2>
+<pre><code>pandoc --pdf-engine=xelatex test.md -o test.pdf
+</code></pre>
+<h2 id="用pandoc生成大型文档">用pandoc生成大型文档</h2>
 <p>在用 LaTeX 写作大型文档时，可以用<code>\include{}</code>来包含单个文件。在用Markdown写大型文档时，用<code>Pandoc</code>将多个Markdown文件转换成一整个文件时，可以将文件名按顺序放在<code>pandoc</code>命令中进行转换。必须注意的是，要保证生成的文件是按需要的顺序出现的，需要把Markdown文件按照顺序命名，例如第一章的文件名是<code>1.md</code>，第二章为<code>2.md</code>等。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pandoc --pdf-engine=xelatex 1.md 2.md 3.md -o main.pdf
-</code></pre></div><p>在用这个命令生成大型文档的时候，可能会出现后一个文件变成前一个文件一部分的情况。要避免出现这种情况，必须在每个文档文本后加一个空行。</p>
+<pre><code>pandoc --pdf-engine=xelatex 1.md 2.md 3.md -o main.pdf
+</code></pre>
+<p>在用这个命令生成大型文档的时候，可能会出现后一个文件变成前一个文件一部分的情况。要避免出现这种情况，必须在每个文档文本后加一个空行。</p>
 <p>另外一个问题是，在Markdown中的标题用<code>pandoc</code>生成默认是不编号的。要给标题编号，需要在<code>yaml</code>文件中加上以下这行。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">numbersections: true
-</code></pre></div><p>在用单个Markdown文件写作文章时，可以把<code>yaml</code>参数加在文本上方；但在用多个Markdown文件写作时，最好将<code>yaml</code>参数单独保存成一个文件，在<code>pandoc</code>命令中以<code>--metadata-file</code>来指定该文件就可以了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pandoc --pdf-engine=xelatex --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf
-</code></pre></div><h2 id="交叉引用">交叉引用</h2>
+<pre><code>numbersections: true
+</code></pre>
+<p>在用单个Markdown文件写作文章时，可以把<code>yaml</code>参数加在文本上方；但在用多个Markdown文件写作时，最好将<code>yaml</code>参数单独保存成一个文件，在<code>pandoc</code>命令中以<code>--metadata-file</code>来指定该文件就可以了。</p>
+<pre><code>pandoc --pdf-engine=xelatex --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf
+</code></pre>
+<h2 id="交叉引用">交叉引用</h2>
 <p>写作大型文档时，尤其是技术或学术文档时，难免要对图表、公式、章节等进行交叉引用。Pandoc 本身提供了对不同部分进行交叉引用的功能。</p>
 <p>Pandoc 本身并没有提供对图表进行交叉引用的功能。要实现这种功能，可以用过滤器<code>--filter</code>来实现。在<code>MacOS</code>上，可以用<a href="http://lierdakil.github.io/pandoc-crossref/">pandoc-crossref</a>来处理图表、公式的编号与交叉引用；在<code>Windows</code>平台上，对图片、表格、公式的交叉引用可以分别用<a href="https://libraries.io/pypi/pandoc-tablenos">pandoc-tablenos</a>、<a href="https://github.com/tomduck/pandoc-fignos">pandoc-fignos</a>、<a href="https://pypi.org/project/pandoc-eqnos/">pandoc-eqnos</a>来实现。这几个过滤器可以用以下表格中的命令来安装<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
 <table>
@@ -151,36 +284,40 @@ integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbi
 </table>
 <p>在 Pandoc 中使用过滤器只要用<code>--filter</code>参数指定所要用的过滤器即可。这几个过滤器的使用逻辑都是一致的，可以设置的参数包括图表标题前缀（<code>tableTitle</code>或<code>figureTitle</code>等）、文中引用前缀(<code>tabPrefix</code>或<code>figPrefix</code>)等。其他具体参数可以参考各自的说明文档。</p>
 <p>至此，Pandoc 命令就变成了以下这样（以 MacOS 为例）：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pandoc --pdf-engine=xelatex --filter pandoc-crossref --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf
-</code></pre></div><h2 id="章节目录">章节目录</h2>
+<pre><code>pandoc --pdf-engine=xelatex --filter pandoc-crossref --metadata-file=metadata.yaml 1.md 2.md 3.md -o main.pdf
+</code></pre>
+<h2 id="章节目录">章节目录</h2>
 <p>在 LaTeX 中要对特定的标题不编号，可以用<code>\chapter{}</code>等命令中加<code>*</code>来实现。Pandoc 也提供了这种功能。对于不想编号的标题，标题后面加上<code>{-}</code>或者<code>{.unnumbered}</code>就可以。</p>
 <p>要在生成的文件中自动生成目录，只需要将<code>toc</code>这一参数指定为<code>true</code>就可以。文档中包含的表格与图片等也可以自动生成目录，分别将<code>lot</code>和<code>lof</code>指定为<code>true</code>就可以了。但是，在 Pandoc 里可以指定目录的标题，例如<code>toc-title: 目录</code>，但是表格目录与图片目录的标题没法指定。这个问题可以用 LaTeX 来解决，只要在 LaTeX head 里指定表格目录与图片目录标题就行了：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">\renewcommand\listtablename{表\ 格\ 目\ 录}
+<pre><code>\renewcommand\listtablename{表\ 格\ 目\ 录}
 \renewcommand\listfigurename{图\ 片\ 目\ 录}
-</code></pre></div><p>在用 LaTeX 定义章节等标题格式时，经常会用到<code>titlesec</code>这一 LaTeX 包。但是，在<code>head</code>里指定了这个包之后，运行 Pandoc 会出现这样的错误信息：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Error producing PDF.
+</code></pre>
+<p>在用 LaTeX 定义章节等标题格式时，经常会用到<code>titlesec</code>这一 LaTeX 包。但是，在<code>head</code>里指定了这个包之后，运行 Pandoc 会出现这样的错误信息：</p>
+<pre><code>Error producing PDF.
 ! Argument of \paragraph has an extra }.
 &lt;inserted text&gt; 
                 \par 
 l.1628 \ttl@extract\paragraph
-</code></pre></div><p>要解决这个问题，必须在<code>yaml</code>文件里加上<code>subparagraph: yes</code>这一行。</p>
+</code></pre>
+<p>要解决这个问题，必须在<code>yaml</code>文件里加上<code>subparagraph: yes</code>这一行。</p>
 <h2 id="yaml文件参数与含义"><code>yaml</code>文件参数与含义</h2>
 <p>前面涉及到了很多<code>yaml</code>文件里的参数。这里将常见的<code>yaml</code>参数条列如下，并简单说明各自的作用。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">title: 标题                     # 指定标题
+<pre><code>title: 标题                     # 指定标题
 author: 作者                    # 指定作者
 numbersections: true           # true 表示给文中的部分编号，默认值为 false
 subparagraph: yes             # 要在 LaTeX head 里用 titlesec 这个包，必须加这一行
 fontsize: 12pt                # 指定字号大小，默认接受10pt、11pt、12pt
 toc: true                     # 生成目录
-toc-title: &#34;目录&#34;             # 指定目录标题
+toc-title: &quot;目录&quot;             # 指定目录标题
 lot: true                     # 生成表格目录
 lof: true                     # 生成图片目录
-tableTitle: &#34;表&#34;      # 表格标题的前缀，pandoc-crossref 与 pandoc-tablenos 中可用
-figureTitle: &#34;图&#34;     # 图片标题的前缀，pandoc-crossref 与 pandoc-fignos 中可用
-tabPrefix: &#34;表&#34;       # 文中对表格引用的前缀，pandoc-crossref 可用
-figPrefix: &#34;表&#34;       # 文中对图片引用的前缀，pandoc-crossref 可用
+tableTitle: &quot;表&quot;      # 表格标题的前缀，pandoc-crossref 与 pandoc-tablenos 中可用
+figureTitle: &quot;图&quot;     # 图片标题的前缀，pandoc-crossref 与 pandoc-fignos 中可用
+tabPrefix: &quot;表&quot;       # 文中对表格引用的前缀，pandoc-crossref 可用
+figPrefix: &quot;表&quot;       # 文中对图片引用的前缀，pandoc-crossref 可用
 header-includes:      # 要加进 LaTeX文件的命令，建议放在一个单独的 preamble 文件里
-</code></pre></div><h2 id="其他-pandoc-资料">其他 Pandoc 资料</h2>
+</code></pre>
+<h2 id="其他-pandoc-资料">其他 Pandoc 资料</h2>
 <p>网上有很多其他非常好的 Pandoc 资料，例如：</p>
 <ul>
 <li><a href="https://learnbyexample.github.io/tutorial/ebook-generation/customizing-pandoc/">Customizing pandoc to generate beautiful pdfs from markdown</a></li>
@@ -195,28 +332,98 @@ header-includes:      # 要加进 LaTeX文件的命令，建议放在一个单�
 </ol>
 </section>
 
-  </div>
-</div>
-<div class="container has-text-centered">
+        </div>
+        
+        <div class="my-4">
     
-    <aside><div id="share"></div></aside>
-    <script type="text/javascript">
-        $("#share").jsSocials({
-            showLabel: false,
-            showCount: false,
-            shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
-        });
-    </script>
+    <a href="https://ge-chunyu.github.io/tags/pandoc/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#pandoc</a>
     
 </div>
-
-<div class="container has-text-centered">
-  
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="https://ge-chunyu.github.io/posts/2019-12-praat/" class="block">Writing Praat scripts in a modular way</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/" class="block">Customizing pdf output of Pandoc</a>
+        
+    </div>
 </div>
-<section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2020</p>
-  </div>
-</section>
 
+        
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">On This Page</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pandoc-将-markdown-生成-pdf-的逻辑">Pandoc 将 Markdown 生成 pdf 的逻辑</a></li>
+    <li><a href="#用-pandoc-生成中文-pdf">用 Pandoc 生成中文 pdf</a></li>
+    <li><a href="#用pandoc生成大型文档">用pandoc生成大型文档</a></li>
+    <li><a href="#交叉引用">交叉引用</a></li>
+    <li><a href="#章节目录">章节目录</a></li>
+    <li><a href="#yaml文件参数与含义"><code>yaml</code>文件参数与含义</a></li>
+    <li><a href="#其他-pandoc-资料">其他 Pandoc 资料</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
 
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">See Also</h2>
+        <div class="content">
+            
+            <a href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/">Customizing pdf output of Pandoc</a>
+            <br />
+            
+            <a href="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/">Writing academic papers using Sublime Text 3 &#43; Pandoc</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer class="pl-scrollbar">
+        <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2022 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+</body>
+
+</html>
