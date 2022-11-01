@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Chunyu Ge</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2022</copyright>
-    <lastBuildDate>Thu, 20 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LaTeX</title>
+      <link>https://ge-chunyu.github.io/tags/latex/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/tags/latex/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>astronomy</title>
       <link>https://ge-chunyu.github.io/tags/astronomy/</link>
@@ -49,15 +58,6 @@
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/tags/pandoc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LaTeX</title>
-      <link>https://ge-chunyu.github.io/tags/latex/</link>
-      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ge-chunyu.github.io/tags/latex/</guid>
       <description></description>
     </item>
     

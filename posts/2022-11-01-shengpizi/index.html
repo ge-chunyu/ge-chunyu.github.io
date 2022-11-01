@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width">
 
 
-<title>Chunyu Ge</title>
+<title>在 LaTeX 中显示生僻字 | Chunyu Ge</title>
 <link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
 <script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
 
@@ -43,21 +43,53 @@
 
 
 <meta name="description"
-  content="">
+  content="在 $LaTeX$ 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"在 LaTeX 中显示生僻字",
+      "item":"https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/"}]
+}
+</script>
 
 
 
-<meta property="og:title" content="Chunyu Ge" />
-<meta property="og:type" content="website" />
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/"
+    },
+    "headline": "在 LaTeX 中显示生僻字 | Chunyu Ge","datePublished": "2022-11-01T00:00:00+00:00",
+    "dateModified": "2022-11-01T00:00:00+00:00",
+    "wordCount":  238 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "在 $LaTeX$ 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项"
+}
+</script><meta property="og:title" content="在 LaTeX 中显示生僻字 | Chunyu Ge" />
+<meta property="og:type" content="article" />
 
 
 
-<meta property="og:url" content="https://ge-chunyu.github.io/" />
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/" />
 
 
 
 
-
+<meta property="og:description" content="在 $LaTeX$ 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项" />
 
 
 
@@ -72,14 +104,21 @@
 
 
 
-<meta property="og:updated_time" content="2022-11-01T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2022-11-01T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2022-11-01T00:00:00&#43;00:00" />
 
 
 
-<meta property="article:section" content="" />
+<meta property="article:section" content="posts" />
 
 
-<link rel="alternate" type="application/rss+xml" href="https://ge-chunyu.github.io/index.xml" title="Chunyu Ge" />
+<meta property="article:tag" content="latex" />
+
+
+
+
 
 <body class="flex flex-col min-h-screen">
     <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
@@ -101,7 +140,7 @@
             <a href="/homepage/"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
             <a href="/posts/"
-                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Posts</a>
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
             <a href="/cv/"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
             <a href="/about/"
@@ -152,184 +191,15 @@
 </script></div>
     </header>
     <main class="flex-grow pt-16">
-  
-  
-  
-    
-      
-  
-
-  
-
-  
-  
-  
-
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-  
-
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-  
-
-  <div class="pl-scrollbar bg-secondary-bg" 
-    >
-    <div class="max-w-screen-xl mx-auto">
-      <div id="about" class="lg:w-3/4 mx-auto px-6 md:px-8 xl:px-12 py-12">
-        
-  
-
-  
-    <div class="flex flex-col lg:flex-row items-center justify-center py-12">
-    
-    
-    <div class="flex-grow mt-4 md:mt-0">
-        <div class="text-3xl leading-tight py-4">Chunyu Ge 葛淳宇 /kɤ꜕꜖꜓ tʂʰuən꜔꜒ y꜕꜖꜓/</div>
-        <div class="w-3/12 xl:w-2/12 border-b"></div>
-
-        <div class="flex items-center pt-4">
-            
-            <div class="flex flex-wrap">
-                
-
-                
-            </div>
-
-        </div>
-
-        
-        <div class="py-8 text-lg leading-normal">
-            不辍弦歌
-        </div>
-        
-    </div>
-    <div class="flex lg:flex-col justify-center items-end ml-8">
-        
-        
-        
-        
-        
-        
-        
-        <div class="pb-2 pr-4 lg:pr-0 pt-4 lg:pt-0">
-            <a href="gechunyu92@hotmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-        
-        
-        
-        
-        
-        
-        <div class="pb-2 pr-4 lg:pr-0 pt-4 lg:pt-0">
-            <a href="https://github.com/ge-chunyu/"><i class="fab fa-github"></i></a>
-        </div>
-        
-    </div>
-</div>
-<div class="content">
-    
-</div>
-  
-
-      </div>
-    </div>
-  </div>
-
-    
-
-  
-  
-    
-      
-  
-
-  
-
-  
-  
-  
-
-  
-    
-    
-    
-    
-    
-    
-    
-  
-
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-  
-
-  <div class="pl-scrollbar bg-primary-bg" 
-    >
-    <div class="max-w-screen-xl mx-auto">
-      <div id="pages" class="lg:w-3/4 mx-auto px-6 md:px-8 xl:px-12 py-12">
-        
-  
-
-  
-    
-  <h2 class=" font-bold text-3xl my-4">Pages</h2>
+        <div class="pl-scrollbar">
+            <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 
 
-  
-  
-  <div class="overflow-hidden divide-y">
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/" class="font-bold text-xl hover:text-eureka">在 LaTeX 中显示生僻字</a>
-</div>
-<div class="content">
-  在 $LaTeX$ 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">在 LaTeX 中显示生僻字</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
         <span>2022-11-01</span>
@@ -343,108 +213,63 @@
 
     
 </div>
+        
+        
+        
 
-  </div>
+        <div class="content">
+            <p>在 $LaTeX$ 里显示生僻字是一个棘手的问题。用<code>xeCJK</code>包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。</p>
+<p><a href="http://mirrors.ibiblio.org/CTAN/macros/xetex/latex/xecjk/xeCJK.pdf"><code>xeCJK</code>包的使用手册</a>中有<code>FallBack</code>的选项（8 页），可以用以下两种办法指定生僻字的字体</p>
+<pre><code class="language-latex">\setCJKmainfont[FallBack=SimSun-ExtB]{SimSun}
+\setCJKmainfont{SimSun}
+\setCJKfallbackfamilyfont{\CJKrmdefault}{SimSun-ExtB}
+</code></pre>
+<p>第一种办法是在指定字体时用<code>FallBack</code>参数指定备用字体，第二种办法是在指定字体之后再用<code>\setCJKfallbackfamilyfont</code>指定备用字体。二者是等价的。但是要注意的是，在用<code>FallBack</code>时，必须在导入<code>xeCJK</code>宏包时设置<code>AutoFallBack=true</code>。</p>
+<pre><code class="language-latex">\usepackage[AutoFallBack=true]{xeCJK}
+</code></pre>
 
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2020-08-cq-fenye/" class="font-bold text-xl hover:text-eureka">春秋时期的天文：十二次与分野</a>
-</div>
-<div class="content">
-  天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2020-08-20</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>7 min read</span>
-    </div>
+        </div>
+        
+        <div class="my-4">
     
-    
-
+    <a href="https://ge-chunyu.github.io/tags/latex/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#LaTeX</a>
     
 </div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2020-08-cq-astrology/" class="font-bold text-xl hover:text-eureka">春秋时期的天文：星象</a>
-</div>
-<div class="content">
-  太阳下山，夜空中就会布满繁星。在浩瀚宇宙中传递了亿万年的星光，由于位置相近或偶然的投影，在夜空中形成了各种形状。人类看到这些形状就会联想到生活中的事物
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2020-08-19</span>
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
     </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>7 min read</span>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2020-08-cq-fenye/" class="block">春秋时期的天文：十二次与分野</a>
+        
+    </div>
+</div>
+
+        
     </div>
     
-    
 
+    
     
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
 
-  </div>
-
-  
-</div>
-  </div>
-  
-</div>
-
-
-  <div class="pt-2 hover:text-eureka">
-    
-  <a href="https://ge-chunyu.github.io/posts/" class="font-semibold">Read More</a>
-  <i class="fas fa-caret-right ml-1"></i>
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-      </div>
-    </div>
-  </div>
-
-    
-
-  
-  
+            </div>
+        </div>
+        
     </main>
     <footer class="pl-scrollbar">
         <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
