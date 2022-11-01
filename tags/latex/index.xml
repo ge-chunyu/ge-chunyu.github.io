@@ -13,7 +13,7 @@
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</guid>
-      <description>在 \LaTeX 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项</description>
+      <description>在 LaTeX 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项</description>
     </item>
     
     <item>
