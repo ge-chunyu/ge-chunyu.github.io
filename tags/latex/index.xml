@@ -8,6 +8,15 @@
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2022</copyright>
     <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How to setup an IPA input schema</title>
+      <link>https://ge-chunyu.github.io/posts/2022-12-ipa/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/posts/2022-12-ipa/</guid>
+      <description>Using RIME There are two schemas, yunlong and xsampa. A guide to xsampa: https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/+/HEAD/docs/phonemes/xsampa.md Alternatively, you can simply install Yunlong, which can be accessed here http://118.24.95.172/resource.htm Typing IPA in \LaTeX Using the tipa package. A cheatsheet of the symbols can be found in https://ptmartins.info/tex/tipacheatsheet.pdf Online IPA keyboard https://keyman.com/keyboards/sil_ipa (SIL keyboard) https://ipa.typeit.org/full/ http://westonruter.github.io/ipa-chart/keyboard/</description>
+    </item>
+    
+    <item>
       <title>在 LaTeX 中显示生僻字</title>
       <link>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>

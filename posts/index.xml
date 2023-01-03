@@ -8,6 +8,15 @@
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2022</copyright>
     <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How to setup an IPA input schema</title>
+      <link>https://ge-chunyu.github.io/posts/2022-12-ipa/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/posts/2022-12-ipa/</guid>
+      <description>Using RIME There are two schemas, yunlong and xsampa. A guide to xsampa: https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/+/HEAD/docs/phonemes/xsampa.md Alternatively, you can simply install Yunlong, which can be accessed here http://118.24.95.172/resource.htm Typing IPA in \LaTeX Using the tipa package. A cheatsheet of the symbols can be found in https://ptmartins.info/tex/tipacheatsheet.pdf Online IPA keyboard https://keyman.com/keyboards/sil_ipa (SIL keyboard) https://ipa.typeit.org/full/ http://westonruter.github.io/ipa-chart/keyboard/</description>
+    </item>
+    
+    <item>
       <title>在 LaTeX 中显示生僻字</title>
       <link>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
@@ -95,6 +104,15 @@
       
       <guid>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</guid>
       <description>This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc. Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need. Sublime</description>
+    </item>
+    
+    <item>
+      <title>中国的《伊利亚特》</title>
+      <link>https://ge-chunyu.github.io/posts/illiad-of-china/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/posts/illiad-of-china/</guid>
+      <description>希腊的盲诗人荷马写下了《伊利亚特》，以阿喀琉斯的愤怒为线索，讲述了特洛伊战争最后一年的战况；而这场战争是由美女海伦引起的。在同一时期的中国，著名的盲人</description>
     </item>
     
   </channel>
