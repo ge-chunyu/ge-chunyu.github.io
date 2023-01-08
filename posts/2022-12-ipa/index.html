@@ -43,7 +43,7 @@
 
 
 <meta name="description"
-  content="Using RIME There are two schemas, yunlong and xsampa. A guide to xsampa: https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/&#43;/HEAD/docs/phonemes/xsampa.md Alternatively, you can simply install Yunlong, which can be accessed here http://118.24.95.172/resource.htm Typing IPA in \LaTeX Using the tipa package. A cheatsheet of the symbols can be found in https://ptmartins.info/tex/tipacheatsheet.pdf Online IPA keyboard https://keyman.com/keyboards/sil_ipa (SIL keyboard) https://ipa.typeit.org/full/ http://westonruter.github.io/ipa-chart/keyboard/">
+  content="Using RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file is as below.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -72,12 +72,12 @@
     },
     "headline": "How to setup an IPA input schema | Chunyu Ge","datePublished": "2022-11-01T00:00:00+00:00",
     "dateModified": "2022-11-01T00:00:00+00:00",
-    "wordCount":  52 ,
+    "wordCount":  643 ,
     "publisher": {
         "@type": "Person",
         "name": "Chunyu Ge",
         },
-    "description": "Using RIME There are two schemas, yunlong and xsampa. A guide to xsampa: https:\/\/chromium.googlesource.com\/chromiumos\/third_party\/espeak-ng\/\u002b\/HEAD\/docs\/phonemes\/xsampa.md Alternatively, you can simply install Yunlong, which can be accessed here http:\/\/118.24.95.172\/resource.htm Typing IPA in \\LaTeX Using the tipa package. A cheatsheet of the symbols can be found in https:\/\/ptmartins.info\/tex\/tipacheatsheet.pdf Online IPA keyboard https:\/\/keyman.com\/keyboards\/sil_ipa (SIL keyboard) https:\/\/ipa.typeit.org\/full\/ http:\/\/westonruter.github.io\/ipa-chart\/keyboard\/"
+    "description": "Using RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file is as below."
 }
 </script><meta property="og:title" content="How to setup an IPA input schema | Chunyu Ge" />
 <meta property="og:type" content="article" />
@@ -89,7 +89,7 @@
 
 
 
-<meta property="og:description" content="Using RIME There are two schemas, yunlong and xsampa. A guide to xsampa: https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/&#43;/HEAD/docs/phonemes/xsampa.md Alternatively, you can simply install Yunlong, which can be accessed here http://118.24.95.172/resource.htm Typing IPA in \LaTeX Using the tipa package. A cheatsheet of the symbols can be found in https://ptmartins.info/tex/tipacheatsheet.pdf Online IPA keyboard https://keyman.com/keyboards/sil_ipa (SIL keyboard) https://ipa.typeit.org/full/ http://westonruter.github.io/ipa-chart/keyboard/" />
+<meta property="og:description" content="Using RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file is as below." />
 
 
 
@@ -210,7 +210,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1 min read</span>
+        <span>2 min read</span>
     </div>
     
     
@@ -223,15 +223,75 @@
 
         <div class="content">
             <h2 id="using-rime">Using <code>RIME</code></h2>
-<p>There are two schemas, <code>yunlong</code> and <code>xsampa</code>.</p>
-<p>A guide to xsampa: <a href="https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/+/HEAD/docs/phonemes/xsampa.md">https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/+/HEAD/docs/phonemes/xsampa.md</a></p>
-<p>Alternatively, you can simply install Yunlong, which can be accessed here http://118.24.95.172/resource.htm</p>
+<p><a href="https://rime.im/">RIME</a> is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, <code>yunlong</code> and <code>xsampa</code>. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is <code>default.custom.yaml</code>. My configurations of this file is as below.</p>
+<pre><code># default.custom.yaml
+patch:
+  menu/page_size: 8
+  schema_list:
+    - schema: luna_pinyin          # 朙月拼音
+    - schema: luna_pinyin_simp     # 朙月拼音 简化字模式
+    - schema: zyenpheng     # 中古漢語全拼
+    - schema: ipa_yunlong   # 云龙国际音标输入法
+    - schema: ipa_xsampa   # 云龙国际音标输入法
+    - schema: japanese   # 日语输入法
+    - schema: terra_pinyin  # 地球输入法
+  switcher/hotkeys:
+    - &quot;F4&quot;
+  &quot;ascii_composer/switch_key/Shift_L&quot;: commit_code
+  key_binder:
+    bindings:
+    # commonly used paging keys
+      - { when: paging, accept: Shift+Tab, send: Page_Up }
+      - { when: has_menu, accept: Tab, send: Page_Down }
+      - { when: paging, accept: period, send: Page_Up }
+      - { when: has_menu, accept: comma, send: Page_Down }
+      - { when: has_menu, accept: comma, send: Page_Down }
+</code></pre>
+<p>To install the IPA schemas, type the following code in terminal of MacOS, or use the GUI provided by RIME in Windows.</p>
+<pre><code># install the package manager of RIME
+curl -fsSL https://git.io/rime-install | bash
+# change directory to plum and install ipa schemas
+cd plum
+bash rime-install ipa
+# add Yunlong and xsampa to the default configurations.
+bash rime-install custom:add:schema=ipa_xsampa
+bash rime-install custom:add:schema=ipa_yunlong
+</code></pre>
+<p>After that, deploy RIME, and when it says Squirrel/Weasel is ready. You can use <code>F4</code> (or other hotkey you defined, e.g., `Ctrl+``) to change the input method.</p>
+<p>To input IPA using Xsampa, you can have a look at a guide to Xsampa: <a href="https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/+/HEAD/docs/phonemes/xsampa.md">https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/+/HEAD/docs/phonemes/xsampa.md</a></p>
+<p>Another file you may want to modify is <code>squirrel.custom.yaml</code> or (<code>weasel.custom.yaml</code> on Windows). Basically, this file can configrue how Squirrel or Weasel look like. My configurations are as below.</p>
+<pre><code>#squirrel.custom.yaml
+patch:
+  style/color_scheme: &quot;simplest&quot;    # Use the scheme defined below
+  preset_color_schemes/simplest:
+    name: &quot;simplest&quot;
+    author: &quot;Chunyu Ge &lt;gechunyu92@hotmail.com&gt;&quot;
+    horizontal: false
+    inline_preedit: true
+    alpha: 0.9
+    back_color: 0x000000 # background
+    text_color: 0xffffff 
+    candidate_text_color: 0xffffff # non-first candidate
+    hilited_candidate_back_color: 0xffffff # background of the first candidate
+    hilited_candidate_text_color: 0x000000 # first candidate
+    comment_text_color: 0xffffff
+    label_format: '%s'
+    hanb_font: &quot;HanaMinB&quot; # font of uncommon words
+</code></pre>
+<h2 id="use-yunlong">Use Yunlong</h2>
+<p>Alternatively, you can simply use Yunlong, which can be installed separately in Windows. Yunlong can be accessed here http://118.24.95.172/resource.htm</p>
+<p>Yunlong is quite straightforward. For example, schwa ə is <code>ed</code>, which means e dao (e 倒). Diacritics can be input with the key <code>f</code>. For example, the nasalized vowel ã is <code>af~</code>.</p>
+<p>A main advantage of Yunlong over Xsampa is it can input apical vowels (ɿ ʅ ʮ ʯ) and other symbols which are used specifically in Chinese.</p>
 <h2 id="typing-ipa-in-latex">Typing IPA in \LaTeX</h2>
-<p>Using the <code>tipa</code> package. A cheatsheet of the symbols can be found in <a href="https://ptmartins.info/tex/tipacheatsheet.pdf">https://ptmartins.info/tex/tipacheatsheet.pdf</a></p>
+<p>To input IPA in \LaTeX, you can use the <code>tipa</code> package, which can input IPA symbols with ASCII code only. A cheatsheet of the symbols can be found in <a href="https://ptmartins.info/tex/tipacheatsheet.pdf">https://ptmartins.info/tex/tipacheatsheet.pdf</a></p>
+<p>If you have installed Yunlong or Xsampa, you can also simply type IPA in a LaTeX document, but <code>tipa</code> is also very useful. Some conference or journal templates can only be generated with <code>pdflatex</code>, rather than <code>xelatex</code>, and only the latter can handle non-standard symbols, such as IPA. Therefore, if you want to type IPA in your LaTeX document and run it with the <code>pdflatex</code> engine, you can only use <code>tipa</code>.</p>
 <h2 id="online-ipa-keyboard">Online IPA keyboard</h2>
-<p><a href="https://keyman.com/keyboards/sil_ipa">https://keyman.com/keyboards/sil_ipa</a> (SIL keyboard)</p>
-<p><a href="https://ipa.typeit.org/full/">https://ipa.typeit.org/full/</a></p>
-<p><a href="http://westonruter.github.io/ipa-chart/keyboard/">http://westonruter.github.io/ipa-chart/keyboard/</a></p>
+<p>Yet another alternative is to use online IPA keyboard, if you do not want all that tinkering. The following are some online IPA keyboards. But if you need to input a lot IPA, better install one of the input schemas.</p>
+<ul>
+<li><a href="https://keyman.com/keyboards/sil_ipa">https://keyman.com/keyboards/sil_ipa</a> (SIL keyboard)</li>
+<li><a href="https://ipa.typeit.org/full/">https://ipa.typeit.org/full/</a></li>
+<li><a href="http://westonruter.github.io/ipa-chart/keyboard/">http://westonruter.github.io/ipa-chart/keyboard/</a></li>
+</ul>
 
         </div>
         
