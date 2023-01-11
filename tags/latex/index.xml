@@ -13,7 +13,7 @@
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2022-12-ipa/</guid>
-      <description>Using RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file are as below.</description>
+      <description>Use RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file are as below.</description>
     </item>
     
     <item>
