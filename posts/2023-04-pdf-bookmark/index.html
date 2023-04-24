@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width">
 
 
-<title>Chunyu Ge</title>
+<title>Export and import pdf bookmarks | Chunyu Ge</title>
 <link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
 <script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
 
@@ -51,47 +51,53 @@
 
 
 <meta name="description"
-  content="">
-
+  content="It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using pdftk. pdftk is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of pdftk, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Export and import pdf bookmarks",
+      "item":"https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/"}]
+}
+</script>
 
 
 
 <script type="application/ld+json">
 {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[{
-            "@type":"ListItem",
-            "position":  1 ,
-            "name": "How to define aesthetic mappings of ggplot2 within another function",
-            "description": "ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let\u0026rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(\u0026quot;mtcars\u0026quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,",
-            "url": "https://ge-chunyu.github.io/posts/2020-03-ggplot-function/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "Writing Praat scripts in a modular way",
-            "description": "Praat is widely used in phonetic research. Working with Praat involves inevitably the Praat scripting. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself? Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the",
-            "url": "https://ge-chunyu.github.io/posts/2019-12-praat/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "用pandoc生成大型中文文档的痛点与解决方案",
-            "description": "Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown",
-            "url": "https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/"
-        }
-    ]
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/"
+    },
+    "headline": "Export and import pdf bookmarks | Chunyu Ge","datePublished": "2023-04-24T00:00:00+00:00",
+    "dateModified": "2023-04-24T00:00:00+00:00",
+    "wordCount":  189 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using pdftk. pdftk is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of pdftk, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using"
 }
-</script><meta property="og:title" content="Chunyu Ge" />
-<meta property="og:type" content="website" />
+</script><meta property="og:title" content="Export and import pdf bookmarks | Chunyu Ge" />
+<meta property="og:type" content="article" />
 
 
 
-<meta property="og:url" content="https://ge-chunyu.github.io/posts/" />
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/" />
 
 
 
 
-
+<meta property="og:description" content="It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using pdftk. pdftk is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of pdftk, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using" />
 
 
 
@@ -106,14 +112,27 @@
 
 
 
-<meta property="og:updated_time" content="2023-04-24T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2023-04-24T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2023-04-24T00:00:00&#43;00:00" />
 
 
 
 <meta property="article:section" content="posts" />
 
 
-<link rel="alternate" type="application/rss+xml" href="https://ge-chunyu.github.io/posts/index.xml" title="Chunyu Ge" />
+<meta property="article:tag" content="latex" />
+
+
+
+
+
+<meta property="og:see_also" content="https://ge-chunyu.github.io/posts/2022-12-ipa/" />
+
+<meta property="og:see_also" content="https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/" />
+
+
 
 <body class="flex flex-col min-h-screen">
     <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
@@ -215,28 +234,16 @@ if (!doNotTrack) {
     <main class="flex-grow pt-16">
         <div class="pl-scrollbar">
             <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-<article class="mx-6 my-8">
-    <h1 class="font-bold text-3xl text-primary-text">Posts</h1>
-    
-</article>
-<div class="bg-secondary-bg rounded px-6">
-    <div class="overflow-hidden divide-y">
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2020-03-ggplot-function/" class="font-bold text-xl hover:text-eureka">How to define aesthetic mappings of ggplot2 within another function</a>
-</div>
-<div class="content">
-  ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let&amp;rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(&amp;quot;mtcars&amp;quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,
-</div>
 
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Export and import pdf bookmarks</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2020-03-28</span>
+        <span>2023-04-24</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
@@ -247,113 +254,105 @@ if (!doNotTrack) {
 
     
 </div>
+        
+        
+        
 
-  </div>
+        <div class="content">
+            <p>It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using <a href="https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/"><code>pdftk</code></a>. <code>pdftk</code> is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of <code>pdftk</code>, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using the following lines.</p>
+<pre><code># export dump_data from the original file
+pdftk originalFile.pdf dump_data output bookmark.txt
+# import dump_data to the new file
+pdftk newFile.pdf update_info bookmark.txt output newFileWithBookmark.pdf
+</code></pre>
+<p>Of course, it is also possible to export the bookmark information as a text file:</p>
+<pre><code>pdftk originalFile.pdf dump_data_utf8 | grep '^Bookmark' &gt; bookmark.txt
+</code></pre>
+<p>After that, the bookmark can be added to the new file alternatively by the LaTeX package <code>bookmark</code>. The following shows a minimal example (see more explanations in <a href="https://michaelgoerz.net/notes/pdf-bookmarks-with-latex.html">Michael H. Goerz&rsquo;s post</a>.</p>
+<pre><code>\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage[
+  pdfpagelabels=true,
+  pdftitle={A test pdf file},
+  pdfauthor={Chunyu Ge},
+]{hyperref}
+\usepackage{bookmark}
 
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2019-12-praat/" class="font-bold text-xl hover:text-eureka">Writing Praat scripts in a modular way</a>
-</div>
-<div class="content">
-  Praat is widely used in phonetic research. Working with Praat involves inevitably the Praat scripting. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself? Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the
-</div>
+\begin{document}
 
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2019-12-06</span>
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\includepdf[pages=1-2]{originalFile.pdf}
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+\includepdf[pages=3-8]{originalFile.pdf}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\includepdf[pages=9-]{originalFile.pdf}
+
+\bookmark[page=1,level=0]{Title Page}
+\bookmark[page=9,level=0]{Introduction}
+\bookmark[page=17,level=1]{Contents}
+\bookmark[page=31,level=1]{Chapter 1}
+\bookmark[page=31,level=2]{Section 1}
+\end{document}
+</code></pre>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://ge-chunyu.github.io/tags/latex/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#LaTeX</a>
+    
+</div>
+        
+        
+        
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
     </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>3 min read</span>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2022-12-ipa/" class="block">How to setup an IPA input schema</a>
+        
+    </div>
+</div>
+
+        
     </div>
     
-    
 
     
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/" class="font-bold text-xl hover:text-eureka">用pandoc生成大型中文文档的痛点与解决方案</a>
-</div>
-<div class="content">
-  Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2019-11-25</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>6 min read</span>
+    
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">See Also</h2>
+        <div class="content">
+            
+            <a href="https://ge-chunyu.github.io/posts/2022-12-ipa/">How to setup an IPA input schema</a>
+            <br />
+            
+            <a href="https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/">在 LaTeX 中显示生僻字</a>
+            <br />
+            
+        </div>
     </div>
     
-    
-
-    
 </div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-</div>
-
-
-</div>
-
-<ul class="pagination">
-  <li class="page-item">
-    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/posts/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/posts/">1</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/posts/page/2/">2</a>
-  </li>
-  <li class="page-item active">
-    <a class="page-link" href="/posts/page/3/">3</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/posts/page/4/">4</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/posts/page/5/">5</a>
-  </li>
-  <li class="page-item">
-    <a href="/posts/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/posts/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-  </li>
-</ul>
-
-
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
 
             </div>
         </div>

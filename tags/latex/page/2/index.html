@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width">
 
 
-<title>Chunyu Ge</title>
+<title>LaTeX | Chunyu Ge</title>
 <link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.css">
 <script defer src="https://ge-chunyu.github.io/js/eureka.min.js"></script>
 
@@ -52,6 +52,21 @@
 
 <meta name="description"
   content="">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Tags",
+      "item":"https://ge-chunyu.github.io/tags/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"LaTeX",
+      "item":"https://ge-chunyu.github.io/tags/latex/"}]
+}
+</script>
 
 
 
@@ -63,30 +78,18 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "How to define aesthetic mappings of ggplot2 within another function",
-            "description": "ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let\u0026rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(\u0026quot;mtcars\u0026quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,",
-            "url": "https://ge-chunyu.github.io/posts/2020-03-ggplot-function/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "Writing Praat scripts in a modular way",
-            "description": "Praat is widely used in phonetic research. Working with Praat involves inevitably the Praat scripting. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself? Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the",
-            "url": "https://ge-chunyu.github.io/posts/2019-12-praat/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "用pandoc生成大型中文文档的痛点与解决方案",
-            "description": "Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown",
-            "url": "https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/"
+            "name": "Customizing pdf output of Pandoc",
+            "description": "I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn\u0026rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format",
+            "url": "https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/"
         }
     ]
 }
-</script><meta property="og:title" content="Chunyu Ge" />
+</script><meta property="og:title" content="LaTeX | Chunyu Ge" />
 <meta property="og:type" content="website" />
 
 
 
-<meta property="og:url" content="https://ge-chunyu.github.io/posts/" />
+<meta property="og:url" content="https://ge-chunyu.github.io/tags/latex/" />
 
 
 
@@ -110,10 +113,10 @@
 
 
 
-<meta property="article:section" content="posts" />
+<meta property="article:section" content="tags" />
 
 
-<link rel="alternate" type="application/rss+xml" href="https://ge-chunyu.github.io/posts/index.xml" title="Chunyu Ge" />
+<link rel="alternate" type="application/rss+xml" href="https://ge-chunyu.github.io/tags/latex/index.xml" title="Chunyu Ge" />
 
 <body class="flex flex-col min-h-screen">
     <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
@@ -162,7 +165,7 @@ if (!doNotTrack) {
             <a href="/homepage/"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
             <a href="/posts/"
-                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Posts</a>
             <a href="/cv/"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
             <a href="/about/"
@@ -216,7 +219,7 @@ if (!doNotTrack) {
         <div class="pl-scrollbar">
             <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <article class="mx-6 my-8">
-    <h1 class="font-bold text-3xl text-primary-text">Posts</h1>
+    <h1 class="font-bold text-3xl text-primary-text">LaTeX</h1>
     
 </article>
 <div class="bg-secondary-bg rounded px-6">
@@ -227,84 +230,20 @@ if (!doNotTrack) {
   
   <div class="w-full ">
     <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2020-03-ggplot-function/" class="font-bold text-xl hover:text-eureka">How to define aesthetic mappings of ggplot2 within another function</a>
+  <a href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/" class="font-bold text-xl hover:text-eureka">Customizing pdf output of Pandoc</a>
 </div>
 <div class="content">
-  ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let&amp;rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(&amp;quot;mtcars&amp;quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,
+  I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format
 </div>
 
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
     <div class="mr-6 my-2">
         <i class="fas fa-calendar mr-1"></i>
-        <span>2020-03-28</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1 min read</span>
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2019-12-praat/" class="font-bold text-xl hover:text-eureka">Writing Praat scripts in a modular way</a>
-</div>
-<div class="content">
-  Praat is widely used in phonetic research. Working with Praat involves inevitably the Praat scripting. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself? Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2019-12-06</span>
+        <span>2019-11-02</span>
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
         <span>3 min read</span>
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/" class="font-bold text-xl hover:text-eureka">用pandoc生成大型中文文档的痛点与解决方案</a>
-</div>
-<div class="content">
-  Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2019-11-25</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>6 min read</span>
     </div>
     
     
@@ -325,31 +264,22 @@ if (!doNotTrack) {
 
 <ul class="pagination">
   <li class="page-item">
-    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <a href="/tags/latex/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <a href="/tags/latex/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/">1</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/posts/page/2/">2</a>
+    <a class="page-link" href="/tags/latex/">1</a>
   </li>
   <li class="page-item active">
-    <a class="page-link" href="/posts/page/3/">3</a>
+    <a class="page-link" href="/tags/latex/page/2/">2</a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/4/">4</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/posts/page/5/">5</a>
-  </li>
-  <li class="page-item">
-    <a href="/posts/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/posts/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/tags/latex/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
