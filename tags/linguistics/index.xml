@@ -6,7 +6,16 @@
     <description>Recent content in linguistics on Chunyu Ge</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Wed, 31 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/linguistics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/linguistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 LaTeX 中显示生僻字</title>
+      <link>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</guid>
+      <description>在 LaTeX 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项</description>
+    </item>
+    
     <item>
       <title>说“酿菜”的“酿”</title>
       <link>https://ge-chunyu.github.io/posts/2022-08-niangcai/</link>
