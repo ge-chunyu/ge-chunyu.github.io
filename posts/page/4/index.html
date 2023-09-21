@@ -63,21 +63,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "How to define aesthetic mappings of ggplot2 within another function",
+            "description": "ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let\u0026rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(\u0026quot;mtcars\u0026quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,",
+            "url": "https://ge-chunyu.github.io/posts/2020-03-ggplot-function/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "Writing Praat scripts in a modular way",
             "description": "Praat is widely used in phonetic research. Working with Praat involves inevitably the Praat scripting. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself? Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the",
             "url": "https://ge-chunyu.github.io/posts/2019-12-praat/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "用pandoc生成大型中文文档的痛点与解决方案",
             "description": "Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown",
             "url": "https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "Customizing pdf output of Pandoc",
-            "description": "I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn\u0026rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format",
-            "url": "https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/"
         }
     ]
 }
@@ -106,7 +106,7 @@
 
 
 
-<meta property="og:updated_time" content="2023-05-07T00:00:00&#43;00:00" />
+<meta property="og:updated_time" content="2023-09-21T00:00:00&#43;00:00" />
 
 
 
@@ -227,6 +227,38 @@ if (!doNotTrack) {
   
   <div class="w-full ">
     <div class="mb-4">
+  <a href="https://ge-chunyu.github.io/posts/2020-03-ggplot-function/" class="font-bold text-xl hover:text-eureka">How to define aesthetic mappings of ggplot2 within another function</a>
+</div>
+<div class="content">
+  ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let&amp;rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(&amp;quot;mtcars&amp;quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,
+</div>
+
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2020-03-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1 min read</span>
+    </div>
+    
+    
+
+    
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="mb-4">
   <a href="https://ge-chunyu.github.io/posts/2019-12-praat/" class="font-bold text-xl hover:text-eureka">Writing Praat scripts in a modular way</a>
 </div>
 <div class="content">
@@ -286,38 +318,6 @@ if (!doNotTrack) {
 </div>
   </div>
   
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/" class="font-bold text-xl hover:text-eureka">Customizing pdf output of Pandoc</a>
-</div>
-<div class="content">
-  I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format
-</div>
-
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2019-11-02</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>3 min read</span>
-    </div>
-    
-    
-
-    
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
 </div>
 
 
@@ -346,10 +346,13 @@ if (!doNotTrack) {
     <a class="page-link" href="/posts/page/5/">5</a>
   </li>
   <li class="page-item">
+    <a class="page-link" href="/posts/page/6/">6</a>
+  </li>
+  <li class="page-item">
     <a href="/posts/page/5/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/6/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

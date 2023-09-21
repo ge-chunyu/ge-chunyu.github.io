@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ge-chunyu.github.io/</loc>
-    <lastmod>2023-05-07T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ge-chunyu.github.io/posts/</loc>
+    <lastmod>2023-09-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ge-chunyu.github.io/tags/praat/</loc>
+    <lastmod>2023-09-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/</loc>
+    <lastmod>2023-09-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ge-chunyu.github.io/tags/</loc>
+    <lastmod>2023-09-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ge-chunyu.github.io/posts/2023-05-handout/</loc>
     <lastmod>2023-05-07T00:00:00+00:00</lastmod>
@@ -12,12 +24,6 @@
     <lastmod>2023-05-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ge-chunyu.github.io/tags/linguistics/</loc>
-    <lastmod>2023-05-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ge-chunyu.github.io/posts/</loc>
-    <lastmod>2023-05-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ge-chunyu.github.io/tags/</loc>
     <lastmod>2023-05-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/</loc>
@@ -55,9 +61,6 @@
   </url><url>
     <loc>https://ge-chunyu.github.io/tags/r/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ge-chunyu.github.io/tags/praat/</loc>
-    <lastmod>2019-12-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ge-chunyu.github.io/posts/2019-12-praat/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>

@@ -6,7 +6,16 @@
     <description>Recent content on Chunyu Ge</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pseudo forced alignment using a Praat script</title>
+      <link>https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/</guid>
+      <description>It is very common for phoneticians to ask speakers to read aloud word lists, especially in the field. However, to find a word in a long sound file is very painful and a better solution is to split the long sound file into short files with meaningful file names. I wrote a Praat script for that purpose and to save some time, I also use the script to fill in the transcriptions to the TextGrid</description>
+    </item>
+    
     <item>
       <title>How I make a linguistic handout</title>
       <link>https://ge-chunyu.github.io/posts/2023-05-handout/</link>
