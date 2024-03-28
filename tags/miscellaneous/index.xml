@@ -6,11 +6,11 @@
     <description>Recent content in miscellaneous on Chunyu Ge</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Tue, 21 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I backup my data</title>
       <link>https://ge-chunyu.github.io/posts/2024-03-backup/</link>
-      <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://ge-chunyu.github.io/posts/2024-03-backup/</guid>
       <description>Digital data is easy to copy and also easy to lose, due to (usually sudden) failure of electronic devices. A good habit is to backup regularly and in different locations. This post is about my solution to data backup. Classification of digital data Digital data can be classified according to their importance and sizes, and the following lists some of the categories based on their importance. Data that can be downloaded online Papers and e-books</description>
