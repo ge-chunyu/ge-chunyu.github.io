@@ -1,56 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LaTeX on Chunyu Ge</title>
+    <title>Latex on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/latex/</link>
-    <description>Recent content in LaTeX on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Latex on Chunyu Ge</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
+    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I make a linguistic handout</title>
       <link>https://ge-chunyu.github.io/posts/2023-05-handout/</link>
       <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-05-handout/</guid>
       <description>Making a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX. The workflow I usually write documents using markdown and convert it to pdf using pandoc, as explained in my previous posts. I have a same head/template for all handouts, so that the</description>
     </item>
-    
     <item>
       <title>Export and import pdf bookmarks</title>
       <link>https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/</link>
       <pubDate>Mon, 24 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/</guid>
       <description>It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using pdftk. pdftk is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of pdftk, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using</description>
     </item>
-    
     <item>
       <title>How to setup an IPA input method</title>
       <link>https://ge-chunyu.github.io/posts/2022-12-ipa/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-12-ipa/</guid>
       <description>Use RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file are as below.</description>
     </item>
-    
     <item>
       <title>在 LaTeX 中显示生僻字</title>
       <link>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</guid>
       <description>在 LaTeX 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项</description>
     </item>
-    
     <item>
       <title>Customizing pdf output of Pandoc</title>
       <link>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</link>
       <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</guid>
       <description>I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format</description>
     </item>
-    
   </channel>
 </rss>

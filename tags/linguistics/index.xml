@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linguistics on Chunyu Ge</title>
+    <title>Linguistics on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/linguistics/</link>
-    <description>Recent content in linguistics on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/linguistics/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Linguistics on Chunyu Ge</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
+    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/linguistics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I make a linguistic handout</title>
       <link>https://ge-chunyu.github.io/posts/2023-05-handout/</link>
       <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-05-handout/</guid>
       <description>Making a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX. The workflow I usually write documents using markdown and convert it to pdf using pandoc, as explained in my previous posts. I have a same head/template for all handouts, so that the</description>
     </item>
-    
     <item>
       <title>在 LaTeX 中显示生僻字</title>
       <link>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</guid>
       <description>在 LaTeX 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项</description>
     </item>
-    
     <item>
       <title>说“酿菜”的“酿”</title>
       <link>https://ge-chunyu.github.io/posts/2022-08-niangcai/</link>
       <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-08-niangcai/</guid>
       <description>已刊于《语言文字周报》。 酿菜是很多人都很爱吃的菜，比如酿豆腐、酿苦瓜、煎酿三宝等等。所谓酿菜，根据《现代汉语词典》：“烹调方法，将肉、鱼、虾等剁碎做成</description>
     </item>
-    
   </channel>
 </rss>
