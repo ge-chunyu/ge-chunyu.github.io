@@ -100,7 +100,7 @@
     },
     "headline": "Convert markdown files to pdf files using pandoc in vim | Chunyu Ge","datePublished": "2024-08-28T00:00:00+00:00",
     "dateModified": "2024-08-28T00:00:00+00:00",
-    "wordCount":  573 ,
+    "wordCount":  580 ,
     "publisher": {
         "@type": "Person",
         "name": "Chunyu Ge",
@@ -252,7 +252,7 @@
   
   
 
-  <p>I am learning vim and I want to migrate my workflow in <a href="https://www.sublimetext.com/">Sublime Text</a> to vim. One of the things I do most with Sublime Text is to write markdown files and convert them to pdf files using <a href="https://www.pandoc.org">Pandoc</a>. After some search, I did not find a satisfied plugin which does such a job. The <a href="https://github.com/vim-pandoc/vim-pandoc"><code>vim-pandoc</code></a> seems to be too powerful. I did some more search and found this <a href="https://vimandgit.com/posts/vim/advanced/neovim-and-vim-pandoc-batch-convert-markdown-to-html.html">post</a>, which is very informative and I follow the instructions to create my own plugin to convert markdown files to pdf files using pandoc in vim.</p>
+  <p>I am learning vim and I want to migrate my workflow in <a href="https://www.sublimetext.com/">Sublime Text</a> to vim. One of the things I do most with Sublime Text is to write <a href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/">markdown files</a> and convert them to pdf files using <a href="https://www.pandoc.org">Pandoc</a>. After some search, I did not find a satisfied plugin which does such a job. The <a href="https://github.com/vim-pandoc/vim-pandoc"><code>vim-pandoc</code></a> seems to be too powerful. I did some more search and found this <a href="https://vimandgit.com/posts/vim/advanced/neovim-and-vim-pandoc-batch-convert-markdown-to-html.html">post</a>, which is very informative and I follow the instructions to create my own plugin to convert markdown files to pdf files using pandoc in vim.</p>
 <p>The approach is quite straighforward. Pandoc as a commandline tool can be called within vim.</p>
 <pre><code>:!pandoc '%' -o '%:r'.pdf
 </code></pre>
@@ -280,6 +280,7 @@ CompilerSet errorformat=
 <h1 id="references-and-related-posts">References and related posts</h1>
 <ul>
 <li><a href="https://https://vimandgit.com/posts/vim/advanced/neovim-and-vim-pandoc-batch-convert-markdown-to-html.html">Learn to Create a Vim Compiler Plugin From Pandoc to Batch Convert Markdown Files to HTML</a></li>
+<li><a href="https://ejmastnak.com/tutorials/vim-latex/compilation/#compiler">Compiling LaTeX Documents in a Vim-Based Workflow</a></li>
 <li><a href="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/">用pandoc生成大型中文文档的痛点与解决方案</a></li>
 <li><a href="https://https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/">Customizing pdf output of Pandoc</a></li>
 <li><a href="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/">TWriting academic papers using Sublime Text 3 + Pandoc</a></li>
