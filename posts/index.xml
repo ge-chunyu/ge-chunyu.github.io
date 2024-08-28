@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
-    <lastBuildDate>Sun, 28 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Convert markdown files to pdf files using pandoc in vim</title>
+      <link>https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/</link>
+      <pubDate>Wed, 28 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/</guid>
+      <description>I am learning vim and I want to migrate my workflow in Sublime Text to vim. One of the things I do most with Sublime Text is to write markdown files and convert them to pdf files using Pandoc. After some search, I did not find a satisfied plugin which does such a job. The vim-pandoc seems to be too powerful. I did some more search and found this post, which is very informative and</description>
+    </item>
     <item>
       <title>A tutorial on generalized additive mixed-effects model (GAMM)</title>
       <link>https://ge-chunyu.github.io/posts/2024-04-gamm/</link>
