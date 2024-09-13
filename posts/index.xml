@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
-    <lastBuildDate>Wed, 28 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Substitution in Vim with expressions</title>
+      <link>https://ge-chunyu.github.io/posts/2024-09-substitution-vim/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2024-09-substitution-vim/</guid>
+      <description>Substitution in vim is very efficient, especially with the help of expressions. This is especially useful for calculations. I discovered this usage when I wanted to insert a list of numbers to the beginning of each line. But before go to the example, let&amp;rsquo;s take a look at expressions in vim substitution. The expressions in vim are marked with &amp;ldquo;=&amp;rdquo;. This tells vim to treat the contents after &amp;ldquo;=&amp;rdquo; as expressions rather than literal texts.</description>
+    </item>
     <item>
       <title>Convert markdown files to pdf files using pandoc in vim</title>
       <link>https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/</link>

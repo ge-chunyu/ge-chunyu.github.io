@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Convert markdown files to pdf files using pandoc in vim | Chunyu Ge</title>
+<title>Substitution in Vim with expressions | Chunyu Ge</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.7b7c42949307c5c0461d86b3f0dd940bce7b96654dcc9cada7f7154911f6bb2c6bcf3f19602cceda23e8f4bdd37f9786.css">
@@ -71,7 +71,7 @@
 
 
 <meta name="description"
-  content="I am learning vim and I want to migrate my workflow in Sublime Text to vim. One of the things I do most with Sublime Text is to write markdown files and convert them to pdf files using Pandoc. After some search, I did not find a satisfied plugin which does such a job. The vim-pandoc seems to be too powerful. I did some more search and found this post, which is very informative and">
+  content="Substitution in vim is very efficient, especially with the help of expressions. This is especially useful for calculations. I discovered this usage when I wanted to insert a list of numbers to the beginning of each line. But before go to the example, let&rsquo;s take a look at expressions in vim substitution. The expressions in vim are marked with &ldquo;=&rdquo;. This tells vim to treat the contents after &ldquo;=&rdquo; as expressions rather than literal texts.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -83,8 +83,8 @@
       "item":"https://ge-chunyu.github.io/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Convert markdown files to pdf files using pandoc in vim",
-      "item":"https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/"}]
+      "name":"Substitution in Vim with expressions",
+      "item":"https://ge-chunyu.github.io/posts/2024-09-substitution-vim/"}]
 }
 </script>
 
@@ -96,28 +96,28 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/"
+        "@id": "https://ge-chunyu.github.io/posts/2024-09-substitution-vim/"
     },
-    "headline": "Convert markdown files to pdf files using pandoc in vim | Chunyu Ge","datePublished": "2024-08-28T00:00:00+00:00",
-    "dateModified": "2024-08-28T00:00:00+00:00",
-    "wordCount":  580 ,
+    "headline": "Substitution in Vim with expressions | Chunyu Ge","datePublished": "2024-09-13T00:00:00+00:00",
+    "dateModified": "2024-09-13T00:00:00+00:00",
+    "wordCount":  663 ,
     "publisher": {
         "@type": "Person",
         "name": "Chunyu Ge",
         },
-    "description": "I am learning vim and I want to migrate my workflow in Sublime Text to vim. One of the things I do most with Sublime Text is to write markdown files and convert them to pdf files using Pandoc. After some search, I did not find a satisfied plugin which does such a job. The vim-pandoc seems to be too powerful. I did some more search and found this post, which is very informative and"
+    "description": "Substitution in vim is very efficient, especially with the help of expressions. This is especially useful for calculations. I discovered this usage when I wanted to insert a list of numbers to the beginning of each line. But before go to the example, let\u0026rsquo;s take a look at expressions in vim substitution. The expressions in vim are marked with \u0026ldquo;=\u0026rdquo;. This tells vim to treat the contents after \u0026ldquo;=\u0026rdquo; as expressions rather than literal texts."
 }
-</script><meta property="og:title" content="Convert markdown files to pdf files using pandoc in vim | Chunyu Ge" />
+</script><meta property="og:title" content="Substitution in Vim with expressions | Chunyu Ge" />
 <meta property="og:type" content="article" />
 
 
 
-<meta property="og:url" content="https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/" />
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2024-09-substitution-vim/" />
 
 
 
 
-<meta property="og:description" content="I am learning vim and I want to migrate my workflow in Sublime Text to vim. One of the things I do most with Sublime Text is to write markdown files and convert them to pdf files using Pandoc. After some search, I did not find a satisfied plugin which does such a job. The vim-pandoc seems to be too powerful. I did some more search and found this post, which is very informative and" />
+<meta property="og:description" content="Substitution in vim is very efficient, especially with the help of expressions. This is especially useful for calculations. I discovered this usage when I wanted to insert a list of numbers to the beginning of each line. But before go to the example, let&rsquo;s take a look at expressions in vim substitution. The expressions in vim are marked with &ldquo;=&rdquo;. This tells vim to treat the contents after &ldquo;=&rdquo; as expressions rather than literal texts." />
 
 
 
@@ -134,10 +134,10 @@
 
 
 
-<meta property="article:published_time" content="2024-08-28T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2024-09-13T00:00:00&#43;00:00" />
 
 
-<meta property="article:modified_time" content="2024-08-28T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2024-09-13T00:00:00&#43;00:00" />
 
 
 
@@ -227,7 +227,7 @@
       class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Convert markdown files to pdf files using pandoc in vim</h1>
+  <h1 class="mb-4">Substitution in Vim with expressions</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -235,7 +235,7 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2024-08-28</span
+      >2024-09-13</span
     >
   </div>
   <div class="me-6 my-2">
@@ -252,38 +252,78 @@
   
   
 
-  <p>I am learning vim and I want to migrate my workflow in <a href="https://www.sublimetext.com/">Sublime Text</a> to vim. One of the things I do most with Sublime Text is to write <a href="https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/">markdown files</a> and convert them to pdf files using <a href="https://www.pandoc.org">Pandoc</a>. After some search, I did not find a satisfied plugin which does such a job. The <a href="https://github.com/vim-pandoc/vim-pandoc"><code>vim-pandoc</code></a> seems to be too powerful. I did some more search and found this <a href="https://vimandgit.com/posts/vim/advanced/neovim-and-vim-pandoc-batch-convert-markdown-to-html.html">post</a>, which is very informative and I follow the instructions to create my own plugin to convert markdown files to pdf files using pandoc in vim.</p>
-<p>The approach is quite straighforward. Pandoc as a commandline tool can be called within vim.</p>
-<pre><code>:!pandoc '%' -o '%:r'.pdf
+  <p>Substitution in vim is very efficient, especially with the help of expressions. This is especially useful for calculations. I discovered this usage when I wanted to insert a list of numbers to the beginning of each line. But before go to the example, let&rsquo;s take a look at expressions in vim substitution.</p>
+<p>The expressions in vim are marked with &ldquo;=&rdquo;. This tells vim to treat the contents after &ldquo;=&rdquo; as expressions rather than literal texts. For example, vim will treat <code>\=1+1</code> as 2 rather than the text <code>1+1</code>. Using <code>\=</code>, I can insert numbers in the beginning of each line with expressions.</p>
+<pre><code>s/^/\=line(&quot;.&quot;)/
 </code></pre>
-<p>The <code>%</code> represents the current file together with its path and <code>%:r</code> stands for the current file with the extension (i.e., .md in this case) stripped. However, type such a long command each time would be very time-consuming and annoying. To more conveniently call it, the command can be put in a vim compiler plugin.</p>
-<p>The vim compiler plugin is put inside <code>.vim/after/compiler</code> and the compiler contains the following commands.</p>
-<pre><code>let current_compiler=&quot;pandoc-md&quot;
-CompilerSet makeprg=pandoc\ -F\ pandoc-crossref\ --pdf-engine=xelatex\ --metadata-file='~/Documents/notes/template/metadata.yaml'\ -H\ '~/Documents/notes/template/head.tex'\ '%'\ -o\ ~/Documents/notes/pdf/'%:t:r'.pdf
-CompilerSet errorformat=
+<p><code>line(&quot;.&quot;)</code> stands for the line number of the current line. I use <code>^</code> to capture the beginning of the line and add line numbers before each line and the output is:</p>
+<pre><code>19text1
+20text2
+21text3
 </code></pre>
-<p>First, I define a compiler named <code>pandoc-md</code> and then the command to run when calling <code>:make</code> in vim. The <code>makeprg</code> is very long and needs some explanation. All spaces in <code>makeprg</code> need to be escaped with a slash <code>\</code>, just as in <code>.vimrc</code> when we define what to display on the statusline. Since my pdf files use customized layout, I also specified some metadata and a \LaTeX template with the <code>--metadata-file</code> and <code>-H</code> flags. The paths of these files should be inside quotation marks.</p>
-<p>I don&rsquo;t want to get pdf files with the names <code>filename.md.pdf</code>, so I use <code>%:r</code>.pdf to refer to the file name without the extension. Also, as I want to put all my pdf files in a <code>pdf</code> folder, I specified the folder in <code>makeprg</code>, but note that this path, unlike those of the metadata file and the \LaTeX template, is not inside quotation marks.</p>
-<p>Another thing is that I use <code>:t</code> to refer to the file name without the full path [^cmd-special]. Therefore, the resulting file would be put in the folder <code>~/Documents/notes/pdf</code>.</p>
-<p>One last thing is to create an <code>autocmd</code> to set the compiler for markdown files only. I put the following line in my <code>.vimrc</code>, so that each time I run <code>:make</code> each time within vim, the markdown file will be automatically converted to pdf files and stored in the specified folder.</p>
-<pre><code>autocmd FileType markdown compiler pandoc-md
+<p><code>\=</code> can combine with <code>printf()</code> to achieve nicer output. To have a number before each line is good, but it looks better with a trailing dot and space <code>. </code>, so that it looks like a numbered list. I can do this with the following line.</p>
+<pre><code>s/^/\=printf(&quot;%s. &quot;, line(&quot;.&quot;))/
 </code></pre>
-<h2 id="a-sidenote-convert-markdown-files-to-pdf-files-in-sublime-text">A sidenote: Convert markdown files to pdf files in Sublime Text</h2>
-<p>Sublime Text has a very convenient build system which I use to convert markdown files to pdf files. Click <code>Tools</code> on the toolbar and then to <code>Build System</code> and <code>New Build System</code> to create a new system. Put the following commands in the file and save it as <code>Pandoc.sublime-build</code>.</p>
-<pre><code>{
-    &quot;working_dir&quot;: &quot;~/Documents/notes/pdf&quot;,
-    &quot;shell_cmd&quot;: &quot;pandoc -F pandoc-crossref --pdf-engine=xelatex --metadata-file='~/Documents/notes/template/metadata.yaml' -H \&quot;~/Documents/notes/template/head.tex\&quot; \&quot;$file\&quot; -o \&quot;$file_base_name.pdf\&quot; &amp;&amp; open -a Preview \&quot;$file_base_name.pdf\&quot;&quot;,
-    &quot;selector&quot;: &quot;text.html.markdown&quot;,
-    &quot;path&quot;: &quot;/usr/texbin:$PATH&quot;
-}
+<p><code>%s</code> tells vim that there is a string, and the string is the following argument <code>line(&quot;.&quot;)</code>, the line number of the current line. Also, there is a dot and a space <code>. </code> after the string. This gives the following output.</p>
+<pre><code>33. text1
+34. text2
+35. text3
 </code></pre>
-<h1 id="references-and-related-posts">References and related posts</h1>
+<p>Vim can also do simple calculations with <code>\=</code>. For example, sometimes I want to insert the relative line number rather than the absolute line number. To do that, I first enter the Visual mode with <code>V</code>, and select the lines I want to work with. Type the colon <code>:</code> in the commandline will give us <code>:'&lt;,'&gt;</code>. This shows that the operations will be done within the selected part. The line number of the first line under selection is <code>line(&quot;'&lt;&quot;)</code>, and the number of the last line is <code>line(&quot;'&gt;&quot;)</code>. Also, the line number of the current line is &ldquo;line(&rdquo;.&quot;)&quot;. Therefore, the relative line number of the current line is <code>line(&quot;.&quot;)-line(&quot;'&lt;&quot;)+1</code>. I added 1 to the number because the first line should also be 1. The previous command is revised into:</p>
+<pre><code>s/^/\=printf(&quot;%s. &quot;, line(&quot;.&quot;)-line(&quot;'&lt;&quot;))/
+</code></pre>
+<p>And the output is:</p>
+<pre><code>1. text1
+2. text2
+3. text3
+</code></pre>
+<p>A tricky point in calculations in the expressions is that it cannot handle divisions, because the division sign <code>/</code> is the same as the separator <code>/</code> used in vim substitution. I can use <code>#</code> to surround the patterns that vim needs to findand put the substituted contents after the second <code>#</code>. For instance, I can divide the relative line numbers by 2, so that the line numbers would be 0, 1, 1, 2, 2, 3, 3&hellip;</p>
+<pre><code>s#^#\=printf(&quot;%s. &quot;, (line(&quot;.&quot;)-line(&quot;'&lt;&quot;))/2)
+</code></pre>
+<pre><code>0. text1
+1. text2
+1. text3
+2. text4
+2. text5
+</code></pre>
+<p>Now I know eough about expressions in vim substitutions, and I can go back to my original task to add numbers to the beginning of each line, and most importantly, I do not want the empty lines to interfere the numbering. So, what I have is:</p>
+<pre><code>text1
+
+text2
+
+text3
+</code></pre>
+<p>And what I want is:</p>
+<pre><code>1. text1
+
+2. text2
+
+3. text3
+</code></pre>
+<p>Basic calculation can do that. I can divide the relative line numbers by 2 and add 1, and the command is:</p>
+<pre><code>s#^.#\=printf(&quot;%s. &quot;, (line('.')-line(&quot;'&lt;&quot;))/2+1)
+</code></pre>
+<p>Also, to capture the non-empty lines, I use <code>^.</code>. That is to say, only add numbers on lines which have a character after the beginning of the line.</p>
+<p>However, the outputis like the following. Because with <code>^.</code>, I substituted the beginning of the line together with the first character!</p>
+<pre><code>1. ext1
+
+2. ext2
+
+3. ext3
+</code></pre>
+<p>I have to add the first character back by <code>submatch(0)</code>. <code>submatch()</code> returns matches from the pattern. With number 0, it returns the whole match, and with 1 to 9, it returns the first to the 9th submatch. So the command is:</p>
+<pre><code>s#\(^.\)#\=printf(&quot;%s. %s&quot;, (line('.')-line(&quot;'&lt;&quot;))/2+1, submatch(0))
+</code></pre>
+<p>Ta-dah! Here is the result!</p>
+<pre><code>1. text1
+
+2. text2
+
+3. text3
+</code></pre>
+<p>Useful links;</p>
 <ul>
-<li><a href="https://https://vimandgit.com/posts/vim/advanced/neovim-and-vim-pandoc-batch-convert-markdown-to-html.html">Learn to Create a Vim Compiler Plugin From Pandoc to Batch Convert Markdown Files to HTML</a></li>
-<li><a href="https://ejmastnak.com/tutorials/vim-latex/compilation/#compiler">Compiling LaTeX Documents in a Vim-Based Workflow</a></li>
-<li><a href="https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/">用pandoc生成大型中文文档的痛点与解决方案</a></li>
-<li><a href="https://https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/">Customizing pdf output of Pandoc</a></li>
-<li><a href="https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/">Writing academic papers using Sublime Text 3 + Pandoc</a></li>
+<li><a href="https://nikodoko.com/posts/vim-substitute-tricks/">Vim Substitute Tricks</a></li>
 </ul>
 
 </article>
@@ -303,16 +343,11 @@ CompilerSet errorformat=
   >
     <div>
       
-        <span class="text-primary-text block font-bold"
-          >Previous</span
-        >
-        <a href="https://ge-chunyu.github.io/posts/2024-09-substitution-vim/" class="block">Substitution in Vim with expressions</a>
-      
     </div>
     <div class="mt-4 md:mt-0 md:text-right">
       
         <span class="text-primary-text block font-bold">Next</span>
-        <a href="https://ge-chunyu.github.io/posts/2024-04-gamm/" class="block">A tutorial on generalized additive mixed-effects model (GAMM)</a>
+        <a href="https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/" class="block">Convert markdown files to pdf files using pandoc in vim</a>
       
     </div>
   </div>
