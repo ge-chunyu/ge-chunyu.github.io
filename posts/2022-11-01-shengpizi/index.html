@@ -100,7 +100,7 @@
     },
     "headline": "在 LaTeX 中显示生僻字 | Chunyu Ge","datePublished": "2022-11-01T00:00:00+00:00",
     "dateModified": "2022-11-01T00:00:00+00:00",
-    "wordCount":  238 ,
+    "wordCount":  280 ,
     "publisher": {
         "@type": "Person",
         "name": "Chunyu Ge",
@@ -272,6 +272,9 @@
 </code></pre>
 <p>第一种办法是在指定字体时用<code>FallBack</code>参数指定备用字体，第二种办法是在指定字体之后再用<code>\setCJKfallbackfamilyfont</code>指定备用字体。二者是等价的。但是要注意的是，在用<code>FallBack</code>时，必须在导入<code>xeCJK</code>宏包时设置<code>AutoFallBack=true</code>。</p>
 <pre><code class="language-latex">\usepackage[AutoFallBack=true]{xeCJK}
+</code></pre>
+<p>另外，在设置备用字体时还可以设置多层备用字体（参见<code>xeCJK</code>手册第 8 页），如下：</p>
+<pre><code>\setCJKfallbackfamilyfont{\CJKrmdefault}{HanaMinA, HanaMinB}
 </code></pre>
 
 </article>
