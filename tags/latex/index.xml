@@ -1,56 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LaTeX on Chunyu Ge</title>
+    <title>Latex on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/latex/</link>
-    <description>Recent content in LaTeX on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Latex on Chunyu Ge</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I make a linguistic handout</title>
       <link>https://ge-chunyu.github.io/posts/2023-05-handout/</link>
       <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-05-handout/</guid>
-      <description>Making a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX. The workflow I usually write documents using markdown and convert it to pdf using pandoc, as explained in my previous posts. I have a same head/template for all handouts, so that the</description>
+      <description>&lt;p&gt;Making a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-workflow&#34;&gt;The workflow&lt;/h2&gt;&#xA;&lt;p&gt;I usually write documents using markdown and convert it to pdf using &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt;, as explained in &lt;a href=&#34;https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/&#34;&gt;my previous posts&lt;/a&gt;. I have a same head/template for all handouts, so that the style remains the same for a course. I use different LaTeX packages to format various linguistic contents.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Export and import pdf bookmarks</title>
       <link>https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/</link>
       <pubDate>Mon, 24 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/</guid>
-      <description>It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using pdftk. pdftk is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of pdftk, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using</description>
+      <description>&lt;p&gt;It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using &lt;a href=&#34;https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/&#34;&gt;&lt;code&gt;pdftk&lt;/code&gt;&lt;/a&gt;. &lt;code&gt;pdftk&lt;/code&gt; is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of &lt;code&gt;pdftk&lt;/code&gt;, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using the following lines.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to setup an IPA input method</title>
       <link>https://ge-chunyu.github.io/posts/2022-12-ipa/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-12-ipa/</guid>
-      <description>Use RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file are as below.</description>
+      <description>&lt;h2 id=&#34;use-rime&#34;&gt;Use &lt;code&gt;RIME&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://rime.im/&#34;&gt;RIME&lt;/a&gt; is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, &lt;code&gt;yunlong&lt;/code&gt; and &lt;code&gt;xsampa&lt;/code&gt;. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is &lt;code&gt;default.custom.yaml&lt;/code&gt;. My configurations of this file are as below.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>在 LaTeX 中显示生僻字</title>
       <link>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</guid>
-      <description>在 LaTeX 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项</description>
+      <description>&lt;p&gt;在 LaTeX 里显示生僻字是一个棘手的问题。用&lt;code&gt;xeCJK&lt;/code&gt;包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://mirrors.ibiblio.org/CTAN/macros/xetex/latex/xecjk/xeCJK.pdf&#34;&gt;&lt;code&gt;xeCJK&lt;/code&gt;包的使用手册&lt;/a&gt;中有&lt;code&gt;FallBack&lt;/code&gt;的选项（8 页），可以用以下两种办法指定生僻字的字体&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\setCJKmainfont[FallBack=SimSun-ExtB]{SimSun}&#xA;\setCJKmainfont{SimSun}&#xA;\setCJKfallbackfamilyfont{\CJKrmdefault}{SimSun-ExtB}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;第一种办法是在指定字体时用&lt;code&gt;FallBack&lt;/code&gt;参数指定备用字体，第二种办法是在指定字体之后再用&lt;code&gt;\setCJKfallbackfamilyfont&lt;/code&gt;指定备用字体。二者是等价的。但是要注意的是，在用&lt;code&gt;FallBack&lt;/code&gt;时，必须在导入&lt;code&gt;xeCJK&lt;/code&gt;宏包时设置&lt;code&gt;AutoFallBack=true&lt;/code&gt;。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Customizing pdf output of Pandoc</title>
       <link>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</link>
       <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</guid>
-      <description>I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format</description>
+      <description>&lt;p&gt;I am writing my PhD thesis and instead of using &lt;code&gt;LaTeX&lt;/code&gt;, I want to write it in &lt;code&gt;markdown&lt;/code&gt; together with &lt;a href=&#34;https://www.pandoc.org&#34;&gt;Pandoc&lt;/a&gt;. This has several merits. I can easily transform the &lt;code&gt;markdown&lt;/code&gt; file to &lt;code&gt;docx&lt;/code&gt; for my supervisor to revise. It can also easily be transformed to &lt;code&gt;pdf&lt;/code&gt; files through &lt;code&gt;LaTeX&lt;/code&gt;. However, the default &lt;code&gt;pdf&lt;/code&gt; output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the &lt;code&gt;pdf&lt;/code&gt; format to meet the standard of my school.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

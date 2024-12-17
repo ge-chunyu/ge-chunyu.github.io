@@ -4,17 +4,17 @@
     <title>R on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/r/</link>
     <description>Recent content in R on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to define aesthetic mappings of ggplot2 within another function</title>
       <link>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</guid>
-      <description>ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let&amp;rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(&amp;quot;mtcars&amp;quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,</description>
+      <description>&lt;p&gt;&lt;code&gt;ggplot2&lt;/code&gt; is great for visualization, but sometimes we need to include &lt;code&gt;ggplot2&lt;/code&gt; functions within another function. &lt;code&gt;ggplot()&lt;/code&gt; uses &lt;code&gt;aes()&lt;/code&gt; to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using &lt;code&gt;ggplot()&lt;/code&gt;? In this post I will present several approaches.&lt;/p&gt;&#xA;&lt;p&gt;First of all, let&amp;rsquo;s load the required packages and some test data.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)&#xA;library(dplyr)&#xA;data(&amp;quot;mtcars&amp;quot;)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;using-aes_string&#34;&gt;Using &lt;code&gt;aes_string()&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;There are two standard ways to define aesthetic mappings in &lt;code&gt;ggplot2&lt;/code&gt;, &lt;code&gt;aes_string()&lt;/code&gt; and &lt;code&gt;aes_()&lt;/code&gt;. Writing a function using &lt;code&gt;aes_string()&lt;/code&gt; is the same as using &lt;code&gt;aes()&lt;/code&gt;, but calling the function requires passing the variable names as strings to the function.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

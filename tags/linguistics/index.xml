@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linguistics on Chunyu Ge</title>
+    <title>Linguistics on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/linguistics/</link>
-    <description>Recent content in linguistics on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Linguistics on Chunyu Ge</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/linguistics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/linguistics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I make a linguistic handout</title>
       <link>https://ge-chunyu.github.io/posts/2023-05-handout/</link>
       <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-05-handout/</guid>
-      <description>Making a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX. The workflow I usually write documents using markdown and convert it to pdf using pandoc, as explained in my previous posts. I have a same head/template for all handouts, so that the</description>
+      <description>&lt;p&gt;Making a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-workflow&#34;&gt;The workflow&lt;/h2&gt;&#xA;&lt;p&gt;I usually write documents using markdown and convert it to pdf using &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt;, as explained in &lt;a href=&#34;https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/&#34;&gt;my previous posts&lt;/a&gt;. I have a same head/template for all handouts, so that the style remains the same for a course. I use different LaTeX packages to format various linguistic contents.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>在 LaTeX 中显示生僻字</title>
       <link>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</guid>
-      <description>在 LaTeX 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项</description>
+      <description>&lt;p&gt;在 LaTeX 里显示生僻字是一个棘手的问题。用&lt;code&gt;xeCJK&lt;/code&gt;包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://mirrors.ibiblio.org/CTAN/macros/xetex/latex/xecjk/xeCJK.pdf&#34;&gt;&lt;code&gt;xeCJK&lt;/code&gt;包的使用手册&lt;/a&gt;中有&lt;code&gt;FallBack&lt;/code&gt;的选项（8 页），可以用以下两种办法指定生僻字的字体&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\setCJKmainfont[FallBack=SimSun-ExtB]{SimSun}&#xA;\setCJKmainfont{SimSun}&#xA;\setCJKfallbackfamilyfont{\CJKrmdefault}{SimSun-ExtB}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;第一种办法是在指定字体时用&lt;code&gt;FallBack&lt;/code&gt;参数指定备用字体，第二种办法是在指定字体之后再用&lt;code&gt;\setCJKfallbackfamilyfont&lt;/code&gt;指定备用字体。二者是等价的。但是要注意的是，在用&lt;code&gt;FallBack&lt;/code&gt;时，必须在导入&lt;code&gt;xeCJK&lt;/code&gt;宏包时设置&lt;code&gt;AutoFallBack=true&lt;/code&gt;。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>说“酿菜”的“酿”</title>
       <link>https://ge-chunyu.github.io/posts/2022-08-niangcai/</link>
       <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-08-niangcai/</guid>
-      <description>已刊于《语言文字周报》。 酿菜是很多人都很爱吃的菜，比如酿豆腐、酿苦瓜、煎酿三宝等等。所谓酿菜，根据《现代汉语词典》：“烹调方法，将肉、鱼、虾等剁碎做成</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;已刊于《语言文字周报》。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;酿菜是很多人都很爱吃的菜，比如酿豆腐、酿苦瓜、煎酿三宝等等。所谓酿菜，根据《现代汉语词典》：“烹调方法，将肉、鱼、虾等剁碎做成的馅儿填或塞入掏空的柿子椒、冬瓜等里面，然后蒸或用油煎。”(第六版，949 页)酿菜在各地都广受喜爱，那么“酿”这个词到底是怎么来的呢？&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

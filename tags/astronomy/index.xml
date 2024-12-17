@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>astronomy on Chunyu Ge</title>
+    <title>Astronomy on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/astronomy/</link>
-    <description>Recent content in astronomy on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Astronomy on Chunyu Ge</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Thu, 20 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/astronomy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/astronomy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>春秋时期的天文：十二次与分野</title>
       <link>https://ge-chunyu.github.io/posts/2020-08-cq-fenye/</link>
       <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2020-08-cq-fenye/</guid>
-      <description>天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球</description>
+      <description>&lt;p&gt;天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球之间的相对位置不同会导致地球上所能看到行星反射太阳光面积大小不同的情况。同样的原因造成了月圆月缺，行星也有类似的现象，比如金星就有相位变化。但是由于金星离地球较远，又有致密的大气层，所以直到伽利略才通过望远镜发现金星也有相位变化。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>春秋时期的天文：星象</title>
       <link>https://ge-chunyu.github.io/posts/2020-08-cq-astrology/</link>
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2020-08-cq-astrology/</guid>
-      <description>太阳下山，夜空中就会布满繁星。在浩瀚宇宙中传递了亿万年的星光，由于位置相近或偶然的投影，在夜空中形成了各种形状。人类看到这些形状就会联想到生活中的事物</description>
+      <description>&lt;p&gt;太阳下山，夜空中就会布满繁星。在浩瀚宇宙中传递了亿万年的星光，由于位置相近或偶然的投影，在夜空中形成了各种形状。人类看到这些形状就会联想到生活中的事物，或是想出新奇的故事。现代 88 个星座的命名有的历史悠久，有的则比较年轻。南天星座大多是大航海时代命名的，因此大多取象于航海仪器，比如六分仪座（Sextans）、望远镜座（Telescopim）。北半球的星座的命名则由来已久，往往是以神话命名的，比如武仙座（Hercules，宙斯的儿子大力士海格立斯）、仙后座（Cassiopeia，古代埃塞俄比亚的王后）。在中国，也有星座是用神话来命名的。《左传·昭公元年》子产给叔向讲了这么一个故事：&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>春秋时期的天文：日食</title>
       <link>https://ge-chunyu.github.io/posts/2020-08-cq-eclipse/</link>
       <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2020-08-cq-eclipse/</guid>
-      <description>日升月落，星移斗转，是最鲜明的天体运动。先民在长期观察中，发现气候寒温、草木荣枯与天象之间存在紧密的关系。上古时期，历法还不够成熟，而且也不够普及；又</description>
+      <description>&lt;p&gt;日升月落，星移斗转，是最鲜明的天体运动。先民在长期观察中，发现气候寒温、草木荣枯与天象之间存在紧密的关系。上古时期，历法还不够成熟，而且也不够普及；又没有准确的计时系统。天象在先民的日常生活中起着极其重要的作用。这就是为什么“三代以上，人人皆知天文”的缘故。到了后世，历法发达，计时系统逐渐准确，而大部分人又不必从事与气候紧密相关的农业劳动，因此，“有问之文人学士而懵然不知者”。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>miscellaneous on Chunyu Ge</title>
+    <title>Miscellaneous on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/miscellaneous/</link>
-    <description>Recent content in miscellaneous on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Miscellaneous on Chunyu Ge</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I backup my data</title>
       <link>https://ge-chunyu.github.io/posts/2024-03-backup/</link>
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2024-03-backup/</guid>
-      <description>Digital data is easy to copy and also easy to lose, due to (usually sudden) failure of electronic devices. A good habit is to backup regularly and in different locations. This post is about my solution to data backup. Classification of digital data Digital data can be classified according to their importance and sizes, and the following lists some of the categories based on their importance. Data that can be downloaded online Papers and e-books</description>
+      <description>&lt;p&gt;Digital data is easy to copy and also easy to lose, due to (usually sudden) failure of electronic devices. A good habit is to backup regularly and in different locations. This post is about my solution to data backup.&lt;/p&gt;&#xA;&lt;h2 id=&#34;classification-of-digital-data&#34;&gt;Classification of digital data&lt;/h2&gt;&#xA;&lt;p&gt;Digital data can be classified according to their importance and sizes, and the following lists some of the categories based on their importance.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Data that can be downloaded online&lt;/li&gt;&#xA;&lt;li&gt;Papers and e-books collected from various sources&lt;/li&gt;&#xA;&lt;li&gt;Personal photos and videos&lt;/li&gt;&#xA;&lt;li&gt;Experimental data and code&lt;/li&gt;&#xA;&lt;li&gt;Personal documents and writings&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Data that can be downloaded online is the lease important, since they can be easily accessed online and even it&amp;rsquo;s lost, it can be easily found online. Papers and e-books (or other resources) that are collected from various sources and clearly organized are more important. Some resources are hard to find, and once it is found, it&amp;rsquo;s better to keep it safe and have multiple copies. Personal photos and videos are even more important, to keep a record of ones&amp;rsquo;s life and happy memories.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>說“肘後”</title>
       <link>https://ge-chunyu.github.io/posts/2023-11-zhouhou/</link>
       <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-11-zhouhou/</guid>
-      <description>東晉葛洪有《肘後備急方》，取其卷帙短小，可以繫於肘後，隨時查閱的意思。兩漢魏晉時候的人往往會將隨身攜帶的飾物、印章等繫於肘後。文獻中雖然例子不多，但仔</description>
+      <description>&lt;p&gt;東晉葛洪有《肘後備急方》，取其卷帙短小，可以繫於肘後，隨時查閱的意思。兩漢魏晉時候的人往往會將隨身攜帶的飾物、印章等繫於肘後。文獻中雖然例子不多，但仔細鉤稽，仍可以推測其彷彿。《世說新語·尤悔第三十三》第六條：&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

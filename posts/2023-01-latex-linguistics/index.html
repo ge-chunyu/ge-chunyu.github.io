@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>LaTeX packages for linguistics | Chunyu Ge</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="http://localhost:1313/css/eureka.min.32d70ba04f91fcec7c01f11769a78906339624d1a754a4dc6fa4558f7b0bee09bb18c5ebb60845cafbe6f9a185b209fe.css">
+<script defer src="http://localhost:1313/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+
+<script defer type="text/javascript" src="http://localhost:1313/js/fontawesome.min.78e494ccd35d494929874dc88a1c7963e597460caafa2ea0b64b9f5cd2ed626a7348522a90f0b37886181ab1ed34301f.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<meta name="description"
+  content="As I&rsquo;ve been using LaTeX to typeset linguistic papers and handouts for quite some time, it&rsquo;s perhaps time to write some notes on it.
+There have been plenty of guide on LaTeX and linguistics, and below lists only a few.
+
+WikiBooks on LaTeX and Linguistics
+Anke Himmelreich&rsquo;s guide comprehensive
+LaTeX for Linguists
+
+Trees
+There are several packages for drawing trees. In addition to tikz and qtree, there is also the forest package. The main difference between qtree and forest is a dot is needed for a node in qtree but not in forest.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"http://localhost:1313/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"LaTeX packages for linguistics",
+      "item":"http://localhost:1313/posts/2023-01-latex-linguistics/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:1313/posts/2023-01-latex-linguistics/"
+    },
+    "headline": "LaTeX packages for linguistics | Chunyu Ge","datePublished": "2023-01-31T00:00:00+00:00",
+    "dateModified": "2023-01-31T00:00:00+00:00",
+    "wordCount":  315 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "\u003cp\u003eAs I\u0026rsquo;ve been using LaTeX to typeset linguistic papers and handouts for quite some time, it\u0026rsquo;s perhaps time to write some notes on it.\u003c\/p\u003e\n\u003cp\u003eThere have been plenty of guide on LaTeX and linguistics, and below lists only a few.\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\u0022https:\/\/en.wikibooks.org\/wiki\/LaTeX\/Linguistics\u0022\u003eWikiBooks on LaTeX and Linguistics\u003c\/a\u003e\u003c\/li\u003e\n\u003cli\u003e\u003ca href=\u0022http:\/\/www.ankehimmelreich.de\/downloads\/skript_latex.pdf\u0022\u003eAnke Himmelreich\u0026rsquo;s guide comprehensive\u003c\/a\u003e\u003c\/li\u003e\n\u003cli\u003e\u003ca href=\u0022https:\/\/www1.essex.ac.uk\/linguistics\/external\/clmt\/latex4ling\/\u0022\u003eLaTeX for Linguists\u003c\/a\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch2 id=\u0022trees\u0022\u003eTrees\u003c\/h2\u003e\n\u003cp\u003eThere are several packages for drawing trees. In addition to \u003ccode\u003etikz\u003c\/code\u003e and \u003ccode\u003eqtree\u003c\/code\u003e, there is also the \u003ccode\u003eforest\u003c\/code\u003e package. The main difference between \u003ccode\u003eqtree\u003c\/code\u003e and \u003ccode\u003eforest\u003c\/code\u003e is a dot is needed for a node in \u003ccode\u003eqtree\u003c\/code\u003e but not in \u003ccode\u003eforest\u003c\/code\u003e.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="LaTeX packages for linguistics | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-01-latex-linguistics/" />
+
+
+
+
+<meta property="og:description" content="As I&rsquo;ve been using LaTeX to typeset linguistic papers and handouts for quite some time, it&rsquo;s perhaps time to write some notes on it.
+There have been plenty of guide on LaTeX and linguistics, and below lists only a few.
+
+WikiBooks on LaTeX and Linguistics
+Anke Himmelreich&rsquo;s guide comprehensive
+LaTeX for Linguists
+
+Trees
+There are several packages for drawing trees. In addition to tikz and qtree, there is also the forest package. The main difference between qtree and forest is a dot is needed for a node in qtree but not in forest." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2023-01-31T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2023-01-31T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="latex" />
+
+
+
+
+
+<meta property="og:see_also" content="http://localhost:1313/posts/2022-12-ipa/" />
+
+<meta property="og:see_also" content="http://localhost:1313/posts/2022-11-01-shengpizi/" />
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><head>
+  
+</head>
+
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">LaTeX packages for linguistics</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2023-01-31</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>As I&rsquo;ve been using LaTeX to typeset linguistic papers and handouts for quite some time, it&rsquo;s perhaps time to write some notes on it.</p>
+<p>There have been plenty of guide on LaTeX and linguistics, and below lists only a few.</p>
+<ul>
+<li><a href="https://en.wikibooks.org/wiki/LaTeX/Linguistics">WikiBooks on LaTeX and Linguistics</a></li>
+<li><a href="http://www.ankehimmelreich.de/downloads/skript_latex.pdf">Anke Himmelreich&rsquo;s guide comprehensive</a></li>
+<li><a href="https://www1.essex.ac.uk/linguistics/external/clmt/latex4ling/">LaTeX for Linguists</a></li>
+</ul>
+<h2 id="trees">Trees</h2>
+<p>There are several packages for drawing trees. In addition to <code>tikz</code> and <code>qtree</code>, there is also the <code>forest</code> package. The main difference between <code>qtree</code> and <code>forest</code> is a dot is needed for a node in <code>qtree</code> but not in <code>forest</code>.</p>
+<h2 id="numbered-examples">Numbered examples</h2>
+<p><code>gb4e</code> and <code>ling-macros</code> can number examples, and another option is <a href="https://ctan.org/pkg/linguex?lang=en"><code>linguex</code></a>. The syntax is straightforward. The plain <code>\label</code> and <code>\ref</code> functions can be used to reference the example.</p>
+<pre><code>\ex. \label{example} This is an example.
+</code></pre>
+<h2 id="ipa">IPA</h2>
+<p>I usually input IPA using a IPA input method, as said in the <a href="https://ge-chunyu.github.io/2022-12-IPA/">previous post</a>. But <code>tipa</code> is still useful, when <code>xelatex</code> is not possible when using journal and conference templates.</p>
+<p>Another useful package is <a href="https://ctan.org/pkg/vowel?lang=en"><code>vowel</code></a>, which can draw vowel charts, specify its shape, and choose which vowels to include in the chart. The vowel chart can be a triangle or rectangle. <code>\putcvowel</code> can be used to put cardinal vowels to the chart, and <code>\putvowel</code> is used to put vowel at the position specified by the coordinates determined by the following two parameters. The first option specifies the position of the vowel, whether its to the left or right of the chart.</p>
+<pre><code>\begin{vowel}[plain,triangle,rectangle]
+\putcvowel[l]{i}{1}
+\putcvowel[r]{u}{8}
+\putvowel[r]{a}{2\vowelhunit}{\vowelvunit}
+\end{vowel}
+</code></pre>
+<h2 id="phonological-rules">Phonological rules</h2>
+<p>The <a href="https://ctan.org/pkg/phonrule?lang=en"><code>phonrule</code></a> package does a good job in typesetting phonological rules. The usage is also simple and straightforward.</p>
+<pre><code>\phon{A}{B} # A changes to B
+\phonl{A}{B}{C} # A changes to B after C
+\phonr{A}{B}{C} # A changes to B before C
+\phonb{A}{B}{C}{D} # A changes to B between C and D
+</code></pre>
+<p>To write rules using feature matrix, use <code>\phonfeat{}</code> and include the features in the curly brackets.</p>
+
+</article>
+
+
+      
+        <div class="my-4">
+    
+    <a href="http://localhost:1313/tags/latex/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Latex</a>
+    
+</div>
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="http://localhost:1313/posts/2023-04-pdf-bookmark/" class="block">Export and import pdf bookmarks</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="http://localhost:1313/posts/2022-12-ipa/" class="block">How to setup an IPA input method</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+
+    
+    
+      <div
+        class="lg:col-start-2 bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>See Also</h3>
+        
+          <a href="http://localhost:1313/posts/2022-12-ipa/" class="no-underline">How to setup an IPA input method</a>
+          <br />
+        
+          <a href="http://localhost:1313/posts/2022-11-01-shengpizi/" class="no-underline">在 LaTeX 中显示生僻字</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2023 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

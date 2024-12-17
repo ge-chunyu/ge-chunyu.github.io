@@ -4,8 +4,10 @@
     <title>Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/about/</link>
     <description>Recent content on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

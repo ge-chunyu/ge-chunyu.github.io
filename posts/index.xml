@@ -4,170 +4,164 @@
     <title>Posts on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/posts/</link>
     <description>Recent content in Posts on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>爲什麼是“喝西北風”</title>
+      <link>https://ge-chunyu.github.io/posts/2024-12-xibeifeng/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2024-12-xibeifeng/</guid>
+      <description>&lt;p&gt;漢語裏人們常常說沒飯吃是“喝西北風”，例如詞典中常舉的吳敬梓《儒林外傳》裏第四十一回的：“都像你這一毛不拔，我們喝西北風。”那爲什麼是喝西北風，不是喝東南風、西南風呢？網上常見的說法是這跟我國的氣候地形有關。我國冬季吹西伯利亞南下的西北風，而這時正值冬天，如果沒有儲備，就只能忍飢挨餓，所以叫喝西北風。這種說法沒有依據，更何況漢語裏很少說冬天沒有糧食吃。說到沒有糧食，一般都是青黃不接，是指的春季莊稼剛剛播種，尚未長成，而舊穀已經吃完了。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Substitution in Vim with expressions</title>
+      <link>https://ge-chunyu.github.io/posts/2024-09-substitution-vim/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2024-09-substitution-vim/</guid>
+      <description>&lt;p&gt;Substitution in vim is very efficient, especially with the help of expressions. This is especially useful for calculations. I discovered this usage when I wanted to insert a list of numbers to the beginning of each line. But before go to the example, let’s take a look at expressions in vim substitution.&lt;/p&gt;&#xA;&lt;p&gt;The expressions in vim are marked with “=”. This tells vim to treat the contents after “=” as expressions rather than literal texts. For example, vim will treat &lt;code&gt;\=1+1&lt;/code&gt; as 2 rather than the text &lt;code&gt;1+1&lt;/code&gt;. Using &lt;code&gt;\=&lt;/code&gt;, I can insert numbers in the beginning of each line with expressions.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Convert markdown files to pdf files using pandoc in vim</title>
+      <link>https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/</link>
+      <pubDate>Wed, 28 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/</guid>
+      <description>&lt;p&gt;I am learning vim and I want to migrate my workflow in &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt; to vim. One of the things I do most with Sublime Text is to write &lt;a href=&#34;https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/&#34;&gt;markdown files&lt;/a&gt; and convert them to pdf files using &lt;a href=&#34;https://www.pandoc.org/&#34;&gt;Pandoc&lt;/a&gt;. After some search, I did not find a satisfied plugin which does such a job. The &lt;a href=&#34;https://github.com/vim-pandoc/vim-pandoc&#34;&gt;&lt;code&gt;vim-pandoc&lt;/code&gt;&lt;/a&gt; seems to be too powerful. I did some more search and found this &lt;a href=&#34;https://vimandgit.com/posts/vim/advanced/neovim-and-vim-pandoc-batch-convert-markdown-to-html.html&#34;&gt;post&lt;/a&gt;, which is very informative and I follow the instructions to create my own plugin to convert markdown files to pdf files using pandoc in vim.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A tutorial on generalized additive mixed-effects model (GAMM)</title>
+      <link>https://ge-chunyu.github.io/posts/2024-04-gamm/</link>
+      <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2024-04-gamm/</guid>
+      <description>&lt;h1 id=&#34;preliminaries-the-challenge-of-dynamic-data&#34;&gt;Preliminaries: The challenge of dynamic data&lt;/h1&gt;&#xA;&lt;p&gt;Phonetics used to concern mostly with static data, such as VOT, formant values at vowel midpoint, or F0 at vowel onset. But as computers are getting more and more powerful, it is common (almost a necessity) to analyze dynamic data. For example, instead of F0 at vowel onset, pitch contour during the voiced parts needs to be analyzed, and similarly, formant trajectories are analyzed instead of formant values at vowel midpoints.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How I backup my data</title>
       <link>https://ge-chunyu.github.io/posts/2024-03-backup/</link>
       <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2024-03-backup/</guid>
-      <description>Digital data is easy to copy and also easy to lose, due to (usually sudden) failure of electronic devices. A good habit is to backup regularly and in different locations. This post is about my solution to data backup. Classification of digital data Digital data can be classified according to their importance and sizes, and the following lists some of the categories based on their importance. Data that can be downloaded online Papers and e-books</description>
+      <description>&lt;p&gt;Digital data is easy to copy and also easy to lose, due to (usually sudden) failure of electronic devices. A good habit is to backup regularly and in different locations. This post is about my solution to data backup.&lt;/p&gt;&#xA;&lt;h2 id=&#34;classification-of-digital-data&#34;&gt;Classification of digital data&lt;/h2&gt;&#xA;&lt;p&gt;Digital data can be classified according to their importance and sizes, and the following lists some of the categories based on their importance.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Data that can be downloaded online&lt;/li&gt;&#xA;&lt;li&gt;Papers and e-books collected from various sources&lt;/li&gt;&#xA;&lt;li&gt;Personal photos and videos&lt;/li&gt;&#xA;&lt;li&gt;Experimental data and code&lt;/li&gt;&#xA;&lt;li&gt;Personal documents and writings&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Data that can be downloaded online is the lease important, since they can be easily accessed online and even it&amp;rsquo;s lost, it can be easily found online. Papers and e-books (or other resources) that are collected from various sources and clearly organized are more important. Some resources are hard to find, and once it is found, it&amp;rsquo;s better to keep it safe and have multiple copies. Personal photos and videos are even more important, to keep a record of ones&amp;rsquo;s life and happy memories.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>說“肘後”</title>
       <link>https://ge-chunyu.github.io/posts/2023-11-zhouhou/</link>
       <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-11-zhouhou/</guid>
-      <description>東晉葛洪有《肘後備急方》，取其卷帙短小，可以繫於肘後，隨時查閱的意思。兩漢魏晉時候的人往往會將隨身攜帶的飾物、印章等繫於肘後。文獻中雖然例子不多，但仔</description>
+      <description>&lt;p&gt;東晉葛洪有《肘後備急方》，取其卷帙短小，可以繫於肘後，隨時查閱的意思。兩漢魏晉時候的人往往會將隨身攜帶的飾物、印章等繫於肘後。文獻中雖然例子不多，但仔細鉤稽，仍可以推測其彷彿。《世說新語·尤悔第三十三》第六條：&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Pseudo forced alignment using a Praat script</title>
       <link>https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/</link>
       <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/</guid>
-      <description>It is very common for phoneticians to ask speakers to read aloud word lists, especially in the field. However, to find a word in a long sound file is very painful and a better solution is to split the long sound file into short files with meaningful file names. I wrote a Praat script for that purpose and to save some time, I also use the script to fill in the transcriptions to the TextGrid</description>
+      <description>&lt;p&gt;It is very common for phoneticians to ask speakers to read aloud word lists, especially in the field. However, to find a word in a long sound file is very painful and a better solution is to split the long sound file into short files with meaningful file names. I wrote a Praat script for that purpose and to save some time, I also use the script to fill in the transcriptions to the TextGrid file. This post is a documentation of the script, which can be found in my &lt;a href=&#34;https://github.com/ge-chunyu/praat_scripts/blob/master/splitLongSound.praat&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How I make a linguistic handout</title>
       <link>https://ge-chunyu.github.io/posts/2023-05-handout/</link>
       <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-05-handout/</guid>
-      <description>Making a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX. The workflow I usually write documents using markdown and convert it to pdf using pandoc, as explained in my previous posts. I have a same head/template for all handouts, so that the</description>
+      <description>&lt;p&gt;Making a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-workflow&#34;&gt;The workflow&lt;/h2&gt;&#xA;&lt;p&gt;I usually write documents using markdown and convert it to pdf using &lt;a href=&#34;https://pandoc.org/&#34;&gt;pandoc&lt;/a&gt;, as explained in &lt;a href=&#34;https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/&#34;&gt;my previous posts&lt;/a&gt;. I have a same head/template for all handouts, so that the style remains the same for a course. I use different LaTeX packages to format various linguistic contents.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Export and import pdf bookmarks</title>
       <link>https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/</link>
       <pubDate>Mon, 24 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/</guid>
-      <description>It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using pdftk. pdftk is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of pdftk, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using</description>
+      <description>&lt;p&gt;It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using &lt;a href=&#34;https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/&#34;&gt;&lt;code&gt;pdftk&lt;/code&gt;&lt;/a&gt;. &lt;code&gt;pdftk&lt;/code&gt; is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of &lt;code&gt;pdftk&lt;/code&gt;, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using the following lines.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to setup an IPA input method</title>
       <link>https://ge-chunyu.github.io/posts/2022-12-ipa/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-12-ipa/</guid>
-      <description>Use RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file are as below.</description>
+      <description>&lt;h2 id=&#34;use-rime&#34;&gt;Use &lt;code&gt;RIME&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://rime.im/&#34;&gt;RIME&lt;/a&gt; is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, &lt;code&gt;yunlong&lt;/code&gt; and &lt;code&gt;xsampa&lt;/code&gt;. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is &lt;code&gt;default.custom.yaml&lt;/code&gt;. My configurations of this file are as below.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>在 LaTeX 中显示生僻字</title>
       <link>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</link>
       <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/</guid>
-      <description>在 LaTeX 里显示生僻字是一个棘手的问题。用xeCJK包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。 xeCJK包的使用手册中有FallBack的选项</description>
+      <description>&lt;p&gt;在 LaTeX 里显示生僻字是一个棘手的问题。用&lt;code&gt;xeCJK&lt;/code&gt;包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://mirrors.ibiblio.org/CTAN/macros/xetex/latex/xecjk/xeCJK.pdf&#34;&gt;&lt;code&gt;xeCJK&lt;/code&gt;包的使用手册&lt;/a&gt;中有&lt;code&gt;FallBack&lt;/code&gt;的选项（8 页），可以用以下两种办法指定生僻字的字体&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\setCJKmainfont[FallBack=SimSun-ExtB]{SimSun}&#xA;\setCJKmainfont{SimSun}&#xA;\setCJKfallbackfamilyfont{\CJKrmdefault}{SimSun-ExtB}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;第一种办法是在指定字体时用&lt;code&gt;FallBack&lt;/code&gt;参数指定备用字体，第二种办法是在指定字体之后再用&lt;code&gt;\setCJKfallbackfamilyfont&lt;/code&gt;指定备用字体。二者是等价的。但是要注意的是，在用&lt;code&gt;FallBack&lt;/code&gt;时，必须在导入&lt;code&gt;xeCJK&lt;/code&gt;宏包时设置&lt;code&gt;AutoFallBack=true&lt;/code&gt;。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>说“酿菜”的“酿”</title>
       <link>https://ge-chunyu.github.io/posts/2022-08-niangcai/</link>
       <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2022-08-niangcai/</guid>
-      <description>已刊于《语言文字周报》。 酿菜是很多人都很爱吃的菜，比如酿豆腐、酿苦瓜、煎酿三宝等等。所谓酿菜，根据《现代汉语词典》：“烹调方法，将肉、鱼、虾等剁碎做成</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;已刊于《语言文字周报》。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;酿菜是很多人都很爱吃的菜，比如酿豆腐、酿苦瓜、煎酿三宝等等。所谓酿菜，根据《现代汉语词典》：“烹调方法，将肉、鱼、虾等剁碎做成的馅儿填或塞入掏空的柿子椒、冬瓜等里面，然后蒸或用油煎。”(第六版，949 页)酿菜在各地都广受喜爱，那么“酿”这个词到底是怎么来的呢？&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>春秋时期的天文：十二次与分野</title>
       <link>https://ge-chunyu.github.io/posts/2020-08-cq-fenye/</link>
       <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2020-08-cq-fenye/</guid>
-      <description>天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球</description>
+      <description>&lt;p&gt;天空中除了位置比较稳定的恒星之外，还有位置时常发生变动的行星。与恒星不同，行星自身并不发光，而是和月亮一样，靠反射太阳光来发光。因此，行星与太阳、地球之间的相对位置不同会导致地球上所能看到行星反射太阳光面积大小不同的情况。同样的原因造成了月圆月缺，行星也有类似的现象，比如金星就有相位变化。但是由于金星离地球较远，又有致密的大气层，所以直到伽利略才通过望远镜发现金星也有相位变化。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>春秋时期的天文：星象</title>
       <link>https://ge-chunyu.github.io/posts/2020-08-cq-astrology/</link>
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2020-08-cq-astrology/</guid>
-      <description>太阳下山，夜空中就会布满繁星。在浩瀚宇宙中传递了亿万年的星光，由于位置相近或偶然的投影，在夜空中形成了各种形状。人类看到这些形状就会联想到生活中的事物</description>
+      <description>&lt;p&gt;太阳下山，夜空中就会布满繁星。在浩瀚宇宙中传递了亿万年的星光，由于位置相近或偶然的投影，在夜空中形成了各种形状。人类看到这些形状就会联想到生活中的事物，或是想出新奇的故事。现代 88 个星座的命名有的历史悠久，有的则比较年轻。南天星座大多是大航海时代命名的，因此大多取象于航海仪器，比如六分仪座（Sextans）、望远镜座（Telescopim）。北半球的星座的命名则由来已久，往往是以神话命名的，比如武仙座（Hercules，宙斯的儿子大力士海格立斯）、仙后座（Cassiopeia，古代埃塞俄比亚的王后）。在中国，也有星座是用神话来命名的。《左传·昭公元年》子产给叔向讲了这么一个故事：&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>春秋时期的天文：日食</title>
       <link>https://ge-chunyu.github.io/posts/2020-08-cq-eclipse/</link>
       <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2020-08-cq-eclipse/</guid>
-      <description>日升月落，星移斗转，是最鲜明的天体运动。先民在长期观察中，发现气候寒温、草木荣枯与天象之间存在紧密的关系。上古时期，历法还不够成熟，而且也不够普及；又</description>
+      <description>&lt;p&gt;日升月落，星移斗转，是最鲜明的天体运动。先民在长期观察中，发现气候寒温、草木荣枯与天象之间存在紧密的关系。上古时期，历法还不够成熟，而且也不够普及；又没有准确的计时系统。天象在先民的日常生活中起着极其重要的作用。这就是为什么“三代以上，人人皆知天文”的缘故。到了后世，历法发达，计时系统逐渐准确，而大部分人又不必从事与气候紧密相关的农业劳动，因此，“有问之文人学士而懵然不知者”。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to define aesthetic mappings of ggplot2 within another function</title>
       <link>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2020-03-ggplot-function/</guid>
-      <description>ggplot2 is great for visualization, but sometimes we need to include ggplot2 functions within another function. ggplot() uses aes() to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using ggplot()? In this post I will present several approaches. First of all, let&amp;rsquo;s load the required packages and some test data. library(ggplot2) library(dplyr) data(&amp;quot;mtcars&amp;quot;) Using aes_string() There are two standard ways to define aesthetic mappings in ggplot2,</description>
+      <description>&lt;p&gt;&lt;code&gt;ggplot2&lt;/code&gt; is great for visualization, but sometimes we need to include &lt;code&gt;ggplot2&lt;/code&gt; functions within another function. &lt;code&gt;ggplot()&lt;/code&gt; uses &lt;code&gt;aes()&lt;/code&gt; to define aesthetic mappings of different variables. The question is: how to define aesthetic mappings when writing functions using &lt;code&gt;ggplot()&lt;/code&gt;? In this post I will present several approaches.&lt;/p&gt;&#xA;&lt;p&gt;First of all, let&amp;rsquo;s load the required packages and some test data.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)&#xA;library(dplyr)&#xA;data(&amp;quot;mtcars&amp;quot;)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h2 id=&#34;using-aes_string&#34;&gt;Using &lt;code&gt;aes_string()&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;There are two standard ways to define aesthetic mappings in &lt;code&gt;ggplot2&lt;/code&gt;, &lt;code&gt;aes_string()&lt;/code&gt; and &lt;code&gt;aes_()&lt;/code&gt;. Writing a function using &lt;code&gt;aes_string()&lt;/code&gt; is the same as using &lt;code&gt;aes()&lt;/code&gt;, but calling the function requires passing the variable names as strings to the function.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Writing Praat scripts in a modular way</title>
       <link>https://ge-chunyu.github.io/posts/2019-12-praat/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-12-praat/</guid>
-      <description>Praat is widely used in phonetic research. Working with Praat involves inevitably the Praat scripting. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself? Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://praat.org&#34;&gt;Praat&lt;/a&gt; is widely used in phonetic research. Working with Praat involves inevitably the &lt;em&gt;Praat scripting&lt;/em&gt;. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself?&lt;/p&gt;&#xA;&lt;p&gt;Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the scripts. Users of Praat may be great phoneticians, but rarely are they professional programmers. When I write my own Praat scripts, I try to explicitly adopt some principles and conventions to facilitate the reusability of code. This post is about these principles and conventions.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>用pandoc生成大型中文文档的痛点与解决方案</title>
       <link>https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-11-pandoc-large-document/</guid>
-      <description>Pandoc是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://pandoc.org&#34;&gt;Pandoc&lt;/a&gt;是转换文本格式的利器。在用 Pandoc 转换中文文档和生成大型文档时，例如用中文写作毕业论文等时，会遇到一些很麻烦的问题。我在前面的博客里说过我在用 Markdown 写博士毕业论文，这篇博客就我自己的经验讲一下在用 Pandoc 生成大型中文文档的痛点与解决方案。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Customizing pdf output of Pandoc</title>
       <link>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</link>
       <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/</guid>
-      <description>I am writing my PhD thesis and instead of using LaTeX, I want to write it in markdown together with Pandoc. This has several merits. I can easily transform the markdown file to docx for my supervisor to revise. It can also easily be transformed to pdf files through LaTeX. However, the default pdf output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the pdf format</description>
+      <description>&lt;p&gt;I am writing my PhD thesis and instead of using &lt;code&gt;LaTeX&lt;/code&gt;, I want to write it in &lt;code&gt;markdown&lt;/code&gt; together with &lt;a href=&#34;https://www.pandoc.org&#34;&gt;Pandoc&lt;/a&gt;. This has several merits. I can easily transform the &lt;code&gt;markdown&lt;/code&gt; file to &lt;code&gt;docx&lt;/code&gt; for my supervisor to revise. It can also easily be transformed to &lt;code&gt;pdf&lt;/code&gt; files through &lt;code&gt;LaTeX&lt;/code&gt;. However, the default &lt;code&gt;pdf&lt;/code&gt; output doesn&amp;rsquo;t conform to the format my school requires. What I am going to do is to customize the &lt;code&gt;pdf&lt;/code&gt; format to meet the standard of my school.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Scraping all the texts of Luxun(鲁迅) from the Internet using Python (用Python爬取《鲁迅全集》)</title>
       <link>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-10-12-scraping-luxun/</guid>
-      <description>I want to do some text mining practices on the texts of Luxun(鲁迅), a great Chinese writer. The first step is to get all the texts by Luxun, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source. Source of the texts The texts of Luxun are scraped from 子夜星网</description>
+      <description>&lt;p&gt;I want to do some text mining practices on the texts of &lt;em&gt;Luxun(鲁迅)&lt;/em&gt;, a great Chinese writer. The first step is to get all the texts by &lt;em&gt;Luxun&lt;/em&gt;, and I have no time typing all the texts word by word. So I decided to srape the texts from an online source.&lt;/p&gt;&#xA;&lt;h2 id=&#34;source-of-the-texts&#34;&gt;Source of the texts&lt;/h2&gt;&#xA;&lt;p&gt;The texts of &lt;em&gt;Luxun&lt;/em&gt; are scraped from &lt;a href=&#34;http://www.ziyexing.com/&#34;&gt;子夜星网&lt;/a&gt;. As it claimed, it contains all the texts in the &lt;em&gt;Complete works of Luxun(鲁迅全集)&lt;/em&gt;. I checked it, and so it did.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Writing academic papers using Sublime Text 3 &#43; Pandoc</title>
       <link>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</link>
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</guid>
-      <description>This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc. Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need. Sublime</description>
+      <description>&lt;p&gt;This post explains how to write academic papers using &lt;em&gt;Sublime Text 3&lt;/em&gt; in &lt;em&gt;markdown&lt;/em&gt; format and transform the .md file into .docx and pdf files using &lt;em&gt;pandoc&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;p&gt;To write academic papers in &lt;em&gt;markdown&lt;/em&gt; format requires a &lt;strong&gt;markdown editor&lt;/strong&gt;, a &lt;strong&gt;format trnasformer&lt;/strong&gt;, maybe also a &lt;strong&gt;literature manager&lt;/strong&gt;. I use &lt;em&gt;Sublime Text 3&lt;/em&gt; as the markdown edit, &lt;em&gt;Pandoc&lt;/em&gt; as the format transformer, and &lt;em&gt;Zotero&lt;/em&gt; as the literature manager. This section lists the things we need.&lt;/p&gt;&#xA;&lt;h3 id=&#34;sublime-text-3-and-plugins&#34;&gt;Sublime Text 3 and plugins&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.sublimetext.com/3&#34;&gt;Sublime Text 3&lt;/a&gt; is a text editor that can be used for code, markup and prose. It is lightweight and is suitable for long texts. The followings are several plugins (or packages) we need:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>中国的《伊利亚特》</title>
       <link>https://ge-chunyu.github.io/posts/2013-08-04-illiad-of-china/</link>
       <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2013-08-04-illiad-of-china/</guid>
-      <description>希腊的盲诗人荷马写下了《伊利亚特》，以阿喀琉斯的愤怒为线索，讲述了特洛伊战争最后一年的战况；而这场战争是由美女海伦引起的。在同一时期的中国，著名的盲人</description>
+      <description>&lt;p&gt;希腊的盲诗人荷马写下了《伊利亚特》，以阿喀琉斯的愤怒为线索，讲述了特洛伊战争最后一年的战况；而这场战争是由美女海伦引起的。在同一时期的中国，著名的盲人史学家左丘明也记录了数场由美女夏姬引发的战役，而以申公巫臣的愤怒为线索。在此之前，还有详细的背景交代，充满戏剧色彩，称得上是《左传》中最惊心动魄的故事之一。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

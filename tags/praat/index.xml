@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>praat on Chunyu Ge</title>
+    <title>Praat on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/praat/</link>
-    <description>Recent content in praat on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Praat on Chunyu Ge</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Thu, 21 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/praat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/praat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pseudo forced alignment using a Praat script</title>
       <link>https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/</link>
       <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/</guid>
-      <description>It is very common for phoneticians to ask speakers to read aloud word lists, especially in the field. However, to find a word in a long sound file is very painful and a better solution is to split the long sound file into short files with meaningful file names. I wrote a Praat script for that purpose and to save some time, I also use the script to fill in the transcriptions to the TextGrid</description>
+      <description>&lt;p&gt;It is very common for phoneticians to ask speakers to read aloud word lists, especially in the field. However, to find a word in a long sound file is very painful and a better solution is to split the long sound file into short files with meaningful file names. I wrote a Praat script for that purpose and to save some time, I also use the script to fill in the transcriptions to the TextGrid file. This post is a documentation of the script, which can be found in my &lt;a href=&#34;https://github.com/ge-chunyu/praat_scripts/blob/master/splitLongSound.praat&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Writing Praat scripts in a modular way</title>
       <link>https://ge-chunyu.github.io/posts/2019-12-praat/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-12-praat/</guid>
-      <description>Praat is widely used in phonetic research. Working with Praat involves inevitably the Praat scripting. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself? Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://praat.org&#34;&gt;Praat&lt;/a&gt; is widely used in phonetic research. Working with Praat involves inevitably the &lt;em&gt;Praat scripting&lt;/em&gt;. There are plenty of resources of Praat scripts as well as great tutorials to Praat scripting (see below). Why bother writing Praat scripts oneself?&lt;/p&gt;&#xA;&lt;p&gt;Praat scripts written by others can be helpful, but even an script is available which offer the functionality one needs, it is seldom exactly what one wants. It is normal to do some tailoring to the scripts. Users of Praat may be great phoneticians, but rarely are they professional programmers. When I write my own Praat scripts, I try to explicitly adopt some principles and conventions to facilitate the reusability of code. This post is about these principles and conventions.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

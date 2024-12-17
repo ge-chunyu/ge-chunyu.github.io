@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sublime text on Chunyu Ge</title>
+    <title>Sublime Text on Chunyu Ge</title>
     <link>https://ge-chunyu.github.io/tags/sublime-text/</link>
-    <description>Recent content in sublime text on Chunyu Ge</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Sublime Text on Chunyu Ge</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2023</copyright>
-    <lastBuildDate>Fri, 11 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ge-chunyu.github.io/tags/sublime-text/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ge-chunyu.github.io/tags/sublime-text/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Writing academic papers using Sublime Text 3 &#43; Pandoc</title>
       <link>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</link>
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ge-chunyu.github.io/posts/2019-10-11-sublime-pandoc/</guid>
-      <description>This post explains how to write academic papers using Sublime Text 3 in markdown format and transform the .md file into .docx and pdf files using pandoc. Prerequisites To write academic papers in markdown format requires a markdown editor, a format trnasformer, maybe also a literature manager. I use Sublime Text 3 as the markdown edit, Pandoc as the format transformer, and Zotero as the literature manager. This section lists the things we need. Sublime</description>
+      <description>&lt;p&gt;This post explains how to write academic papers using &lt;em&gt;Sublime Text 3&lt;/em&gt; in &lt;em&gt;markdown&lt;/em&gt; format and transform the .md file into .docx and pdf files using &lt;em&gt;pandoc&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;p&gt;To write academic papers in &lt;em&gt;markdown&lt;/em&gt; format requires a &lt;strong&gt;markdown editor&lt;/strong&gt;, a &lt;strong&gt;format trnasformer&lt;/strong&gt;, maybe also a &lt;strong&gt;literature manager&lt;/strong&gt;. I use &lt;em&gt;Sublime Text 3&lt;/em&gt; as the markdown edit, &lt;em&gt;Pandoc&lt;/em&gt; as the format transformer, and &lt;em&gt;Zotero&lt;/em&gt; as the literature manager. This section lists the things we need.&lt;/p&gt;&#xA;&lt;h3 id=&#34;sublime-text-3-and-plugins&#34;&gt;Sublime Text 3 and plugins&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.sublimetext.com/3&#34;&gt;Sublime Text 3&lt;/a&gt; is a text editor that can be used for code, markup and prose. It is lightweight and is suitable for long texts. The followings are several plugins (or packages) we need:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

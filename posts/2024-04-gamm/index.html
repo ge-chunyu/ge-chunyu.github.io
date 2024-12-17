@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>A tutorial on generalized additive mixed-effects model (GAMM) | Chunyu Ge</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.32d70ba04f91fcec7c01f11769a78906339624d1a754a4dc6fa4558f7b0bee09bb18c5ebb60845cafbe6f9a185b209fe.css">
+<script defer src="https://ge-chunyu.github.io/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+
+<script defer type="text/javascript" src="https://ge-chunyu.github.io/js/fontawesome.min.78e494ccd35d494929874dc88a1c7963e597460caafa2ea0b64b9f5cd2ed626a7348522a90f0b37886181ab1ed34301f.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<meta name="description"
+  content="Preliminaries: The challenge of dynamic data
+Phonetics used to concern mostly with static data, such as VOT, formant values at vowel midpoint, or F0 at vowel onset. But as computers are getting more and more powerful, it is common (almost a necessity) to analyze dynamic data. For example, instead of F0 at vowel onset, pitch contour during the voiced parts needs to be analyzed, and similarly, formant trajectories are analyzed instead of formant values at vowel midpoints.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"A tutorial on generalized additive mixed-effects model (GAMM)",
+      "item":"https://ge-chunyu.github.io/posts/2024-04-gamm/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2024-04-gamm/"
+    },
+    "headline": "A tutorial on generalized additive mixed-effects model (GAMM) | Chunyu Ge","datePublished": "2024-04-28T00:00:00+00:00",
+    "dateModified": "2024-04-28T00:00:00+00:00",
+    "wordCount":  2342 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "\u003ch1 id=\u0022preliminaries-the-challenge-of-dynamic-data\u0022\u003ePreliminaries: The challenge of dynamic data\u003c\/h1\u003e\n\u003cp\u003ePhonetics used to concern mostly with static data, such as VOT, formant values at vowel midpoint, or F0 at vowel onset. But as computers are getting more and more powerful, it is common (almost a necessity) to analyze dynamic data. For example, instead of F0 at vowel onset, pitch contour during the voiced parts needs to be analyzed, and similarly, formant trajectories are analyzed instead of formant values at vowel midpoints.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="A tutorial on generalized additive mixed-effects model (GAMM) | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2024-04-gamm/" />
+
+
+
+
+<meta property="og:description" content="Preliminaries: The challenge of dynamic data
+Phonetics used to concern mostly with static data, such as VOT, formant values at vowel midpoint, or F0 at vowel onset. But as computers are getting more and more powerful, it is common (almost a necessity) to analyze dynamic data. For example, instead of F0 at vowel onset, pitch contour during the voiced parts needs to be analyzed, and similarly, formant trajectories are analyzed instead of formant values at vowel midpoints." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2024-04-28T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2024-04-28T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><head>
+  
+</head>
+
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">A tutorial on generalized additive mixed-effects model (GAMM)</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2024-04-28</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>5 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h1 id="preliminaries-the-challenge-of-dynamic-data">Preliminaries: The challenge of dynamic data</h1>
+<p>Phonetics used to concern mostly with static data, such as VOT, formant values at vowel midpoint, or F0 at vowel onset. But as computers are getting more and more powerful, it is common (almost a necessity) to analyze dynamic data. For example, instead of F0 at vowel onset, pitch contour during the voiced parts needs to be analyzed, and similarly, formant trajectories are analyzed instead of formant values at vowel midpoints.</p>
+<p>There are in general two main approaches to analyze dynamic data. The first approach is to decompose dynamic data into simpler parameters. For example, Discrete Cosine Transform (DCT) can decompose functions into multiple coefficients, among which $k_0$ is related to mean/intercept, $k_1$ to slope, and $k_2$ to (parabolic) curve. Another approach is to model the dynamics itself either using polynomials (linear models) or the addition of multiple base functions (additive models). Linear regression uses polynomials to model dynamic data, while generalized additive models employs the addition of multiple base functions.</p>
+<h2 id="different-kinds-of-dynamic-data">Different kinds of dynamic data</h2>
+<p>Dynamic data can be divided into different types, according to its complexity. The following lists several common functions.</p>
+<p>$$\text{Linear: }y = ax + b$$
+$$\text{Quadratic: }y = ax^2+bx+c$$
+$$\text{Cubic: }y = ax^3+bx^2+cx+d$$
+$$\text{Quartic: }y = ax^4+bx^3+cx^2+dx+e$$
+$$\text{Exponential: }y = e^x$$
+$$\text{Sine: }y = sin(x)$$</p>
+<p>Linear functions are the easiest to analyze, because only an intercept and a slope are needed to capture a linear function. Linear mixed-effects models can be used to analyze linear functions.</p>
+<p>Quadratic, cubic an quartic functions are more challenging, but an extension of linear mixed-effects models, Growth Curve Analysis (GCA, Mirman 2014) can be used to analyze such functions.</p>
+<p>Exponential and sine functions, however, cannot be handled by GCA, because it cannot be decomposed into a linear component and non-linear components. However, some other statistical methods are able to model such non-linear data, including Generalized Additive Models (GAM) and Functional Data Analysis (FDA). In essence, GAM and FDA are the same in that they use the addition of <em>basis</em> functions to model complex curves.</p>
+<h1 id="workflow-of-gamm">Workflow of GAMM</h1>
+<p>Fitting GAMM in R is achieved using the <code>mgcv</code> package and data visualization is usually achieved using the <code>itsadug</code>
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> package. GAMM can be fitted using the <code>gam</code> function, but more often it is fitted using <code>bam</code> for very large datasets.</p>
+<pre><code>library(mgcv)
+library(itsadug)
+</code></pre>
+<p>The basic workflow of GAMM is as follows:</p>
+<ol>
+<li>Create an ordered factor for the factors of interest</li>
+<li>Fit the model with <code>gam()</code> or <code>bam()</code></li>
+<li>Handling autocorrelation errors</li>
+<li>Model criticism</li>
+<li>Visualization of results</li>
+<li>Significance testing</li>
+</ol>
+<p>The reason to change the factor into an ordered factor is that the constant difference (the parametric coefficients) and the non-linear difference can be distinguished (Wieling 2018:94). To do that, using the following code. Also, the factor needs to be changed into treatment coding.</p>
+<pre><code>data$factor &lt;- as.ordered(data$factor)
+contrasts(data$factor) &lt;- &quot;contr.treatment&quot;
+</code></pre>
+<p>Another thing to note is that if several factors of interest are involved, it is not recommended to fit separate models for separate factors. A more informed solution is to construct a new variable based on the factors of interest (Wieling 2018:106). For example, if there are two factors of interest, <code>tone</code> and <code>generation</code>, the two factors can be combined to create a new factor <code>toneGeneration</code> using the following code. The function <code>interaction()</code> enables the order in the original factors to be preserved in the combined factor.</p>
+<pre><code>data$factor &lt;- interaction(factor1, factor2)
+</code></pre>
+<p>GAMMs can be fitted with formulae structures similar to those used in <code>lme4</code>. For parametric coefficients, simply include the factor, but for smooth factors, you need to surround the factors with <code>s()</code> (means the <em>smooths</em>) and some additional parameters need to be specified. Within each smooth, there are several things you can change. The parameter <code>bs=</code> specifies the types of basis spline functions, and it can take values such as <code>tp</code> (the default thin plate regression spline), <code>cr</code> (cubic regression spline). Another parameter <code>k</code> can be specifed and it stands for how many basis functions are needed. The default value of <code>k</code> is 10 and for pitch values within one syllable, there are usually only ten values, and <code>k</code> can be set to $9=10-1$.</p>
+<pre><code>model &lt;- bam(f0 ~ tone +             # the parametric coefficient
+                  s(time) +          # the smooth term
+                  s(time, by = factor) +   # the smooth term by tone
+                  s(time, speaker, bs = &quot;fs&quot;, m = 1), # random smooth
+                  data = data,
+                  rho = rho1,        # specify the autocorrelation error factor
+                  AR.start = data$start.event,
+                  discrete = TRUE)   # use this to speed up model fitting
+</code></pre>
+<p>GAMM, as the second <em>M</em> stands for mixed-effects, is also able to model random effects <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. Three types of random effects can be included, random intercept, random slope and random smooth. The formulae below shows the formalization in <code>mgcv</code>. As in fixed effects, <code>bs</code> stands for basis spline functions. <code>re</code> stands for random effects, and <code>fs</code> stands for factor smooth, in which a separate smooth is fitted for each level in the random factor. The nonlinear penalty is specified using the parameter <code>m</code>, and when it equals 1, it means that the first derivative is penalized.</p>
+<pre><code>s(speaker, bs = &quot;re&quot;)                # random intercept by speaker
+s(speaker, factor, bs = &quot;re&quot;)          # random slope of tone by speaker
+s(time, speaker, bs = &quot;fs&quot;, m = 1)  # random smooth of tone by speaker
+</code></pre>
+<p>Of course, it is possible to fit smooth on two dimensions, and this is achieved by <code>te()</code> (a full tensor product) or <code>ti()</code> (a tensor product interaction) in the formulae. The third case study in Chuang et al. (2021) is a friendly hands-on tutorial on this kind of analysis.</p>
+<h1 id="handling-autocorrelation">Handling autocorrelation</h1>
+<p>One kind of error in time series data which is usually ignored is the <em>autocorrelated error</em> (Baayen et al. 2018). It refers to the correlation between the measuring points. Autocorrelated error can be visualized as a function of <em>lag</em>, i.e., the correlation between the present point with the previous <em>n</em> points. When <em>lag</em> is 0, it refers to the correlation of the point with itself and therefore is 1. When <em>lag</em> is 1, it refers to the correlation of the point with the immediately preceding point, and it is also called <code>AR(1)</code>, the autocorrelated residual at lag 1. This is the value usually used in fitting GAMMs with autocorrelated errors taken into consideration, and it is called the <em>AR1 error model</em>.</p>
+<p>Before specifying <code>AR(1)</code>, the data should be revised to specify the starting point of each time series, using the <code>start_event()</code> function in <code>itsadug</code>.</p>
+<pre><code>data &lt;- start_event(data, event= &quot;factor&quot;)
+</code></pre>
+<p>After that, GAMM can be fitted on the data first without autocorrelated errors. This model can be used to get the <code>AR(1)</code> value and this value can be used to fit an AR1 error model with the same model structure as the previous one. AR1 error can be get using two functions, as shown in the following code. The value can then be fed into the <code>gam()</code> or <code>bam()</code> function by specifying the <code>rho</code> parameter.</p>
+<pre><code>r1 &lt;- start_value_rho(model)
+r1 &lt;- acf_resid(model)[2]
+</code></pre>
+<h1 id="model-criticism">Model criticism</h1>
+<p>Like linear models, GAMMs also need to check their residual values. The <code>gam.check()</code> function provides important dignosis information on the model. It generates four plots. The first plot is a normal quantile plot. This plot can be used to diagnose whether the model residuals follow a normal distribution. If the points all fall on the red line, it shows that the residuals follow a normal distribution. Sometimes, the residuals can have two heavy tails, suggesting a <em>t</em>-distribution. In this scenario, the data should be fitted instead with a <em>scaled-t</em> distribution, by specifying <code>family=&quot;scat&quot;</code> (Chuang et al. 2021:18). The histogram of residuals can also be used to help diagnose residual distribution.</p>
+<p>The two scatter plots can be used to assess heteroscedasticity, which refers to the unequal variance depending on the values of the predictors or the ﬁtted values. If the variability is correlated with the predictors or fitted values, the homoscedasticity assumption is said to be violated.</p>
+<h1 id="visualization-with-gamm">Visualization with GAMM</h1>
+<p>The most popular way to visualize the data using GAMM is to plot the fit and the difference curve of the data. For the interaction of two numerical variable, heat map is also usually used. Visualization with GAMM is usually achieved using the <code>itsadug</code> package. It is also possible to extract the data and visualize it in <code>ggplot2</code>, which enables finer control over aesthetics and layout <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</p>
+<p>GAMM results are usually visualized with smooth plots and difference curves. <em>Smooth curves</em> plot the model predicted smooths, while <em>difference curves</em> plot the difference between the curve of one level and the one of the reference level within a specific factor.</p>
+<p>The <code>plot_smooth()</code> function in <code>itsadug</code> can be used to plot smooth curves, and the basic usage is exemplified as below. To plot the smooth curves, a GAMM object is needed and then you need to choose on which factor the smooth curves are on. The <code>plot_all</code>parameter specifies the factor you want to plot. Model summary can be printed with <code>print.summary</code> equals <code>TRUE</code>, and otherwise with <code>FALSE</code>. The random effects can be included by setting <code>rm.ranef</code> to <code>FALSE</code>, and removed by setting it to <code>TRUE</code>.</p>
+<pre><code>plot_smooth(model, view = &quot;time&quot;, 
+            plot_all = &quot;factor&quot;,
+            print.summary = FALSE,
+            rm.ranef = FALSE)
+</code></pre>
+<p>Apart from smooth curves, difference curves can also be plotted using the <code>plot_diff()</code> function. As <code>plot_smooth()</code>, a model and a smooth factor need to be specified, and it also requires a comparison factor. The <code>comp</code> parameter specifies which factor levels you want to coompare. The resultant figure is a curve with a horizontal zero line. If the shaded area (the 95% confidence interval) contains the zero line, then the difference can be said to be not significant, and otherwise, it is said to be significant.</p>
+<pre><code>plot_diff(model, view = &quot;time&quot;, 
+          comp = list(factor = c(&quot;level1&quot;, &quot;level2&quot;)),
+          print.summary = FALSE)
+</code></pre>
+<p>These functions can also be used to get the data and to plot it in <code>ggplot2</code> (of course, get model prediction is a better approach). The model fit data can be accessed using the following codes. Another alternative is to use functions in <a href="https://cran.r-project.org/web/packages/tidymv/index.html"><code>tidymv</code></a> and a more recent <a href="https://cran.r-project.org/web/packages/tidygam/index.html"><code>tidygam</code></a> package.</p>
+<pre><code># get model fit data
+fitData &lt;- plot_smooth(model, view = &quot;time&quot;, 
+                       plot_all = &quot;factor&quot;,
+                       print.summary = FALSE,
+                       rug = FALSE, rm.ranef = TRUE)$fv
+</code></pre>
+<h1 id="significance-testing-with-gamm">Significance testing with GAMM</h1>
+<p>Factors can influence various aspects of dynamic data. Dynamic data can differ in intercept only, slope only, and also in the overall shape. Also, it is possible that curves can be different in some part but not in others. Although visualization provides a more straightforward way to interpret the results, significance testing is a necessity for confirmatory studies in particular. Significance testing with GAMM can be achieved by summary statistics, model comparison and visual methods.</p>
+<p>Sóskuthy (2021) evaluated the random effect structures and significance testing in GAMM. Like all other models, GAMM results can be summarized with summary statistics. The summary of GAMM can be divided into two parts, the <em>parametric coefficients</em> showing the difference in intercept (overall height of the curve) and the <em>smooth terms</em> showing the difference in smooth. <code>t</code>-tests are used to get <em>p</em>-values for parametric coefficients, while <em>F</em>-tests are used for smooth terms. If there is a significant effect in parametric coefficients, it indicates that the curves are different in overall height due to predictors. On the other hand, if there is a significant effect in smooth terms, it is said that the curves have difference shapes due to predictors.</p>
+<p>Apart from testing significance using model summaries, it is also possible to achieve it using model comparison. This can be done using the <code>compareML()</code> function in <code>itsadug</code>, which is the same in essence with the <code>anova()</code> function used to compare linear mixed-effects models.</p>
+<h1 id="further-reading">Further reading</h1>
+<p><strong>Baayen, R. H., van Rij, J., de Cat, C., &amp; Wood, S. (2018). Autocorrelated Errors in Experimental Data in the Language Sciences: Some Solutions Offered by Generalized Additive Mixed Models. In D. Speelman, K. Heylen, &amp; D. Geeraerts (Eds.), <em>Mixed-Effects Regression Models in Linguistics</em> (pp. 49&ndash;69). Springer International Publishing.</strong> <a href="https://doi.org/10.1007/978-3-319-69830-4_4">https://doi.org/10.1007/978-3-319-69830-4_4</a></p>
+<p>Introduces the problem of autocorrelated error in dynamic data analysis and provides a solution by including an autoregressive <code>AR(1)</code> process for the errors. The solution is to first fit a model without autocorrelation and get the <em>autoregressive proportionality</em>. It is specified using the <code>rho</code> parameter and another model is fitted with this parameter.</p>
+<p><strong>Chuang, Y.-Y., Fon, J., Papakyritsis, I., &amp; Baayen, H. (2021). Analyzing Phonetic Data with Generalized Additive Mixed Models. In M. J. Ball (Ed.), <em>Manual of Clinical Phonetics</em> (1st ed., pp. 108&ndash;138). Routledge.</strong> <a href="https://doi.org/10.4324/9780429320903-10">https://doi.org/10.4324/9780429320903-10</a></p>
+<p>Provides three case studies, which demonstrates the full capacity of GAMM in analyzing linguistic data.</p>
+<p><strong>Sóskuthy, M. (2021). Evaluating generalised additive mixed modelling strategies for dynamic speech analysis. <em>Journal of Phonetics</em>, 84, 101017.</strong>\ <a href="https://doi.org/10.1016/j.wocn.2020.101017">https://doi.org/10.1016/j.wocn.2020.101017</a></p>
+<p>A critical paper on random effect structure and significance testing using GAMM.</p>
+<p><strong>Wieling, M. (2018). Analyzing dynamic phonetic data using generalized additive mixed modeling: A tutorial focusing on articulatory differences between L1 and L2 speakers of English. <em>Journal of Phonetics</em>, 70, 86&ndash;116.</strong> <a href="https://doi.org/10.1016/j.wocn.2018.03.002">https://doi.org/10.1016/j.wocn.2018.03.002</a></p>
+<p>A step-by-step hands-on tutorial of GAMM using phonetic data.</p>
+<p><strong>Wood, S. N. (2017). <em>Generalized additive models: An introduction with R</em> (Second edition). CRC Press/Taylor &amp; Francis Group.</strong></p>
+<p>A comprehensive book on Generalized additive models, with many mathematical and implementation details.</p>
+<p><strong>van Rij, J. (2015). Overview GAMM analysis of time series data.</strong>\ <a href="https://jacolienvanrij.com/Tutorials/GAMM.html">https://jacolienvanrij.com/Tutorials/GAMM.html</a></p>
+<p>An online tutorial by van Rij.</p>
+<p><strong>Sóskuthy, M. (2017). Generalised additive mixed models for dynamic analysis in linguistics: A practical introduction (arXiv:1703.05339). arXiv.</strong>\ <a href="https://doi.org/10.48550/arXiv.1703.05339">https://doi.org/10.48550/arXiv.1703.05339</a></p>
+<p>A preprint with more detailed guide on GAMM.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>van Rij, J., Wieling, M., Baayen, R. H., &amp; van Rijn, H. (2020). itsadug: Interpreting time series and autocorrelated data using GAMMs.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>See the following paper for random effects in linear mixed-effects models: Barr, D. J., Levy, R., Scheepers, C., &amp; Tily, H. J. (2013). Random effects structure for confirmatory hypothesis testing: Keep it maximal. <em>Journal of Memory and Language</em>, 68(3), 255&ndash;278. <a href="https://doi.org/10.1016/j.jml.2012.11.001">https://doi.org/10.1016/j.jml.2012.11.001</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>See also the following link on using <code>tidymv</code> to plot GAMM results: <a href="https://cran.r-project.org/web/packages/tidymv/vignettes/plot-smooths.html">https://cran.r-project.org/web/packages/tidymv/vignettes/plot-smooths.html</a>.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="https://ge-chunyu.github.io/posts/2024-08-pandoc-vim/" class="block">Convert markdown files to pdf files using pandoc in vim</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2024-03-backup/" class="block">How I backup my data</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+
+    
+    
+  </div>
+
+  
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2023 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>
