@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
-    <lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My neovim setup</title>
+      <link>https://ge-chunyu.github.io/posts/2025-11-neovim-setup/</link>
+      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2025-11-neovim-setup/</guid>
+      <description>&lt;p&gt;In the last year, I switched to &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; from &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt; and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.&lt;/p&gt;&#xA;&lt;p&gt;I agree with &lt;a href=&#34;https://gdgarcia.ca/posts/2025-09-18-workflow/&#34;&gt;Guilherme D. Garcia&lt;/a&gt; that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt; arsenal.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>爲什麼是“喝西北風”</title>
       <link>https://ge-chunyu.github.io/posts/2024-12-xibeifeng/</link>
