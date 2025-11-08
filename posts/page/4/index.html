@@ -93,21 +93,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "Export and import pdf bookmarks",
-            "description": "\u003cp\u003eIt is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using \u003ca href=\"https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/\"\u003e\u003ccode\u003epdftk\u003c/code\u003e\u003c/a\u003e. \u003ccode\u003epdftk\u003c/code\u003e is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of \u003ccode\u003epdftk\u003c/code\u003e, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using the following lines.\u003c/p\u003e",
-            "url": "https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
             "name": "How to setup an IPA input method",
             "description": "\u003ch2 id=\"use-rime\"\u003eUse \u003ccode\u003eRIME\u003c/code\u003e\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://rime.im/\"\u003eRIME\u003c/a\u003e is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, \u003ccode\u003eyunlong\u003c/code\u003e and \u003ccode\u003exsampa\u003c/code\u003e. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is \u003ccode\u003edefault.custom.yaml\u003c/code\u003e. My configurations of this file are as below.\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2022-12-ipa/"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  2 ,
             "name": "在 LaTeX 中显示生僻字",
             "description": "\u003cp\u003e在 LaTeX 里显示生僻字是一个棘手的问题。用\u003ccode\u003exeCJK\u003c/code\u003e包可以解决这个问题，而且不用在文件中遇见生僻字就改字体。\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://mirrors.ibiblio.org/CTAN/macros/xetex/latex/xecjk/xeCJK.pdf\"\u003e\u003ccode\u003exeCJK\u003c/code\u003e包的使用手册\u003c/a\u003e中有\u003ccode\u003eFallBack\u003c/code\u003e的选项（8 页），可以用以下两种办法指定生僻字的字体\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-latex\"\u003e\\setCJKmainfont[FallBack=SimSun-ExtB]{SimSun}\n\\setCJKmainfont{SimSun}\n\\setCJKfallbackfamilyfont{\\CJKrmdefault}{SimSun-ExtB}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e第一种办法是在指定字体时用\u003ccode\u003eFallBack\u003c/code\u003e参数指定备用字体，第二种办法是在指定字体之后再用\u003ccode\u003e\\setCJKfallbackfamilyfont\u003c/code\u003e指定备用字体。二者是等价的。但是要注意的是，在用\u003ccode\u003eFallBack\u003c/code\u003e时，必须在导入\u003ccode\u003exeCJK\u003c/code\u003e宏包时设置\u003ccode\u003eAutoFallBack=true\u003c/code\u003e。\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2022-11-01-shengpizi/"
+        },{
+            "@type":"ListItem",
+            "position":  3 ,
+            "name": "说“酿菜”的“酿”",
+            "description": "\u003cblockquote\u003e\n\u003cp\u003e已刊于《语言文字周报》。\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e酿菜是很多人都很爱吃的菜，比如酿豆腐、酿苦瓜、煎酿三宝等等。所谓酿菜，根据《现代汉语词典》：“烹调方法，将肉、鱼、虾等剁碎做成的馅儿填或塞入掏空的柿子椒、冬瓜等里面，然后蒸或用油煎。”(第六版，949 页)酿菜在各地都广受喜爱，那么“酿”这个词到底是怎么来的呢？\u003c/p\u003e",
+            "url": "https://ge-chunyu.github.io/posts/2022-08-niangcai/"
         }
     ]
 }
@@ -254,48 +254,6 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/" class="no-underline">
-    <h3 class="mt-0">Export and import pdf bookmarks</h3>
-  </a>
-  
-    It is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using pdftk. pdftk is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of pdftk, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using the following lines.
-
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2023-04-24</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
   <a href="https://ge-chunyu.github.io/posts/2022-12-ipa/" class="no-underline">
     <h3 class="mt-0">How to setup an IPA input method</h3>
   </a>
@@ -361,6 +319,49 @@ xeCJK包的使用手册中有FallBack的选项（8 页），可以用以下两�
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
     <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="https://ge-chunyu.github.io/posts/2022-08-niangcai/" class="no-underline">
+    <h3 class="mt-0">说“酿菜”的“酿”</h3>
+  </a>
+  
+     已刊于《语言文字周报》。
+酿菜是很多人都很爱吃的菜，比如酿豆腐、酿苦瓜、煎酿三宝等等。所谓酿菜，根据《现代汉语词典》：“烹调方法，将肉、鱼、虾等剁碎做成的馅儿填或塞入掏空的柿子椒、冬瓜等里面，然后蒸或用油煎。”(第六版，949 页)酿菜在各地都广受喜爱，那么“酿”这个词到底是怎么来的呢？
+
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-08-31</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
   </div>
 
   
