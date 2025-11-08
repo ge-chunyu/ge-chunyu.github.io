@@ -81,7 +81,7 @@
 
 
 <meta name="description"
-  content="In the last year, I switched to Neovim from Sublime Text and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.
+  content="Last year, I switched from Sublime Text to Neovim and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.
 I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the Vim arsenal.">
 <script type="application/ld+json">
 {
@@ -111,12 +111,12 @@ I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStu
     },
     "headline": "My neovim setup | Chunyu Ge","datePublished": "2025-11-07T00:00:00+00:00",
     "dateModified": "2025-11-07T00:00:00+00:00",
-    "wordCount":  579 ,
+    "wordCount":  721 ,
     "publisher": {
         "@type": "Person",
         "name": "Chunyu Ge",
         },
-    "description": "\u003cp\u003eIn the last year, I switched to \u003ca href=\u0022https:\/\/neovim.io\/\u0022\u003eNeovim\u003c\/a\u003e from \u003ca href=\u0022https:\/\/www.sublimetext.com\/\u0022\u003eSublime Text\u003c\/a\u003e and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.\u003c\/p\u003e\n\u003cp\u003eI agree with \u003ca href=\u0022https:\/\/gdgarcia.ca\/posts\/2025-09-18-workflow\/\u0022\u003eGuilherme D. Garcia\u003c\/a\u003e that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown\/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the \u003ca href=\u0022https:\/\/www.vim.org\/\u0022\u003eVim\u003c\/a\u003e arsenal.\u003c\/p\u003e"
+    "description": "\u003cp\u003eLast year, I switched from \u003ca href=\u0022https:\/\/www.sublimetext.com\/\u0022\u003eSublime Text\u003c\/a\u003e to \u003ca href=\u0022https:\/\/neovim.io\/\u0022\u003eNeovim\u003c\/a\u003e and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.\u003c\/p\u003e\n\u003cp\u003eI agree with \u003ca href=\u0022https:\/\/gdgarcia.ca\/posts\/2025-09-18-workflow\/\u0022\u003eGuilherme D. Garcia\u003c\/a\u003e that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown\/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the \u003ca href=\u0022https:\/\/www.vim.org\/\u0022\u003eVim\u003c\/a\u003e arsenal.\u003c\/p\u003e"
 }
 </script><meta property="og:title" content="My neovim setup | Chunyu Ge" />
 <meta property="og:type" content="article" />
@@ -128,7 +128,7 @@ I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStu
 
 
 
-<meta property="og:description" content="In the last year, I switched to Neovim from Sublime Text and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.
+<meta property="og:description" content="Last year, I switched from Sublime Text to Neovim and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.
 I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the Vim arsenal." />
 
 
@@ -284,12 +284,22 @@ I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStu
   
   
 
-  <p>In the last year, I switched to <a href="https://neovim.io/">Neovim</a> from <a href="https://www.sublimetext.com/">Sublime Text</a> and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.</p>
+  <p>Last year, I switched from <a href="https://www.sublimetext.com/">Sublime Text</a> to <a href="https://neovim.io/">Neovim</a> and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.</p>
 <p>I agree with <a href="https://gdgarcia.ca/posts/2025-09-18-workflow/">Guilherme D. Garcia</a> that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the <a href="https://www.vim.org/">Vim</a> arsenal.</p>
-<p>I use the <a href="https://www.lazyvim.org/">LazyVim</a> and it ships with many useful and convenient functions. One of the Plugins that I use many times a day is</p>
+<p>I use the <a href="https://www.lazyvim.org/">LazyVim</a> and it ships with many useful and convenient functions. One of the Plugins that I use many times a day is <a href="https://github.com/nvim-telescope/telescope.nvim"><code>Telescope</code></a>. It can bring you the files you want using <a href="https://github.com/junegunn/fzf">fuzzy finder</a> with blazing speed.</p>
 <p>What I have always been confused is why dark colorschemes are so popular, and I&rsquo;m far more comfortable with bright colorschemes. A few searching gave me the <a href="https://github.com/projekt0n/github-nvim-theme">github-nvim-theme</a>, which has a bright theme, and it has been very comfortable so far. I use the <a href="https://fonts.adobe.com/fonts/consolas">Consolas</a> font for ASCII, but for Chinese characters, there are not so many options. Two fonts, <a href="https://github.com/laishulu/Sarasa-Term-SC-Nerd">Sarasa Term SC Nerd</a> and <a href="https://github.com/subframe7536/maple-font">Maple Mono</a>, are the two most famous monospace fonts for Chinese characters, and they both align well with ASCII characters with a perfect 2:1 ratio. I chose Sarasa-Term-SC-Nerd because I find it asthetically more appealing.</p>
+<p><a href="https://github.com/L3MON4D3/LuaSnip">LuaSnip</a> is a powerful snippet manager for Neovim, and using <code>Lua</code>, you can define your own snippets very quickly. For example, I need to insert the head of each blog post with title, author, date, etc, so I have a snippet for it.</p>
+<pre><code>{
+  &quot;Insert front matter&quot;: {
+    &quot;prefix&quot;: &quot;meta&quot;,
+    &quot;body&quot;: [&quot;---&quot;, &quot;title: ${1:title}&quot;, &quot;author: ${2:Chunyu Ge 葛淳宇}&quot;, &quot;documentclass: tufte-handout\ndate: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\nnumbersections: false\ndraft: yes&quot;, &quot;---&quot;]
+  }
+}
+</code></pre>
+<p>Note that the snippet is in the VS-Code fashion, and the reason is that I haven&rsquo;t figured out how to make the <code>Lua</code> version work in my MBP.</p>
 <p>For running code in <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>, I installed the <a href="https://github.com/pappasam/nvim-repl">nvim-repl</a>, which is very easy to set up and use.</p>
-<p>Thanks to Neovim, now I stay in the terminal almost all day long, and I use <a href="https://github.com/tmux/tmux">tmux</a> to manage the buffers and windows. The default status line of tmux in at the bottom of the terminal window, which can be quite distracting for Neovim, because it also has the status line on the bottom, so I moved the status line of tmux to the top, and I use a minimalist configuration for the color scheme of the status line, as shown below. Also, the default tmux prefix combination is <code>Ctrl+b</code>, but it conflicts with the back-half-page hotkey in vim, so I changed it to <code>Ctrl-f</code>, although it conflicts with the backpage hotkey. But it is very convenient, especially for touch typing.</p>
+<p>When I take notes using markdown, I use bullet points a lot. The <a href="https://github.com/bullets-vim/bullets.vim"><code>bullets.vim</code></a> plugin is great in demoting and promoting bullet types with <code>Ctrl-t</code> (denote) and <code>Ctrl-d</code> (promote).</p>
+<p>Thanks to Neovim, now I stay in the terminal almost all day long, and I use <a href="https://github.com/tmux/tmux">tmux</a> to manage the buffers and windows. The default statusline of tmux in at the bottom of the terminal window, which can be quite distracting for Neovim, because it also has the statusline on the bottom, so I moved the statusline of tmux to the top, and I use a minimalist configuration for the color scheme of the statusline, as shown below. Also, the default tmux prefix combination is <code>Ctrl+b</code>, but it conflicts with the back-half-page hotkey in vim, so I changed it to <code>Ctrl-f</code>, although it conflicts with the backpage hotkey. But it is very convenient, especially for touch typing.</p>
 <pre><code>unbind C-b
 set-option -g prefix C-f
 set -g status-position top
