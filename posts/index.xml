@@ -7,21 +7,21 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
-    <lastBuildDate>Fri, 07 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>說丁年</title>
+      <link>https://ge-chunyu.github.io/posts/2025-10-dingnian/</link>
+      <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2025-10-dingnian/</guid>
+      <description>&lt;p&gt;《文選》李陵《答蘇武書》：“丁年奉使。”李善注：“丁年，謂丁壯之年也。漢書曰：武留匈奴凡十九歲。始以強壯出，及還，鬢髮並白。”黃生《字詁義府合按》卷下“丁壯”：“漢書·高帝紀：‘丁壯若軍旅’，古丁、當同音，丁壯言其年正當壯時也。後語省，遂單呼爲丁，故民年二十成丁。李陵《答蘇武書》：‘丁年奉使’，正謂年在二十左右也。”李善讀丁年爲丁壯之年，而黃生說古代丁、當同音，並且指實丁年是二十成丁之年，也就是說蘇武奉使是在二十歲。說丁、當同音不確，下面再詳細討論；而說蘇武二十歲奉使，則是錯的。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>My neovim setup</title>
       <link>https://ge-chunyu.github.io/posts/2025-11-neovim-setup/</link>
       <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://ge-chunyu.github.io/posts/2025-11-neovim-setup/</guid>
       <description>&lt;p&gt;Last year, I switched from &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt; to &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.&lt;/p&gt;&#xA;&lt;p&gt;I agree with &lt;a href=&#34;https://gdgarcia.ca/posts/2025-09-18-workflow/&#34;&gt;Guilherme D. Garcia&lt;/a&gt; that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt; arsenal.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>說丁年</title>
-      <link>https://ge-chunyu.github.io/posts/2025-10-dingnian/</link>
-      <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://ge-chunyu.github.io/posts/2025-10-dingnian/</guid>
-      <description>&lt;p&gt;《文選》李陵《答蘇武書》：“丁年奉使。”李善注：“丁年，謂丁壯之年也。漢書曰：武留匈奴凡十九歲。始以強壯出，及還，鬢髮並白。”黃生《字詁義府合按》卷下“丁壯”：“漢書·高帝紀：‘丁壯若軍旅’，古丁、當同音，丁壯言其年正當壯時也。後語省，遂單呼爲丁，故民年二十成丁。李陵《答蘇武書》：‘丁年奉使’，正謂年在二十左右也。”李善讀丁年爲丁壯之年，而黃生說古代丁、當同音，並且指實丁年是二十成丁之年，也就是說蘇武奉使是在二十歲。說丁、當同音不確，下面再詳細討論；而說蘇武二十歲奉使，則是錯的。&lt;/p&gt;</description>
     </item>
     <item>
       <title>爲什麼是“喝西北風”</title>
