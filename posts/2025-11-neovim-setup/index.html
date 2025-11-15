@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>My neovim setup | Chunyu Ge</title>
+<title>My neovim setup (with [Ghostty](https://ghostty.org/)) | Chunyu Ge</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.32d70ba04f91fcec7c01f11769a78906339624d1a754a4dc6fa4558f7b0bee09bb18c5ebb60845cafbe6f9a185b209fe.css">
@@ -94,7 +94,7 @@ I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStu
       "item":"https://ge-chunyu.github.io/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"My neovim setup",
+      "name":"My neovim setup (with [Ghostty](https://ghostty.org/))",
       "item":"https://ge-chunyu.github.io/posts/2025-11-neovim-setup/"}]
 }
 </script>
@@ -109,16 +109,16 @@ I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStu
         "@type": "WebPage",
         "@id": "https://ge-chunyu.github.io/posts/2025-11-neovim-setup/"
     },
-    "headline": "My neovim setup | Chunyu Ge","datePublished": "2025-11-07T00:00:00+00:00",
+    "headline": "My neovim setup (with [Ghostty](https:\/\/ghostty.org\/)) | Chunyu Ge","datePublished": "2025-11-07T00:00:00+00:00",
     "dateModified": "2025-11-07T00:00:00+00:00",
-    "wordCount":  721 ,
+    "wordCount":  874 ,
     "publisher": {
         "@type": "Person",
         "name": "Chunyu Ge",
         },
     "description": "\u003cp\u003eLast year, I switched from \u003ca href=\u0022https:\/\/www.sublimetext.com\/\u0022\u003eSublime Text\u003c\/a\u003e to \u003ca href=\u0022https:\/\/neovim.io\/\u0022\u003eNeovim\u003c\/a\u003e and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.\u003c\/p\u003e\n\u003cp\u003eI agree with \u003ca href=\u0022https:\/\/gdgarcia.ca\/posts\/2025-09-18-workflow\/\u0022\u003eGuilherme D. Garcia\u003c\/a\u003e that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown\/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the \u003ca href=\u0022https:\/\/www.vim.org\/\u0022\u003eVim\u003c\/a\u003e arsenal.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="My neovim setup | Chunyu Ge" />
+</script><meta property="og:title" content="My neovim setup (with [Ghostty](https://ghostty.org/)) | Chunyu Ge" />
 <meta property="og:type" content="article" />
 
 
@@ -259,7 +259,7 @@ I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStu
       class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">My neovim setup</h1>
+  <h1 class="mb-4">My neovim setup (with [Ghostty](https://ghostty.org/))</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -337,6 +337,34 @@ end, {})
       .. &quot;.epub&quot;
   )
 end, {})
+</code></pre>
+<h2 id="my-ghosttyhttpsghosttyorg-setup">My <a href="https://ghostty.org/">Ghostty</a> setup</h2>
+<p>Compared to my previous terminal emulator, <a href="https://iterm2.com/">iTerm2</a>, Ghostty is light-weight, and its can be configured using a <code>config</code> file. This is better than iTerm2 because it can be set up more quickly. Again, I chose the <code>github-light</code> theme for Ghostty, and I changed the default the icon to <a href="https://github.com/ghostty-org/ghostty/discussions/3631">another cute one</a>. I also defined some keybindings so that the movements across tabs and splits are smoother and more convenient. The following is my <code>config</code> file.</p>
+<pre><code>font-family = &quot;Consolas&quot;
+font-family = &quot;Sarasa Term SC Nerd&quot;
+font-size = 18
+theme = github-light
+cursor-color = #4188d0
+cursor-text = ffffff
+cursor-style = block
+background = ffffff
+selection-background = #4188d0
+selection-foreground = ffffff
+window-decoration = true
+macos-icon = custom
+macos-titlebar-style = tabs
+unfocused-split-opacity = 0.6
+
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
+keybind = cmd+shift+right=goto_split:right
+keybind = cmd+shift+left=goto_split:left
+keybind = cmd+shift+up=goto_split:up
+keybind = cmd+shift+down=goto_split:down
+keybind = cmd+ctrl+right=resize_split:right,20
+keybind = cmd+ctrl+left=resize_split:left,20
+keybind = cmd+ctrl+up=resize_split:up,20
+keybind = cmd+ctrl+down=resize_split:down,20
 </code></pre>
 
 </article>
