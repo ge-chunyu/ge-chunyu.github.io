@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Variable and string in shell | Chunyu Ge</title>
+<title>Variables and string in the shell | Chunyu Ge</title>
 
 <meta name="generator" content="Hugo Eureka 0.9.3" />
 <link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.32d70ba04f91fcec7c01f11769a78906339624d1a754a4dc6fa4558f7b0bee09bb18c5ebb60845cafbe6f9a185b209fe.css">
@@ -100,7 +100,7 @@ There are several ways of calling a variable, by $variable, ${variable} and &quo
       "item":"https://ge-chunyu.github.io/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"Variable and string in shell",
+      "name":"Variables and string in the shell",
       "item":"https://ge-chunyu.github.io/posts/2025-11-shell-string/"}]
 }
 </script>
@@ -115,7 +115,7 @@ There are several ways of calling a variable, by $variable, ${variable} and &quo
         "@type": "WebPage",
         "@id": "https://ge-chunyu.github.io/posts/2025-11-shell-string/"
     },
-    "headline": "Variable and string in shell | Chunyu Ge","datePublished": "2025-11-24T00:00:00+00:00",
+    "headline": "Variables and string in the shell | Chunyu Ge","datePublished": "2025-11-24T00:00:00+00:00",
     "dateModified": "2025-11-24T00:00:00+00:00",
     "wordCount":  900 ,
     "publisher": {
@@ -124,7 +124,7 @@ There are several ways of calling a variable, by $variable, ${variable} and &quo
         },
     "description": "\u003cp\u003eI have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.\u003c\/p\u003e\n\u003ch1 id=\u0022variables\u0022\u003eVariables\u003c\/h1\u003e\n\u003cp\u003eAssigning values to variables, note that \u003ccode\u003e=\u003c\/code\u003e immediately follows the variable name and it allows no space.\u003c\/p\u003e\n\u003cpre\u003e\u003ccode\u003evariable=\u0027value\u0027\nvariable=\u0026quot;value\u0026quot;\nvariable=value\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cp\u003eThere are several ways of calling a variable, by \u003ccode\u003e$variable\u003c\/code\u003e, \u003ccode\u003e${variable}\u003c\/code\u003e and \u003ccode\u003e\u0026quot;$variable\u0026quot;\u003c\/code\u003e. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, \u003ccode\u003e$variableisvalue\u003c\/code\u003e will not output the value of \u003ccode\u003e$variable\u003c\/code\u003e since the shell interprets the name of the variable as \u003ccode\u003evariableisvalue\u003c\/code\u003e. To tell the shell where the variable name ends, surround the variable name with curly braces \u003ccode\u003e${variable}isvalue\u003c\/code\u003e, which is not ambiguous to the shell.\u003c\/p\u003e"
 }
-</script><meta property="og:title" content="Variable and string in shell | Chunyu Ge" />
+</script><meta property="og:title" content="Variables and string in the shell | Chunyu Ge" />
 <meta property="og:type" content="article" />
 
 
@@ -271,7 +271,7 @@ There are several ways of calling a variable, by $variable, ${variable} and &quo
       class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
     >
       <article class="prose">
-  <h1 class="mb-4">Variable and string in shell</h1>
+  <h1 class="mb-4">Variables and string in the shell</h1>
 
   <div
   class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
@@ -385,20 +385,20 @@ done
           <td>output the variable</td>
       </tr>
       <tr>
-          <td>$var$var1</td>
-          <td>$var$var1</td>
+          <td><code>$var$var1</code></td>
+          <td><code>$var$var1</code></td>
           <td>stringstringanother</td>
           <td>concatenate string</td>
       </tr>
       <tr>
-          <td>${var}${var1}</td>
-          <td>${var}${var1}</td>
+          <td><code>${var}${var1}</code></td>
+          <td><code>${var}${var1}</code></td>
           <td>stringstringanother</td>
           <td>concatenate string</td>
       </tr>
       <tr>
-          <td>&ldquo;${var}${var1}&rdquo;</td>
-          <td>&ldquo;${var}${var1}&rdquo;</td>
+          <td>&ldquo;<code>${var}${var1}</code>&rdquo;</td>
+          <td>&ldquo;<code>${var}${var1}</code>&rdquo;</td>
           <td>stringstringanother</td>
           <td>concatenate string</td>
       </tr>

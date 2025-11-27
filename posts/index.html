@@ -93,7 +93,7 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "Variable and string in shell",
+            "name": "Variables and string in the shell",
             "description": "\u003cp\u003eI have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.\u003c/p\u003e\n\u003ch1 id=\"variables\"\u003eVariables\u003c/h1\u003e\n\u003cp\u003eAssigning values to variables, note that \u003ccode\u003e=\u003c/code\u003e immediately follows the variable name and it allows no space.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003evariable='value'\nvariable=\u0026quot;value\u0026quot;\nvariable=value\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThere are several ways of calling a variable, by \u003ccode\u003e$variable\u003c/code\u003e, \u003ccode\u003e${variable}\u003c/code\u003e and \u003ccode\u003e\u0026quot;$variable\u0026quot;\u003c/code\u003e. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, \u003ccode\u003e$variableisvalue\u003c/code\u003e will not output the value of \u003ccode\u003e$variable\u003c/code\u003e since the shell interprets the name of the variable as \u003ccode\u003evariableisvalue\u003c/code\u003e. To tell the shell where the variable name ends, surround the variable name with curly braces \u003ccode\u003e${variable}isvalue\u003c/code\u003e, which is not ambiguous to the shell.\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2025-11-shell-string/"
         },{
@@ -255,7 +255,7 @@
   <div class="w-full ">
     <div class="prose">
   <a href="https://ge-chunyu.github.io/posts/2025-11-shell-string/" class="no-underline">
-    <h3 class="mt-0">Variable and string in shell</h3>
+    <h3 class="mt-0">Variables and string in the shell</h3>
   </a>
   
     I have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.
