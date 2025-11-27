@@ -93,21 +93,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "Variable and string in shell",
+            "description": "\u003cp\u003eI have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.\u003c/p\u003e\n\u003ch1 id=\"variables\"\u003eVariables\u003c/h1\u003e\n\u003cp\u003eAssigning values to variables, note that \u003ccode\u003e=\u003c/code\u003e immediately follows the variable name and it allows no space.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003evariable='value'\nvariable=\u0026quot;value\u0026quot;\nvariable=value\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThere are several ways of calling a variable, by \u003ccode\u003e$variable\u003c/code\u003e, \u003ccode\u003e${variable}\u003c/code\u003e and \u003ccode\u003e\u0026quot;$variable\u0026quot;\u003c/code\u003e. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, \u003ccode\u003e$variableisvalue\u003c/code\u003e will not output the value of \u003ccode\u003e$variable\u003c/code\u003e since the shell interprets the name of the variable as \u003ccode\u003evariableisvalue\u003c/code\u003e. To tell the shell where the variable name ends, surround the variable name with curly braces \u003ccode\u003e${variable}isvalue\u003c/code\u003e, which is not ambiguous to the shell.\u003c/p\u003e",
+            "url": "https://ge-chunyu.github.io/posts/2025-11-shell-string/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "說丁年",
             "description": "\u003cp\u003e《文選》李陵《答蘇武書》：“丁年奉使。”李善注：“丁年，謂丁壯之年也。漢書曰：武留匈奴凡十九歲。始以強壯出，及還，鬢髮並白。”黃生《字詁義府合按》卷下“丁壯”：“漢書·高帝紀：‘丁壯若軍旅’，古丁、當同音，丁壯言其年正當壯時也。後語省，遂單呼爲丁，故民年二十成丁。李陵《答蘇武書》：‘丁年奉使’，正謂年在二十左右也。”李善讀丁年爲丁壯之年，而黃生說古代丁、當同音，並且指實丁年是二十成丁之年，也就是說蘇武奉使是在二十歲。說丁、當同音不確，下面再詳細討論；而說蘇武二十歲奉使，則是錯的。\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2025-10-dingnian/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "My neovim setup (with Ghostty)",
             "description": "\u003cp\u003eLast year, I switched from \u003ca href=\"https://www.sublimetext.com/\"\u003eSublime Text\u003c/a\u003e to \u003ca href=\"https://neovim.io/\"\u003eNeovim\u003c/a\u003e and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.\u003c/p\u003e\n\u003cp\u003eI agree with \u003ca href=\"https://gdgarcia.ca/posts/2025-09-18-workflow/\"\u003eGuilherme D. Garcia\u003c/a\u003e that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the \u003ca href=\"https://www.vim.org/\"\u003eVim\u003c/a\u003e arsenal.\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2025-11-neovim-setup/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "爲什麼是“喝西北風”",
-            "description": "\u003cp\u003e漢語裏人們常常說沒飯吃是“喝西北風”，例如詞典中常舉的吳敬梓《儒林外傳》第四十一回的：“都像你這一毛不拔，我們喝西北風。”那爲什麼是喝西北風，不是喝東南風、西南風呢？網上常見的說法是這跟我國的氣候地形有關。我國冬季吹西伯利亞南下的西北風，而這時正值冬天，如果沒有儲備，就只能忍飢挨餓，所以叫喝西北風。這種說法沒有依據，更何況漢語裏很少說冬天沒有糧食吃。說到沒有糧食，一般都是青黃不接，是指的春季莊稼剛剛播種，尚未長成，而舊穀已經吃完了。\u003c/p\u003e",
-            "url": "https://ge-chunyu.github.io/posts/2024-12-xibeifeng/"
         }
     ]
 }
@@ -254,6 +254,50 @@
   
   <div class="w-full ">
     <div class="prose">
+  <a href="https://ge-chunyu.github.io/posts/2025-11-shell-string/" class="no-underline">
+    <h3 class="mt-0">Variable and string in shell</h3>
+  </a>
+  
+    I have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.
+Variables Assigning values to variables, note that = immediately follows the variable name and it allows no space.
+variable=&#39;value&#39; variable=&#34;value&#34; variable=value There are several ways of calling a variable, by $variable, ${variable} and &#34;$variable&#34;. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, $variableisvalue will not output the value of $variable since the shell interprets the name of the variable as variableisvalue. To tell the shell where the variable name ends, surround the variable name with curly braces ${variable}isvalue, which is not ambiguous to the shell.
+
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-11-24</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>2 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
   <a href="https://ge-chunyu.github.io/posts/2025-10-dingnian/" class="no-underline">
     <h3 class="mt-0">說丁年</h3>
   </a>
@@ -334,48 +378,6 @@ I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStu
 </div>
   </div>
   
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="https://ge-chunyu.github.io/posts/2024-12-xibeifeng/" class="no-underline">
-    <h3 class="mt-0">爲什麼是“喝西北風”</h3>
-  </a>
-  
-    漢語裏人們常常說沒飯吃是“喝西北風”，例如詞典中常舉的吳敬梓《儒林外傳》第四十一回的：“都像你這一毛不拔，我們喝西北風。”那爲什麼是喝西北風，不是喝東南風、西南風呢？網上常見的說法是這跟我國的氣候地形有關。我國冬季吹西伯利亞南下的西北風，而這時正值冬天，如果沒有儲備，就只能忍飢挨餓，所以叫喝西北風。這種說法沒有依據，更何況漢語裏很少說冬天沒有糧食吃。說到沒有糧食，一般都是青黃不接，是指的春季莊稼剛剛播種，尚未長成，而舊穀已經吃完了。
-
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2024-12-15</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>3 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
 </div>
 
 
@@ -407,7 +409,7 @@ I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStu
         <a href="/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/8/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/9/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 

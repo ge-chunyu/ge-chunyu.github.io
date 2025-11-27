@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
-    <lastBuildDate>Thu, 13 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Variable and string in shell</title>
+      <link>https://ge-chunyu.github.io/posts/2025-11-shell-string/</link>
+      <pubDate>Mon, 24 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2025-11-shell-string/</guid>
+      <description>&lt;p&gt;I have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.&lt;/p&gt;&#xA;&lt;h1 id=&#34;variables&#34;&gt;Variables&lt;/h1&gt;&#xA;&lt;p&gt;Assigning values to variables, note that &lt;code&gt;=&lt;/code&gt; immediately follows the variable name and it allows no space.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;variable=&#39;value&#39;&#xA;variable=&amp;quot;value&amp;quot;&#xA;variable=value&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;There are several ways of calling a variable, by &lt;code&gt;$variable&lt;/code&gt;, &lt;code&gt;${variable}&lt;/code&gt; and &lt;code&gt;&amp;quot;$variable&amp;quot;&lt;/code&gt;. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, &lt;code&gt;$variableisvalue&lt;/code&gt; will not output the value of &lt;code&gt;$variable&lt;/code&gt; since the shell interprets the name of the variable as &lt;code&gt;variableisvalue&lt;/code&gt;. To tell the shell where the variable name ends, surround the variable name with curly braces &lt;code&gt;${variable}isvalue&lt;/code&gt;, which is not ambiguous to the shell.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>說丁年</title>
       <link>https://ge-chunyu.github.io/posts/2025-10-dingnian/</link>

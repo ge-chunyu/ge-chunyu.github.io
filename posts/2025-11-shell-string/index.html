@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Variable and string in shell | Chunyu Ge</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="https://ge-chunyu.github.io/css/eureka.min.32d70ba04f91fcec7c01f11769a78906339624d1a754a4dc6fa4558f7b0bee09bb18c5ebb60845cafbe6f9a185b209fe.css">
+<script defer src="https://ge-chunyu.github.io/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+
+<script defer type="text/javascript" src="https://ge-chunyu.github.io/js/fontawesome.min.78e494ccd35d494929874dc88a1c7963e597460caafa2ea0b64b9f5cd2ed626a7348522a90f0b37886181ab1ed34301f.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKHKESHBC1"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-SKHKESHBC1');
+        }
+      </script>
+
+
+
+
+
+<meta name="description"
+  content="I have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.
+Variables
+Assigning values to variables, note that = immediately follows the variable name and it allows no space.
+variable=&#39;value&#39;
+variable=&quot;value&quot;
+variable=value
+
+There are several ways of calling a variable, by $variable, ${variable} and &quot;$variable&quot;. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, $variableisvalue will not output the value of $variable since the shell interprets the name of the variable as variableisvalue. To tell the shell where the variable name ends, surround the variable name with curly braces ${variable}isvalue, which is not ambiguous to the shell.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ge-chunyu.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Variable and string in shell",
+      "item":"https://ge-chunyu.github.io/posts/2025-11-shell-string/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ge-chunyu.github.io/posts/2025-11-shell-string/"
+    },
+    "headline": "Variable and string in shell | Chunyu Ge","datePublished": "2025-11-24T00:00:00+00:00",
+    "dateModified": "2025-11-24T00:00:00+00:00",
+    "wordCount":  900 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "Chunyu Ge",
+        },
+    "description": "\u003cp\u003eI have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.\u003c\/p\u003e\n\u003ch1 id=\u0022variables\u0022\u003eVariables\u003c\/h1\u003e\n\u003cp\u003eAssigning values to variables, note that \u003ccode\u003e=\u003c\/code\u003e immediately follows the variable name and it allows no space.\u003c\/p\u003e\n\u003cpre\u003e\u003ccode\u003evariable=\u0027value\u0027\nvariable=\u0026quot;value\u0026quot;\nvariable=value\n\u003c\/code\u003e\u003c\/pre\u003e\n\u003cp\u003eThere are several ways of calling a variable, by \u003ccode\u003e$variable\u003c\/code\u003e, \u003ccode\u003e${variable}\u003c\/code\u003e and \u003ccode\u003e\u0026quot;$variable\u0026quot;\u003c\/code\u003e. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, \u003ccode\u003e$variableisvalue\u003c\/code\u003e will not output the value of \u003ccode\u003e$variable\u003c\/code\u003e since the shell interprets the name of the variable as \u003ccode\u003evariableisvalue\u003c\/code\u003e. To tell the shell where the variable name ends, surround the variable name with curly braces \u003ccode\u003e${variable}isvalue\u003c\/code\u003e, which is not ambiguous to the shell.\u003c\/p\u003e"
+}
+</script><meta property="og:title" content="Variable and string in shell | Chunyu Ge" />
+<meta property="og:type" content="article" />
+
+
+
+<meta property="og:url" content="https://ge-chunyu.github.io/posts/2025-11-shell-string/" />
+
+
+
+
+<meta property="og:description" content="I have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.
+Variables
+Assigning values to variables, note that = immediately follows the variable name and it allows no space.
+variable=&#39;value&#39;
+variable=&quot;value&quot;
+variable=value
+
+There are several ways of calling a variable, by $variable, ${variable} and &quot;$variable&quot;. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, $variableisvalue will not output the value of $variable since the shell interprets the name of the variable as variableisvalue. To tell the shell where the variable name ends, surround the variable name with curly braces ${variable}isvalue, which is not ambiguous to the shell." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Chunyu Ge" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2025-11-24T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2025-11-24T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><head>
+  
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKHKESHBC1"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-SKHKESHBC1');
+        }
+      </script>
+</head>
+
+<script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Chunyu Ge</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/homepage/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4"></a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/cv/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">CV</a>
+            <a href="/about/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class="lg:col-start-2 bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Variable and string in shell</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-11-24</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>2 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <p>I have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.</p>
+<h1 id="variables">Variables</h1>
+<p>Assigning values to variables, note that <code>=</code> immediately follows the variable name and it allows no space.</p>
+<pre><code>variable='value'
+variable=&quot;value&quot;
+variable=value
+</code></pre>
+<p>There are several ways of calling a variable, by <code>$variable</code>, <code>${variable}</code> and <code>&quot;$variable&quot;</code>. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, <code>$variableisvalue</code> will not output the value of <code>$variable</code> since the shell interprets the name of the variable as <code>variableisvalue</code>. To tell the shell where the variable name ends, surround the variable name with curly braces <code>${variable}isvalue</code>, which is not ambiguous to the shell.</p>
+<pre><code>echo $variable
+echo ${variable}
+echo &quot;$variable&quot;
+</code></pre>
+<p>The arguments to the script can be accessed as common variables. For example, the following lists the common ways of accessing the script arguments.</p>
+<p>Apart from the variables that you need to define yourself, the shell stores a set of <em>environment variables</em>, such as <code>$HOME</code>, <code>$PATH</code>, etc. The command <code>printenv</code> lists all these variables.</p>
+<p>There are also a bunch of variables called <em>positional parameters</em>, including the following variables.</p>
+<ul>
+<li><code>$0</code>: the basename of the program</li>
+<li><code>$1 .. $9</code>: the first nine additional arguments the script was called with</li>
+<li><code>$@</code>: all arguments, each as a separate string</li>
+<li><code>$*</code>: all arguments as a string, without space</li>
+<li><code>$#</code>: the number of arguments</li>
+<li><code>$?</code>: the exit status of the last run command</li>
+<li><code>$$</code>: PID (Process IDentifier) of the current shell</li>
+<li><code>$!</code>: PID (Process IDentifier) of the last run background process</li>
+<li><code>IFS</code>: <em>Internal Field Separator</em></li>
+</ul>
+<h2 id="-vs-"><code>$*</code> vs. <code>$@</code></h2>
+<p>The difference between <code>$*</code> and <code>$@</code> is tricky. Both refers to all the arguments, and when they are used without quote, they are equivalent. But when used with double quote, <code>&quot;$*&quot;</code> stands for all the arguments as a single string, but each arguments are treated separately in <code>&quot;$@&quot;</code>. The following demonstrates the difference:</p>
+<pre><code># run ./args.sh arg1 &quot;arg2 word&quot; arg3
+for a in $*; do
+  echo &quot;${a}&quot;
+done
+
+# The output is:
+# &gt; arg1
+# &gt; arg2 word
+# &gt; arg3
+
+for a in &quot;$*&quot;; do
+  echo &quot;${a}&quot;
+done
+
+# The output is:
+# &gt; arg1 arg2 word arg3
+</code></pre>
+<h2 id="single-and-double-quotes">Single and double quotes</h2>
+<p>Unlike in many other languages, single and double quotes are treated differently by the shell. The shell treats the characters literally surrounded by single quotes, but within double quotes, <code>$</code> and certain other signs are evaluated. If <code>$</code> is used in double quotes with a backslash, or an <em>escape character</em> <code>\</code>, it will not be evaluated. It sounds very hard to understand, but its actually quite clear, as demonstrated below</p>
+<table>
+  <thead>
+      <tr>
+          <th>Command</th>
+          <th>output</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>&lsquo;$HOME&rsquo;</td>
+          <td>$HOME</td>
+      </tr>
+      <tr>
+          <td>&ldquo;$HOME&rdquo;</td>
+          <td>/Users/chunyu</td>
+      </tr>
+      <tr>
+          <td>&ldquo;\$HOME&rdquo;</td>
+          <td>$HOME</td>
+      </tr>
+  </tbody>
+</table>
+<p>More generally, in double quotes, parameter expansion, arithmetic expansions, and command substitution can all take place, which are all suppressed in single quotes.</p>
+<h1 id="string-operations">String operations</h1>
+<p>The following table shows the command with its meaning, and an example for each together with its output.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Command</th>
+          <th>example</th>
+          <th>output</th>
+          <th>meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$var</td>
+          <td>$var</td>
+          <td>stringstring</td>
+          <td>output the variable</td>
+      </tr>
+      <tr>
+          <td>$var$var1</td>
+          <td>$var$var1</td>
+          <td>stringstringanother</td>
+          <td>concatenate string</td>
+      </tr>
+      <tr>
+          <td>${var}${var1}</td>
+          <td>${var}${var1}</td>
+          <td>stringstringanother</td>
+          <td>concatenate string</td>
+      </tr>
+      <tr>
+          <td>&ldquo;${var}${var1}&rdquo;</td>
+          <td>&ldquo;${var}${var1}&rdquo;</td>
+          <td>stringstringanother</td>
+          <td>concatenate string</td>
+      </tr>
+      <tr>
+          <td>${var}</td>
+          <td>${var}</td>
+          <td>stringstring</td>
+          <td>output the variable</td>
+      </tr>
+      <tr>
+          <td>${#var}</td>
+          <td>${#var}</td>
+          <td>12</td>
+          <td>length of the variable</td>
+      </tr>
+      <tr>
+          <td>${var:position}</td>
+          <td>${var:3}</td>
+          <td>ingstring</td>
+          <td>substring from position</td>
+      </tr>
+      <tr>
+          <td>${var:position}</td>
+          <td>${var: -3}</td>
+          <td>ing</td>
+          <td>negative position with leading space from right</td>
+      </tr>
+      <tr>
+          <td>${var:position:length}</td>
+          <td>${var:3:2}</td>
+          <td>in</td>
+          <td>length-long substring from position</td>
+      </tr>
+      <tr>
+          <td>${var:position}</td>
+          <td>${var: -3:2}</td>
+          <td>in</td>
+          <td>length-long substring with negative position</td>
+      </tr>
+      <tr>
+          <td>${var#pattern}</td>
+          <td>${var#*i}</td>
+          <td>ngstring</td>
+          <td>remove the first match of the pattern from left</td>
+      </tr>
+      <tr>
+          <td>${var##pattern}</td>
+          <td>${var##*i}</td>
+          <td>ng</td>
+          <td>remove the longest match of the pattern from left</td>
+      </tr>
+      <tr>
+          <td>${var%pattern}</td>
+          <td>${var%i*}</td>
+          <td>stringstr</td>
+          <td>remove the first match of the pattern from right</td>
+      </tr>
+      <tr>
+          <td>${var%%pattern}</td>
+          <td>${var%%i*}</td>
+          <td>str</td>
+          <td>remove the longest match of the pattern from right</td>
+      </tr>
+      <tr>
+          <td>${var/pattern/replace}</td>
+          <td>${var/string/new}</td>
+          <td>newstring</td>
+          <td>replace the first occurrence of the pattern</td>
+      </tr>
+      <tr>
+          <td>${var//pattern/replace}</td>
+          <td>${var//string/new}</td>
+          <td>newnew</td>
+          <td>replace all occurrences of the pattern</td>
+      </tr>
+      <tr>
+          <td>${var/#pattern/replace}</td>
+          <td>${var/#string/new}</td>
+          <td>newstring</td>
+          <td>replace the first occurrence of the pattern from right</td>
+      </tr>
+      <tr>
+          <td>${var/%pattern/replace}</td>
+          <td>${var/%string/new}</td>
+          <td>stringnew</td>
+          <td>replace all occurrences of the pattern from right</td>
+      </tr>
+      <tr>
+          <td>$((num operation num))</td>
+          <td>$((1+1))</td>
+          <td>2</td>
+          <td>expressions of numeric operation</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li><code>${#variable}</code>: the length of the string</li>
+<li><code>${var1}{var2}{var3}</code>: concatenate strings, with optional string in between (same below)</li>
+<li><code>$var1$var2$var3</code>: concatenate strings</li>
+<li><code>&quot;$var1&quot;&quot;$var2&quot;&quot;$var3&quot;</code>: concatenate strings</li>
+<li><code>${string:position}</code>: substring from <code>$position</code> till the end</li>
+<li><code>${string:position:length}</code>: a substring of <code>$length</code> characters from <code>$position</code>
+<ul>
+<li><code>position</code> can also be negative, <code>${string: -3}</code> means the last three characters, note also the space before <code>-</code> is required</li>
+</ul>
+</li>
+<li><code>${string#pattern}</code>: <code>pattern</code> is a wild card pattern, like <code>*.txt</code>. This one removes the first match from the beginning of the string, while the one below removes the longest match</li>
+<li><code>${string##pattern}</code></li>
+<li><code>${string%pattern}</code>: replaces the <code>pattern</code> from the end of the string</li>
+<li><code>${string/pattern/replace}</code>: replace the matched <code>pattern</code> for the first occurrence</li>
+<li><code>${string//pattern/replace}</code>: replace the matched <code>pattern</code> for all occurrences</li>
+<li><code>${string/#pattern/replace}</code>: replace the matched <code>pattern</code> at the beginning of the string</li>
+<li><code>${string/%pattern/replace}</code>: replace the matched <code>pattern</code> at the end of the string</li>
+<li><code>$((expression))</code>: arithmetic operations, including <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>**</code>, <code>%</code></li>
+</ul>
+<h1 id="string-expressions">String expressions</h1>
+<p>String expressions can be useful in the <code>if</code> statement.</p>
+<ul>
+<li><code>string</code>: <code>string</code> is not null</li>
+<li><code>-n string</code>: the length of <code>string</code> is greater than zero</li>
+<li><code>-z string</code>: the length of <code>string</code> is zero</li>
+<li><code>string1 = string2</code>: <code>string1</code> and <code>string2</code> are equal</li>
+<li><code>string1 == string2</code>: <code>string1</code> and <code>string2</code> are equal. This is preferred over the previous one with single equal sign</li>
+<li><code>string1 != string2</code>: <code>string1</code> and <code>string2</code> are not equal</li>
+<li><code>string1 &gt; string2</code>: <code>string1</code> sorts after <code>string2</code></li>
+<li><code>string1 &lt; string2</code>: <code>string1</code> sorts before <code>string2</code></li>
+</ul>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="https://ge-chunyu.github.io/posts/2025-10-dingnian/" class="block">說丁年</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+
+    
+    
+  </div>
+
+  
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; <a href="https://github.com/ge-chunyu">Chunyu Ge</a> 2019-2024 &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>
