@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
-    <lastBuildDate>Mon, 24 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《漢書·律曆志》筆記 (2): 表格與常數</title>
+      <link>https://ge-chunyu.github.io/posts/2025-12-lvlizhi/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2025-12-lvlizhi/</guid>
+      <description>&lt;h1 id=&#34;表格與常數&#34;&gt;表格與常數&lt;/h1&gt;&#xA;&lt;p&gt;《律曆志》卷下的&lt;strong&gt;統母&lt;/strong&gt;（統母下，錢大昕作紀母）是三統曆所用的常數。卷下又有歲星十二次初、中、終節氣、度數表，以及二十八宿距度表。末尾還有三統曆各章首年子月朔日干支表。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Variables and string in the shell</title>
       <link>https://ge-chunyu.github.io/posts/2025-11-shell-string/</link>
