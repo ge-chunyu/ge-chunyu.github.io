@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
-    <lastBuildDate>Mon, 24 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《漢書·律曆志》筆記（1）:中國傳統曆法的特點與《漢書·律曆志》的主要內容</title>
+      <link>https://ge-chunyu.github.io/posts/2025-12-lvlizhi/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2025-12-lvlizhi/</guid>
+      <description>&lt;h2 id=&#34;中國傳統曆法的特點&#34;&gt;中國傳統曆法的特點&lt;/h2&gt;&#xA;&lt;p&gt;中國傳統曆法可以歸納出以下這些主要特點：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;用干支記錄日期&lt;/li&gt;&#xA;&lt;li&gt;以朔望月來確定月份&lt;/li&gt;&#xA;&lt;li&gt;以朔望月與回歸年的配合來確定一年的長度，也就是在哪些年份設置閏月，閏月設置在哪個月份&lt;/li&gt;&#xA;&lt;li&gt;除了年月日之外，還有完全由回歸年決定的二十四節氣&lt;/li&gt;&#xA;&lt;li&gt;除了編算年月日、節氣之外，還要推算五大行星的運行&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;以下就對這些特點進行詳細說明。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Variables and string in the shell</title>
       <link>https://ge-chunyu.github.io/posts/2025-11-shell-string/</link>

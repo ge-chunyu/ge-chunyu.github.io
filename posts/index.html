@@ -93,21 +93,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "《漢書·律曆志》筆記（1）:中國傳統曆法的特點與《漢書·律曆志》的主要內容",
+            "description": "\u003ch2 id=\"中國傳統曆法的特點\"\u003e中國傳統曆法的特點\u003c/h2\u003e\n\u003cp\u003e中國傳統曆法可以歸納出以下這些主要特點：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e用干支記錄日期\u003c/li\u003e\n\u003cli\u003e以朔望月來確定月份\u003c/li\u003e\n\u003cli\u003e以朔望月與回歸年的配合來確定一年的長度，也就是在哪些年份設置閏月，閏月設置在哪個月份\u003c/li\u003e\n\u003cli\u003e除了年月日之外，還有完全由回歸年決定的二十四節氣\u003c/li\u003e\n\u003cli\u003e除了編算年月日、節氣之外，還要推算五大行星的運行\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e以下就對這些特點進行詳細說明。\u003c/p\u003e",
+            "url": "https://ge-chunyu.github.io/posts/2025-12-lvlizhi/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "Variables and string in the shell",
             "description": "\u003cp\u003eI have not really grasped the tricky variable use and string operations in the shell, and this post is a cheatsheet of the common variable and string operations in the shell.\u003c/p\u003e\n\u003ch1 id=\"variables\"\u003eVariables\u003c/h1\u003e\n\u003cp\u003eAssigning values to variables, note that \u003ccode\u003e=\u003c/code\u003e immediately follows the variable name and it allows no space.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003evariable='value'\nvariable=\u0026quot;value\u0026quot;\nvariable=value\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThere are several ways of calling a variable, by \u003ccode\u003e$variable\u003c/code\u003e, \u003ccode\u003e${variable}\u003c/code\u003e and \u003ccode\u003e\u0026quot;$variable\u0026quot;\u003c/code\u003e. The curly braces are useful when you need to clearly mark the boundary of the variable name. For example, \u003ccode\u003e$variableisvalue\u003c/code\u003e will not output the value of \u003ccode\u003e$variable\u003c/code\u003e since the shell interprets the name of the variable as \u003ccode\u003evariableisvalue\u003c/code\u003e. To tell the shell where the variable name ends, surround the variable name with curly braces \u003ccode\u003e${variable}isvalue\u003c/code\u003e, which is not ambiguous to the shell.\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2025-11-shell-string/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "說丁年",
             "description": "\u003cp\u003e《文選》李陵《答蘇武書》：“丁年奉使。”李善注：“丁年，謂丁壯之年也。漢書曰：武留匈奴凡十九歲。始以強壯出，及還，鬢髮並白。”黃生《字詁義府合按》卷下“丁壯”：“漢書·高帝紀：‘丁壯若軍旅’，古丁、當同音，丁壯言其年正當壯時也。後語省，遂單呼爲丁，故民年二十成丁。李陵《答蘇武書》：‘丁年奉使’，正謂年在二十左右也。”李善讀丁年爲丁壯之年，而黃生說古代丁、當同音，並且指實丁年是二十成丁之年，也就是說蘇武奉使是在二十歲。說丁、當同音不確，下面再詳細討論；而說蘇武二十歲奉使，則是錯的。\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2025-10-dingnian/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "My neovim setup (with Ghostty)",
-            "description": "\u003cp\u003eLast year, I switched from \u003ca href=\"https://www.sublimetext.com/\"\u003eSublime Text\u003c/a\u003e to \u003ca href=\"https://neovim.io/\"\u003eNeovim\u003c/a\u003e and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.\u003c/p\u003e\n\u003cp\u003eI agree with \u003ca href=\"https://gdgarcia.ca/posts/2025-09-18-workflow/\"\u003eGuilherme D. Garcia\u003c/a\u003e that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the \u003ca href=\"https://www.vim.org/\"\u003eVim\u003c/a\u003e arsenal.\u003c/p\u003e",
-            "url": "https://ge-chunyu.github.io/posts/2025-11-neovim-setup/"
         }
     ]
 }
@@ -138,7 +138,7 @@
 
 
 
-<meta property="og:updated_time" content="2025-12-19T00:00:00&#43;00:00" />
+<meta property="og:updated_time" content="2025-12-24T00:00:00&#43;00:00" />
 
 
 
@@ -254,6 +254,49 @@
   
   <div class="w-full ">
     <div class="prose">
+  <a href="https://ge-chunyu.github.io/posts/2025-12-lvlizhi/" class="no-underline">
+    <h3 class="mt-0">《漢書·律曆志》筆記（1）:中國傳統曆法的特點與《漢書·律曆志》的主要內容</h3>
+  </a>
+  
+    中國傳統曆法的特點 中國傳統曆法可以歸納出以下這些主要特點：
+用干支記錄日期 以朔望月來確定月份 以朔望月與回歸年的配合來確定一年的長度，也就是在哪些年份設置閏月，閏月設置在哪個月份 除了年月日之外，還有完全由回歸年決定的二十四節氣 除了編算年月日、節氣之外，還要推算五大行星的運行 以下就對這些特點進行詳細說明。
+
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2025-12-24</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>11 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
   <a href="https://ge-chunyu.github.io/posts/2025-11-shell-string/" class="no-underline">
     <h3 class="mt-0">Variables and string in the shell</h3>
   </a>
@@ -319,49 +362,6 @@ variable=&#39;value&#39; variable=&#34;value&#34; variable=value There are sever
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
     <span>8 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="https://ge-chunyu.github.io/posts/2025-11-neovim-setup/" class="no-underline">
-    <h3 class="mt-0">My neovim setup (with Ghostty)</h3>
-  </a>
-  
-    Last year, I switched from Sublime Text to Neovim and Neovim has proved to be very efficient. This post showcases my Neovim setup and some useful tips.
-I agree with Guilherme D. Garcia that multiple tools for multiple purposes (RStudio for R, Sublime Text for markdown and $LaTeX$, etc.) is far from perfect, and Neovim indeed provided an integrated way of dealing with all these purposes (markdown/$LaTeX$, R, Python, and many more). It also provides the incredible capabilities of the Vim arsenal.
-
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2025-11-07</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
   </div>
 
   
