@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2024</copyright>
-    <lastBuildDate>Thu, 25 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《漢書·律曆志》筆記（3）：三統曆算法的基本思路</title>
+      <link>https://ge-chunyu.github.io/posts/2025-12-lvlizhi3/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2025-12-lvlizhi3/</guid>
+      <description>&lt;p&gt;三統曆曆法計算分爲三個部分，第一部分是年月日、節氣、月食等的計算，叫做統術；第二部分是五大行星出現的時間等的計算，叫做紀術；第三部分是推求特定年份木星所在十二次的哪一次，叫做歲術。下面先解釋三統曆算法的基本思路，之後再依次介紹統術、紀術、歲術的計算方法。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>《漢書·律曆志》筆記（2）:表格與常數</title>
       <link>https://ge-chunyu.github.io/posts/2025-12-lvlizhi2/</link>
