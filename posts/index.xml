@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ge-chunyu&#34;&gt;Chunyu Ge&lt;/a&gt; 2019-2026</copyright>
-    <lastBuildDate>Fri, 26 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ge-chunyu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《漢書·律曆志》筆記（4）：統術（附歲術）</title>
+      <link>https://ge-chunyu.github.io/posts/2025-12-lvlizhi4/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://ge-chunyu.github.io/posts/2025-12-lvlizhi4/</guid>
+      <description>&lt;p&gt;統術是三統曆的基本曆法計算方法，可以用來計算一年在三統中的位置，該年天正月朔日的干支名稱（也就是日名）、冬至日和其他所有節氣的日名，以及本年是否需要置閏和在哪一個月置閏。除此之外，統術還包括計算天正月朔日日月所在星度、月食時刻等方法。三統曆以建子月，也就是夏正十一月爲曆法的起始，也是每年的第一個月，稱之爲天正。《律曆志》說：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>《漢書·律曆志》筆記（3）：三統曆算法的基本思路</title>
       <link>https://ge-chunyu.github.io/posts/2025-12-lvlizhi3/</link>
