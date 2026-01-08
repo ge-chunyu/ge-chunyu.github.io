@@ -99,21 +99,21 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "Pseudo forced alignment using a Praat script",
+            "description": "\u003cp\u003eIt is very common for phoneticians to ask speakers to read aloud word lists, especially in the field. However, to find a word in a long sound file is very painful and a better solution is to split the long sound file into short files with meaningful file names. I wrote a Praat script for that purpose and to save some time, I also use the script to fill in the transcriptions to the TextGrid file. This post is a documentation of the script, which can be found in my \u003ca href=\"https://github.com/ge-chunyu/praat_scripts/blob/master/splitLongSound.praat\"\u003egithub\u003c/a\u003e.\u003c/p\u003e",
+            "url": "https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "How I make a linguistic handout",
             "description": "\u003cp\u003eMaking a linguistic handout needs some tricks. Using MS word is not ideal because the output is not that beautiful and linguistic contents are not . In this post I explain how I make a linguistic handout with markdown and of course LaTeX.\u003c/p\u003e\n\u003ch2 id=\"the-workflow\"\u003eThe workflow\u003c/h2\u003e\n\u003cp\u003eI usually write documents using markdown and convert it to pdf using \u003ca href=\"https://pandoc.org/\"\u003epandoc\u003c/a\u003e, as explained in \u003ca href=\"https://ge-chunyu.github.io/posts/2019-10-customizing-pdf/\"\u003emy previous posts\u003c/a\u003e. I have a same head/template for all handouts, so that the style remains the same for a course. I use different LaTeX packages to format various linguistic contents.\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2023-05-handout/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "Export and import pdf bookmarks",
             "description": "\u003cp\u003eIt is sometimes useful to export and import the bookmarks of an existing pdf file to a new pdf file with smaller size. This can be easily done using \u003ca href=\"https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/\"\u003e\u003ccode\u003epdftk\u003c/code\u003e\u003c/a\u003e. \u003ccode\u003epdftk\u003c/code\u003e is available as GUI and commandline tools. In MacOS, it is better to use it in the terminal. After installation of \u003ccode\u003epdftk\u003c/code\u003e, the bookmarks of one pdf file can be extracted from an existing pdf file and imported to a new pdf file using the following lines.\u003c/p\u003e",
             "url": "https://ge-chunyu.github.io/posts/2023-04-pdf-bookmark/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "How to setup an IPA input method",
-            "description": "\u003ch2 id=\"use-rime\"\u003eUse \u003ccode\u003eRIME\u003c/code\u003e\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://rime.im/\"\u003eRIME\u003c/a\u003e is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, \u003ccode\u003eyunlong\u003c/code\u003e and \u003ccode\u003exsampa\u003c/code\u003e. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is \u003ccode\u003edefault.custom.yaml\u003c/code\u003e. My configurations of this file are as below.\u003c/p\u003e",
-            "url": "https://ge-chunyu.github.io/posts/2022-12-ipa/"
         }
     ]
 }
@@ -144,7 +144,7 @@
 
 
 
-<meta property="og:updated_time" content="2025-12-31T00:00:00&#43;00:00" />
+<meta property="og:updated_time" content="2026-01-08T00:00:00&#43;00:00" />
 
 
 
@@ -262,6 +262,48 @@
   
   <div class="w-full ">
     <div class="prose">
+  <a href="https://ge-chunyu.github.io/posts/2023-09-pseudo-forced-alignment/" class="no-underline">
+    <h3 class="mt-0">Pseudo forced alignment using a Praat script</h3>
+  </a>
+  
+    It is very common for phoneticians to ask speakers to read aloud word lists, especially in the field. However, to find a word in a long sound file is very painful and a better solution is to split the long sound file into short files with meaningful file names. I wrote a Praat script for that purpose and to save some time, I also use the script to fill in the transcriptions to the TextGrid file. This post is a documentation of the script, which can be found in my github.
+
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2023-09-21</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>2 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
   <a href="https://ge-chunyu.github.io/posts/2023-05-handout/" class="no-underline">
     <h3 class="mt-0">How I make a linguistic handout</h3>
   </a>
@@ -342,48 +384,6 @@ The workflow I usually write documents using markdown and convert it to pdf usin
 </div>
   </div>
   
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="https://ge-chunyu.github.io/posts/2022-12-ipa/" class="no-underline">
-    <h3 class="mt-0">How to setup an IPA input method</h3>
-  </a>
-  
-    Use RIME RIME is an input method engine. It can run different input method schemas, and of course, IPA. There are two schemas which are available in RIME, yunlong and xsampa. To use these schemas, you need to install RIME. It can be installed on Windows, MacOS and Linux. After installation, there are two files you need to modify to complete the configuration. The first is default.custom.yaml. My configurations of this file are as below.
-
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2022-11-01</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
 </div>
 
 
@@ -415,7 +415,7 @@ The workflow I usually write documents using markdown and convert it to pdf usin
         <a href="/posts/page/7/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
       </li>
       <li class="page-item">
-        <a href="/posts/page/10/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a href="/posts/page/11/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 
